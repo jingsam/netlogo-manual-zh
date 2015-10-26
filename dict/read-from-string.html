@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        read-from-string
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="read-from-string" id=
+        "read-from-string">read-from-string</a>
+      </h3>
+      <h4>
+        read-from-string <i>string</i>
+      </h4>
+      <p>
+        Interprets the given string as if it had been typed in the Command
+        Center, and reports the resulting value. The result may be a
+        number, list, string, or boolean value, or the special value
+        &quot;nobody&quot;.
+      <p>
+        Useful in conjunction with the <a href="../dictionary.html#user-input">user-input</a>
+        primitive for converting the user's input into usable form.
+      <pre>
+show read-from-string &quot;3&quot; + read-from-string &quot;5&quot;
+=&gt; 8
+show length read-from-string &quot;[1 2 3]&quot;
+=&gt; 3
+crt read-from-string user-input &quot;Make how many turtles?&quot;
+;; the number of turtles input by the user
+;; are created
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

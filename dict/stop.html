@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        stop
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="stop" id="stop">stop</a>
+      </h3>
+      <h4>
+        stop
+      </h4>
+      <p>
+        This agent exits immediately from the enclosing procedure,
+        ask, or ask-like construct (e.g. crt, hatch, sprout).
+        Only the current procedure stops, not all
+        execution for the agent.
+      <pre>
+if not any? turtles [ stop ]
+;; exits if there are no more turtles
+</pre>
+      <p>
+        Note: stop can be used to stop a forever button. If the forever
+        button directly calls a procedure, then when that procedure stops,
+        the button stops. (In a turtle or patch forever button, the button
+        won't stop until every turtle or patch stops -- a single turtle
+        or patch doesn't have the power to stop the whole button.)
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

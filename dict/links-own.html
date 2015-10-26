@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        links-own
+        
+        &lt;link-breeds&gt;-own
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="links-own" id="links-own">links-own</a>
+        <br>
+        <a name="link-breeds-own" id=
+        "link-breeds-own"><i>&lt;link-breeds&gt;</i>-own</a>
+      </h3>
+      <h4>
+        links-own [<i>var1</i> ...]
+        <br>
+        <i>&lt;link-breeds&gt;</i>-own [<i>var1</i> ...]
+      </h4>
+      <p>
+        The links-own keyword, like the globals, breed,
+        <i>&lt;breeds&gt;</i>-own, turtles-own, and patches-own keywords,
+        can only be used at the beginning of a program, before any function
+        definitions. It defines the variables belonging to each link.
+      <p>
+        If you specify a breed instead of &quot;links&quot;, only links of
+        that breed have the listed variables. (More than one link breed may list
+        the same variable.)
+      <pre>
+undirected-link-breed [sidewalks sidewalk]
+directed-link-breed [streets street]
+links-own [traffic]   ;; applies to all breeds
+sidewalks-own [pedestrians]
+streets-own [cars bikes]
+</pre>
+      <div class="dict_entry">
+        <h3>
+          <a name="list" id="list">list</a>
+        </h3>
+        <h4>
+          list <i>value1</i> <i>value2</i>
+          <br>
+          (list <i>value1</i> ...)
+        </h4>
+        <p>
+          Reports a list containing the given items. The items can be of
+          any type, produced by any kind of reporter.
+        <pre>
+show list (random 10) (random 10)
+=&gt; [4 9]  ;; or similar list
+show (list 5)
+=&gt; [5]
+show (list (random 10) 1 2 3 (random 10))
+=&gt; [4 1 2 3 9]  ;; or similar list 
+</pre>
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

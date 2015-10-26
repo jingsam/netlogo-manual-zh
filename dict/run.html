@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        run
+        runresult
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="run" id="run">run</a>
+        <br><a name="runresult" id="runresult">runresult</a>
+      </h3>
+      <h4>
+        run <i>command-task</i>
+        <br>run <i>string</i>
+        <br>runresult <i>reporter-task</i>
+        <br>runresult <i>string</i>
+      </h4>
+      <p>The <tt>run</tt> form expects a command task or a string containing commands.
+         This agent then runs them.
+      <p>The <tt>runresult</tt> form expects a reporter task or a string containing a reporter.
+         This agent runs it and  reports the result.
+      <p>
+        If the input is a string, it runs in the agent's current context, which means it
+        has access to the values of local variables, &quot;myself&quot;,
+        and so on.        
+        Note that you can't use <tt>run</tt> to define or redefine
+        procedures.
+        If you care about performance, note that the code must be compiled first which takes time.  However, compiled
+        bits of code are cached by NetLogo and thus using <tt>run</tt> on
+        the same string over and over is much faster than running different strings.
+        The first run, though, will be may be many times slower than running 
+        the same code directly, or in a command task.
+     <p>Tasks are recommended over strings whenever possible.
+        (An example of when you must use strings is if you accept pieces of code
+        from the user of your model.)
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

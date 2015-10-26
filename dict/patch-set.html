@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        patch-set
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="patch-set" id="patch-set">patch-set</a>
+      </h3>
+      <h4>
+        patch-set <i>value1</i>
+        <br>
+        (patch-set <i>value1</i> <i>value2</i> ...)
+      </h4>
+      <p>
+        Reports an agentset containing all of the patches anywhere in any
+        of the inputs. The inputs may be individual patches, patch
+        agentsets, nobody, or lists (or nested lists) containing any of the
+        above.
+      <pre>
+patch-set self
+patch-set patch-here
+(patch-set self neighbors)
+(patch-set patch-here neighbors)
+(patch-set patch 0 0 patch 1 3 patch 4 -2)
+(patch-set patch-at -1 1 patch-at 0 1 patch-at 1 1)
+patch-set [patch-here] of turtles
+patch-set [neighbors] of turtles
+</pre>
+      <p>
+        See also <a href="../dictionary.html#turtle-set">turtle-set</a>, <a href="../dictionary.html#link-set">link-set</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

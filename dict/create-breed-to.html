@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        create-&lt;breed&gt;-to
+        
+        create-&lt;breeds&gt;-to
+        
+        create-&lt;breed&gt;-from
+        
+        create-&lt;breeds&gt;-from
+        
+        create-&lt;breed&gt;-with
+        
+        create-&lt;breeds&gt;-with
+        
+        create-link-to
+        
+        create-links-to
+        
+        create-link-from
+        
+        create-links-from
+        
+        create-link-with
+        
+        create-links-with
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="create-breed-to" id=
+        "create-breed-to">create-&lt;breed&gt;-to</a>
+        <br>
+        <a name="create-breeds-to" id=
+        "create-breeds-to">create-&lt;breeds&gt;-to</a>
+        <br>
+        <a name="create-breed-from" id=
+        "create-breed-from">create-&lt;breed&gt;-from</a>
+        <br>
+        <a name="create-breeds-from" id=
+        "create-breeds-from">create-&lt;breeds&gt;-from</a>
+        <br>
+        <a name="create-breed-with" id=
+        "create-breed-with">create-&lt;breed&gt;-with</a>
+        <br>
+        <a name="create-breeds-with" id=
+        "create-breeds-with">create-&lt;breeds&gt;-with</a>
+        <br>
+        <a name="create-link-to" id="create-link-to">create-link-to</a>
+        <br>
+        <a name="create-links-to" id="create-links-to">create-links-to</a>
+        <br>
+        <a name="create-link-from" id=
+        "create-link-from">create-link-from</a>
+        <br>
+        <a name="create-links-from" id=
+        "create-links-from">create-links-from</a>
+        <br>
+        <a name="create-link-with" id=
+        "create-link-with">create-link-with</a>
+        <br>
+        <a name="create-links-with" id=
+        "create-links-with">create-links-with</a>
+      </h3>
+      <h4>
+        create-&lt;breed&gt;-to <i>turtle</i>
+        <br>
+        create-&lt;breed&gt;-to <i>turtle</i> [ <i>commands</i> ]
+        <br>
+        create-&lt;breed&gt;-from <i>turtle</i>
+        <br>
+        create-&lt;breed&gt;-from <i>turtle</i> [ <i>commands</i> ]
+        <br>
+        create-&lt;breed&gt;-with <i>turtle</i>
+        <br>
+        create-&lt;breed&gt;-with <i>turtle</i> [ <i>commands</i> ]
+        <br>
+        create-&lt;breeds&gt;-to <i>turtleset</i>
+        <br>
+        create-&lt;breeds&gt;-to <i>turtleset</i> [ <i>commands</i> ]
+        <br>
+        create-&lt;breeds&gt;-from <i>turtleset</i>
+        <br>
+        create-&lt;breeds&gt;-from <i>turtleset</i> [ <i>commands</i> ]
+        <br>
+        create-&lt;breeds&gt;-with <i>turtleset</i>
+        <br>
+        create-&lt;breeds&gt;-with <i>turtleset</i> [ <i>commands</i> ]
+        <br>
+        create-link-to <i>turtle</i>
+        <br>
+        create-link-to <i>turtle</i> [ <i>commands</i> ]
+        <br>
+        create-link-from <i>turtle</i>
+        <br>
+        create-link-from <i>turtle</i> [ <i>commands</i> ]
+        <br>
+        create-link-with <i>turtle</i>
+        <br>
+        create-link-with <i>turtle</i> [ <i>commands</i> ]
+        <br>
+        create-links-to <i>turtleset</i>
+        <br>
+        create-links-to <i>turtleset</i> [ <i>commands</i> ]
+        <br>
+        create-links-from <i>turtleset</i>
+        <br>
+        create-links-from <i>turtleset</i> [ <i>commands</i> ]
+        <br>
+        create-links-with <i>turtleset</i>
+        <br>
+        create-links-with <i>turtleset</i> [ <i>commands</i> ]
+        <br>
+        <img alt="Turtle Command" src="../images/turtle.gif">
+      </h4>
+      <p>
+        Used for creating breeded and unbreeded links between turtles.
+      <p>
+        create-link-with creates an undirected link between the caller and
+        <i>agent</i>. create-link-to creates a directed link from the
+        caller to <i>agent</i>. create-link-from creates a directed link
+        from <i>agent</i> to the caller.
+      <p>
+        When the plural form of the breed name is used, an <i>agentset</i>
+        is expected instead of an agent and links are created between the
+        caller and all agents in the agentset.
+      <p>
+        The optional command block is the set of commands each newly formed
+        link runs. (The links are created all at once then run one at a
+        time, in random order.)
+      <p>
+        A node cannot be linked to itself. Also, you cannot have more than
+        one undirected link of the same breed between the same two nodes,
+        nor can you have more than one directed link of the same breed
+        going in the same direction between two nodes.
+      <p>
+        If you try to create a link where one (of the same breed) already
+        exists, nothing happens. If you try to create a link from a turtle
+        to itself you get a runtime error.
+      <pre>
+to setup
+   crt 5
+   ;; turtle 1 creates links with all other turtles
+   ;; the link between the turtle and itself is ignored
+   ask turtle 0 [ create-links-with other turtles ]
+   show count links ;; shows 4
+   ;; this does nothing since the link already exists
+   ask turtle 0 [ create-link-with turtle 1 ]
+   show count links ;; shows 4 since the previous link already existed
+   ask turtle 2 [ create-link-with turtle 1 ] 
+   show count links ;; shows 5
+end
+</pre>
+      <pre>
+directed-link-breed [red-links red-link]
+undirected-link-breed [blue-links blue-link]
+
+to setup
+  crt 5
+  ;; create links in both directions between turtle 0
+  ;; and all other turtles
+  ask turtle 0 [ create-red-links-to turtles ]
+  ask turtle 0 [ create-red-links-from turtles ]
+  show count links ;; shows 8
+  ;; now create undirected links between turtle 0 and other turtles
+  ask turtle 0 [ create-blue-links-with turtles ]
+  show count links ;; shows 12
+end
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+          my-in-&lt;breeds&gt;
+          
+          my-in-links
+        </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+        <h3>
+          <a name="my-in-breeds" id="my-in-breeds">my-in-&lt;breeds&gt;</a>
+          <br>
+          <a name="my-in-links" id="my-in-links">my-in-links</a>
+        </h3>
+        <h4>
+          my-in-&lt;breeds&gt;
+          <br>
+          my-in-links
+          <br>
+          <img alt="Turtle Command" src="../docs/images/turtle.gif">
+        </h4>
+        <p>
+          Reports an agentset of all the directed links coming in from
+          other nodes to the caller.
+        <pre>
+crt 5
+ask turtle 0
+[
+  create-links-to other turtles
+  show my-in-links ;; shows an empty agentset
+]
+ask turtle 1
+[
+  show my-in-links ;; shows an agentset containing the link 0 1
+]
+</pre>
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

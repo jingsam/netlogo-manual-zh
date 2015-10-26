@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        out-&lt;breed&gt;-neighbor?
+        
+        out-link-neighbor?
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="out-breed-neighbor" id=
+        "out-breed-neighbor">out-&lt;breed&gt;-neighbor?</a>
+        <br>
+        <a name="out-link-neighbor" id=
+        "out-link-neighbor">out-link-neighbor?</a>
+      </h3>
+      <h4>
+        out-&lt;breed&gt;-neighbor? <i>turtle</i>
+        <br>
+        out-link-neighbor? <i>turtle</i>
+        <br>
+        <img alt="Turtle Command" src="../docs/images/turtle.gif">
+      </h4>
+      <p>
+        Reports true if there is a directed link going from the caller to
+        <i>turtle</i>.
+      <pre>
+crt 2
+ask turtle 0 [
+  create-link-to turtle 1
+  show in-link-neighbor? turtle 1  ;; prints false
+  show out-link-neighbor? turtle 1 ;; prints true
+]
+ask turtle 1 [
+  show in-link-neighbor? turtle 0  ;; prints true
+  show out-link-neighbor? turtle 0 ;; prints false
+]
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

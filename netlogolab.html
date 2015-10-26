@@ -1,0 +1,644 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<title>
+      NetLogo 5.0 User Manual: NetLogoLab and the GoGo Board Extension
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+ <BODY>
+   <h1>
+      NetLogoLab和GoGo板扩展
+    </h1>
+    <h2>
+      NetLogoLab简介
+    </h2>
+    <p>
+	  NetLogoLab是连接Netlogo和物理世界的技术基础。它在机器人学，交互艺术，科学研究和模型验证上都有用处。这个基础是在CCL被 <a href=
+      "http://www.blikstein.com/paulo">Paulo Blikstein</a> 和Uri Wilensky
+      在2005作为<a href=
+      "http://tltl.stanford.edu/projects/bifocal-modeling">Bifocal
+      Modeling</a> 计划的一部分被创建的。更多的信息包括学术文章、模型和演示等请点击
+      <a href="http://ccl.northwestern.edu/netlogolab/">old</a>。 
+    <p>
+	  
+      NetLogoLab是由以下的软件和硬件组成的：
+    <ol>
+      <li>一个控制机器人板或者数据日志板的NetLogo扩展。
+      <li>一个机器人板或者数据日志板（也被叫做连续界面板，或者虚拟量变数字的板）。
+      <li>传感器和制动器工具包。
+      <li>NetLogo模型。
+      </ol>
+    <p>
+      NetLogo的机器人板或者数据日志板的选择是<a href=
+      "http://www.gogoboard.org/" target="_blank">GoGo Board</a>，开源的，容易构建的，低成本的界面，最初是由
+      the MIT Media Lab 的<a href="http://web.media.mit.edu/~arnans/"
+      target="_blank">Arnan Sipitakiat</a> 和 <a href=
+      "http://www.blikstein.com/paulo">Paulo Blikstein</a>设计的。其他的机器人硬件可以使用NetLogo，包括那些市场上能买到的，例如<a href="http://www.arduino.cc/"
+      target="_blank">Arduino</a> 板， <a href="http://www.vernier.com/"
+      target="_blank">Vernier</a> 和 <a href="http://www.pasco.com/"
+      target="_blank">Pasco</a> 传感器和制动器， <a href=
+      "http://www.phidgets.com/" target="_blank">Phidgets</a>， <a href=
+      "http://mindstorms.lego.com/" target="_blank">Lego robotics</a> 装备，
+      和<a href="http://www.vexrobotics.com/" target="_blank">VEX</a>
+      装备，但是具体的扩展还没有被每一个平台开发。目前为止，只有GoGo板扩展可以使用  NetLogo的标准配置。
+    <h3>
+      GoGo板NetLogo扩展
+    </h3>
+    <p>
+      NetLogo的GoGo扩展提供了与GoGo板中交流的原语。这使得用户可以通过物理世界的传感器，发动机，灯泡，LED，继电器和其他设备与NetLogo联系。 
+    <h3>
+      GoGo板：一个低成本的机器人的和数据日志的板
+    </h3>
+    <p>
+      <a href="http://www.gogoboard.org/">GoGo 板</a> GoGo板是一个开源、易做、便宜、通用的板卡，用于教育项目。它是<a href=
+      "http://www.media.mit.edu/%7Earnans">Arnan Sipitakiat</a> 和
+      <a href="http://www.blikstein.com/paulo">Paulo Blikstein</a>在
+      <a href="http://www.media.mit.edu">MIT Media Lab</a>于2001年创造的，一直以来被广泛改进。如今被用于超过10个国家，例如美国，中国，泰国，韩国，巴西，葡萄牙，墨西哥，马来西亚和埃及。
+	  
+	  
+	
+    <p>
+      有8个传感器端口（例如，温度，灯光，压力）和4个输出端口（例如，发动机，灯泡，LED，继电器）可以同时与板连接。还有一个用于连接附加卡（如显示器、蓝牙或者无限通信模块，录音设备，实时钟表和GPS）的连接器。
+	 
+    <h3>
+      传感器和制动器工具包
+    </h3>
+    <p>
+	  NetLogo可以用两种方式与物理世界交互。第一，可以收集环境数据。这些信息可为模型使用，用于改变或校准它的行为。这些数据是通过电子传感器得到的，它们可以衡量很大范围的参数：温度，光照，触碰（如下图所示），pH，化学浓度，压力等等。
+	  
+    <p>
+      <img src="images/gogo/netlogolab-temperature_sensor.jpg" alt=
+      "Temperature sensor"> <img src=
+      "images/gogo/netlogolab-light_sensor.jpg" alt="Light sensor">
+      <img src="images/gogo/netlogolab-touch_sensor.jpg" alt=
+      "Touch sensor">
+    <p>
+	  NetLogo和物理世界交互的第二种模式使控制输出设备，或者&quot;制动器&quot;——发动机，灯泡（如下图所示），LED，和其他包含这些输出的复杂设备，例如玩具，遥控车，电器和自动化实验设备。 
+	  
+    <p>
+      <img src="images/gogo/netlogolab-motor.jpg" alt="Motor" width="266"
+      height="200"> <img src="images/gogo/netlogolab-bulbs.jpg" alt=""
+      width="472" height="200">
+    <p>
+	  对于有意愿开始机器人或者传感项目的教学者来说，对于使用的传感器和制动器的确切类型，有一些重要的考虑因素——例如，坚固性，可靠性，&quot;开放性&quot;，以及购买这些设备的花费。在价格和复杂性上都有很大的差别，例如，对于大多数教育项目来说，成品，没有商标的，低成本的传感器可以被用在非常可靠的结果上。一个没有商标的温度传感器，精度在0.5摄氏度就可以在大多数传感器和电子零售店以1美元的价格来买了。使用没有商标的的低成本的传感器需要对电子非常基础的知识。例如，一些基础的电焊可能需要在传感器上附加一段电线。尽管在学校是可行的，也在很多教育场合下试验过，但是一些教育者还是倾向于购买有所有权的传感器和制动器，这些已经能够直接使用了。一些公司提供的教育传感器比一般的传感器要更加稳固和可靠，但是也更贵。作为比较，一个有所有权的温度传感器可能需要花费50美元。制动器也是这个规则：例如，一个没有商标的装连齿轮的发动机可能花费3到10美元，而一个有所有权的可能需要30到40美元。
+    
+    <p>
+	  传感器和制动器可以通过在线零售商购买，例如
+      <a href="http://www.digikey.com/" target="_blank">Digikey</a>，
+      <a href="http://www.mouser.com/" target="_blank">Mouser</a>，<a href=
+      "http://www.phidgets.com/" target="_blank">Phidgets</a>，<a href=
+      "http://www.sparkfun.com" target="_blank">Spark Fun</a>，和 <a href=
+      "http://www.solarbotics.com/" target="_blank">Solarbotics</a>。更多关于如何找到合适的传感器的信息请看
+      &quot;<a href="http://www.gogoboard.org/node/12" target="_blank">How
+      to Make Sensors</a>&quot; 。
+    <h3>
+      NetLogo模型
+    </h3>
+    <p>
+	  要使用GoGo板扩展和NetLogoLab框架，用户需要使用扩展允许的特殊原语创造NetLogo模型。在这段文字的后面，我们会提供一些模型的例子。
+      
+    <h2>
+      如何获得一个GoGo板？
+    </h2>
+    <p>
+      GoGo板是开源的硬件（查看开源硬件许可证
+      <a href=
+      "http://www.openhardwaresummit.org/oshw-definition-v1-0/">here</a>），所以每个人都可以免费的做一个GoGo板甚至售卖了。要得到一个GoGo板，只能自己做一个，要求或者雇佣别人帮你做，或者从现有的零售商例如
+     <a href=
+      "http://www.seedstore.slb.com/product-listing.asp?CID=287" target=
+      "_blank">SEED Foundation</a> （或者查看 <a href=
+      "http://gogoboard.stanford.edu/buy" target="_blank">here</a>）那里买。 
+	  很多电子组件公司也组装板，但是他们通常需要最小的订购量，可能是5到50个。
+	  主要的GoGo板来源是这个网站
+      <a href=
+      "http://www.gogoboard.org/" target="_blank">www.gogoboard.org</a>，你可以找到购买组件，设计印制电路板，组装的每一个步骤的指导——这个板特别设计的简单方便组装，即使你没有电子的技术。GoGo板邮寄列表是
+      gogoboard@yahoogroups.com，也可以通过到<a href=
+      "http://groups.yahoo.com/group/gogoboard/" target="_blank">Yahoo
+      groups</a>加入。
+    <h2>
+      安装和检测GoGo扩展
+	</h2>
+    <p>
+	  GoGo板与电脑通过USB接口连接（旧的版本中使用的是需要一个USB-串口转换器的串口连接——一个运行的很好的模型是Keyspan）
+	   <a href=
+      "http://www.keyspan.com/products/usa19hs/" target=
+      "_blank">USA-19HS</a>)。要连接，首先确认将USB线插入了电脑。打开GoGo板，使用电源连接器后的开关：板会响两声，红灯会亮。
+    <h3>
+      Windows
+    </h3>
+    <ul>
+      <li>
+        <b>Windows 7 and Vista:</b>
+        <ul>
+          <li>当你打开一个使用GoGo扩展的NetLogo模型时，它会检查你时候安装了合适的驱动。如果它发现没有，NetLogo会提供安装一个小程序，这个小程序会为你安装合适的驱动（但注意，你需要有管理访问权限才能做，而且需要同意一个&quot;unsigned&quot;驱动（尽管，说实话，要安装的实际的驱动文件来自GoGo板创造者））
+          <li>如果你已经安装了驱动，却 <i>仍然</i>收到了弹出的窗口，请选择
+		   &quot;停止，不再提醒&quot; 来阻止进一步的提醒。
+          <li>如果通过NetLogo安装的 GoGo板驱动不能正常工作，请看指导或者
+		   <a href="contact.html">Contacting Us</a>.
+          </ul>
+      <li>
+        <b>Windows XP:</b> 不幸的是，驱动安装不能在Windows XP中正常工作，因此
+		GoGo安装在 Windows XP和在Windows 7 and Vista比差很多。
+        <ol>
+          <li>一种可能的解决方案是下载安装<a href=
+          "http://www.gogoboard.org/downloads-hardware" target=
+          "_blank">GoGo Monitor for Windows</a>。
+          <li>如果你不想下载GoGo显示器，你也可以手动安装驱动。要这样的话请遵循以下步骤：
+            <ul>
+              <li>打开控制面板，打开设备管理器
+              <li>找到叫 &quot;SERIAL DEMO&quot;的设备，右击，然后选择
+              &quot;更新驱动软件&quot;
+              <li>选择手动安装驱动
+              <li>在 GoGo扩展安装中点开&quot;Windows&quot;文件夹
+              （可能在
+              &quot;C:\Program Files\NetLogo
+              5.x\extensions\gogo\Windows&quot;中），选择叫做
+              &quot;gogo_cdc_NTXPVista.inf&quot;的文件
+              <li>按照安装向导继续完成
+              <li><u><b>注意</b></u>：具体情况根据电脑不同，这个过程可能 <i>只</i>将驱动安装到了当前插入GoGo板的USB接口下。也就是说，如果下次GoGo板插入另一个USB接口，可能需要重新安装，以识别接口。
+              </ul>
+          </ol>
+      </ul>
+    <h3>
+      Mac OS X
+    </h3>
+    <p>
+      在Mac OS X中，GoGo扩展不需要特别安装。
+    <h3>
+      Linux
+    </h3>
+    <p>
+	  很多版本的Linux不需要特别安装，然而，如果你面临问题，确保你可以在串口设备中写入数据（通常，这表示<tt>/dev/ttyS*</tt>）。在多数的Linux配置中，这个可以通过用户管理器解决。
+      
+    <h2>
+      使用GoGo扩展
+    </h2>
+    <p>
+	  当你下载安装NetLogo时，GoGo扩展就开始被预安装了。要在你的模型中使用它，在代码页最上方加入：
+    <pre>
+extensions [gogo]
+</pre>
+    <p>
+      如果你的模型已经使用了其他的扩展，那就已经有
+      <a href="dictionary.html#extensions"><tt>extensions</tt></a>行了，只要在列表中加入<tt>gogo</tt>就可以了。   <p>
+      扩展加载后，在命令中心输入以下命令，查看哪些端口可用：
+    <pre>
+print gogo:ports
+</pre>
+    <p>
+      使用
+      <tt><a href="dictionary.html#gogo:open">gogo:open</a></tt> 命令打开GoGo所连的端口，使用<a href=
+      "dictionary.html#gogo:ping"><tt>ping</tt></a> 报告器查看该端口是否有反应。注意，要想和板沟通，必须要知道连接的是哪个接口。如果你不确定使用的是哪个接口，你可以使用<a href=
+      "dictionary.html#gogo:ports"><tt>gogo:ports</tt></a>原语查看（如下），或者也可以在windows电脑中使用设备管理器查看（在控制面板中，点击系统标志），或者系统文件夹在Mac OS X中。
+    <p>
+      在Windows中：
+    <pre>
+gogo:open &quot;COM1&quot;
+print gogo:ping
+</pre>
+    <p>
+      在Linux中：
+    <pre>
+gogo:open &quot;/dev/ttyS01&quot;
+print gogo:ping
+</pre>
+    <p>
+      在Mac中：
+    <pre>
+gogo:open &quot;/dev/tty.KeySerial1&quot;
+print gogo:ping
+</pre>
+    <p>
+      更多NetLogo扩展信息，看<a href=
+      "extensions.html">Extensions Guide</a>。
+    <p>
+      保存为JAVA小程序的模型（使用文件菜单中&quot;Save as Applet&quot;）不能使用GoGo扩展。JAVA小程序不能使用需要外部数据库的扩展，也不能连接外部设备。例如使用GoGo扩展，见NetLogo模型库中示例模型下的 Robotics/NetLogoLab部分。
+    <h2>
+      NetLogoLab模型例子
+    </h2>
+    <h3>
+      控制车
+    </h3>
+    <p>
+	  创建NetLogoLab模型的第一步就是在NetLogo的编码页中添加
+      <a href="dictionary.html#extensions"><tt>extensions</tt></a> 关键字。
+     打开编码页，添加：
+    <pre>
+extensions [gogo]
+</pre>
+    <p>
+	  第二步是创建一个按钮，使其能像上文中所说一般使用正确的串口连接NetLogo和GoGo板。
+      
+    <pre>
+gogo:open &quot;COM1&quot; ;; (for Windows machines)
+</pre>
+    <p>
+	  建完按钮后，&quot;edit&quot;对话框应该如图所示：
+     
+    <p>
+      <img src="images/gogo/netlogolab-example1-setup_button.png" alt=
+      "setup button">
+    <p>
+	  现在，让我们打开模型。想想我们想要控制四个轮子，并且后轮上有两个发动机的车。我们假设你已经制造了这样一辆车而且把发动机连接到了GoGo板上的输出接口&quot;a&quot;和&quot;b&quot;。一种非常简单的办法就是为每个发动机创建两个按钮，&quot;开&quot; 和 &quot;关&quot;:
+      
+    <p>
+      <img src="images/gogo/netlogolab-example1-on_off_buttons.png" alt=
+      "on off buttons" width="277" height="312">
+    <p>
+	  和这些按钮相关的代码很简单：对于&quot;开&quot;按钮，我们只需要： 
+      
+    <pre>
+gogo:talk-to-output-ports [&quot;a&quot;]<br>gogo:output-port-on
+</pre>
+    <p>
+      对于关按钮也是类似的：
+    <pre>
+gogo:talk-to-output-ports [&quot;a&quot;]
+gogo:output-port-off
+</pre>
+    <p>
+      其他的 &quot;开&quot; 和 &quot;关&quot;按钮，用来控制第二个发动机，也是类似的代码，除了我们要使用第二个接口  (&quot;b&quot;)，因此：
+    <pre>
+gogo:talk-to-output-ports [&quot;b&quot;]
+</pre>
+    <p>
+	  我们可以添加 &quot;方向盘&quot;按钮来时我们的模型更有趣，按照以下代码添加按钮，按钮会倒转发动机&quot;a&quot; 和
+      &quot;b&quot;的方向：
+    <pre>
+gogo:talk-to-output-ports [&quot;a&quot; &quot;b&quot;]
+gogo:output-port-reverse
+</pre>
+    <h3>
+      一个简单的传感项目
+    </h3>
+    <p>
+	  要创建一个简单的传感项目，我们需要架设你已经在模型中加入了GoGo扩展，而且成功的打开了GoGo板的连接，也就是，添加&quot;extensions&quot;命令在代码页中，按照之前的描述添加&quot;setup&quot;按钮。对于这个传感项目，我们不需要发动机，但是我们需要另一种设备：温度传感器（点击查看
+      <a href=
+      "http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=KC005T-ND"
+      target="_blank">更多关于典型温度传感器的信息</a> 在Digikey的网站)。关于如何购买和组装温度传感器的指导见. 
+      <a href=
+      "http://www.gogoboard.org/cocoon/gogosite/documentation/makingSensors.xsp?lang=en"
+      target="_blank">&quot;Making Sensors&quot; 在GoGo板网站上的教程</a>。这是一个温度传感器组装成功后的样子。
+    <p>
+      <img src="images/gogo/netlogolab-temperature_sensor.jpg" alt=
+      "Temperature sensor">
+    <p>
+	  温度传感器最简单的用处，很显然，就是显示温度。我们可以在NetLogo界面上添加这行代码来添加显示器：
+      
+    <pre>
+gogo:sensor 1
+</pre>
+    <p>
+      <img src="images/gogo/netlogolab-example2-monitor.png" alt=
+      "Sensor monitor" width="400" height="237">
+    <p>
+	  这些显示的传感器的值是给定范围内的任意值，需要被转换为实际的温度单位，例如摄氏度或者华氏度。对于所有的传感器来说，GoGo板的显示范围是0到1023.每个传感器有个有转换公式或表的数据集，能够将0-1023中的任意值转换为实际物理单位。我们想想，传感器的数据集包含一个转换公式，就像
+     <em>degrees = arbitrary value / 30</em>。NetLogo界面上的显示器就会变为：
+    <pre>
+gogo:sensor 1 / 30
+</pre>
+    <p>
+	  传感器的只也能控制屏幕上的物体，如乌龟。例如，我们创建两个按钮，一个是&quot;新建一个乌龟&quot;的按钮，它会清除整个世界，然后新建一个乌龟，另一个是 &quot;随着热量移动&quot;按钮，它会使乌龟根据传感器读到的温度向前行走。这个代码是这样的：
+      
+    <pre>
+to create-one-turtle
+  clear-all
+  create-turtle
+end
+    
+to move-with-heat
+  if gogo:sensor 1 &lt; 500
+    [ forward 1 ]
+end
+</pre>
+    <p>
+      如果&quot;随着热量移动&quot;的永恒按钮被激活，而且用户给传感器加热（擦传感器，或者<em>慢慢地</em>将火苗移近它），热量会被吸收（&lt; 500），乌龟就会移动。（注意，我们使用的温度传感器的电阻随着温度升高 <em>减少</em>，所以传感器的读数会随着我们加热传感器而降低。这是一种非常常见、便宜的成品传感器）。
+    <p>
+      一个这种传感器装置更加复杂的用法就是控制外部设备，例如发动机。例如，用户可以，当传感器的值到达500时，打开发动机。代码如下：
+    <pre>
+to turn-motor-on-with-heat
+  if gogo:sensor 1 &lt; 500
+  [
+    gogo:talk-to-output-ports [&quot;a&quot;]
+    gogo:output-port-on
+  ]
+end
+</pre>
+    <p>
+	  另一种传感器原语的用途是画图和记录数据。记录日志对于更详细数据的分析和比较很有用，可以从NetLogo列表的命令中得到。例如，如果用户想要记录传感器1没0.5秒的数值，代码如下：
+      
+    <pre>
+to log-data-from-sensor
+  set data-vector lput (gogo:sensor 1) data-vector
+  wait 0.5
+end
+</pre>
+    <p>
+	  最后，画出数据非常简单。例如，如下的代码会为传感器1的值绘制一个图标：
+      
+    <pre>
+plot (gogo:sensor 1)
+</pre>
+    <p>
+	  更多关于GoGo板的扩展函数和原语，请看着两个例子：GoGoMonitor.nlogo和GoGoMonitorSimple.nlogo。
+    <h2>
+      原语
+    </h2>
+    <p>
+      <a href="#gogo:burst-value">gogo:burst-value</a> <a href=
+      "#gogo:close">gogo:close</a> <a href="#gogo:open">gogo:open</a>
+      <a href="#gogo:openp">gogo:open?</a> <a href=
+      "#gogo:ports">gogo:ports</a> <a href=
+      "#gogo:output-port-coast">gogo:output-port-coast</a> <a href=
+      "#gogo:output-port-off">gogo:output-port-off</a> <a href=
+      "#gogo:output-port-reverse">gogo:output-port-reverse</a> <a href=
+      "#gogo:output-port-thatway">gogo:output-port-[that|this]way</a>
+      <a href="#gogo:ping">gogo:ping</a>
+      <!-- <a href="#read-sensors">read-sensors</a> -->
+       <a href="#gogo:sensor">gogo:sensor</a> <a href=
+      "#gogo:set-burst-mode">gogo:set-burst-mode</a> <a href=
+      "#gogo:set-output-port-power">gogo:set-output-port-power</a> <a href=
+      "#gogo:stop-burst-mode">gogo:stop-burst-mode</a> <a href=
+      "#gogo:talk-to-output-ports">gogo:talk-to-output-ports</a>
+    <h3>
+      <a name="gogo:burst-value" id="gogo:burst-value">gogo:burst-value</a>
+    </h3>
+    <h4>
+      gogo:burst-value <i>sensor</i>
+    </h4>
+    <p>
+	  读取最近一次gogo板从传感器中得到的成组数据。
+      
+    <p>
+      见<a href="#gogo:set-burst-mode">gogo:set-burst-mode</a> 和
+      <a href="#gogo:stop-burst-mode">gogo:stop-burst-mode</a>.
+    <h3>
+      <a name="gogo:close" id="gogo:close">gogo:close</a>
+    </h3>
+    <h4>
+      gogo:close
+    </h4>
+    <p>
+	  关闭和GoGo板的连接。
+    <p>
+      见<a href="gogo:open"><tt>gogo:open</tt></a> 和 <a href=
+      "gogo:openp"><tt>gogo:open?</tt></a>.
+    <h3>
+      <a name="gogo:open" id="gogo:open">gogo:open</a>
+    </h3>
+    <h4>
+      gogo:open <i>port-name</i>
+    </h4>
+    <p>
+	  打开一个和叫做<i>port-name</i>的串口连接的GoGo板。
+      见 <a href="gogo:ports"><tt>gogo:ports</tt></a>
+      更多关于<i>port-name</i>的信息。
+    <p>
+	  如果GoGo没有响应，或者你尝试打开一个没有GoGo板连接的串口，就会生成错误。
+     
+    <p>
+      例子：
+    <pre>
+gogo:open &quot;COM1&quot;
+</pre>
+    <p>
+      见 <a href="gogo:openp"><tt>gogo:open?</tt></a> 和 <a href=
+      "gogo:close"><tt>gogo:close</tt></a>。
+    <h3>
+      <a name="gogo:openp" id="gogo:openp">gogo:open?</a>
+    </h3>
+    <h4>
+      gogo:open?
+    </h4>
+    <p>
+	  如果有一个GoGo板连接开启，就回复true。否则回复false。
+      
+    <h3>
+      <a name="gogo:ports" id="gogo:ports">gogo:ports</a>
+    </h3>
+    <h4>
+      gogo:ports
+    </h4>
+    <p>
+	  返回GoGo板可能连接的一列串口的名字。一些电脑上，你可能会得到一列两三种不同的串口。这种情况下，尝试着打开每一个，知道连接成功。
+      
+    <h3>
+      <a name="gogo:output-port-coast" id=
+      "gogo:output-port-coast">gogo:output-port-coast</a>
+    </h3>
+    <h4>
+      gogo:output-port-coast
+    </h4>
+    <p>
+	  关闭运作中的接口。当和发动机项链的时候，不会作为刹车力
+     像 <a href=
+      "#gogo:output-port-off"><tt>gogo:output-port-off</tt></a> 一样。因此，发动机在完全停下前会慢慢变慢。和
+      <a href=
+      "#gogo:output-port-off"><tt>gogo:output-port-off</tt></a>在除了发动机以外的其他外部设备上的效果相似。被这条命令影响的外部接口有 <a href=
+      "#gogo:talk-to-output-ports"><tt>gogo:talk-to-output-ports</tt></a>
+     决定。
+    <p>
+	以下代码会打开一个外部端口1秒钟，然后渐渐将发动机停下来。
+      
+    <pre>
+gogo:talk-to-output-ports [&quot;a&quot;]
+gogo:output-port-on
+wait 1
+gogo:output-port-coast
+</pre>
+    <h3>
+      <a name="gogo:output-port-off" id=
+      "gogo:output-port-off">gogo:output-port-off</a>
+    </h3>
+    <h4>
+      gogo:output-port-off
+    </h4>
+    <p>
+	  关闭外部端口。如果再使用发动机，就有刹车力。被这条命令影响的外部端口是有
+       <a href=
+      "#gogo:talk-to-output-ports"><tt>gogo:talk-to-output-ports</tt></a>
+      决定的。
+    <h3>
+      <a name="gogo:output-port-on" id=
+      "gogo:output-port-on">gogo:output-port-on</a>
+    </h3>
+    <h4>
+      gogo:output-port-on
+    </h4>
+    <p>
+	  打开外部端口。受这条命令影响的外部端口有
+     <a href=
+      "#gogo:talk-to-output-ports"><tt>gogo:talk-to-output-ports</tt></a>
+      决定。
+    <h3>
+      <a name="gogo:output-port-reverse" id=
+      "gogo:output-port-reverse">gogo:output-port-reverse</a>
+    </h3>
+    <h4>
+      gogo:output-port-reverse
+    </h4>
+    <p>
+	  转换外部端口的方向。被这条命令影响的外部端口有
+      <a href=
+      "#gogo:talk-to-output-ports"><tt>gogo:talk-to-output-ports</tt></a>
+      决定。
+    <h3>
+      <a name="gogo:output-port-thatway" id=
+      "gogo:output-port-thatway">gogo:output-port-[that/this]way</a>
+    </h3>
+    <h4>
+      gogo:output-port-thatway
+    </h4>
+    <h4>
+      gogo:output-port-thisway
+    </h4>
+    <p>
+	  对给定方向的端口开启。外部端口可以在两个方向给力，任意的称为
+      <i>这边</i> 和
+      <i>那边</i>。被这条命令影响的外部端口有 <a href=
+      "#gogo:talk-to-output-ports"><tt>gogo:talk-to-output-ports</tt></a>
+      决定。注意这和<a href=
+      "#gogo:output-port-reverse"><tt>gogo:output-port-reverse</tt></a>不同，因为给定连接器的两极相同的话，
+       <em>这边</em> 和 <em>那边</em> 总是相同的。
+     
+    <h3>
+      <a name="gogo:talk-to-output-ports" id=
+      "gogo:talk-to-output-ports">gogo:talk-to-output-ports</a>
+    </h3>
+    <h4>
+      gogo:talk-to-output-ports <i>output-portlist</i>
+    </h4>
+    <p>
+	  这条命令会使相关的外部端口给力。它们是被
+       <a href=
+      "#gogo:output-port-on"><tt>gogo:output-port-on</tt></a> 和 <a href=
+      "#gogo:output-port-off"><tt>gogo:output-port-off</tt></a>影响的端口。用户可以和一个或多个端口同时&quot;说话&quot;。外部端口一般和发动机相连，不过也可以用灯泡，LED，和继电器。外部端口一般用一个字母区分，例如：
+      &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, and
+      &quot;d&quot;.
+    <p>
+      例子：
+    <pre>
+;; talk to all output-ports
+gogo:talk-to-output-ports [ &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ]
+;; will give power to all output-ports
+gogo:output-port-on
+
+;; talk to output-ports A and D
+gogo:talk-to-output-ports [ &quot;a&quot; &quot;d&quot; ]
+;; will turn off output-ports A and D.
+;; The other output-ports will keep
+;; their current state
+gogo:output-port-off
+
+gogo:talk-to-output-ports [ &quot;c&quot; &quot;b&quot; ]
+;; turn off remaining output-ports
+gogo:output-port-off
+</pre>
+    <h3>
+      <a name="gogo:ping" id="gogo:ping">gogo:ping</a>
+    </h3>
+    <h4>
+      gogo:ping
+    </h4>
+    <p>
+	  检查GoGo板的状态。通常是用来确认板是否与串口连接。如果GoGo板返回一个诊断的信息，则返回true，否则返回false。
+      
+    <p>
+      例子：
+    <pre>
+print gogo:ping
+</pre><!-- not enabled now
+<h3><a name="read-sensors">read-sensors</a></h3>
+<h4>read-sensors </h4>
+<p>
+-->
+    <h3>
+      <a name="gogo:sensor" id="gogo:sensor">gogo:sensor</a>
+    </h3>
+    <h4>
+      gogo:sensor <i>sensor</i>
+    </h4>
+    <p>
+	  返回名为<i>sensor</i>的传感器的值。传感器用1-8来编码。值从0到1023.如果没有与端口相连的传感器就返回1023(最大的电阻)，或者当传感器是开放的状态的时候。如果传感器短路了（没有电阻），就返回0.
+      
+    <p>
+      例子：
+    <pre>
+print gogo:sensor 1
+;; prints the value of sensor 1
+
+foreach [ 1 2 3 4 5 6 7 8 ]
+  [print (word &quot;Sensor &quot; ? &quot; = &quot; gogo:sensor ?)]
+;; prints the value of all sensors
+
+if gogo:sensor 1 &lt; 500 [ ask turtles [ fd 10 ]]<br>;; will move all turtles 10 steps forward if sensor 1's value is less than 500.
+
+loop [if gogo:sensor 1 &lt; 500 [ ask turtles [ fd 10 ] ] ]<br>;; will continuously check sensor 1's value and
+;; move all turtles 10 steps forward every time
+;; that the sensor value is less than 500.
+</pre>
+    <h3>
+      <a name="gogo:set-burst-mode" id=
+      "gogo:set-burst-mode">gogo:set-burst-mode</a>
+    </h3>
+    <h4>
+      gogo:set-burst-mode <i>sensor-list</i> <i>high-speed-mode?</i>
+    </h4>
+    <p>
+      打开在<i>sensor-list</i>中的传感器的 &quot;burst mode&quot;。如果 <i>high-speed-mode?</i> 为 <code>true</code>，那么告诉的组模式就会被使用。如果为false，那么低俗的组模式会被使用。
+      
+    <p>
+      See also <a href="#gogo:burst-value">gogo:burst-value</a> and
+      <a href="#gogo:stop-burst-mode">gogo:stop-burst-mode</a>.
+    <p>
+      例子：
+    <pre>
+ 
+  gogo:set-burst-mode [ 1 2 3 ] true
+  ;; turns on high speed burst mode for sensors 1, 2 and 3
+         
+  gogo:set-burst-mode [ 4 ] false
+  ;; turns on low speed burst mode for sensor 4
+  ;; this will also override any previous set-burst-mode calls
+  ;; so there will be no new burst mode data for sensors 1, 2 and 3
+</pre>
+    <h3>
+      <a name="gogo:set-output-port-power" id=
+      "gogo:set-output-port-power">gogo:set-output-port-power</a>
+    </h3>
+    <h4>
+      gogo:set-output-port-power <i>power-level</i>
+    </h4>
+    <p>
+      为运作中的外部端口设置能量等级。<i>power-level</i>
+      是介于0（关闭）和7（全力）之间的数字。受这条命令影响的外部端口有 <a href=
+      "#gogo:talk-to-output-ports"><tt>gogo:talk-to-output-ports</tt></a>决定。
+      注意，对于很多实用应用来说，使用机械设备更加方便，例如齿轮和滑轮，来控制发动机的扭矩。
+    <p>
+      例子：
+    <pre>
+gogo:talk-to-motors [&quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;]
+gogo:set-motor-power 4
+;; will lower the power of all output ports by half of the full power .
+</pre>
+    <h3>
+      <a name="gogo:stop-burst-mode" id=
+      "gogo:stop-burst-mode">gogo:stop-burst-mode</a>
+    </h3>
+    <h4>
+      gogo:stop-burst-mode
+    </h4>
+    <p>
+      关闭所有传感器的&quot;burst mode&quot; 。
+    <p>
+      见 <a href="#gogo:burst-value">gogo:burst-value</a> 和
+      <a href="#gogo:set-burst-mode">gogo:set-burst-mode</a>.
+
+
+
+
+
+
+ </BODY>
+</HTML>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Profiler Extension
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <h1>
+      性能剖析扩展
+    </h1>
+    <p>
+      Profiler扩展提供信息，帮你使模型运行更快。它包括一组原语，用来计量模型中每个例程调用多少次，每次调用花了多长时间。
+    <h2>
+      告诫
+    </h2>
+    <p>
+      性能剖析拓展是实验性的。它还没有被完善的测试过，对用户也不是很友好。然而，我们觉得有些用户可能觉得它有用。
+     <h2>
+      使用
+    </h2>
+    <p>
+      profiler扩展预安装了。要使用它，在例程页首部增加一行：
+    <pre>
+extensions [profiler]
+</pre>
+    <p>
+      如果模型已经使用了其他扩展，则已有<a href="dictionary.html#extensions"><tt>extensions</tt></a>行，只需将 <tt>profiler</tt>加到列表中。
+    <p>
+      关于NetLogo扩展的更多信息，参见<a href=
+      "extensions.html">扩展指南</a>。
+      <h3>
+      例子
+    </h3>
+    <pre>
+setup                  ;; set up the model
+profiler:start         ;; start profiling
+repeat 20 [ go ]       ;; run something you want to measure
+profiler:stop          ;; stop profiling
+print profiler:report  ;; view the results
+profiler:reset         ;; clear the data
+</pre>
+    <blockquote>
+      <p>
+        <b>代码例子:</b> Profiler Example
+      </blockquote>
+      <h2>
+      原语
+    </h2>
+    <p>
+      <a href="#profiler:calls">profiler:calls</a> <a href=
+      "#profiler:exclusive-time">profiler:exclusive-time</a> <a href=
+      "#profiler:inclusive-time">profiler:inclusive-time</a> <a href=
+      "#profiler:start">profiler:start</a> <a href=
+      "#profiler:stop">profiler:stop</a> <a href=
+      "#profiler:reset">profiler:reset</a> <a href=
+      "#profiler:report">profiler:report</a>
+      <h3>
+      <a name="profiler:calls" id="profiler:calls">profiler:calls</a>
+    </h3>
+    <h4>
+      profiler:calls <i>procedure-name</i>
+    </h4>
+    <p>
+      返回例程 <i>procedure-name</i>被调用的次数。如果没有定义
+      <i>procedure-name</i> 例程，返回0。
+    <h3>
+      <a name="profiler:exclusive-time" id=
+      "profiler:exclusive-time">profiler:exclusive-time</a>
+    </h3>
+    <h4>
+      profiler:exclusive-time <i>procedure-name</i>
+    </h4>
+    <p>
+      返回例程
+      <i>procedure-name</i> 的独占运行时间，单位毫独占时间从进入例程开始，直到它结束为止，但不包括它所调用的用户定义例程的时间。
+    <p>
+      如果没有定义 <i>procedure-name</i> 例程，返回0。
+     <h3>
+      <a name="profiler:inclusive-time" id=
+      "profiler:inclusive-time">profiler:inclusive-time</a>
+    </h3>
+    <h4>
+      profiler:inclusive-time <i>procedure-name</i>
+    </h4>
+    <p>
+      返回
+      <i>procedure-name</i> 的非独占运行时间，单位毫秒。非独占时间从进入例程开始，直到它结束为止。
+    <p>
+      如果没有定义 <i>procedure-name</i> 例程，返回0。
+     <h3>
+      <a name="profiler:start" id="profiler:start">profiler:start</a>
+    </h3>
+    <h4>
+      profiler:start
+    </h4>
+    <p>
+      命令profiler开始记录用户例程调用。
+    <h3>
+      <a name="profiler:stop" id="profiler:stop">profiler:stop</a>
+    </h3>
+    <h4>
+      profiler:stop
+    </h4>
+    <p>
+      命令profiler停止记录用户例程调用。
+      <h3>
+      <a name="profiler:reset" id="profiler:reset">profiler:reset</a>
+    </h3>
+    <h4>
+      profiler:reset
+    </h4>
+    <p>
+      命令profiler删除所有已收集的数据。
+      <h3>
+      <a name="profiler:report" id="profiler:report">profiler:report</a>
+    </h3>
+    <h4>
+      profiler:report
+    </h4>
+    <p>
+      返回一个字符串，包含所有用户定义例程的调用细目。 <code>Calls</code> 列是用户定义例程调用的次数，<code>Incl T(ms)</code> 列是独占时间，
+      <code>Excl T(ms)</code> 是非独占时间， <code>Excl/calls</code> 列是每次调用用户例程所花时间的估计值。
+    <p>
+     下面是一个输出例子：
+     <pre>
+Sorted by Exclusive Time
+Name                               Calls Incl T(ms) Excl T(ms) Excl/calls
+CALLTHEM                              13     26.066     19.476      1.498
+CALLME                                13      6.413      6.413      0.493
+REPORTME                              13      0.177      0.177      0.014
+
+Sorted by Inclusive Time
+Name                               Calls Incl T(ms) Excl T(ms) Excl/calls
+CALLTHEM                              13     26.066     19.476      1.498
+CALLME                                13      6.413      6.413      0.493
+REPORTME                              13      0.177      0.177      0.014
+
+Sorted by Number of Calls
+Name                               Calls Incl T(ms) Excl T(ms) Excl/calls
+CALLTHEM                              13     26.066     19.476      1.498
+</pre>
+    
+    
+    
+    
+    
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        remove-item
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="remove-item" id="remove-item">remove-item</a>
+      </h3>
+      <h4>
+        remove-item <i>index</i> <i>list</i>
+        <br>
+        remove-item <i>index</i> <i>string</i>
+      </h4>
+      <p>
+        For a list, reports a copy of <i>list</i> with the item at the
+        given index removed.
+      <p>
+        For strings, reports a copy of <i>string2</i> with the character at
+        the given index removed.
+      <p>
+        Note that the indices begin from 0, not 1. (The first item is item
+        0, the second item is item 1, and so on.)
+      <pre>
+set mylist [2 7 4 7 &quot;Bob&quot;]
+set mylist remove-item 2 mylist
+;; mylist is now [2 7 7 &quot;Bob&quot;]
+show remove-item 2 &quot;string&quot;
+=&gt; &quot;sting&quot;
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

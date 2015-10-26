@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Netlogo用户指南 HubNet</title>
+</head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+
+<body>
+<h1>
+      系统动力学指南
+    </h1>
+    <div class="version">
+      NetLogo 5.0 用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+      指南分为三个部分：
+    <ul>
+      <li>
+        <a href="#what"><b>系统动力学建模（Modeler）得工具是什么？</b></a>：对工具做一般性描述,包括其基本思想 和内部原理。
+      <li>
+        <a href="#how"><b>怎样使用</b></a>：描述界面如何使用。
+      <li>
+        <a href="#tutorial"><b>教学：狼吃羊（集计）</b></a>：带领你使用系统动力学建模工具创建一个模型。
+      </ul>
+    <h2>
+      <a name="what" id="what">NetLogo 系统动力学建模工具是什么?</a>
+    </h2>
+    <p>
+      系统动力学是用来理解事务是如何相关的一种模型。它与我们在 NetLogo 里经常使用的 基于主体的方法有所区别。
+    <p>
+      在NetLogo里我们常用基于主体的方法,对单个主体的行为进行编程,观察它们的相互 作用涌现出的现象。例如在狼吃羊模型里,确定狼、羊、草之间的交互规则,当模型运行时, 观察涌现出的总体层次上的行为:例如狼和羊的数量如何随时间变化。
+    <p>
+      使用系统动力学建模工具时不是对个体行为编程,而是对一群主体的整体行为进行编 程。例如在建立狼吃羊的系统动力学模型时,你指定羊群的数量如何随狼群的数量变化而变 化,反之亦然,然后运行模型,观察两类群体的数量如何随时间变化。
+    <p>
+   使用系统动力学建模工具画出流图(diagram),定义这些总体数量或存量("stocks") 如何相互影响。建模工具读取这些图,生成合适的 NetLogo 代码 – 全局变量、例程和报告 器 – 在 NetLogo 里运行你的系统动力学模型。
+    <h3>
+      基本概念
+    </h3>
+    <p>
+     系统动力学流图由四类元素构成:存量(Stock)、变量(Variable)、流量(Flow) 和连接(Link)。
+    <p>
+      <b>存量</b>是物品的集合,是一个积聚。例如存量可以表示羊群数量、湖中的水或工厂里零件 数量等。
+    <p>
+      <b>流</b> 将物品送入或流出存量。流看起来像一个带阀门的管道,阀门控制多少物品流过管道。
+    <p>
+     <b>变量</b> 是在流图中使用的数值,可以是依赖于其他变量的方程,也可以是个常数。
+    <p>
+      <b>连接</b>使图中某部分的值在其他部分可用,连接把来自变量或存量的数值传送到一个存量
+或流。
+    <p>
+      通过不断估计,系统动力学建模工具计算出存量如何随时间变化。估计并不是总准确,
+但可以通过改变 dt 值影响精度。随着 dt 减小,估计次数增加,精度增加。然而减小 dt 会 使模型运行变慢。
+    <h3>
+    模型实例
+    </h3>
+    <p>
+      在 NetLogo 模型库的 Sample Models 部分有四个系统动力学模型,这四个模型都是研究 种群数量增长的(在捕食模型里,数量减少)。
+    <p>
+      <b>Exponential Growth</b> 和<b>Logistic Growth</b> 是只有一个存量的增长例子。
+    <p>
+      <b>Wolf Sheep Predation (aggregate)</b> 是有多个存量,存量相互影响的例子。这是一个 使用系统动力学建立的捕食-食饵生态系统模型。
+    <p>
+      <b>Wolf Sheep Predation (docked)</b> 是一个同时运行系统动力学模型和基于主体的模型 的例子。它运行狼吃羊系统动力学模型以及基于主体的狼吃羊模型,它位于 Sample Models 的 Biology 部分。
+    <h2>
+      <a name="how" id="how">怎样使用</a>
+    </h2>
+    <p>
+      在 Tools 菜单选择 System Dynamics Modeler 菜单项,打开系统动力学建模工具,出现 建模窗口。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/window.jpg">
+    <h3>
+      流图页
+    </h3>
+    <p>
+      在流图页绘制系统动力学流图。
+    <p>
+     工具条上有编辑、删除、创建流图元素的按钮。
+    <h4>
+      创建流图元素
+    </h4>
+    <p class="screenshot">
+      <img alt="screen shot" src=
+      "images/systemdynamics/elementbuttons.jpg">
+    <p>
+      系统动力学流图有四类部件:存量、变量、流和连接。
+    <dl>
+      <dt>
+        存量
+      <dd>
+        <p>
+          要创建存量,在工具条上按下 Stock 按钮,在下面的绘图区单击,就出现新的存量。每个存量要有唯一名,作为全局变量。存量还需要指定 <b>Initial value</b>(初始值), 初始值可以是数值、变量、复杂的 NetLogo 表达式、或是对 NetLogo 报告器的调用。
+        <dt>
+       变量
+      <dd>
+        <p>
+          要创建变量,在工具条上按下 Variable 按钮,在下面的绘图区单击。每个变量要有 唯一名,它作为例程名或全局变量名。变量还需要一个 <b>Expression</b>(表达式),可 以是数值、变量、复杂的 NetLogo 表达式、或是对 NetLogo 报告器的调用。
+        <dt>
+        流
+      <dd>
+        <p>
+          要创建流,在工具条上按下 Flow 按钮,在你希望流开始的地方 — 存量或空白区 – 单击并保持,拖动鼠标到流结束之处 – 存量或空白区。每个流需要唯一名,它成 为 NetLogo 报告器。流需要一个表达式,表示从输入到输出的流率,流率可以是数 值、变量、复杂的 NetLogo 表达式、或是对 NetLogo 报告器的调用。如果值为负, 则流是反向的。
+        <p>
+          当多个流连到一个存量上时,要重点考虑它们之间的交互作用。NetLogo 不强迫指 定出自一个存量的流的顺序。NetLogo 也不确保存量的流出之和小于等于流入。这 些行为可以在创建流的表达式时显式实现。
+        <p>
+          例如,如果流定义为常数 10,你可以使用<a href="dictionary.html#min"><tt>min</tt></a>原语min (list stock 10)确保不会取 出超过存量的值。如果需要流A在流B计算之前消耗存量,可以将流A连到流B,修改流 B减去流A取自存量的值:min (list (max (list 0 (stock - flow-a))) 10)。
+      <dt>
+      连接
+      <dd>
+        <p>
+          要创建连接,在你希望连接开始的地方 — 变量、存量或流 – 单击并保持,拖动 鼠标到目的变量或流。
+        </dl>
+    <h4>
+      操作流图元素
+    </h4>
+    <p>
+      创建存量、变量、流之后,你会看到在这些流图元素上有一个红色问号。问号表示该元素还没有命名,红色表示存量不完全:缺少产生模型所需的一个或多个值。当流图要素设置完整后,名字变黑。
+    <p>
+      <b>选择：</b> 要选择一个元素,在上面单击。要选择多个元素,按着 shift 键。也可以拖动一 个选择框选择多个元素。
+    <p>
+      <b>编辑：</b> 要编辑一个元素,选定后按下工具条上的&quot;Edit&quot;按钮,或双击该元素。(能够编 辑存量、流和变量,但不能编辑连接)。
+   
+    <p>
+      <b>移动：</b>要移动流图元素,选定后用鼠标拖动。
+    <h4>
+     编辑 dt
+    </h4>
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/dt.jpg">
+    <p>
+      工具条右侧是默认 dt,它是系统动力学模型用来计算结果的时间间隔。要改变它的默 认值,按下 dt 附近的 Edit 按钮,输入新值。
+    <h4>
+     错误
+    </h4>
+    <p>
+     当单击"check"按钮或编辑存量、流或变量后,建模工具将自动产生与流图对应的 NetLogo 代码,进行编译。如果有错,例程页变红,显示一条消息,有错的代码部分会高亮 显示。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/error.gif">
+    <p>
+      这让你更好了解模型的错误之处。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/errordialog.jpg">
+    <h3>
+      例程页
+    </h3>
+    <p>
+     系统动力学建模工具根据你画的流图产生 NetLogo 变量和例程,正是这些例程实际执行计算功能。系统动力学建模工具的例程页显示根据流图产生的 NetLogo 例程。
+    <p>
+      你不能修改例程页的内容,要修改系统动力学模型,只能编辑流图。
+    <p>
+     让我们仔细看看所产生的代码与流图的关系:
+    <ul>
+      <li>
+        <p>
+          存量对应一个全局变量,它根据 <b>Initial value</b> 域初始化为给定的值或表达式。每 个存量每个时间步根据进入和离开的流进行更新。
+        <li>
+        <p>
+          流对应一个例程,它包含 <b>Expression</b> 域给定的表达式。
+        <li>
+        <p>
+          变量可能是全局变量,也可能是一个例程。如果你提供的表达式是常数,则它就是
+   一个全局变量,并且初始化为该值。如果使用一个复杂表达式定义变量,则像流那
+   样创建一个例程。
+        </ul>
+    <p>
+      在该页定义的变量和例程可以在 NetLogo 主窗口中访问,就像在 NetLogo 主窗口例程页 中定义的变量和例程一样。可以在主例程页、命令中心、界面页的按钮处调用这些例程。可 以在任何地方引用这些全局变量,包括主例程页和监视器。
+    <p>
+      有三个重要的例程需要注意:
+      <code>system-dynamics-setup</code>, <code>system-dynamics-go</code>，
+      and <code>system-dynamics-do-plot</code>。
+    <p>
+      <b><code>system-dynamics-setup</code></b> 初始化集计模型。它设置<code>dt</code>,调用<code>reset-ticks</code>,初始化 存量和转换器(converter),带有常数的转换器首先初始化,然后是带有常数的存量,其他 的存量按字母顺序初始化。
+    <p>
+      <b><code>system-dynamics-go</code></b> 行集计模型<code> dt</code>时间。它计算流和变量值,更新存量值。 还调用以<code>dt</code>为参数的<code>tick-advance</code>。该例程调用时,由非常数表达式定义的转换器和流只计算一次,然而他们的计算顺序是不确定的。
+    <p>
+      <b><code>system-dynamics-do-plot</code></b> 绘制集计模型的存量值。要使用它,先要在NetLogo主 窗口创建一个绘图,然后为每个要绘制的存量定义一个画笔。该例程使用当前绘 图,可以使用<code>set-current-plot</code>命令改变当前绘图。
+    <h3>
+      系统动力学建模工具和 NetLogo
+    </h3>
+    <p>
+      使用系统动力学建模工具绘制的流图以及根据流图产生的例程是 NetLogo 模型的一部
+分。当保存模型时,流图也保存在同一个文件里。
+    <h2>
+      <a name="tutorial" id="tutorial">教学：狼与羊（Wolf-Sheep Predation）</a>
+    </h2>
+    <p>
+      我们使用系统动力学建模工具创建狼吃羊模型。
+    <h3>
+      第一步： 羊群繁殖
+    </h3>
+    <blockquote>
+      <ul>
+        <li>在 NetLogo 里打开一个新模型
+        <li>在Tools 菜单启动系统动力学建模工具(System Dynamics Modeler)。
+          <p class="screenshot">
+            <img alt="screen shot" src=
+            "images/systemdynamics/tutorial1.jpg">
+          </ul>
+    </blockquote>
+    <p>
+      我们的模型包括狼群和羊群,从羊群开始建模。首先创建一个存量,保存羊的数量。
+    <blockquote>
+      <ul>
+        <li>按下工具条中的 Stock 按钮。
+          <p class="screenshot">
+            <img alt="screen shot" src=
+            "images/systemdynamics/tutorial2-0.jpg">
+          <li>在绘图区单击。
+        </ul>
+    </blockquote>
+    <p>
+      你会看到一个存量,中间是红色问号。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/tutorial2-1.jpg">
+    <blockquote>
+      <ul>
+        <li>双击编辑该存量
+        <li>将存量命名为<code>sheep</code>
+        <li>设置初始值<code>100</code>.
+        <li>令Allow Negative Values 复选框为未选，因为羊群为负不合理。
+          <p class="screenshot">
+            <img alt="screen shot" src=
+            "images/systemdynamics/tutorial2-2.jpg">
+          </ul>
+    </blockquote>
+    <p>
+     如果有羊出生,则羊的数量增加。要实现这一点,创建一个进入羊群存量的流量。
+    <blockquote>
+      <ul>
+        <li>单击工具条上的 Flow 按钮,在 Sheep 存量左边的空白区按下鼠标按钮,向右拖动流
+￼直到它的右侧连到 Sheep 存量。
+        <li>编辑该流量,命名为<code>sheep-births</code>。
+       
+        </ul>
+    </blockquote>
+    <p>
+      一段时间内羊的出生数量依赖于活羊的数量:羊越多则生的越多。
+    <blockquote>
+      <ul>
+        <li>从<code>sheep</code> 存量到  <code>sheep-births</code>流量画一条连接。
+        </ul>
+    </blockquote>
+    <p>
+      羊的出生率还取决于某些常数因子,如繁殖率等,这超出本模型讨论的范围。
+    <blockquote>
+      <ul>
+        <li>创建一个变量,命名为<code>sheep-birth-rate</code>，设置它的值是  <code>0.04</code>。
+        <li>从变量<code>sheep-birth-rate</code> 画一条连线到<code>sheep-births</code>。
+        </ul>
+    </blockquote>
+    <p>
+      流图应该像下面这样:
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/tutorial5.jpg">
+    <p>
+      流量<code>sheep-births</code> 有一个红色标签,因为还没有给它指定表达式。红色表示 模型此处还缺少一些东西。 
+    <p>
+     流入存量的羊数与羊群数量和羊的出生率成正比。
+    <blockquote>
+      <ul>
+        <li>编辑流量<code>sheep-births</code> ，设置其表达式为<code>sheep-birth-rate * sheep</code>。
+        </ul>
+    </blockquote>
+    <p>
+      现在有了一个完整流图。单击系统动力学建模工具的例程页,查看由流图产生的代码。
+看起来像这样:
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/tutorial8.gif">
+    <h3>
+      第 2 步:NetLogo 集成
+    </h3>
+    <p>
+      一旦使用系统动力学建模工具创建了集计模型,就可以在NetLogo主界面窗口中与模型 交互。现在构建NetLogo模型来运行由流图产生的代码。我们需要一个<code>setup</code> 和 <code>go</code> 按钮, 分别调用由系统动力学建模工具产生的<code>system-dynamics-setup</code> 和 <code>system-dynamics-go
+      procedures</code>例程。我们还需要一个监视器和一个绘图,用于查看羊群 数量的变化。
+    <blockquote>
+      <ul>
+        <li>选择 NetLogo 主窗口
+        <li>在例程页,写代码如下:
+          <pre>
+to setup
+  ca
+  system-dynamics-setup
+end
+
+to go
+  system-dynamics-go
+  system-dynamics-do-plot
+end
+</pre>
+        <li>转移到界面
+        <li>创建<code>setup</code> 按钮
+        <li>创建<code>go</code> 按钮 (记住设为forever)  
+        <li>创建<code>sheep</code> 监视。
+        <li>创建绘图&quot;populations&quot; ,提供画笔
+        &quot;sheep&quot;。
+        </ul>
+    </blockquote>
+    <p>
+      现在准备运行模型。
+    <blockquote>
+      <ul>
+        <li>按下 setup 按钮。
+        <li>现在不要按<code>go</code>按钮,相反在命令中心里输入四五次go 。
+        </ul>
+    </blockquote>
+    <p>
+      注意发生的事情。羊的数量指数增加,经过四五次循环后,羊的数量很大。这是因为羊只有出生,没有死亡。
+    <p>
+      下面我们引入狼群,狼吃羊,来修正上面的模型。
+    <h3>
+      第 3 步:狼捕食羊
+    </h3>
+    <blockquote>
+      <ul>
+        <li>返回系统动力学窗口
+        <li>增加一个存量 wolves
+        <li>增加流量、变量和连接,如下图所示：
+       
+          <p class="screenshot">
+            <img alt="screen shot" src=
+            "images/systemdynamics/tutorial9.jpg">
+          <li>再增加一个连接,从存量<code>wolves</code>连接到流出Sheep的流量
+
+        <li>为各个元素添上名字,如下图所
+        this:
+          <p class="screenshot">
+            <img alt="screen shot" src=
+            "images/systemdynamics/tutorial10.jpg">
+          <p>
+           其中
+            <br>
+         <code>wolves</code> 得初始值 <code>30</code>，
+            <br>
+            <code>wolf-deaths</code> 的表达式是<code>wolves *
+            wolf-death-rate</code> ,
+            <br>
+            <code>wolf-death-rate</code> 是<code>0.15</code>,
+            <br>
+            <code>predator-efficiency</code> 是 <code>.8</code>,
+            <br>
+            <code>wolf-births</code> is <code>wolves * predator-efficiency
+            * predation-rate * sheep</code>,
+            <br>
+            <code>predation-rate</code> 是 <code>3.0E-4</code>,
+            <br>
+            and <code>sheep-deaths</code> 的表达式 <code>sheep * predation-rate *
+            wolves</code>.
+          </ul>
+    </blockquote>
+    <p>
+现在真正完成了。
+    <blockquote>
+      <ul>
+        <li>返回 NetLogo 主窗口
+        <li>为羊群绘图增加一个名为 &quot;wolves&quot; 的画笔
+        <li>按下 <code>setup</code>和 <code>go</code> 查看系统动力学建模效果
+        </ul>
+    </blockquote>
+    <p>
+     种群数量图形如下所示:
+    <p class="screenshot">
+      <img alt="screen shot" src="images/systemdynamics/tutorial11.jpg">
+
+</body>
+</html>

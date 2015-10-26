@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Shapes Editor Guide
+    </title>
+</head>
+
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      图形编辑器指南
+    </h1>
+    <div class="version">
+      NetLogo 5.0 User Manual&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+      海龟和链图形编辑器用来创建和保存海龟和链图案。
+    <p>
+      NetLogo使用完全可缩放、可旋转的矢量图形，可以使用基本几何形状组合成图案，图案可以用任何大小和角度显示在屏幕上。
+    <h2>
+      开始
+          </h2>
+    <p>
+      在Tools菜单中选择<b>Turtle Shapes Editor</b> 或<b>Link
+      Shapes Editor</b> 开始制作图形。在打开的新窗口里，当前模型中的所有图形都会列出来，第一项是默认图形<i>default</i>。使用图形编辑器可以创建新图形、编辑图形、从其他模型中导入图形。也可以从由已有图形组成的图形库里导入图形。
+    <h3>
+      导入图形
+    </h3>
+    <p>
+     新模型开始时只包含一小部分常用的核心图形。使用 <b>Import from library...</b> 按钮获得更多的海龟图形，出现对话框，选择一个或多个图形导入模型之中。选择所需图形，按下 <b>Import</b>按钮。
+    <p>
+      类似的，也可使用<b>Import from model...</b>从其他模型导入图形。
+    <p>
+      <b>默认图形</b>
+    <p>
+     下面是默认情况下每个新模型包含的海龟图形：
+    <p class="screenshot">
+      <img alt="screen shot" src="images/shapes1.gif">
+    <p>
+      第一行: default, airplane, arrow, box, bug, butterfly, car
+      <br>
+      第二行: circle, circle 2, cow, cylinder, dot, face happy, face
+      neutral
+      <br>
+      第三行: face sad, fish, flag, flower, house, leaf, line
+      <br>
+      第四行: line half, pentagon, person, plant, sheep, square, square
+      2
+      <br>
+      第五行:star, target, tree, triangle, triangle 2, truck, turtle
+      <br>
+      第六行: wheel, x
+    <p>
+      <b>图形库</b>
+    <p>
+      下面是图形库中的所有图形 (包括所有的默认图形):
+    <p class="screenshot">
+      <img alt="screen shot" src="images/shapes2.gif">
+    <p>
+     默认情况下只有一个链图形，即default"。这是一个简单的直线加一个简单的箭头（如果是有向链的话）
+    <p class="screenshot">
+      <img alt="screenshot" src="images/defaultlinkshape.gif">
+    <h2>
+      创建和编辑海龟图形
+    </h2>
+    <p>
+     按下 <b>New</b> 按钮创建新图形，或者选择已有图形后按下<b>Edit</b>。
+    <h3>
+     工具
+    </h3>
+    <p>
+      在编辑窗口的左上角是一组画图工具。箭头是选择工具，用来选择已经画出的绘图元素。
+
+    <p>
+      使用其他七个画图工具绘制新元素。
+    <ul>
+      <li><b>line</b>工具用来画线段
+      <li><b>circle</b>, <b>square</b>, and <b>polygon</b>有两种模式：
+      </ul>
+    <p>
+      使用多边形（polygon）工具时，单击鼠标增加新线段，画完所有线段后，双击。
+    <p>
+     画出一个新元素后，它就是当前选择，因此可以移动、删除、修改。
+    <ul>
+      <li>要移动，使用鼠标拖拉
+      <li>要删除，按下Delete 按钮
+      <li>要修改，拖动图形上的小句柄，当图形被选择后，句柄显示出来
+      
+      <li>要改变颜色，在新颜色上单击
+      </ul>
+    <h3>
+      预览
+    </h3>
+    <p>
+      绘制图形时，在编辑窗口底部有5个预览区，显示5个小尺寸的图形。预览区显示当出现在模型中时，图形的样子，包括旋转后的样子。每个预览区下面的数字是预览的像素数。例如预览区下的20，表示在瓦片尺寸为20个像素时，海龟（尺寸1）的显示情况。
+    <p>
+      如果图形总是面对一个方向，不随海龟方向而改变，可以关闭可旋转特性。
+    <h3>
+      图形叠加
+    </h3>
+    <p>
+     新元素在旧元素的上层。选择一个元素后，使用<b>Bring to
+      front</b> 和<b>Send to back</b> 按钮改变他们的层序。
+    <h3>
+      撤销
+    </h3>
+    <p>
+      任何时候可以使用 <b>Undo</b>按钮，撤销刚才所做的操作。
+    <h3>
+      颜色
+    </h3>
+    <p>
+      与 <i>Color that changes</i> (从下拉式菜单选择 – 默认是灰色)指定的颜色一致的元素会根据每个海龟的 <i>color</i> r变量而变化，而其他颜色的元素不变。例如，你可以创建车辆，他们的车灯总是黄色、车轮总是黑色，而车体有不同的颜色。
+    <h3>
+      其他按钮
+    </h3>
+    <p>
+       &quot;Rotate Left&quot;和&quot;Rotate Right&quot; 按钮将元素旋转90度。 &quot;Flip Horizontal&quot; 和
+      &quot;Flip Vertical&quot; 按钮根据轴线翻转元素。
+    <p>
+      这四个按钮一般用来旋转或翻转整个图形。但如果选定了一个元素时，只对该元素进行。
+    <p>
+     这些按钮与
+      &quot;Duplicate&quot; 一起，为构造对称图形提供了便利。例如，制作蝴蝶图形时，先用polygon工具绘制左翼，然后用 &quot;Duplicate&quot;复制，在对复制品使用 &quot;Flip Horizontal&quot;
+      得到右翼。
+    <h3>
+     图形设计
+    </h3>
+    <p>
+     也许有人希望绘制复杂的、有趣的图形，但是要记住在多数模型里瓦片很小，看不到很多图形细节。简单的、粗体的、图标化的图形一般最好。
+    <h3>
+      图形保存
+    </h3>
+    <p>
+      图形绘制完成后，指定名称，按下编辑窗口底部的<b>Done</b>
+     按钮。该图形及名字就与
+      &quot;default&quot;图形一起，出现在图形列表中。
+    <h2>
+      创建和编辑链图形
+    </h2>
+    <p>
+      管理链图形与管理海龟图形很相似。使用 <b>New</b>按钮创建新图形或编辑已有图形，编辑完成后按下
+      <b>Done</b>按钮保存。
+    <h3>
+      改变链图形的属性
+    </h3>
+    <p>
+      每个链图形有几个不同的属性，这些属性可以改变：
+    <ul>
+      <li>Name - 链图形可以与海龟图形同名，但每个链图形必须不同名。
+      <li>Direction Indicator - 方向标记（有向链上的小箭头）与海龟矢量图形一样，可以使用同样的编辑器中 <b>Edit</b> 按钮编辑。
+      <li>Curviness - 这是用瓦片数量表示的链弯曲量（如果一对节点之间有两个反向有向链时很有用，可以用来分开这两条链）。
+      <li>Number of lines: 每个链图形可以有1, 2, 3 条线。通过选择线模式"left line", "middle line", "right line"做出选择。
+      <li>选择框里有几种点划线，因此不必都是实线。
+      </ul>
+    <p>
+     下面是几条具有不同属性的链图形: 
+    <p class="screenshot">
+      <img alt="screen shot" src="images/linkshapes.gif">
+    <h2>
+      在模型里使用图形
+    </h2>
+    <p>
+      在模型代码或命令中心可以使用模型中的任何图形（尽管海龟只能使用海龟图形，链只能使用链图形）。例如，创建50个使用 &quot;rabbit&quot;.图形的海龟，前提是模型里有名为 <i>rabbit</i> 的海龟图形，在命令中心为observer指定命令：
+    <pre>
+observer&gt; crt 50
+</pre>
+    <p>
+     然后为海龟指定命令，让他们散开、改变图形:
+    <pre>
+turtles&gt; fd random 15
+turtles&gt; set shape &quot;rabbit&quot;
+</pre>
+    <p>
+     瞧！兔子！注意图形名使用双引号，因为图形名是字符串。
+    <p>
+     类似的可以设置链的shape变量。假设有一个名为"road"的链图形：
+    <pre>
+observer&gt; crt 5 [ create-links-with other turtles ]
+turtles&gt; fd 5
+links&gt; set shape &quot;road&quot;
+</pre>
+    <p>
+     命令<code>set-default-shape</code> 也可用来为海龟或链分配图形。
+
+
+</html>

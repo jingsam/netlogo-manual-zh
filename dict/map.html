@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+          map
+        </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+        <h3>
+          <a name="map" id="map">map</a>
+        </h3>
+        <h4>
+          map <i>reporter-task</i> <i>list</i>
+          <br>
+          (map <i>reporter-task</i> <i>list1</i> ...)
+        </h4>
+        <p>
+          With a single <i>list</i>, the given task is run for each
+          item in the list, and a list of the results is collected and
+          reported.
+        <pre>
+show map round [1.1 2.2 2.7]
+=&gt; [1 2 3]
+show map [? * ?] [1 2 3]
+=&gt; [1 4 9]
+</pre>
+        <p>
+          With multiple lists, the given reporter is run for each group of
+          items from each list. So, it is run once for the first items,
+          once for the second items, and so on. All the lists must be the
+          same length.
+ <p>Some examples make this clearer:
+        <pre>
+show (map + [1 2 3] [2 4 6])
+=&gt; [3 6 9]
+show (map [?1 + ?2 = ?3] [1 2 3] [2 4 6] [3 5 9])
+=&gt; [true false true]
+</pre>
+        <p>
+          See also <a href="../dictionary.html#foreach">foreach</a>, <a href="../dictionary.html#ques">?</a>.
+        
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Array &amp; Table Extensions
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <h1>
+      数组与表扩展
+      </h1>
+   <p>
+   这些扩展为NetLogo增加两个数据结构：数组和哈希表。
+   <h2>
+      何时使用
+   </h2>
+   <p>
+       原则上凡是使用数组和哈希表的地方只用列表也能实现。但出于速度考虑，有时可以使用数组或哈希表来代替列表。这三种数据结构（列表、数组和哈希表）具有不同的性能特点，如果选择的数据结构合适，模型运行的更快一些。
+   <p>
+       当数值集合的规模固定时，使用数组较好。如果知道数值项所在的位置，可以快速的直接存取或修改该项。
+   <p> 
+       当需要将一个值与另一个值关联时，使用哈希表较好。例如，可以创建单词和释义的哈希表，然后就可以在表中查找任一单词的释义。此处单词是键（key），可以容易获取任何键对应的值（value），但反之不行。
+   <p>
+       和netlogo里面的列表 和字符串不同，数组和哈希表都是“可变的”。也就是说实际上可以直接改变它们，而不是像对列表操作一样需要构造一个改变了的副本。如果数组或者哈希表在程序中不止使用了一次，所做的任何改变都会在每一处体现出来。这对于编写具有可变结构的代码来说很有误导性，也很容易犯细节的错误或者得到惊人的结果，因此我们建议最好还是继续使用列表和字符串，除非真的想要而且需要可变性。
+   <h2>
+   netlogo 5.0 中的列表和数组
+   </h2>
+   <p>
+       在netlogo4.1及以前的版本中，常规的列表操作比如last, lput, item, 和replace-item需要花费线性的时间（和列表长度成比例）。因此，有些用户会选择数组代替列表以取得更好的性能。但是在现在版本的netlogo中，这些操作几乎以恒定的时间运行。因此现在数组的需求减少了。
+   <h2>
+   如何使用
+   </h2>
+   <p>
+       两个扩展包都预安装了。
+   <p>
+       要在模型中使用数组扩展，在例程页的首部增加一行：
+   <pre>
+   extensions [array]
+   </pre>
+   <p>
+       要在模型中使用哈希表扩展，在例程页的首部增加一行：
+   <pre>
+   extensions [table]
+   </pre>
+   <p>
+       要在同一模型中使用这两个扩展，在例程页的首部增加一行：
+   <pre>
+   extensions [array table]
+   </pre>
+   <p>
+如果模型已经使用了其他扩展，则已有extensions行，因此只需将array 或/和table增加到该行的列表中。
+   <p>
+关于使用NetLogo扩展的更多信息，参见扩展指南（Extensions Guide）
+   <h3>
+   哈希表键的限制
+   </h3>
+   <p>
+哈希表的键只能是字符串、数值、布尔值或列表。（列表可以是嵌套列表，只要具体项是字符串、数值或布尔值即可）
+   <h2>
+   数组例子
+   </h2>
+   <pre>
+let a array:from-list n-values 5 [0]
+print a
+=> {{array: 0 0 0 0 0}}
+print array:length a
+=> 5
+foreach n-values 5 [?] [ array:set a ? ? * ? ]
+print a
+=> {{array: 0 1 4 9 16}}
+print array:item a 0
+=> 0
+print array:item a 3
+=> 9
+array:set a 3 50
+print a
+=> {{array: 0 1 4 50 16}}
+</pre>
+
+<h2>
+哈希表例子
+    </h2>
+   <pre>
+let dict table:make
+table:put dict "turtle" "cute"
+table:put dict "bunny" "cutest"
+print dict
+=> {{table: "turtle" -> "cute", "bunny" -> "cutest" }}
+print table:length dict
+=> 2
+print table:get dict "turtle"
+=> "cute"
+print table:get dict "leopard"
+=> 0
+print table:keys dict
+=> ["turtle" "bunny"]
+</pre>
+ <blockquote>
+      <p>
+        <b>Code Example:</b> Table Example
+      </blockquote>
+  <h2>
+      数组原语
+    </h2>
+ <p>
+      <a href="#array:from-list">array:from-list</a> <a href=
+      "#array:item">array:item</a> <a href="#array:set">array:set</a>
+      <a href="#array:length">array:length</a> <a href=
+      "#array:to-list">array:to-list</a>
+    <h3>
+      <a name="array:from-list" id="array:from-list">array:from-list</a>
+    </h3>
+    <h4>
+      array:from-list <i>list</i>
+    </h4>
+    <p>
+    根据输入列表返回一个数组，该数组以列表中相同的顺序包含列表中的各项。
+    <h3>
+      <a name="array:item" id="array:item">array:item</a>
+    </h3>
+    <h4>
+      array:item <i>array</i> <i>index</i>
+    </h4>
+    <p>
+    返回给定数组给定索引处的项。（索引号从0到数组规模-1）
+    <h3>
+      <a name="array:set" id="array:set">array:set</a>
+    </h3>
+    <h4>
+      array:set <i>array</i> <i>index</i> <i>value</i>
+    </h4>
+    <p>
+    设置给定数组给定索引处的项为给定值。（索引号从0到数组规模-1）
+    <p>
+    注意与列表的replace-item 不同，这里不创建新数组，给定的数组被修改。
+    <h3>
+      <a name="array:length" id="array:length">array:length</a>
+    </h3>
+    <h4>
+      array:length <i>array</i>
+    </h4>
+    <p>
+    返回给定数组的长度，即数组的项数。
+     <h3>
+      <a name="array:to-list" id="array:to-list">array:to-list</a>
+    </h3>
+    <h4>
+      array:to-list <i>array</i>
+    </h4>
+    <p>
+    根据给定的数组，按相同的顺序创建一个包含相同项的列表，返回该列表。
+     <h2>
+      哈希表原语
+    </h2>
+    <p>
+      <a href="#table:clear">table:clear</a> <a href=
+      "#table:from-list">table:from-list</a> <a href=
+      "#table:get">table:get</a> <a href=
+      "#table:has-key">table:has-key?</a> <a href=
+      "#table:keys">table:keys</a> <a href="#table:length">table:length</a>
+      <a href="#table:make">table:make</a> <a href=
+      "#table:put">table:put</a> <a href="#table:remove">table:remove</a>
+      <a href="#table:to-list">table:to-list</a>
+       <h3>
+      <a name="table:clear" id="table:clear">table:clear</a>
+    </h3>
+    <h4>
+      table:clear <i>table</i>
+    </h4>
+    <p>
+    删除table 的所有键-值对。
+    <h3>
+      <a name="table:from-list" id="table:from-list">table:from-list</a>
+    </h3>
+    <h4>
+      table:from-list <i>list</i>
+    </h4>
+    <p>
+    根据list的内容创建一个新哈希表。list必须是一个两项列表的列表（a list of two element lists），子列表的第一项是键，第二项是值。
+     <h3>
+      <a name="table:get" id="table:get">table:get</a>
+    </h3>
+    <h4>
+      table:get <i>table</i> <i>key</i>
+    </h4>
+    <p>
+    返回表中key映射的值。如果表中没有该键，则引发错误。
+    <h3>
+      <a name="table:has-key" id="table:has-key">table:has-key?</a>
+    </h3>
+    <h4>
+      table:has-key? <i>table</i> <i>key</i>
+    </h4>
+    <p>
+      如果table有key条目返回true。
+    <h3>
+      <a name="table:keys" id="table:keys">table:keys</a>
+    </h3>
+    <h4>
+      table:keys <i>table</i>
+    </h4>
+    <p>
+    返回table所有键构成的一个列表。
+    <h3>
+      <a name="table:length" id="table:length">table:length</a>
+    </h3>
+    <h4>
+      table:length <i>table</i>
+    </h4>
+    <p>
+    返回table中的条目数。
+    <h3>
+      <a name="table:make" id="table:make">table:make</a>
+    </h3>
+    <h4>
+    table:make
+    </h4>
+    <p>
+    返回一个新建的空哈希表。
+    <h3>
+      <a name="table:put" id="table:put">table:put</a>
+    </h3>
+    <h4>
+      table:put <i>table</i> <i>key</i> <i>value</i>
+    </h4>
+    <p>
+    在table中建立key 和 value的映射。如果给定的键在表中已有条目，则替换。
+    <h3>
+      <a name="table:remove" id="table:remove">table:remove</a>
+    </h3>
+    <h4>
+      table:remove <i>table</i> <i>key</i>
+    </h4>
+    <p>
+    删除table 中key的映射。
+     <h3>
+      <a name="table:to-list" id="table:to-list">table:to-list</a>
+    </h3>
+    <h4>
+      table:to-list <i>table</i>
+    </h4>
+    <p>
+    根据table内容创建列表返回。该列表是由多个两项列表构成的，两项列表的第一项是键，第二项是值。
+    
+
+
+
+
+
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        undirected-link-breed
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="undirected-link-breed" id=
+        "undirected-link-breed">undirected-link-breed</a>
+      </h3>
+      <h4>
+        undirected-link-breed [<i>&lt;link-breeds&gt;</i>
+        <i>&lt;link-breed&gt;</i>]
+      </h4>
+      <p>
+        This keyword, like the globals and breeds keywords, can only be
+        used at the beginning of the Code tab, before any procedure
+        definitions. It defines an undirected link breed. Links of a
+        particular breed are always either all directed or all undirected.
+        The first input defines the name of the agentset associated with
+        the link breed. The second input defines the name of a single
+        member of the breed.
+      <p>
+        Any link of the given link breed:
+      <ul>
+        <li>is part of the agentset named by the link breed name
+        <li>has its built-in variable <tt>breed</tt> set to that agentset
+        <li>is directed or undirected as declared by the keyword
+        </ul>
+      <p>
+        Most often, the agentset is used in conjunction with ask to give
+        commands to only the links of a particular breed.
+      <pre>
+undirected-link-breed [streets street]
+undirected-link-breed [highways highway]
+to setup
+  clear-all
+  crt 2
+  ask turtle 0 [ create-street-with turtle 1 ]
+  ask turtle 0 [ create-highway-with turtle 1 ]
+end
+
+ask turtle 0 [ show sort my-links ]
+;; prints [(street 0 1) (highway 0 1)]
+</pre>
+      <p>
+        See also <a href="../dictionary.html#breed">breed</a>, <a href="../dictionary.html#directed-link-breed">directed-link-breed</a>
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

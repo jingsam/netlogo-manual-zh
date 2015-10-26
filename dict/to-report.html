@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        to-report
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="to-report" id="to-report">to-report</a>
+      </h3>
+      <h4>
+        to-report <i>procedure-name</i>
+        <br>
+        to-report <i>procedure-name</i> [<i>input1</i> ...]
+      </h4>
+      <p>
+        Used to begin a reporter procedure.
+      <p>
+        The body of the procedure should use <tt>report</tt> to report a
+        value for the procedure. See <a href="../dictionary.html#report">report</a>.
+      <pre>
+to-report average [a b]
+  report (a + b) / 2
+end
+
+to-report absolute-value [number]
+  ifelse number &gt;= 0
+    [ report number ]
+    [ report (- number) ]
+end
+
+to-report first-turtle?
+  report who = 0  ;; reports true or false
+end
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

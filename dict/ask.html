@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        ask
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="ask" id="ask">ask</a>
+      </h3>
+      <h4>
+        ask <i>agentset</i> [<i>commands</i>]
+        <br>
+        ask <i>agent</i> [<i>commands</i>]
+      </h4>
+      <p>
+        The specified agent or agentset runs the given commands.
+      <pre>
+ask turtles [ fd 1 ]
+  ;; all turtles move forward one step
+ask patches [ set pcolor red ]
+  ;; all patches turn red
+ask turtle 4 [ rt 90 ]
+  ;; only the turtle with id 4 turns right
+</pre>
+      <p>
+        Note: only the observer can ask all turtles or all patches. This
+        prevents you from inadvertently having all turtles ask all turtles
+        or all patches ask all patches, which is a common mistake to make
+        if you're not careful about which agents will run the code you
+        are writing.
+      <p>
+        Note: Only the agents that are in the agentset <i>at the time the
+        ask begins</i> run the commands.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

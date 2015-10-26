@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        one-of
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="one-of" id="one-of">one-of</a>
+      </h3>
+      <h4>
+        one-of <i>agentset</i>
+        <br>
+        one-of <i>list</i>
+      </h4>
+      <p>
+        From an agentset, reports a random agent. If the agentset is empty,
+        reports <a href="../dictionary.html#nobody">nobody</a>.
+      <p>
+        From a list, reports a random list item. It is an error for the
+        list to be empty.
+      <pre>
+ask one-of patches [ set pcolor green ]
+;; a random patch turns green
+ask patches with [any? turtles-here]
+  [ show one-of turtles-here ]
+;; for each patch containing turtles, prints one of
+;; those turtles
+
+;; suppose mylist is [1 2 3 4 5 6]
+show one-of mylist
+;; prints a value randomly chosen from the list
+</pre>
+      <p>
+        See also <a href="../dictionary.html#n-of">n-of</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

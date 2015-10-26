@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: FAQ (Frequently Asked Questions)
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      常见问题解答
+    </h1>
+    <div class="version">
+      NetLogo 5.0 User Manual&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+    用户的反馈对我们设计和改进NetLogo非常有价值，很高兴听取您的反馈。(见<a href=
+      "contact.html">联系我们</a>.)
+    <h2>
+      问题
+    </h2>
+    <h3>
+      一般问题
+    </h3>
+     <ul class="smaller">
+      <li>
+        <a href="#name"><b>它为什么叫 NetLogo?</b></a>
+      <li>
+        <a href="#cite"><b>在学术出版物上如何引用NetLogo?</b></a>
+      <li>
+        <a href="#citemodel"><b>在出版物上如何引用模型库中的模型?</b></a>
+      <li>
+        <a href="#history"><b>NetLogo是在何时、何地开发的?</b></a>
+      <li>
+        <a href="#written"><b>NetLogo是用哪种编程语言写的?</b></a>
+      <li>
+        <a href="#starlogo"><b>StarLogo和NetLogo有何关系?</b></a>
+      <li>
+        <a href="#license"><b>NetLogo采用哪种许可?能得到NetLogo 源代码吗?</b></a>
+      <li>
+        <a href="#workshop"><b>你们提供NetLogo研讨会或训练机会吗?</b></a>
+      <li>
+        <a href="#books"><b>有NetLogo 教科书吗?</b></a>
+      <li>
+        <a href="#translation"><b>NetLogo有英语版以外的版本吗?</b></a>
+      <li>
+        <a href="#compilation"><b>NetLogo 是编译的还是解释的?</b></a>
+      <li>
+        <a href="#model"><b>有人建过某某模型吗?</b></a>
+      <li>
+        <a href="#reproduce"><b>NetLogo 模型具有科学意义上的可重现性吗?</b></a>
+      <li>
+        <a href="#threedsplit"><b>NetLogo 和NetLogo 3D还会保持分离吗?</b></a>
+      <li>
+        <a href="#ipad"><b>我能在iPad或者iPhone上运行Netlogo吗?</b></a>
+      </ul>
+    <h3>
+      下载问题
+    </h3>
+    <ul class="smaller">
+      <li>
+        <a href="#multiversions"><b>我能同时安装多个版本的NetLogo吗?</b></a>
+      <li>
+        <a href="#gnutar"><b>我使用UNIX ，不能解包下载文件，为什么?</b></a>
+      <li>
+        <a href="#unattended"><b>怎样以无人看管方式安装NetLogo?</b></a>
+      <li>
+        <a href="#netlogo_java"><b>在windows下，如何配置没有Java的安装文件使用的java安装程序?</b></a>
+      </ul>
+      <h3>
+      Java小程序（Applets）问题
+    </h3>
+    <ul class="smaller">
+      <li>
+        <a href="#appletjava"><b> 我想运行网站上的一个applet，但它不运行。我该怎么办?</b></a>
+      <li>
+        <a href="#secretweb"><b>我能将模型作为applet，但不公开源代码吗?</b></a>
+      <li>
+        <a href="#appletfiles"><b>保存为applet 的模型能通过<tt>import-world</tt>, <tt>file-open</tt>, 和其他命令读文件吗?</b></a>
+      <li>
+        <a href="#applet200OK"><b>当我以Applet加载我的模型时，出错: java.lang.ClassFormatError: Incompatible magic value 。</b></a>
+      </ul>
+      <h3>
+      运行问题
+    </h3>
+    <ul class="smaller">
+    <li>
+        <a href="#runcd"><b>能在CD上运行NetLogo吗?</b></a>
+      <li>
+        <a href="#slowlaptop"><b>当拔掉Windows笔记本的电源时，为什么NetLogo这么慢?</b></a>
+      <li>
+        <a href="#linuxcompat"><b>在Linux机器上NetLogo 怎么不能运行?</b></a>
+      <li>
+        <a href="#windowsmemory"><b>在Windows 启动NetLogo时，出现错误信息"could not create Java virtual machine" , 帮忙啊!</b></a>
+      <li>
+        <a href="#batch"><b>能使用命令行而不需GUI运行NetLogo吗?</b></a>
+      <li>
+        <a href="#multiprocessing"><b> NetLogo能利用多个处理器/内核的优势吗?</b></a>
+      <li>
+        <a href="#cluster"><b>NetLogo模型能分布运行在计算机集群上吗?</b></a>
+      <li>
+        <a href="#autosave"><b>当NetLogo崩溃或者没有反应的时候，我能够回复丢失的工作吗？</b></a>
+      </ul>
+      <h3>
+     使用问题
+    </h3>
+    <ul class="smaller">
+    <li>
+        <a href="#fastseemsslow"><b> 当我把速度滑动条一下子拖到最右边时，为什么模型看起来像停止一样?</b></a>
+      <li>
+        <a href="#paint"><b>我能使用鼠标在视图上画图（"paint"）吗?</b></a>
+      <li>
+        <a href="#howbig"><b>模型可以多大? 模型能包含多少海龟、瓦片、例程、按钮等?</b></a>
+      <li>
+        <a href="#gisimport"><b>可以将GIS 数据导入 NetLogo吗?</b></a>
+      <li>
+        <a href="#speed"><b>模型运行很慢，怎么能快一些?</b></a>
+      <li>
+        <a href="#multimodels"><b>能同时打开多个模型吗?</b></a>
+      <li>
+        <a href="#changechooser"><b>能在运行时改变选择器的选项吗?</b></a>
+      <li>
+        <a href="#include"><b>能将模型代码分到几个文件吗?</b></a>
+      </ul>
+    <h3>
+      编程问题
+    </h3>
+    <ul class="smaller">
+    <li>
+        <a href="#logodiffs"><b>NetLogo 语言与其他Logo语言有什么区别?</b></a>
+      <li>
+        <a href="#transition"><b>用以前NetLogo建立的模型怎么不能正常工作?</b></a>
+      <li>
+        <a href="#unaryminus"><b>怎样取一个数的负值?</b></a>
+      <li>
+        <a href="#nextpatch1"><b>海龟前进1，但还在原来的瓦片上，为什么?</b></a>
+      <li>
+        <a href="#nextpatch1b"><b>怎样保持海龟在瓦片中心?</b></a>
+      <li>
+        <a href="#nextpatch2"><b><tt>patch-ahead 1</tt> 返回海龟当前所在的瓦片，为什么?</b></a>
+      <li>
+        <a href="#vision"><b>怎样给海龟视场("vision")?</b></a>
+      <li>
+        <a href="#sensedrawing"><b>海龟能感知画图层（drawing layer）的东西吗?</b></a>
+      <li>
+        <a href="#rounding"><b>我得到的是像0.10000000004 和 0.799999999999 这样的数，而不是0.1 和 0.8。为什么?</b></a>
+      <li>
+        <a href="#onepointoh"><b>文档说<tt>random-float 1.0</tt> 可能返回0 但不可能返回1，如果我想包括1怎么办?</b></a>
+      <li>
+        <a href="#neighborhoods"><b>怎样使用不同的瓦片邻域（"neighborhoods"） (圆形, Von Neumann, Moore, 等)?</b></a>
+      <li>
+        <a href="#twoturtles1patch"><b>怎样防止两个海龟占据同一个瓦片?</b></a>
+      <li>
+        <a href="#dead"><b>怎样判断海龟是否死亡?</b></a>
+      <li>
+        <a href="#arrays"><b>NetLogo有数组吗?</b></a>
+      <li>
+        <a href="#associative"><b>NetLogo有哈希表或关联数组吗?</b></a>
+      <li>
+        <a href="#agentsetlist"><b>怎样将一个主体集合转换为主体的列表，或相反?</b></a>
+      <li>
+        <a href="#stoppingforeach"><b>如何停止foreach?</b></a>
+      </ul>
+      <h3>
+      行为空间问题
+    </h3>
+    <ul class="smaller">
+    <li>
+        <a href="#tableoutoforder"><b>为什么行为空间表结果里面的行不按照顺序排列?</b></a>
+      <li>
+        <a href="#everynticks"><b>怎样每n个滴答收集一次运行数据?</b></a>
+      <li>
+        <a href="#bsglobals"><b>我变动在例程页声明的一个全局变量，但没作用。为什么?</b></a>
+      <li>
+        <a href="#columns"><b>为什么在Excel里某些结果被截掉了?</b></a>
+      </ul>
+      <h3>
+      NetLogo 3D 问题
+    </h3>
+    <ul class="smaller">
+      <li>
+        <a href="#applet"><b>我能编一个3D的java小程序（Applet）吗?</b></a>
+      <li>
+        <a href="#stereo"><b>NetLogo 3D 能在固定设备上运行吗?</b></a>
+      </ul>
+    <h3>
+      扩展问题
+    </h3>
+    <ul class="smaller">
+      <li>
+        <a href="#classpath"><b>我编写了一个扩展，为什么编译器说找不到org.nlogo.api?</b></a>
+      </ul>
+      <h2>
+      General
+    </h2>
+    <h3>
+      <a name="name" id="name"></a>它为什么叫 NetLogo?
+    </h3>
+    <p>
+      "Logo"是因为NetLogo是Logo语言的一个方言。
+    <p>
+     "Net"暗指用NetLogo建模的现象（包括网络现象）具有分散化、互联性。也指HubNet，这个NetLogo所带的多用户参与式仿真环境。
+      <h3>
+      <a name="cite" id="cite"></a>在学术出版物上如何引用NetLogo?
+    </h3>
+    <p>
+      如果你使用或者引用了 NetLogo，HubNet 或者是一个NetLogo模型库中的模型， 请引用以下:
+    <p>
+      <i>NetLogo itself:</i> Wilensky, U. 1999. NetLogo. <a href=
+      "http://ccl.northwestern.edu/netlogo/">http://ccl.northwestern.edu/netlogo/</a>.
+      Center for Connected Learning and Computer-Based Modeling,
+      Northwestern University. Evanston, IL.
+    <p>
+      <i>HubNet:</i> Wilensky, U. &amp; Stroup, W., 1999. HubNet. <a href=
+      "http://ccl.northwestern.edu/netlogo/hubnet.html">http://ccl.northwestern.edu/netlogo/hubnet.html</a>.
+      Center for Connected Learning and Computer-Based Modeling,
+      Northwestern University. Evanston, IL.
+    <h3>
+      <a name="citemodel" id="citemodel"></a>在出版物上如何引用模型库中的模型?
+    </h3>
+    <p>
+      在每个模型的信息页的CREDITS AND REFERENCES 部分告诉了正确的引用方式。
+    <h3>
+      <a name="history" id="history"></a>NetLogo是在何时、何地开发的?
+    </h3>
+    <p>
+      NetLogo最早是1999年由Uri Wilensky在Center for Connected Learning and Computer-Based Modeling创建的，那时是在Boston的Tufts University。NetLogo出自 StarLogoT, StarLogoT是Wilensky在1997年开发的。2000年，CCL迁入Chicago地区的Northwestern University。NetLogo 1.0在2002年发行，2.0是2003年，3.0是2005年，4.0是2007年，4.1是2009年，5.0是2012年.
+      <h3>
+      <a name="written" id="written"></a>NetLogo是用哪种编程语言写的?
+    </h3>
+    <p>
+      NetLogo主要是用Scala写的，也有部分是用的Java。(Scala代码编制成Java字节，而且可以完全和Java及其他JVM语言互用。)
+    <h3>
+      <a name="starlogo" id="starlogo"></a>StarLogo和NetLogo有何关系?
+    </h3>
+    <p>
+      最早的StarLogo是MIT Media Lab在1989年开发的，运行在名为Connection Machine的计算机上。后来的版本是为Macintosh计算机开发的： MacStarLogo (1994, MIT) and StarLogoT (1997, Tufts)。
+    <p>
+      如今，在积极的开发下，StarLogo有两个后代：NetLogo (由Northwestern University的 CCL开发) and StarLogo TNG(由MIT开发)。NetLogo在教学和科研上都是最广泛应用的基于个体的建模环境。StarLogo TNG的区别在于它的编程界面使用了不同颜色的区域。
+      <h3>
+      <a name="license" id="license"></a>NetLogo采用哪种许可?能得到NetLogo 源代码吗?
+    </h3>
+    <p>
+      NetLogo是免费的，开放的源程序软件在<a href=
+      "http://www.gnu.org/licenses/gpl-2.0.html">GPL(GNU General Public
+      License), version 2</a>, 或者是其他后来的版本。
+    <p>
+      源程序<a href="https://github.com/NetLogo/NetLogo">在
+      GitHub, 这里</a>. 开发讨论在<a href=
+      "http://groups.google.com/group/netlogo-devel">netlogo-devel</a>
+      组里。
+    <p>
+      用户手册在Creative Commons
+      Attribution-ShareAlike license (<a href=
+      "http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>)下发行。
+    <p>
+      所有扩展的源程序和NetLogo一起在
+      <a href="https://github.com/NetLogo/">on GitHub, 这里</a>. 大部分扩展都在公共领域(<a href=
+      "http://creativecommons.org/about/cc0">CC0 notice</a>). 其他扩展在开源许可下。仔细查看每个扩展的README。
+    <p>
+      模型库中的代码例子都在公共领域。(<a href="http://creativecommons.org/about/cc0">CC0 notice</a>).
+    <p>
+      其他模型库中的模型在多种许可下提供，一些是公共领域，另一些是开放的资源，但大多数是在Creative Commons Attribution-ShareAlike
+      许可下的。 (<a href=
+      "http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</a>),
+      这种许可不是开源的，尽管模型对于非商业化的贡献和使用都是免费的。
+    <p>
+      看每个模型的信息查询特定的许可。
+    <p>
+      模型在公共的Git仓库中。<a href=
+      "https://www.assembla.com/spaces/models">这里</a>.
+    <h3>
+      <a name="workshop" id="workshop"></a>你们提供NetLogo研讨会或训练机会吗?
+    </h3>
+    <p>
+      我们有时提供研讨会。如果安排了研讨会，我们会在NetLogo主页和<a href=
+      "http://groups.yahoo.com/group/netlogo-users/">用户组</a>通知。
+    <h3>
+      <a name="books" id="books"></a>有NetLogo 教科书吗?
+    </h3>
+    <p>
+      查看我们的 <a href=
+      "http://ccl.northwestern.edu/netlogo/resources.shtml">资源</a>
+      网页教科书部分。
+    <p>
+     在CCL我们曾希望写一些NetLogo 的教程，面对不同层面的读者，如初中、高中、大学的建模或复杂性课程、为成人写的实用指南等。
+    <p>
+      非常遗憾我们一直没时间做这些。如果用户社区的某人对这项感兴趣，告诉我们，我们很欢迎。
+      <h3>
+      <a name="translation" id="translation"></a>NetLogo有英语版以外的版本吗?
+    </h3>
+    <p>
+      志愿者已经把用户手册翻译成中文和捷克语。这些翻译版本在NetLogo网站都可以下载。
+    <p>
+      目前，NetLogo已经有英语、西班牙语、汉语和俄语版本。这四种语言都包括在标准的下载中。
+    <p>
+    我们正在寻找志愿者来完善和提高这些本地化，并且将NetLogo软件和手册翻译成尽可能多的语言。如果你能够在这个方面提供帮助，请<a href="contact.html">联系我们</a>。
+     <h3>
+      <a name="compilation" id="compilation"></a>NetLogo 是编译的还是解释的?
+    </h3>
+    <p>
+      简短回答: 部分编译，我们正在工作使它成为完全编译的。
+    <p>
+      详细回答: NetLogo包括一个产生Java字节码的编译器。然而现在还不支持整个语言，因此部分代码是解释的。我们正在扩展编译器使它支持整个语言。注意我们的编译器产生字节码，Java虚拟机有一个“即时”编译器接着将字节码编译成机器码，因此用户程序最终转换为机器码。
+     <h3>
+      <a name="model" id="model"></a>有人建过某某模型吗?
+    </h3>
+    <p>
+      可以查看模型库，我们的 <a href=
+      "http://ccl.northwestern.edu/netlogo/models/community/">Community
+      Models</a>网页和我们的<a href=
+      "http://ccl.northwestern.edu/netlogo/references.shtml">对外界工作的引用</a>.
+    <p>
+      也可以在<a href=
+      "http://groups.yahoo.com/group/netlogo-users/">用户组</a> 中提问或查找以前组中的网页。
+    <h3>
+      <a name="reproduce" id="reproduce"></a>NetLogo 模型具有科学意义上的可重现性吗?
+    </h3>
+    <p>
+      有。 NetLogo 的主体调度算法是确定性的，并且NetLogo总是使用Java的"strict math"库，不管平台如何，总是给出按位（bit-for-bit）相同的结果。但是要记住以下几点：
+    <ul>
+    <li>如果模型使用随机数，为了获得可重现行为，必须先使用<tt>random-seed</tt> 命令设置随机数种子，这样模型每次都使用相同的随机数序列。记住主体集合总是采用随机顺序，因此使用主体集合时使用了随机数。
+    <li>如果以影响输出的形式使用<tt>every</tt>或<tt>wait</tt>命令，在不同的计算机，甚至在同一台计算机上可能得到不同的结果，因为模型运行速度可能不同。（这样的模型很少，这两个命令很常见，但影响结果的使用方式不常见）
+    <li>要准确重现结果，必须使用同一个NetLogo版本。在不同的NetLogo版本，主体调度机制和随机数发生器可能不同，其他的改变（引擎修复、语言改变等）也可能影响模型的行为（当然也可能不影响）。
+    <li>我们付出很多努力保证NetLogo模型的可重现，但这也不是铁的保证，这不仅因为可能会硬件故障，也可能因为设计中的人为差错：你的模型，NetLogo，Java虚拟机，硬件等等。
+      </ul>
+    <h3>
+      <a name="threedsplit" id="threedsplit"></a>NetLogo 和NetLogo 3D还会保持分离吗?
+    </h3>
+    <p>
+      暂时来说，是的。NetLogo 3D包含在NetLogo中，但它仍然是一个独立的应用。
+    <p>
+      最终是一个支持2D和3D 的统一版NetLo我们保证3D世界的支持不会妨碍你建造 2D模型。
+    <p>
+      使用NetLogo 3D preview版建造的模型要在最终统一版上运行，可能需要修改。
+    <h3>
+      <a name="ipad" id="ipad"></a>我能在iPad或者iPhone上运行Netlogo吗?
+    </h3>
+    <p>
+      不能。因为NetLogo是在Java的基础上创立的，而苹果的ios系统不支持（也不允许）Java。希望苹果有一天能够在这个问题上改变想法。
+    <p>
+      我们正在寻求资金，以在JavaScript和HTML5的基础上建立一个备用的装置。它可以在多种平台和手机上运行。但是很多人很多年在Java版本上付出的努力不能被经济、简单的被应用到另一个平台上。
+    <h2>
+      下载问题
+    </h2>
+    <h3>
+      <a name="multiversions" id="multiversions"></a>我能同时安装多个版本的NetLogo吗?
+    </h3>
+    <p>
+      可以。当安装NetLogo时，所创建的文件夹包含版本号，因此多个版本可以共存。
+    <p>
+     在Windows，你最后安装的版本将在Windows浏览器中双击模型文件时打开。在Mac，你可以在Finder的"Get Info"控制使用哪个版本。
+     <h3>
+      <a name="gnutar" id="gnutar"></a>我使用UNIX ，不能解包下载文件，为什么?
+    </h3>
+    <p>
+      下载tar包的某些文件路径名太长，超过标准tar格式所允许。必须使用GNU版的tar(或其他理解GNU tar扩展的程序)。在某些系统，GNU版的 tar程序名是"gnutar"。输入tar –version 看看输出是否是"tar (GNU tar)"，这样可以了解所用的tar 是否是GNU 版。
+    <h3>
+      <a name="unattended" id="unattended">怎样以无人看管方式安装NetLogo?</a>
+    </h3>
+    <p>
+      取决于所用操作系统.
+    <ul>
+       <li>
+        <p>
+          <b>Linux:</b> 将NetLogo 解包到合适的地方。
+        <p>
+          <b>Mac:</b> 从磁盘镜像复制NetLogo目录到应用程序文件夹。
+        <li>
+        <p>
+          <b>Windows:</b>
+        <p>
+          从要求线中使用-q选项运行安装程序：
+        <pre>
+NetLogo5.0Installer.exe -q
+</pre>
+      </ul>
+         <h3>
+      <a name="netlogo_java" id="netlogo_java"><b>在windows下，如何配置没有Java的安装文件使用的java安装程序?</b></a>
+         </h3>
+         <p>
+         没有Java的安装文件自动的在你的电脑上查找合适的Java安装程序。如果你想使netlogo对准一个特定的安装程序，你可能需要将设置环境变量NETLOGO_JAVA为到该安装程序的完全路径。
+          <ul>
+      <li>到开始菜单->控制面板->系统。
+      <li>切换到“高级”面板。
+      <li>按下“Environment Variables”按钮。
+      <li>添加NETLOGO_JAVA作为变量，并将其值设为到Java安装程序的路径。 
+     </ul>
+      <h2>
+     Java小程序（Applets）问题
+    </h2>
+    <h3>
+      <a name="appletjava" id="appletjava"></a>我想运行网站上的一个applet，但它不运行。我该怎么办?
+    </h3>
+    <p>
+      当前版本的NetLogo要求网页浏览器支持Java 1.4.1以上。关于java需求的细节，参考<a href="applet.html#java">考Java小程序指南</a>。
+     <h3>
+      <a name="secretweb" id="secretweb"></a>我能将模型作为applet，但不公开源代码吗?
+    </h3>
+    <p>
+      正常情况下，代码都不是秘密的。为了使applet正常运行，模型文件必须可访问。
+      
+    <p>
+      在File菜单使用"Save as applet"，所产生的HTML页包含源代码和下载模型文件的链接。
+    <p>
+      如果你想的话，可以移去此处的链接。如果这样做，用户不容易访问模型文件，但并非不可能。
+      
+     <p>
+      然而，Peter Brooks已经开发了一个NetLogo模糊程序可以使代码尽可能的无法破译。它在网上 <a href="http://bert.stuy.edu/pbrooks/netlogo/obfuscator">这里</a>。
+      <h3>
+      <a name="appletfiles" id="appletfiles"></a>保存为applet 的模型能通过<tt>import-world</tt>, <tt>file-open</tt>, 和其他命令读文件吗?
+    </h3>
+    <p>
+      可以，但只能读取Web服务器上与模型文件和HTML同一目录下的文件。Applet不能读取用户机器上的文件，只能读取Web服务器上的文件。
+      <h3>
+      <a name="applet200OK" id="applet200OK"></a>当我以Applet加载我的模型时，出错: java.lang.ClassFormatError: Incompatible magic value.
+    </h3>
+    <p>
+      如果你的浏览器对请求不存在的页返回定制错误信息，它必须同时返回错误码404 Not Found。否则NetLogo认为下面的数据正是所请求的,并且试着读取。即使运行 applet所需的文件都在，也会发生这样的问题。
+    <p>
+      如果web服务器没有控制错误信息，可以使用下面的作为工作区（you can use the following as a workaround）：
+    <ul>
+      <li>在applet文件所在目录创建目录 <tt>META-INF</tt> 
+      <li>创建 <tt>META-INF</tt> 的子目录<tt>services</tt>
+      <li>在<tt>services</tt> 子目录创建文件
+      <tt>org.apache.commons.logging.LogFactory</tt> 
+      <li>将下面的行加到 
+      <tt>org.apache.commons.logging.LogFactory</tt>:
+        <pre>
+org.apache.commons.logging.impl.LogFactoryImpl
+</pre>
+      </ul>
+      <p>
+      注意所有目录和文件名都是大小写敏感，必须完全一致。
+     <h2>
+     运行问题
+    </h2>
+    <h3>
+      <a name="runcd" id="runcd"></a>能在CD上运行NetLogo吗?
+    </h3>
+    <p>
+      能。NetLogo在只读文件系统上运行的很好。
+    <h3>
+      <a name="slowlaptop" id="slowlaptop"></a>当拔掉Windows笔记本的电源时，为什么NetLogo这么慢?
+    </h3>
+    <p>
+      当拔掉电源时，笔记本切换到节电模式。速度略降一点是正常的，但不幸的是Java有一个bug使得Swing应用程序大幅度变慢，而NetLogo也是这样的应用程序。
+    <p>
+      一种方法是改变计算机的电源设置，使得当拔掉电源时不切换到节电模式。（如果这样的话，电池不能支持太久）。
+    <p>
+      另一种方法是编辑NetLogo目录（在硬盘的Program Files目录，除非你安装到其他目录）的NetLogo.lax文件，使用Sun推荐的一个选项。编辑这一行：
+    <pre>
+-Dsun.java2d.ddoffscreen=false
+</pre>
+    <p>
+      查看Java bug的细节，投票促使Sun排除它。
+      <a href=
+      "http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5095398">这里</a>。
+     <h3>
+      <a name="linuxcompat" id="linuxcompat"></a>在Linux机器上NetLogo 怎么不能运行?
+    </h3>
+    <p>
+      当在Linux上使用NetLogo时，推荐使用Sun的Java 运行库。
+    <p>
+      理论上任何Java runtime 1.4.1以上都能运行NetLogo 。然而，有些Java实现不支持NetLogo使用的某些功能，如Java2D 和 Swing 。例如Linuxs上基于GNU libgcj的Java运行库就不行，该运行库在某些Linux发行版上预安装。
+    <p>
+      Ubuntu用户可以咨询<a href=
+      "http://help.ubuntu.com/community/Java">http://help.ubuntu.com/community/Java</a>.
+    <h3>
+      <a name="windowsmemory" id="windowsmemory"></a>在Windows 启动NetLogo时，出现错误信息"could not create Java virtual machine" , 帮忙啊!
+    </h3>
+    <p>
+      一个可能的办法是使用文本编辑器修改NetLogo 5.0 vmoptions文件（在NetLogo目录，默认是在C:\Program Files）：
+    <pre>
+-Xmx1024m
+</pre>
+    <p>
+      试试将1024m改为较小的数如512m。这样应该能让NetLogo运行起来，但因为堆的大小受限，有很多主体的模型可能无法运行。（参见模型可以有多大<a href="#howbig">How
+      big can my model be?</a>）
+    <p>
+      如果使用较低的堆大小限制运行不可以，请接着读。
+    <p>
+      有些windows系统在分配大量连续虚拟内存时会出现问题。升级到一个更新版本的windows可能有帮助
+    <p>
+      在32位模式而不是64位模式下娙windows可能有帮助。仔细检查windows是不是实际上在64位模式下运行；查看
+      <a href=
+      "http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">
+      Microsoft's FAQ page on 64-bit Windows</a>.
+      <h3>
+      <a name="batch" id="batch"></a>能使用命令行而不需GUI运行NetLogo吗?
+    </h3>
+    <p>
+      能。最容易的方式是将你的模型作为行为空间实验来运行。不需额外编程。参考用户手册的 <a href="behaviorspace.html">行为空间指南</a>，获知细节。
+    <p>
+      另一种方法是使用控制API，这需要编写一些Java程序。参考用户手册的 <a href=
+      "controlling.html">控制指南</a> 获知细节和代码例子。
+     <h3>
+      <a name="multiprocessing" id="multiprocessing"></a>NetLogo能利用多个处理器/内核的优势吗?
+    </h3>
+    <p>
+      只有使用行为空间时才可以。行为空间是平行运行的，每个处理器处理一个。
+    <p>
+      单个模型在运行时，只占用一个处理器。
+    <p>
+      我们正在寻找资金来使它可以分解一个单个模型使用多个处理器或者多台电脑运行。
+    <h3>
+      <a name="cluster" id="cluster"></a>NetLogo模型能分布运行在计算机集群上吗?
+    </h3>
+    <p>
+     上个问题已经谈到了很多相同的事情。无法将单个模型分割到多个计算机上，但能使用行为空间或控制 API,使集群中的每台计算机运行单独的模型。由于不支持自动在集群中分散运行，你需要自己安排。
+    <p>
+      许多用户已经在各种硬件、软件集群上使用NetLogo，可以在 <a href=
+      "http://groups.yahoo.com/group/netlogo-users/">NetLogo用户组</a>找到他们。
+    <h3>
+      <a name="autosave" id="autosave">当NetLogo崩溃或者没有反应的时候，我能够回复丢失的工作吗？</a>
+    </h3>
+    <p>
+      能。NetLogo在你使用时能够自动保存文件。自动保存的文件可以在你的OS-specific 临时目录中找到。在多数类Unix系统中（包括Maxos）是<tt>/tmp</tt>。在Windows XP中，日志文件可以在<tt>C:\Documents andSettings\&lt;user&gt;\Local Settings\Temp</tt>中找到，其中的<tt>&lt;user&gt;</tt>是用户被记录的内容，在Windows Vista中，日志可以在<tt>C:\Users\&lt;user&gt;\AppData\Local\Temp</tt>中被找到。这些文件都按照以下形式命名：<tt>autosave_yyyy-MM-dd.HH_mm_ss.nlogo</tt>，其中时间和日期是模型被打开的时间和日期。
+     <h2>
+      使用问题
+    </h2>
+    <h3>
+      <a name="fastseemsslow" id="fastseemsslow"></a>当我把速度滑动条一下子拖到最右边时，为什么模型看起来像停止一样?
+    </h3>
+    <p>
+      NetLogo让模型运行更快的唯一方法是减少视图更新。当你将速度滑动条向右拖动时，视图更新频率越来越小。由于视图更新花费时间，频率变小意味着速度更快。
+    <p>
+      然而更新少还意味着更新间隔变大，当间隔达到几秒时，看起来模型就像停止了。实际没有，它在全速运行，看看时钟计数器（tick counter）就知道了。（如果模型使用了时钟计算器就看它，否则看别的事物，如绘图等）
+    <p>
+     要感知发生的事情，最好慢慢的把滑动条拖到右边，而不是一下子拖到最右。如果发现在最右侧视图更新太少，那就别拖那么多。
+     <h3>
+      <a name="paint" id="paint"></a>我能使用鼠标在视图上画图（"paint"）吗?
+    </h3>
+    <p>
+      NetLogo没有内建在视图上画图的工具。但只要在模型中加上几行代码，就可以有画图能力。要知道如何实现，查看模型库的Code Examples部分的Mouse Example。同种技术也用来实现用户使用鼠标与模型交互。
+    <p>
+      第三种方法是使用其他程序创建图像，然后利用文件菜单的输入条目或者<tt>import-*</tt> primitives导入模型。
+    <h3>
+      <a name="howbig" id="howbig"></a>模型可以多大? 模型能包含多少海龟、瓦片、例程、按钮等?
+    </h3>
+    <p>
+      我们测试过使用几百兆RAM的模型，运行的很好。但还没有测试过使用上G字节RAM的模型，理论上应该没问题，但可能会遇到Java虚拟机和/或操作系统的某些限制（他们都有局限，或bug）
+     <p>
+      NetLogo引擎没有设定规模限制，然而默认有最大1G字节RAM的限制。如果你的模型超出了这个限制，就会有OutOfMemoryError的对话框提示。
+    <p>
+      如果你在使用行为空间，注意在平行运行程序也会使RAM的使用相应的成倍增加。
+    <p>
+         如果需要的话，可以增加这个上限：
+         <ul>
+      <li>
+        <b>Windows:</b> 编辑Netlogo文件夹中“NetLogo 5.0.vmoptions”文件的这个部分：
+        <pre>
+           -Xmx1024m
+        </pre>
+        <li>
+        <b>Mac OS X:</b> 编辑NetLogo应用文件夹中的Contents/Info.plist文件。相关的部分是这个：最后一个数字（1024）是1G的上限;
+        <pre>
+&lt;key&gt;VMOptions&lt;/key&gt;
+&lt;string&gt;-XX:MaxPermSize=128m -Xmx1024m&lt;/string&gt;
+</pre>
+        <li>
+        <b>其他:</b> 编辑<tt>netlogo.sh</tt> 脚本 (或它的拷贝)，将数值<code>-Xmx</code>  改为所需的数。
+      </ul>
+      <h3>
+      <a name="gisimport" id="gisimport"></a>可以将GIS 数据导入 NetLogo吗?
+    </h3>
+    <p>
+      可以。有些用户已经建立了使用光栅GIS数据的模型。最完整的方式就是使用GIS的扩展。在 <a href=
+      "gis.html">GIS Extension Guide</a>中查找。
+    <p>
+      一种简单方法是使<tt>import-pcolors</tt>，但这只能输入图像，而不是其他格式的图。
+    <p>
+      也可以写NetLogo代码利用文件输入/输出原语例如<tt>file-open</tt>去读GIS。例如在模型例子中Earth Science部分的 the Grand Canyon model。
+       <h3>
+      <a name="speed" id="speed"></a>模型运行很慢，怎么能快一些?
+    </h3>
+    <p>
+      有一些方法不用修改代码结构，可以使模型运行快一些：
+       <ul>
+      <li>使用基于滴答的视图更新，而不使用连续更新.
+      <li>将速度滑动条拖到最右 (通过减少视图更新频率，加快模型)
+      <li>如果你的模型占用了所有内存，给计算机加点内存可能有用。如果模型运行时硬盘噪音很多，可能模型需要更多内存。
+      <li>海龟大小设为1, 1.5, 或2 ，NetLogo对这几个大小做缓存。(这个只在2D的视图下影响图形速度，而不是运算速度。)
+      </ul>
+      <p>
+     然而很多情况下要使模型运行更快，需要修改程序。最常见的改进机会是有些计算涉及到所有海龟或所有瓦片，经常模型此处可以修改，使每步计算减少。 <a href=
+      "http://groups.yahoo.com/group/netlogo-users/">NetLogo 用户组</a> 的成员可能会有所帮助。
+      <p>
+      <a href="profiler.html">profiler extension</a>对于辨别程序中那个部分占用时间最长很有帮助。
+    <p>
+      注意使用<tt>run</tt> 和<tt>runresult</tt> 比直接运行慢得多。如果代码对性能敏感就不要使用这些原语。
+     <h3>
+      <a name="multimodels" id="multimodels"></a>能同时打开多个模型吗?
+    </h3>
+    <p>
+      一个NetLogo 实例只能同时打开一个模型。(我们计划在将来的版本对此做出修改)
+    <p>
+      然而可以同时打开多个NetLogo实例。在Windows 和 Linux，只要再次启动NetLogo即可。在Mac,需要在Finder中复制应用程序，然后打开拷贝。（拷贝只占用一点硬盘空间）
+     <h3>
+      <a name="changechooser" id="changechooser"></a>能在运行时改变选择器的选项吗?
+    </h3>
+    <p>
+     目前不能。我们计划在将来的NetLogo版本支持这个功能。
+     <h3>
+      <a name="include" id="include"></a>能将模型代码分到几个文件吗?
+    </h3>
+    <p>
+      能。这是一个实验性功能，使用关键词<tt>__includes</tt> 。
+     <h2>
+      编程问题
+    </h2>
+    <h3>
+      <a name="logodiffs" id="logodiffs"></a>NetLogo 语言与其他Logo语言有什么区别?
+    </h3>
+    <p>
+      在 <a href=
+      "programming.html">编程指南</a>的结尾有详细的解答。
+     <h3>
+      <a name="transition" id="transition"></a>用以前NetLogo建立的模型怎么不能正常工作?
+    </h3>
+    <p>
+      请查找 <a href="transition.html">迁移指南</a>。
+     <h3>
+      <a name="unaryminus" id="unaryminus"></a>怎样取一个数的负值?    </h3>
+    <p>
+      下面几种方法都可以:
+    <pre>
+(- x)
+-1 * x
+0 - x
+</pre>
+    <p>
+      第一种方法需要括号。
+       <h3>
+      <a name="nextpatch1" id="nextpatch1"></a>海龟前进1，但还在原来的瓦片上，为什么?
+    </h3>
+    <p>
+      如果你的模型中并没有使用循环边界，那海龟可能处在世界的边缘，不能够再向前移动了。你可以使用来<tt>can-move?</tt>检测。
+    <p>
+      假设海龟并没有处在世界的边缘，那么只有当海龟的方向是90的倍数（即正北、正南、正东或正西）时，前进1才能保证移动到新瓦片。
+    <p>
+      因为海龟可能不在瓦片的中心点，可能在角部。例如海龟靠近瓦片的西南角，面向东北，瓦片对角长为1.414…(2的方根)，因此<tt>fd 1</tt>后海龟只是移动到同一瓦片的东北角。
+     
+    <p>
+     如果你不想考虑这个问题，一种方法是以某种方式编程，使海龟总是停在瓦片的中心。看下一个问题。
+     <h3>
+      <a name="nextpatch1b" id="nextpatch1b"></a>怎样保持海龟在瓦片中心?
+    </h3>
+    <p>
+      当海龟的<tt>xcor</tt> 和 <tt>ycor</tt> 是整数时，它就在瓦片的中心。  
+    <p>
+      使用下面的两个等价的命令之一，将海龟移动到当前瓦片的中心:
+    <pre>
+move-to patch-here
+setxy pxcor pycor
+</pre>
+    <p>
+      如果之前不允许海龟偏离瓦片中心，则不需要用这些命令。
+    <p>
+      <tt>sprout</tt>创建的海龟在瓦片中心，例如：
+    <pre>
+ask n-of 50 patches [ sprout 1 [ face one-of neighbors4 ] ]
+</pre>
+    <p>
+      另一种使海龟在开始时处于瓦片中心的方式是使用下面的命令，它将海龟移动到随机选择的瓦片的中心：
+    <pre>
+move-to one-of patches
+</pre>
+    <p>
+      一旦海龟位于瓦片中心，只要它的方向恰是90的倍数（即正北、正南、正东或正西），并且前进或后退的数量是整数，则它将一直位于瓦片中心。
+    <p>
+     参考模型库Code Examples部分的Random Grid Walk Example，看看使用的代码片段。
+     <h3>
+      <a name="nextpatch2" id="nextpatch2"></a><tt>patch-ahead 1</tt> 返回海龟当前所在的瓦片，为什么?
+    </h3>
+    <p>
+      看前两个问题的答案，这是同一个原因。
+    <p>
+     "ahead"的含义与你期望的可能不一样。使用 <tt>patch-ahead</tt>必须指定要查看的前方距离。如果海龟连续前进，你想知道海龟将要进入的瓦片，这个命令能帮你找到它。参考模型库Code Examples部分的Next Patch Example。
+     <h3>
+      <a name="vision" id="vision"></a>怎样给海龟视场("vision")?
+    </h3>
+    <p>
+      使用<tt>in-radius</tt>让海龟看到它周围的圆形区域。 
+    <p>
+      有几个原语让海龟看到特殊的点。<tt>patch-ahead</tt>让海龟看到正前方，如果希望海龟看到其他方向，使用<tt>patch-left-and-ahead</tt> 和<tt>patch-right-and-ahead</tt>。
+    <p>
+      如果要海龟有完整的锥形视场，使用<tt>in-cone</tt>原语。
+     <p>
+      如果海龟连续前进，也可以看到要穿越的下个瓦片。
+     <h3>
+      <a name="sensedrawing" id="sensedrawing"></a>海龟能感知画图层（drawing layer）的东西吗?
+    </h3>
+    <p>
+      不能。如果要创建海龟可以感知的标志，使用patch colors。
+     <h3>
+      <a name="rounding" id="rounding"></a>我得到的是像0.10000000004 和 0.799999999999 这样的数，而不是0.1 和 0.8。为什么?
+    </h3>
+    <p>
+      查看<a href="programming.html#math">&quot;数学&quot; 编程指南</a>，那里有关于这个的讨论。
+    <h3>
+      <a name="onepointoh" id="onepointoh"></a>文档说<tt>random-float 1</tt>可能返回0 但不可能返回1，如果我想包括1怎么办?
+    </h3>
+    <p>
+      实际上不需要。即使可能返回1，但它需要2^64抽样才会出现1次，你需要等上几百年才会看到1的出现。
+    <p>
+      然而，如果你真的需要1，你可以在某个小数位上进行四舍五入。例如：
+     <pre>
+print precision (random-float 1) 10
+0.2745173723
+</pre>
+    <p>
+      （如果使用这种方法，注意0和1出现的可能性是其他数的1半13。为什么会这样呢？例如只保留小数点后1位，0和0.5之间的数取为0，但0.5到1.5之间的数取为1，后一个范围是2倍大。如果你想等概率得到0，0.1，0.2，…，0.9和1，一种方法是写<tt>random 11 / 10</tt>，这样所有11个数是等概率的。）
+     <h3>
+      <a name="twoturtles1patch" id="twoturtles1patch"></a>怎样防止两个海龟占据同一个瓦片?
+    </h3>
+    <p>
+      参考模型库Code Examples部分的One Turtle Per Patch Example。
+    <h3>
+      <a name="dead" id="dead"></a>怎样判断海龟是否死亡?
+    </h3>
+    <p>
+      海龟死亡后，它变成<tt>nobody</tt>。<tt>nobody</tt>是NetLogo的一个特别值，用来表明海龟或瓦片不存在。例如：
+    <pre>
+if turtle 0 != nobody [ ... ]
+</pre>
+    <p>
+      也可以使用 <tt>is-turtle?</tt>:
+    <pre>
+if is-turtle? turtle 0 [ ... ]
+</pre>  
+     <h3>
+      <a name="arrays" id="arrays"></a>NetLogo有数组吗?
+    </h3>
+    <p>
+      大多数模型应该使用列表。通常在其他编程语言中使用数组的动机是它们提供快速的随机路径(<tt>item</tt>)和变异(<tt>replace-item</tt>)。但是即使NetLogo的列表是恒定的，现在在这些操作上能够提供接近恒定时间的性能。
+     <p>
+      早期版本的NetLogo (4.1 and 4.0)是简单的单链接列表，因此有很多操作需要的时间是线性的。现在NetLogo数据的结构是在Scala仓库里的恒定的向量类。它使用的是32位宽的 <a href=
+      "http://en.wikipedia.org/wiki/Hash_array_mapped_trie">哈希数组遍历尝试</a>，正如Tiark Rompf实现的，基于Phil Bagwell和Rich Hickey的部分工作得到的一样。
+      
+    <p>
+      如果你确定要在模型中使用原始的可变的JVM数组，可以在数组扩展中找到。参考用户手册的数组和表（Arrays & Tables）部分。
+     <h3>
+      <a name="associative" id="associative"></a>NetLogo有哈希表或关联数组吗?
+    </h3>
+    <p>
+      有，使用表扩展。参考用户手册的数组和表（Arrays & Tables）部分。
+         <h3>
+      <a name="neighborhoods" id="neighborhoods"></a>怎样使用不同的瓦片邻域（"neighborhoods"） (圆形, Von Neumann, Moore, 等)?
+    </h3>
+    <p>
+      <tt>in-radius</tt> 原语用来访问任何直径的圆形领域。
+    <p>
+      <tt>neighbors</tt> 给出半径为1的Moore邻域。<tt>neighbors4</tt>原语给出半径为1 的Von Neumann邻域。
+    <p>
+      关于半径大于1的Moore 或 Von Neumann邻域，查看模型库Code Examples部分的Moore & Von Neumann Example。
+         <h3>
+      <a name="agentsetlist" id="agentsetlist"></a>怎样将一个主体集合转换为主体的列表，或相反?
+    </h3>
+    <p>
+      如果希望列表元素有特定的顺序，使用 <tt>sort</tt> 或者
+      <tt>sort-by</tt> 原语。编程指南的列表部分告诉你怎么做。也可查看模型库Code Examples部分的Ask Ordering Example。
+    <p>
+      如果需要列表元素随机顺序，见下面：
+    <pre>
+[self] of &lt;agentset&gt;
+</pre>
+     <p>
+      因为对主体集合的操作都是随机顺序，因此得到的列表是随机顺序。
+    <p>
+      要把主体列表转换为主体集合，使用
+      <tt>turtle-set</tt>, <tt>patch-set</tt>, 或者 <tt>link-set</tt>
+      原语。
+     <h3>
+      <a name="stoppingforeach" id="stoppingforeach"></a>如何停止foreach?
+    </h3>
+    <p>
+      要停止foreach的执行，需要定义一个只包含foreach的独立例程，例如：
+    <pre>
+to test
+  foreach [1 2 3] [
+    if ? = 2 [ stop ]
+    print ?
+  ]
+end
+</pre>
+    <p>
+      这段代码只会打印数字1。<tt>stop</tt>从当前例程返回，后面的不再执行。（如果是报告器例程，使用<tt>report</tt>而不是<tt>stop</tt>）
+     <h2>
+      行为空间问题
+    </h2>
+    <h3>
+      <a name="tableoutoforder" id="tableoutoforder"></a>为什么行为空间表结果里面的行不按照顺序排列?
+    </h3>
+    <p>
+      当多个程序平行运行时，这个问题很常见。如果想讨论这个问题，可以查看用户手册中平行运行的<a href=
+      "behaviorspace.html">行为空间指南</a>部分。
+     <h3>
+      <a name="everynticks" id="everynticks"></a>怎样每n个滴答收集一次运行数据?
+    </h3>
+    <p>
+      使用的go命令用上<tt>repeat</tt> , 例如: 
+    <pre>
+repeat 10 [ go ]
+</pre>
+    <p>
+      则10个时间步测量一次。本质是每个实验步等于10个模型步。
+      <h3>
+      <a name="bsglobals" id="bsglobals"></a>我变动在例程页声明的一个全局变量，但没作用。为什么?
+    </h3>
+    <p>
+      可能是setup命令或setup例程使用了<tt>clear-all</tt>，使得行为空间设定的值被清除了。
+    <p>
+      一种办法是改变实验的setup命令，保存变量值，例如：
+    <pre>
+let old-var1 var1
+setup
+set var1 old-var1
+</pre>
+    <p>
+      这能奏效，因为即使是<tt>clear-all</tt>也不能清除用<tt>let</tt>设定的局部变量。
+    <p>
+      另一种方法是改变模型的setup例程，使用特别的清除命令只清除所要清除的东西。
+      <h3>
+      <a name="columns" id="columns"></a>为什么在Excel里某些结果被截掉了?
+    </h3>
+    <p>
+      有些版本的Excel电子表格不能多于256列。 (查看关于这个问题的 <a href=
+      "http://office.microsoft.com/en-us/assistance/HA010548191033.aspx">一个
+      Microsoft的支持文件</a>)
+    <p>
+      可能的方法有:
+    <ul>
+      <li>使用新一些的Excel, 如Excel 2007或者Excel 2008 (Mac)。
+      <li>使用Excel之外的其他程序。
+      <li> 要求行为空间使用表格形式产生结果，而不是或者另外使用电子表格形式。(Excel也能读取表格格式)
+      <li>改变实验，使得结果的列数少一些。
+      </ul>
+      <h2>
+      NetLogo 3D 问题
+    </h2>
+    <h3>
+      <a name="applet" id="applet"></a>我能编一个3D的java小程序（Applet）吗?
+    </h3>
+    <p>
+     现在的版本不能。也许将来的版本可以。
+    <h3>
+      <a name="stereo" id="stereo"></a>NetLogo 3D 能在固定设备上运行吗?
+    </h3>
+     <p>
+      NetLogo支持全屏独占模式。如果这就是你的设备需要的的话，那可能就可以。然而，要使它运行却很有误导性。我们没有相关设置因此让这个过程简单比较困难。如果你的设备需要其他的，例如使quadbuffers不能用，这样可能不能实现。
+       <h2>
+     扩展问题
+    </h2>
+    <h3>
+      <a name="classpath" id="classpath"></a>我编写了一个扩展，为什么编译器说找不到org.nlogo.api?
+    </h3>
+    <p>
+      编译时需要把NetLogo.jar加到类路径（classpath），NetLogo.jar文件在NetLogo目录。
+
+     
+     
+    
+     
+     
+
+</head>
+
+<body>
+</body>
+</html>

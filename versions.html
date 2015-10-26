@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: What's New?
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      更新历史
+    </h1>
+    <div class="version">
+      NetLogo 5.0 用户手册
+    </div>
+    <p>
+      以下是一个缩略的历史。 <a href=
+      "https://github.com/NetLogo/NetLogo/wiki/Release-notes">详细的版本注释</a> 在GitHub。
+    <p>
+      需要寻求旧版本上运行程序的帮助，查看 <a href=
+      "transition.html">迁移指南</a>。
+    <h2>
+      Version 5.0 (February 2012)
+    </h2>
+    <ul>
+      <li>功能：
+        <ul>
+          <li>开源(GPL license; 网上源程序在 <a href=
+          "https://github.com/NetLogo/NetLogo">https://github.com/NetLogo/NetLogo</a>)
+          <li>模型实例和课程模型的新许可是创作共同署名非商业使用相同方式共享。
+          <li>支持应用国际字符（Unicode）
+          <li>GUI有了西班牙语，俄语和汉语版本。（志愿翻译者所为）
+          <li>信息选项卡中丰富的格式和图像减少了
+          <li>画图程序在画图框中运行
+          <li>可以修改模型运行速度（调节帧速率的设置）
+          <li>按钮在开始计时前都可以选择不能用
+          <li>3D视图和Netlogo3D中可以使用半透明的颜色（只能用RGB颜色）
+          </ul>
+      <li>语言改变
+        <ul>
+          <li>“任务”存储稍后运行的代码
+            <ul>
+              <li>又叫做第一类函数，终结，lambda
+              <li>新的原语： <tt>task</tt>, <tt>is-command-task?</tt>,
+              <tt>is-reporter-task?</tt>
+              <li>这些原语接受任务： <tt>run</tt>,
+              <tt>runresult</tt>, <tt>foreach</tt>, <tt>map</tt>,
+              <tt>reduce</tt>, <tt>filter</tt>, <tt>n-values</tt>,
+              <tt>sort-by</tt>
+              </ul>
+          <li>总体上提高了列表的性能（很多操作不再使用线性的时间，而是使用接近恒定的时间）
+          <li>在使用<tt>tick</tt>或<tt>tick-advance</tt>之前，必须使用<tt>reset-ticks</tt>开始计时
+          <li>增加了新的原语<tt>setup-plots</tt>和<tt>update-plots</tt>
+          <li>新的原语<tt>sort-on</tt>可以这样使用，例如：<tt>sort-on
+          [size] turtles</tt>
+          <li>新的原语<tt>error</tt>造成了运行时间错误
+          <li>
+            <tt>random-normal</tt>避免了负的标准差
+          </ul>
+           <li>HubNet:
+        <ul>
+          <li>activities can run headless
+          <li>增加了新的原语<tt>hubnet-clients-list</tt>,
+          <tt>hubnet-kick-client</tt>, <tt>hubnet-kick-all-clients</tt>
+          <li>
+            不再需要<tt>hubnet-set-client-interface</tt> 
+          </ul>
+      <li>其他修订和改变：
+        <ul>
+          <li>tabs改名为 Interface/Info/Code
+          <li>命令中心允许返回自动加入 <tt>show</tt> 命令
+          <li>NetLogo 3D 使用 .nlogo3d 而不是 .nlogo
+          <li>
+            <tt>import-world</tt>更快了
+          <li>
+            <tt>startup</tt>不再无目的运行或者在背景中，而在行为空间中运行
+          <li>修订的 3D 中小乌龟颜色过浅的错误
+          <li>Pack200 允许在java小程序中快速装载
+          <li>Mac app 默认以64 bit 模式运行
+          <li>升级了的 Windows 安装
+          <li>GoGo 扩展开始经验在所有平台上更加平稳
+      
+          </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+</body>
+</html>

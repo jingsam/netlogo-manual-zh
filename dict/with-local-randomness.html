@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        with-local-randomness
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="with-local-randomness" id=
+        "with-local-randomness">with-local-randomness</a>
+      </h3>
+      <h4>
+        with-local-randomness [ <i>commands</i> ]
+      </h4>
+      <p>
+        The commands are run without affecting subsequent random events.
+        This is useful for performing extra operations (such as output)
+        without changing the outcome of a model.
+      <p>
+        Example:
+      <pre>
+;; Run #1:
+random-seed 50 setup repeat 10 [ go ]
+;; Run #2:
+random-seed 50 setup
+with-local-randomness [ watch one-of turtles ]
+repeat 10 [ go ]
+</pre>
+      <p>
+        Since <tt>one-of</tt> is used inside
+        <tt>with-local-randomness</tt>, both runs will be identical.
+      <p>
+        Specifically how it works is, the state of the random number
+        generator is remembered before the commands run, then restored
+        afterwards. (If you want to run the commands with a fresh random
+        state instead of the same random state that will be restored later,
+        you can begin the commands with <tt>random-seed new-seed</tt>.)
+      <p>
+        The following example demonstrates that the random number generator
+        state is the same both before the commands run and afterwards.
+      <pre>
+random-seed 10
+with-local-randomness [ print n-values 10 [random 10] ]
+;; prints [8 9 8 4 2 4 5 4 7 9]
+print n-values 10 [random 10]
+;; prints [8 9 8 4 2 4 5 4 7 9]
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

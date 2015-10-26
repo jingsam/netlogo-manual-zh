@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: BehaviorSpace Guide
+    </title>
+</head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<body>
+ 
+  <h1>
+     行为空间指南
+    </h1>
+    <div class="version">
+      NetLogo 5.0 User Manual&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+      本指南包括三部分:
+    <ul>
+      <li>
+        <a href="#what"><b>BehaviorSpace是什么?</b></a>: 对该工具的一般性描述，包括基本思想和原理。
+      <li>
+        <a href="#how"><b>怎么用</b></a>: 带你过一遍工具的使用，重点介绍常用的功能。
+      <li>
+        <a href="#advanced"><b>高级用法</b></a>: 怎样在命令行使用BehaviorSpace ，或者怎样在Java代码里使用它。
+        <!--<LI><a href="#reference"><b>Interface Reference</b></a>: Describes
+each main window, as well as the interface components within those
+windows.-->
+      </ul>
+    <h2>
+      <a name="what" id="what">什么是BehaviorSpace?</a>
+    </h2>
+    <p>
+      BehaviorSpace 是与NetLogo集成的工具，用它对模型进行实验。
+    <p>
+     它多次运行模型，系统改变模型的配置，记录每次运行结果。
+      该过程有时称为 &quot;参数扫描&quot;.帮助你探索模型的可能 &quot;行为空间&quot; 确定哪种参数组合导致感兴趣的行为。
+    <p>
+      如果你的电脑有不止一个处理器核心，那么默认模型会平行运行，每次在一个核心上。
+    <h3>
+     为什么需要BehaviorSpace?
+    </h3>
+    <p>
+      下面的观察表明需要这样的实验工具。模型一般有多个参数，每个参数有一个取值范围，这些参数一起构成了数学上所谓的参数空间，该空间的维数是参数的数量，空间的一个点代表参数取值的一个组合。用不同的配置（有时甚至同一个配置）运行模型可能导致非常不同的系统行为。因此你怎么知道是哪个配置或哪类配置会产生你感兴趣的行为呢？等价于这样的问题：在这个巨大的多维参数空间里，哪个配置使模型有最佳性能？
+    <p>
+     例如，假设在Fireflies模型中你希望快速同步。模型有四个滑动条-- number, cycle-length, flash-length和 number-flashes，它们分别大约有2000，100，10和3个可能值，这意味着有2000 * 100 * 10 * 3 = 6，000,000个可能组合！要一个个的实验这些组合，了解哪个会激发最快的同步几乎是不可能的。
+    <p>
+      用BehaviorSpace能更好的解决这个问题。如果你指定每个滑动条取值范围的子集，它将对所有可能的组合进行实验，记录每次运行的结果。在这样做时，它对参数空间进行采样—不是穷尽，但足够让你看到滑动条取值与系统行为之间的关系形式。所有运行结束后产生一个数据集，可以用如电子表格、数据库、科学可视化应用程序等工具打开数据集，进行探索。
+      <!--you are presented with a visual display with which you can --> 
+    <p>
+      BehaviorSpace可能是建模人员的得力助手，因为它能让你探索模型的整个行为 &quot;空间&quot;。
+      <h2>
+      <a name="how" id="how">怎样使用</a>
+    </h2>
+    <p>
+     要开始使用BehaviorSpace，打开你的模型，然后在NetLogo的Tools菜单里选择BehaviorSpace菜单项。
+    <h3>
+      管理实验设置
+    </h3>
+    <p>
+      现在打开的对话框让你创建、编辑、复制、删除、运行实验设置。所有实验名和模型运行次数一一列出。
+    <p>
+      实验设置被看作模型的一部分，与模型一起保存。
+    <p>
+      要创建一个新的实验设置，按下"New"按钮。
+    <h3>
+      创建一个实验设置
+    </h3>
+    <p>
+     在新出现的对话框里，可以指定以下信息。注意不一定要指定所有项，有些空着就可以，或使用默认值，这取决于你的需要。
+    <p>
+      <b>Experiment name:</b> 如果有多个实验设置，给每个实验指定一个名字，这样比较有条理。
+    <p>
+      <b>Vary variables as follows:</b> 此处指定哪些参数要变化，它们怎样取值。参数可以是滑动条、开关、选择器、模型中的全局变量。
+    <p>
+      参数也可以是 <a href=
+      "dictionary.html#max-pxcor"><tt>max-pxcor</tt></a>, <a href=
+      "dictionary.html#min-pxcor"><tt>min-pxcor</tt></a>, <a href=
+      "dictionary.html#max-pycor"><tt>max-pycor</tt></a> 和 <a href=
+      "dictionary.html#min-pycor"><tt>min-pycor</tt></a>, <a href=
+      "dictionary.html#world-width"><tt>world-width</tt></a>, <a href=
+      "dictionary.html#world-height"><tt>world-height</tt></a> 和 <a href=
+      "dictionary.html#random-seed"><tt>random-seed</tt></a>. 严格来说它们并不是参数，然而BehaviorSpace允许变动它们。变动世界的大小可以用来探索世界规模对模型的影响。因为仅设置 <a href=
+      "dictionary.html#world-width"><tt>world-width</tt></a> 和<a href=
+      "dictionary.html#world-height"><tt>world-height</tt></a> 无法确定世界的边界，世界如何变动取决于原点的位置。如果原点在中心，BehaviorSpace将保持原点的中心地位，因此<a href=
+      "dictionary.html#world-width"><tt>world-width</tt></a> 或 <a href=
+      "dictionary.html#world-height"><tt>world-height</tt></a> 必须是奇数。如果某个边界是0，则该边界保持为0，另一侧的边界将移动。例如世界初始时是
+      <tt>min-pxcor = 0</tt> <tt>max-pxcor = 10</tt> 这样变动
+      <tt>world-width</tt>：
+    <blockquote>
+      <p>
+        <tt>[&quot;world-width&quot; [11 1 14]]</tt>
+      </blockquote>
+    <p>
+      <a href="dictionary.html#min-pxcor"><tt>min-pxcor</tt></a> 将保持为0，而且而每次运行时 <a href=
+      "dictionary.html#max-pxcor"><tt>max-pxcor</tt></a> 将设为11,
+      12, 13 。如果二者均不为真，即原点不在中心，也不在边界，则不能直接变动 <a href=
+      "dictionary.html#world-height"><tt>world-height</tt></a> 或 <a href=
+      "dictionary.html#world-width"><tt>world-width</tt></a> 你应该变动<a href=
+      "dictionary.html#max-pxcor"><tt>max-pxcor</tt></a>, <a href=
+      "dictionary.html#max-pycor"><tt>max-pycor</tt></a>, <a href=
+      "dictionary.html#min-pxcor"><tt>min-pxcor</tt></a> 和<a href=
+      "dictionary.html#min-pycor"><tt>min-pycor</tt></a> 。
+    <p>
+      变动 <a href=
+      "dictionary.html#random-seed"><tt>random-seed</tt></a> 使你为NetLogo随机数发生器指定已知的种子重复运行。注意在实验设置命令里也可使用 <a href=
+      "dictionary.html#random-seed"><tt>random-seed</tt></a> command in
+      your experiment's setup commands. 命令。关于随机数种子的详细信息，参见编程指南的随机数部分 <a href="programming.html#random">Random Numbers</a>
+     。
+    <p>
+     有两种方法用来指定要使用的参数值，一是将要使用的所有值列出来，二是指定一个范围尝试其中的每个值。例如，要指定名为number的滑动条数值从100到1000，增量为50，输入
+    <blockquote>
+      <p>
+        <tt>[&quot;number&quot; [100 50 1000]]</tt>
+      </blockquote>
+    <p>
+     或者只使用值100, 200, 400, 800,输入:
+    <blockquote>
+      <p>
+        <tt>[&quot;number&quot; 100 200 400 800]</tt>
+      </blockquote>
+    <p>
+      小心使用方括号,注意第二个例子方括号较少。是否包含这对多余的方括号是告诉NetLogo列出所有值还是指定一个范围。
+    <p>
+     还要注意变量名要用双引号。
+    <p>
+     可以变动一个参数或多个参数，或者不变动任何参数。不变的参数保持当前值。当使用当前设置多次运行模型时，就不变动任何参数。
+    <p>
+      变量列出的顺序决定了构造参数组合的顺序。后列出的变量的所有值要遍历一遍，然后再遍历较早列出的变量。例如希望x 和 y都从1到3变动，x先列出，则模型运行的顺序为：x=1 y=1, x=1 y=2, x=1 y=3, x=2 y=1,…。
+    <p>
+      <b>Repetitions:</b> 有时候即使模型的配置不变，各次运行的行为也可能有很大变动。如果要对每个配置运行多次，在这儿输入一个大于1的数。
+    <p>
+      <b>Measure runs using these reporters:</b>在这指定每次运行要收集的数据。例如，要记录每次运行海龟数量的起伏，输入：
+    <blockquote>
+      <p>
+        <tt>count turtles</tt>
+      </blockquote>
+    <p>
+      可以输入一个或几个报告器，或一个也没有。如果输入多个的话，每个报告器要占一行，例如：
+    <blockquote>
+      <p>
+        <tt>count frogs
+        <br>
+        count mice
+        <br>
+        count birds</tt>
+      </blockquote>
+    <p>
+      如果不输入任何报告器，模型照样会运行。有时你自己记录结果，例如使用 <a href=
+      "dictionary.html#export-world"><tt>export-world</tt></a>命令等。
+    <p>
+      <b>Measure runs at every step:</b>正常情况下，每步都会使用上面给定的报告器对模型进行测量。如果模型运行时间很长，不想收集所有各步数据，反选该项则只在模型每次运行结束时进行测量。
+    <p>
+      <b>Setup commands:</b> 使用这些命令启动每次模型运行。通常在这输入模型设置例程名进行设置。但是也可以包含其他命令。
+    <p>
+      <b>Go commands:</b> 这些命令将不断执行，将模型推进到下一步。通常在这输入模型运行例程名，如<tt>go</tt>。但是也可以包含其他命令。
+    <p>
+      <b>Stop condition:</b> 此处可实现模型运行时间可变，当某个条件满足时模型本次运行结束。例如，假设模型运行直到没有海龟为止，输入：
+    <blockquote>
+      <p>
+        <tt>not any? turtles</tt>
+      </blockquote>
+    <p>
+      如果每次运行固定长度，此处留空即可。
+    <p>
+      模型也可以因为go命令中的<a href=
+      "dictionary.html#stop"><tt>stop</tt></a>而停止运行，或者因为使用了永久性按钮的<a href="dictionary.html#stop"><tt>stop</tt></a> 。<a href=
+      "dictionary.html#stop"><tt>stop</tt></a>可以直接用在go例程，也可以用在由go直接调用的其他例程。（意图是同一个 <tt>go</tt> 例程可以用于按钮也可以用于BehaviorSpace实验）。注意使用<a href="dictionary.html#stop"><tt>stop</tt></a>的该步被认为是失败，不记录该步的结果。因此停止测试应该用在go 的开始部分而不是结束部分。
+    <p>
+      <b>Final commands:</b>这些命令运行一次，当模型结束时运行这些额外命令。一般此处留空，但可用于调用 <a href=
+      "dictionary.html#export-world"><tt>export-world</tt></a> 命令，或用其他方式记录运行结果。
+    <p>
+      <b>Time limit:</b> 设置每次运行的最大长度。如果不想设置任何最大值，而是由停止条件控制运行长度，在这输入0。
+    <h3>
+      行为空间实验的特殊原语
+    </h3>
+    <p>
+      目前只有一个 <a href=
+      "dictionary.html#behaviorspace-run-number"><tt>behaviorspace-run-number</tt></a>.
+      这条原语运行后得到的数字和在行为空间中得到的结果文件运行出的数字一样。
+    <h3>
+      运行一个实验
+    </h3>
+    <p>
+      实验设置完成后，按下
+      &quot;OK&quot; 按钮，然后按下 &quot;Run&quot; 按钮。一个以&quot;Run options&quot; 为标题的对话框会出现。
+    <h4>
+      Run options: 格式
+    </h4>
+    <p>
+      那个run options的对话框让你选择实验数据的存储格式。根据在 <b>Measure runs at every step</b>
+     的设置，将会在每个间隔、每次运行或每步收集数据。
+    <p>
+      Table格式每个间隔的数据占一行，每项数据占一列。每次运行结束后数据输出到数据文件。Table格式适合自动处理数据，比如导入到一个数据库或统计包中。
+    <p>
+     Spreadsheet格式为每项数据计算最小、平均、最大和最终值，然后列出数据，每个间隔的数据占一行，每项数据占一列。这种格式更适合人类阅读，特别是当导入到一个电子表格程序时。
+    <p>
+     （注意直到整个实验完成后，spreadsheet格式数据才会写到数据文件。由于实验完成前数据都存在内存中，如果实验很大可能导致内存耗尽。如果因某种原语实验中断，可能的原因如出现运行错、内存耗尽、崩溃、断电等，则实验结果没有保存。对大型实验可能需要同时使用spreadsheet 和 table格式，这样即使出现问题，至少通过Table格式得到部分结果。）
+    <p>
+      选择了输出格式后，BehaviorSpace提示你输入保存数据的文件名，文件默认后缀是 &quot;.csv&quot;. 你可以随便给个文件名，但最好不要丢弃 &quot;.csv&quot;部分，因为它表示这是一个Comma Separated Values (CSV)文件。这是一个纯文本数据格式，能被任何文本编辑器、多数流行的电子表格和数据库程序读取。
+    <h4>
+      Run options: 平行运行
+    </h4>
+    <p>
+      那个run options的对话框也会让你选择是否想要多个模型平行运行，如果选择要，可以允许几个模型同时运行。这个数字默认为你电脑的处理器核心数。
+          <p>
+          关于平行运行，有一些事情要小心。
+    <p>
+      首先，如果平行运行，只有一个程序能够在 &quot;foreground&quot;中，而且会使视图和绘图更新。其他程序会在后台运行。
+    <p>
+      第二，后台不可见的运行不能使用只能在GUI中运行的原语。例如，后台运行的程序不能做电影。
+    <p>
+      第三，因为平行运行的过程相互独立，表格形式的输出可能会包含交错模式的，没有顺序的结果。党你分析这些数据的时候，你可能会先按照运行顺序排序。（Spreadsheet格式的数据不受影响，因为它只有在程序结束或者终止之后才形成。）
+    <p>
+      第四，当实验进行时，使用所有可以运行的处理器核心会使你的电脑在处理别的任务时非常慢。
+    <p>
+      第五，平行运行也会相应的使实验的存储要求成倍增加。你可能需要扩大NetLogo的内存限额。
+      (详细请看 <a href="faq.html#howbig">this FAQ
+      entry</a>)。
+    <h4>
+      观测运行
+    </h4>
+    <p>
+      当你完成run options对话框之后，另一个对话框会出现，标题为
+       &quot;Running Experiment&quot;。在对话框里，可以看到进度报告，显示模型运行了多少次，运行了多长时间。如果你输入了测量运行的任何报告器以及选择了 &quot;Measure runs at every
+      step&quot; 你将看到一个绘图，显示每次运行中该值如何变化。
+    <p>
+      你也可以在NetLogo主窗口中看到运行情况。（如果
+      &quot;Running Experiment&quot;对话框挡住了主窗口，把它移动到其他位置）。模型运行时视图和绘图进行更新，如果不想看到更新，则使用 &quot;Running Experiment&quot;对话框中的选择框关闭更新，这样实验运行的更快一些。
+    <p>
+      如果在实验完成前需要停止，按下 &quot;Abort&quot;按钮。所有得到的结果目前为止都被
+    <p>
+      当所有运行完成后，实验结束。
+    <h2>
+      <a name="advanced" id="advanced">高级用法</a>
+    </h2>
+    <h3>
+      从非图形界面运行
+    </h3>
+    <p>
+      BehaviorSpace实验可以用非图形界面（ &quot;headless&quot;
+      ）方式运行，即在命令行中运行，没有任何图形界面。当需要在单机或机群中自动运行时这种方式可能有用。
+    <p>
+      这种方式不需要Java编程,可以先用GUI方式创建实验设置，然后在命令行中运行实验。或者如果你喜欢的话，可以直接用XML创建、编辑实验设置。
+    <h4>
+      如何使用
+    </h4>
+    <p>
+      用org.nlogo.headless.Main class 运行Java。Main.main()方法支持以下自变量：
+    <ul>
+      <li>
+        <tt>--model &lt;path&gt;</tt>: 要打开的模型的路径
+      <li>
+        <tt>--setup-file &lt;path&gt;</tt>: 从这个文件而不是模型文件中看实验的计划
+      <li>
+        <tt>--experiment &lt;name&gt;</tt>: 运行实验的名称
+      <li>
+        <tt>--table &lt;path&gt;</tt>: 把表格输出的路径（或者
+        <tt>-</tt> 是标准输出）
+      <li>
+        <tt>--spreadsheet &lt;path&gt;</tt>: 把表格输出的路（或者
+        <tt>-</tt> 是标准输出）
+      <li>
+        <tt>--threads &lt;number&gt;</tt>: 用这些线平行运行模型，或者1代表不平行运行，默认是每个处理器一条线。
+      <li>
+        <tt>--min-pxcor &lt;number&gt;</tt>: 改变在模型文件中设定的世界范围
+      <li>
+        <tt>--max-pxcor &lt;number&gt;</tt>: 改变在模型文件中设定的世界范围
+      <li>
+        <tt>--min-pycor &lt;number&gt;</tt>: 改变在模型文件中设定的世界范围
+      <li>
+        <tt>--max-pycor &lt;number&gt;</tt>: 改变在模型文件中设定的世界范围
+      </ul>
+    <p>
+      <tt>--model</tt> 被要求了。如果你不指定
+      <tt>--experiment</tt>，就必须要指定
+      <tt>--setup-file</tt>。默认情况下，得不到结果，因此你一般情况下回指定
+      <tt>--table</tt> 或 
+      <tt>--spreadsheet</tt>其中之一，或者都指定。
+      如果你指定了任意一个世界的维度，你就必须指定全部四个。
+    <h4>
+      例子
+    </h4>
+    <p>
+      最容易的方式是先在GUI里创建实验设置，作为模型的一部分保存。下面是一个在命令行里运行已保存在模型中的实验设置的例子：
+    <pre>
+java -Xmx1024m -Dfile.encoding=UTF-8 -cp NetLogo.jar \
+  org.nlogo.headless.Main \
+  --model Fire.nlogo \
+  --experiment experiment1 \
+  --table -
+</pre>
+    <p>
+      （要正常运行， <tt>NetLogo.jar</tt> 和包含必要库文件的 <tt>lib</tt> 子目录必须存在。
+      <tt>NetLogo.jar</tt> 和 <tt>lib</tt> 都包含在NetLogo里）
+    <p>
+     指定名称的实验运行完成后，结果以spreadsheet格式，即CSV，送到标准（要改变这一点，看下面）
+    <p>
+      当将HeadlessWorkspace类作为应用程序运行时，强迫系统特性 <tt>java.awt.headless</tt>为真。这将告诉Java 以无头（headless）模式运行，允许NetLogo在没有图形显示的机器上运行。
+    <p>
+      注意使用 <tt>-Xmx</tt> 指定最大1G的堆大小。如果没有指定大小则使用虚拟机的默认值，默认值可能太小。（1G是武断给出的，可能比多数模型所需的都大，你可以自己指定所需的大小）
+    <p>
+    注意到使用 <tt>-Dfile.encoding=UTF-8</tt>。
+      这就强迫所I/O 有文件要使用 UTF-8解码。这样能保证NetLogo可以使所有的模型一直运行，而且文件原语也能够在所有平台上一直运行，包括包含统一码的模型。
+    <p>
+      选项<tt>--model</tt> 用来指定要打开的模型。
+    <p>
+     选项 <tt>--experiment</tt>用来指定实验名。（在GUI里创建实验时指定了名称）
+    <p>
+      下面是另一个例子，显示了一些附加的、可选参数：
+    <pre>
+java -Xmx1024m -Dfile.encoding=UTF-8 -cp NetLogo.jar \
+  org.nlogo.headless.Main \
+  --model Fire.nlogo \
+  --experiment experiment2 \
+  --max-pxcor 100 \
+  --min-pxcor -100 \
+  --max-pycor 100 \
+  --min-pycor -100
+</pre>
+    <p>
+      注意可选的 <tt>--max-pxcor</tt>,
+      <tt>--max-pycor</tt>等参数用来指定与模型保存的参数不同的世界大小。（也可以在实验设置里指定世界大小，如果这样的话就不需要在命令行里指定了）
+    <p>
+      因为既没有指定--table 也没有指定--spreadsheet，就得不到任何结果。当实验开始得到的输出你有别的用途，例如输出世界文件或者写进文本文件时，这种设计是有用的。
+    <p>
+      还有另一个例子:
+    <pre>
+java -Xmx1024m -Dfile.encoding=UTF-8 -cp NetLogo.jar \
+  org.nlogo.headless.Main \
+  --model Fire.nlogo \
+  --experiment experiment2 \
+  --table table-output.csv \
+  --spreadsheet spreadsheet-output.csv
+</pre>
+    <p>
+      可选项<tt>--table &lt;filename&gt;</tt>参数指定输出格式为table格式，并且以CSV形式写到给定文件。如果将以<tt>-</tt> 作为文件名，则输出到标准输出流。Table数据每次运行完成就产生，然后写入。
+    <p>
+      可选项 <tt>--spreadsheet &lt;filename&gt;</tt> 参数指定输出格式为spreadsheet格式，并且以CSV形式写到给定文件。如果将 <tt>-</tt>作为文件名，则输出到标准输出流。直到所有运行完成，实验结束后，spreadsheet数据才写入。
+    <p>
+     注意同时指定 <tt>--table</tt> 和
+      <tt>--spreadsheet</tt>是允许的，如果同时指定的话，则同时产生两种类型的输出文件。
+    <p>
+      下面是最后一个例子，显示怎样运行一个以独立XML文件存储的实验设置，而不是在模型里保存的实验设置：
+    <pre>
+java -Xmx1024m -Dfile.encoding=UTF-8 -cp NetLogo.jar \
+  org.nlogo.headless.Main \
+  --model Fire.nlogo \
+  --setup-file fire-setups.xml \
+  --experiment experiment3
+</pre>
+    <p>
+      如果XML文件包含多个实验设置，必须使用 <tt>--experiment</tt> 参数指定要使用的实验名。
+    <p>
+      如果要在3D视图下运行这些实验，在开始的命令中加入
+      <tt>-Dorg.nlogo.is3d=true</tt> 例如：
+    <pre>
+java -Dorg.nlogo.is3d=true -Xmx1024m -Dfile.encoding=UTF-8 -cp NetLogo.jar \
+  org.nlogo.headless.Main \
+  --model Fire3D.nlogo \
+  --experiment experiment1 \
+  --table -
+</pre>
+    <p>
+      注意到在使用3D视图时3D的参数
+<tt>--max-pzcor &lt;number&gt;</tt> and <tt>--min-pzcor
+      &lt;number&gt;</tt>。
+    <p>
+    
+     下面部分介绍怎样使用XML创建独立的实验设置文件。
+    <h3>
+      用XML设置实验
+    </h3>
+    <p>
+     目前我们还没有介绍用XML写实验设置的详细文档，但是如果你对XML比较熟悉的话，下面的几点介绍对你来说足够了。
+    <p>
+      在XML里，BehaviorSpace实验设置的结构是由一个文档类型定义文件（Document Type Definition ，DTD)决定的。DTD存储在NetLogo.jar的<tt>system/behaviorspace.dtd</tt>. 里。（JAR也是压缩文件，可以使用Java的 &quot;jar&quot; 工具或其他任何能够操作压缩文件的工具，从JAR文件里抽取DTD）
+    <p>
+      要了解实验设置在XML里的样子，最容易的学习方式是在BehaviorSpace的GUI里编写几个实验设置，保存模型，然后用文本编辑器打开产生的.nlogo文件。实验设置在.nlogo文件的尾部，该部分以实验标志开始与结束。
+      例如：
+    <pre>
+&lt;experiments&gt;
+  &lt;experiment name=&quot;experiment&quot; repetitions=&quot;10&quot; runMetricsEveryStep=&quot;true&quot;&gt;
+    &lt;setup&gt;setup&lt;/setup&gt;
+    &lt;go&gt;go&lt;/go&gt;
+    &lt;exitCondition&gt;not any? fires&lt;/exitCondition&gt;
+    &lt;metric&gt;burned-trees&lt;/metric&gt;
+    &lt;enumeratedValueSet variable=&quot;density&quot;&gt;
+      &lt;value value=&quot;40&quot;/&gt;
+      &lt;value value=&quot;0.1&quot;/&gt;
+      &lt;value value=&quot;70&quot;/&gt;
+    &lt;/enumeratedValueSet&gt;
+  &lt;/experiment&gt;
+&lt;/experiments&gt;
+</pre>
+    <p>
+      该例子中只有一个实验设置，但是在实验开始标志和结束标志之间可以给定任意多个
+     实验设置。
+    <p>
+      看看DTD，再看看GUI中创建的例子，你能了解如何使用标志(tag)指定不同的实验。DTD指定哪些标志是必须的，哪些是可选的，哪些可重复哪些不能重复，等等。
+    <p>
+      当实验设置XML包含在模型文件中时，没有以XML标题（header）开始，因为整个文件不是XML。如果你将实验设置独立保存，而不是随模型文件一起保存的话，扩展名应是.xml而不是.nlogo，并且文件应以正确的XML标题开始，如下：
+    <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;us-ascii&quot;?&gt;
+&lt;!DOCTYPE experiments SYSTEM &quot;behaviorspace.dtd&quot;&gt;
+</pre>
+    <p>
+      第二行必须与上面的完全一样。第一行可以指定与 <tt>us-ascii</tt>,不同的编码，例如：
+      <tt>UTF-8</tt>.
+    <h3>
+      控制API
+    </h3>
+    <p>
+      如果BehaviorSpace不能满足你的需要的话，另一个可能的方法是使用Controlling API，让你写Java代码控制NetLogo。这些API让你在Java代码里运行BehaviorSpace实验，或者自己写代码直接控制NetLogo做类似BehaviorSpace的事情。详情见用户手册的 <a href="controlling.html">部分，了解这两种可能方法。
+
+
+</body>
+</html>

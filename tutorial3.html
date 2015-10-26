@@ -1,0 +1,765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Netlogo用户指南 HubNet</title>
+</head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      NetLogo 5.0 用户手册： 教学#3: 例程
+</h1>
+    <div class="version">
+      NetLogo 5.0 用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+
+<body>
+<h1>
+      教程 #3: 例程
+</h1>
+    <div class="version">
+      NetLogo 5.0用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+     本教程带你一步步建立一个完整的模型,对每一步做出解释。
+    <h2>
+     主体和例程
+    </h2>
+    <p>
+      在教学#2 你学习了怎样使用命令中心和主体监视器查看和修改主体,让他们执行动作。 现在准备进入 NetLogo 模型的真正核心:例程页。
+    <p>
+      你已经使用了 NetLogo 中可以执行命令的主体类型:瓦片、海龟、链和观察者。瓦片是静止的,组成网格。海龟在网格上移动,链链接两个海龟。观察者俯视在进行的所有事情, 做那些海龟、瓦片和链自己不能做的事情。
+    <p>
+      所有这四种主体都能执行 NetLogo 命令。前三种主体还能运行例程(procedures)。一 个例程包括一系列 NetLogo 命令,你将它们定义为一个单一的新命令。
+    <p>
+      你将学习编写例程,让海龟移动、进食、繁殖和死亡。还将学习如何制作监视器、滑动 条和绘图。我们要建立一个简单的生态系统模型,与教学#1 的狼吃羊模型部分相似
+    <h2>
+      制作 setup 按钮
+    </h2>
+    <p>
+      要开始一个新模型,在 File 菜单中选择 New。然后从创建一个 setup 按钮开始:
+    <blockquote>
+      <ul>
+        <li>在界面页上部的工具条上单击 "Button" 图标。
+        <li>在界面页的空白区域,定位到你想放置按钮的地方单击。
+        <li>编辑按钮的对话框出现了。在标签为"Commands"的文本域中输入setup。
+        <li>按下 OK 按钮,对话框关闭。
+      </ul>
+    </blockquote>
+    <p>
+      现在有了一个 setup 按钮。按下按钮就执行一个名为"setup"的例程。例程就是一系列 的 NetLogo 指令,我们给定一个新名字。现在还没有定义例程(一会就做)。由于按钮指向的例程现在还不存在,按钮变成了红色:
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/errors.png">
+    <p>
+     要想看实际的错误信息,单击该按钮。
+    <p>
+      现在创建"setup"例程,这样错误信息就会消失。
+    <blockquote>
+      <ul>
+        <li>切换到 Procedures 页。
+        <li>输入下面的代码：
+          <pre>
+to setup
+  clear-all
+  create-turtles 100 [ setxy random-xcor random-ycor ]
+  reset-ticks
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+      做完后,Procedures 页就像下面的样子:
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/setupcode.png">
+    <p>
+      注意每行缩进量不同。多数人觉得代码这样缩进很有用,但这不是强制的,只是使得代码易读易改而已。
+    <p>
+      例程以 <a href=
+      "dictionary.html#to"><tt>to</tt></a> 开始,以 <a href=
+      "dictionary.html#end"><tt>end</tt></a>结束。所有的例程都要用这两个词开始和结束。
+    <p>
+      看看你输入了什么,每行是干什么的?
+    <ul>
+      <li>
+        <tt>to setup</tt>开始定义一个名为"setup"的例程。
+      <li>
+        <a href="dictionary.html#clear-all"><tt>clear-all</tt></a> 将世界重设为初始、全空状态。所有瓦片变黑,你已经创建的海龟消失。基本上是将过去一笔勾销,为新模型运行做好准备。
+      <li>
+        <tt>create-turtles 100</tt>创建 100 个海龟。这些海龟都在原点,即瓦片 0,0 的中心。
+      <li>
+        <tt>setxy random-xcor random-ycor</tt> 是一条使用"reporters"的命令。reporter与命令不同,它只报告一个结果。首先每个turtle 运行reporter 
+它返回 X坐标范围<a href=
+        "dictionary.html#random-xcor"><tt>random-xcor</tt></a>内的一个随机数,然后每个turtle运行 reporter 返回Y坐标范围        <a href="dictionary.html#random-ycor"><tt>random-ycor</tt></a>的一个
+随机数。最后每个turtle 使用前面的两个数做输入参数运行 <a href=
+        "dictionary.html#setxy"><tt>setxy</tt></a> 命令,这使得turtle
+移动到相应的坐标处。
+      <li>
+        <a href="dictionary.html#reset-ticks"><tt>reset-ticks</tt></a>
+        开始计数，现在得setup已经完整了。
+      <li>
+        <a href="dictionary.html#end"><tt>end</tt></a> 结束"setup" 例程的定义。
+</ul>
+    <p>
+      输入完成后,切换到界面页,按下前面制作的 setup 按钮 ,你将看到海龟分散在世界内:
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/scatter.gif">
+    <p>
+      多按 setup 几次,看看海龟的散布有何不同。注意有些海龟会叠压在一起。
+    <p>
+      稍微想想要达到这样的结果需要做哪些事情。你要在界面页里做一个按钮,还要创建该 按钮要使用的一个例程。只有这两步都做了,按钮才能工作。在本教程的剩余部分,经常需 要做类似两步或更多步,为模型增添新功能。在增加新功能时,当你觉得该做的步骤都完成 了,但就是不能正常工作时,那就继续向前读,看看是否还要其他步骤。读过几节后,返回来看看是否遗漏了某个步骤。
+    <h2>
+      转换到计数为基础的更新视图
+    </h2>
+    <p>
+      现在我们开始使用计时器(with
+      <tt>reset-ticks</tt>), 我们应该告诉 NetLogo 只需要每个时间步长更新一次视图而不是连续的更新。
+    <blockquote>
+      <ul>
+        <li>找到视图更新菜单，初始值设定为连续型。
+        <li>选择&quot;on ticks&quot; 。
+      </ul>
+    </blockquote>
+    <p>
+      这让你的模型能更快得运行也能有一个连续得画面展示出来（因为更新会在一个持续的时间序列进行）。查看指导手册有更详细得说明。
+    <h2>
+      制作 go 按钮
+    </h2>
+    <p>
+      现在做个 "go"按钮。步骤与 setup 按钮的一样, 除了下面几点:
+    <blockquote>
+      <ul>
+        <li>在命令部分输入<tt>go</tt> 而非 <tt>setup</tt>。
+        <li>在编辑对话框里勾选 "forever"。
+        <li>也选上 &quot;Disable until ticks start&quot; 。
+      </ul>
+    </blockquote>
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/gobutton.png">
+    <p>
+      "forever" 勾选项使得按钮按下后保持按下状态,因此命令会不断重复执行,而不是只 执行一次。
+
+    <blockquote>
+      <ul>
+        <li>在 Procedures 也增加 go 例程:
+          <pre>
+to go
+  move-turtles
+  tick
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+      <a href="dictionary.html#tick"><tt>tick</tt></a>是一个原语用来使得计时器跳1步。
+    <p>
+     move-turtles是什么? 它是一个象clear-all那样的原语(NetLogo内嵌的)吗? 非也,它
+是一个需要你添加的例程。至今你已经有两个自己添加的例程了:setup 和go
+    <blockquote>
+      <ul>
+        <li>在<tt>go</tt>例程后面增加<tt>move-turtles</tt>例程:  
+          <pre>
+to go
+  move-turtles
+  tick
+end
+
+to move-turtles
+  ask turtles [
+    right random 360
+    forward 1
+  ]
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+     注意move-turtles中间的连字符两侧没空格。教学#2 中用过的red – 2 有空格,是为 了做减法操作。此处我们要的是move-turtles,没空格。 "-" 将 "move" 和"turtles" 组 成一个词。
+    <p>
+      例程move-turtles中的命令:
+    <ul>
+      <li>
+        <tt>ask turtles [ ... ]</tt> 每个turtle运行[]中的程序。
+      <li>
+        <tt>right random 360</tt> 是使用<a href="dictionary.html#random"><tt>random</tt></a>的命令。首先每个turtle 在 0 和 359 之间随机选一
+个整数 。
+      <li>
+        <tt>forward 1</tt> 让turtles往前走一步。
+</ul>
+    <p>
+      为什么我们不把所有这些命令都写在 go 例程里,而是分为几个例程?确实可以这样做, 但是在创建你的项目的过程中,你很可能会增加更多的东西。最好保持 go 例程尽量简单, 这样更容易理解。最后还会包括许多其他的东西,比如计算,画图等。这些事情由相应的例 程完成,每个例程有各自的名字。
+    <p>
+      界面页中的 go 按钮是永久性的,意味着将不断执行命令,直到你关掉它(重新单击它)。 按下 setup 按钮,创建海龟,然后按下 go 按钮。观察模型。关闭它,你会看到所有海龟停 住了。
+    <p>
+      注意当海龟越过世界边缘时,它要回绕(wrap),即出现在另外一边。(这是默认行为, 可以改变,详情参加编程指南的<a href=
+      "programming.html#Topology">Topology</a> 部分。)
+    <h2>
+      试试命令
+    </h2>
+    <p>
+      我们建议你试试其他海龟命令。
+    <p>
+     在命令中心输入命令 (如 turtles> set color red), 或在setup, go, move-turtles 中添加命令。
+    <p>
+      注意在命令中心输入命令时,你必须使用弹出菜单选择turtles>, patches>, or observer>,具体选择取决于哪个主体将执行命令。这就像ask turtles 或 ask patches一 样,只是不用打字而已。你可以使用tab键在主体类型之间切换,这比用菜单更方便。
+    <p>
+      可以试试在命令中心输入turtles> pen-down,然后按下go 按钮。
+    <p>
+      在move-turtles例程中,试试将right random 360 改为 right random 45。
+    <p>
+     玩吧。很容易,并且结果立现 —- 这是 NetLogo 许多优点之一。
+    <p>
+      试验够了吧,准备继续改进模型。
+    <h2>
+      瓦片和变量
+    </h2>
+    <p>
+      现在我们有 100 个海龟,它们漫无目的的移动,对周围的事物毫无知觉。下面我们给海龟一个好点的背景,让模型稍微有趣一些。
+    <blockquote>
+      <ul>
+        <li>回到setup 例程,修改例程如下:
+          <pre>
+to setup
+  clear-all
+  setup-patches
+  setup-turtles
+  reset-ticks
+end
+</pre>
+        <li>新的 setup引用了两个新例程,定义 setup-patches :
+          <pre>
+to setup-patches
+  ask patches [ set pcolor green ]
+end
+</pre>
+      </ul>
+      <p>
+       例程setup-patches将开始时所有瓦片颜色定义为绿色。(海龟的颜色变量是 <a href=
+        "dictionary.html#color"><tt>color</tt></a>，瓦片的
+是 <a href="dictionary.html#pcolor"><tt>pcolor</tt></a>。) 
+      <p>
+        在我们新得 'setup' 中唯一还没有定义的是 <tt>setup-turtles</tt>。
+      <ul>
+        <li>加上这个例程：
+          <pre>
+to setup-turtles
+  create-turtles 100
+  ask turtles [ setxy random-xcor random-ycor ]
+end
+</pre>
+      </ul>
+      <p>
+        你是否注意到新的setup-turtles与老的setup包含许多相同的命令?
+      <ul>
+        <li>切换回 Interface 页。
+        <li>按下 setup 按钮。
+      </ul>
+    </blockquote>
+    <p>
+     瞧! 由海龟和绿色瓦片构成的 NetLogo 风景 :
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/scatter-on-green.gif">
+    <p>
+      看过新setup例程的效果后,你会发现重新读读这个例程很有帮助。
+    <h2>
+     海龟变量
+    </h2>
+    <p>
+      目前海龟在可以地表上移动,但什么都不做。现在在海龟和瓦片之间加上一些交互。
+    <p>
+     我们让海龟吃“草”(绿色瓦片),繁殖、死亡。草被吃掉后要逐渐恢复。
+    <p>
+      我们需要一种控制海龟繁殖和死亡的方式。我们通过跟踪海龟有多大能量(energy)来
+决定。要这样的话需要增加一个新的海龟变量。
+    <p>
+      你已经见过一些内置的海龟变量,如<a href=
+      "dictionary.html#color"><tt>color</tt></a>。要添加新的海龟变量,需要在例程页的顶
+部加上<a href=
+      "dictionary.html#turtles-own"><tt>turtles-own</tt></a>声明,这个声明必须在所有例程之前,变量名为
+      <tt>energy</tt>：
+    <pre>
+turtles-own [energy]
+
+to go
+  move-turtles
+  eat-grass
+  tick
+end
+</pre>
+    <p>
+     使用这个新定义的变量(energy),允许海龟吃草。
+    <blockquote>
+      <ul>
+        <li>切换到代码页，
+        <li>重写 <tt>go</tt> 进程如下：
+          <pre>
+to go
+  move-turtles
+  eat-grass
+  tick
+end
+</pre>
+        <li>增加一个 <tt>eat-grass</tt> 新的进程：
+          <pre>
+to eat-grass
+  ask turtles [
+    if pcolor = green [
+      set pcolor black
+      set energy energy + 10
+    ]
+  ]
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+     我们第一次使用<a href="dictionary.html#if"><tt>if</tt></a> 命令,仔细看看代码。当每个海龟执行这些命令时,比较它所处的
+瓦片的颜色(<a href="dictionary.html#pcolor"><tt>pcolor</tt></a>)与绿色是否相同。(海龟能直接访问所处瓦片的变量),如果瓦片是绿
+色则返回true,这时才执行[ ]中的命令(否则跳过)。这些命令让海龟将瓦片改为黑色, 海龟能量值增加 10。瓦片变黑表明该处的草被吃掉,因为吃了草,海龟能量增加。
+    <p>
+      下面,让海龟移动时消耗一些能量:
+    <blockquote>
+      <ul>
+        <li>重写 <tt>move-turtles</tt> 如下：
+          <pre>
+to move-turtles
+  ask turtles [
+    right random 360
+    forward 1
+    set energy energy - 1
+  ]
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+      当海龟移动时,每步减少 1 个单位的能量。
+    <blockquote>
+      <ul>
+        <li>切换到 Interface 页 ,按下 setup 和 go 按钮。
+      </ul>
+      <p>
+        你将看到当海龟走到瓦片上时,瓦片变为黑色。
+      <p class="screenshot">
+        <img alt="screen shot" src="images/tutorial3/eating-grass.gif">
+</blockquote>
+    <h2>
+     监视器(Monitors)
+    </h2>
+    <p>
+      下面使用工具条在 Interface 页中创建 2 个监视器。(像使用按钮、滑动条一样,使用
+工具条上的监视器图标)。先做第一个监视器。
+    <blockquote>
+      <ul>
+        <li>使用工具条上的监视器图标,在界面页空白处创建一个监视器。
+      </ul>
+      <p class="question">
+        出现对话框。
+      <ul>
+        <li>在对话框中输入：<tt>count turtles</tt> (如下图)。
+        <li>按OK 按钮关闭对话框。
+      </ul>
+    </blockquote>
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/monitor-1.gif">
+    <p>
+      <a href="dictionary.html#turtles"><tt>turtles</tt></a> 是一个"agentset",即所有海龟的集合。<a href=
+      "dictionary.html#count"><tt>count</tt></a>告诉我们这个集合中有多少主体。
+    <p>
+      制作第二个监视器:
+    <blockquote>
+      <ul>
+        <li>使用工具条上的监视器图标,在界面页空白处创建一个监视器。
+      </ul>
+      <p class="question">
+        出现对话框。
+      <ul>
+        <li>在对话框的Reporter部分输入:count patches with [pcolor = green] (见下图). 
+        <li>在 Display name 部分输入:  <tt>green
+        patches</tt>
+        <li>按 OK 关闭对话框。
+      </ul>
+    </blockquote>
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/monitor-2.gif">
+    <p>
+      此处我们再次使用<a href=
+      "dictionary.html#count"><tt>count</tt></a> 查看一个agentset中有多少主体。<a href=
+      "dictionary.html#patches"><tt>patches</tt></a>是所有瓦片的集合,
+但我们并不想知道总共有多少瓦片,而是想知道有多少绿色的。这就是<a href="dictionary.html#with"><tt>with</tt></a> 要做的,它创建
+一个较小的agentset,只有满足[ ]中的条件的主体才会包含进来,条件是pcolor = green, 因此得到的是绿色瓦片。
+    
+    <p>
+      现在有两个监视器报告有多少海龟,有多少绿色瓦片,帮助我们跟踪模型运行。模型运行时,监视器中的数字自动变化。
+    <blockquote>
+      <ul>
+        <li>使用 setup 和 go 按钮,观看监视器数值的变化。
+      </ul>
+    </blockquote>
+    <h2>
+      开关和标签(Switches and labels)
+    </h2>
+    <p>
+      海龟不仅是将瓦片变黑,它们还获得、损失能量。模型运行时试试使用海龟监视器查看一个海龟的能量变化。
+    <p>
+      如果能在任何时候看到所有海龟的能量就更好了。现在就这样做,并且增加一个开关能控制这些额外信息显示与否。
+    <blockquote>
+      <ul>
+        <li>在界面页 的工具条上选择开关图标,在空白处单击,创建一个开关。
+      </ul>
+      <p class="question">
+       出现对话框。
+      <ul>
+        <li>在对话框的Global variable 部分输入 show-energy? 别忘了包括问号 (见下图)
+      </ul>
+    </blockquote>
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/switch.gif">
+    <blockquote>
+      <ul>
+        <li>返回“go”例程。
+        <li>重写 <tt>eat-grass</tt> 例程如下：
+          <pre>
+to eat-grass
+  ask turtles [
+    if pcolor = green [
+      set pcolor black
+      set energy energy + 10
+    ]
+  ifelse show-energy?
+    [ set label energy ]
+    [ set label &quot;&quot; ]
+  ]
+end
+</pre>
+        </ul>
+    </blockquote>
+    <p>
+      例程<tt>eat-grass</tt> 用了<a href=
+      "dictionary.html#ifelse"><tt>ifelse</tt></a> 命令,仔细看代码。每个海龟当运行这些新命令时检查
+show-energy?的值(由开关决定)。如果开关打开,比较结果为true,海龟执行第一个[ ] 中的命令。这时将能量值赋给海龟标签。如果比较结果为<tt>show-energy?</tt>(开关关闭),海龟执行第二 个[ ]中的命令,这时移去文本标签(通过将海龟标签设为空)。 
+    <p>
+      (在 NetLogo 中几个字符称为字符串(string)。字符串是在双引号之间的一串字母和 字符。此处两个双引号之间什么也没有,这是一个空串。如果海龟的标签是空串,就表示没 有任何文本。)
+    <blockquote>
+      <ul>
+        <li>测试一下。在界面页中运行模型(使用setup和go),来回拨动<tt>show-energy?</tt> 开关。 
+      </ul>
+    </blockquote>
+    <p>
+     当开关打开时,能看到海龟的能量因吃草而增加,移动时减小。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/show-energy.png">
+    <h2>
+      更多例程
+    </h2>
+    <p>
+      现在海龟在吃草,再让它们繁殖和死亡,也让草能恢复。现在增加三个例程,分别负责 这三种行为。
+    <blockquote>
+      <ul>
+        <li>切换到代码页。
+        <li>重写<tt>go</tt> 进程如下：
+          <pre>
+to go
+  move-turtles
+  eat-grass
+  reproduce
+  check-death
+  regrow-grass
+  tick
+end
+</pre>
+        <li>增加例程<tt>reproduce</tt>  <tt>check-death</tt>,和<tt>regrow-grass</tt>如下:
+        
+          <pre>
+to reproduce
+  ask turtles [
+    if energy &gt; 50 [
+      set energy energy - 50
+      hatch 1 [ set energy 50 ]
+    ]
+  ]
+end
+
+to check-death
+  ask turtles [
+    if energy &lt;= 0 [ die ]
+  ]
+end
+
+to regrow-grass
+  ask patches [
+    if random 100 &lt; 3 [ set pcolor green ]
+  ]
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+     这些例程都使用了<a href=
+      "dictionary.html#if"><tt>if</tt></a> 命令。当繁殖时,每个海龟检查它的energy值,如果大于 50 执行
+第一个[ ]中的命令。在这里energy减少 50,然后孵出(hatches)一个energy为 50 的新海 龟。
+
+    <p><a href=
+      "dictionary.html#hatch"><tt>hatch</tt></a>命令是NetLogo的一个原语,形如hatch number [ commands ],海龟创建number
+个新海龟,每个都与母体相同,并且请求这些新海龟执行commands,你可以使用commands 让这些新海龟有不同的颜色、方向等。这里运行一条命令,将新海龟的energy设为 50。
+      
+    <p>当每个海龟运行check-death时,它检查energy是否小于等于 0。如果是真,则海龟被 告知去死die(这是NetLogo的一个原语)。
+    <p>当每个海龟运行regrow-grass 时,它检查随机产生的 0-99 之间的整数是否小于 3。如 果是,瓦片颜色设为绿。对每个瓦片来说,发生的次数(平均)是 3%,因为在 100 个可能 的数中,有三个数(0,1,2)小于 3。
+      
+    <blockquote>
+      <ul>
+        <li>切换到 Interface 页,按下 setup 和 go。
+      </ul>
+    </blockquote>
+    <p>
+      现在能看到模型的一些有趣行为。一些海龟死掉,一些新海龟出现(孵出),一些草恢复。这正是我们要做的。
+    <p>
+      如果继续看模型的监视器,会发现 <b>count turtles</b>和 <b>green patches</b> 监视器都有振荡。 振荡模式能预测吗?这些变量之间有关系吗? 
+    <p>
+      如果有更容易的跟踪模型行为的方式就更好了。NetLogo 可以为我们画图,这是下面要讲的。
+    <h2>
+     画图(Plotting)
+    </h2>
+    <p>
+      要想画图的话,需要在界面页创建一个 plot,做一些设置。然后在例程页增加一些例程,这些例程为我们更新绘图。
+    <p>
+      先做例程页中的工作。我们子啊画图里面做的一下命令当我们setup之后调用reset-tick 和tick时是可以自动执行的。
+     
+    <blockquote>
+      <ul>
+        <li>在进度条上点击创建画图，选着紧挨着的画笔，然后在页面上点击。
+        <li>设置其名字为： &quot;Totals&quot; (如下图）
+        <li>设置 X 轴坐标为&quot;time&quot;
+        <li>设置Y轴坐标为 &quot;totals&quot;
+        <li>改变画笔得初始值为 
+        &quot;turtles&quot;.
+        <li>在画笔更新命令下输入<tt>plot count turtles</tt> 
+        <li>按下 &quot;Add Pen&quot; 按钮。
+        <li>更改新的画笔名称为 &quot;grass&quot;.
+        <li>在画笔更新命令下输入<tt>plot count patches with [pcolor = green]</tt> 。
+      </ul>
+    </blockquote>
+<p>当你完成的时候，对话框会呈现出这样的图像：
+<p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/totals.png">
+<blockquote>
+      <ul>
+        <li>在plot对话框中选择OK</ul>
+</blockquote>
+    <p>
+      注意在创建图的时候,也可设置 X,Y 轴的最大最小值。让"Auto scale?"勾选着,如果图 超过坐标轴的设定范围,坐标轴会自动增长,使你能看到所有数据。
+   
+    <blockquote>
+      <ul>
+        <li>再次按 Setup 和 go,运行模型
+      </ul>
+    </blockquote>
+    <p>
+      你会看到模型运行时就能绘图。图的样子与下图相似,尽管可能不完全一样。
+    <p>
+     记住我们让"Auto scale?"打开。这使得没有空间时,图能自动调整。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/tutorial3/plotwindow.png">
+    <p>
+      如果你忘了哪支笔是干什么的,单击图的右上角处&quot;Show legend?&quot; 标签。
+    <p>
+      你试试运行模型几次, 看看这些图哪些部分相同哪些不同。
+    <h2>
+      时钟计数器(Tick counter)
+    </h2>
+    <p>
+      在比较同一模型多次运行得到的图时，如果每次运行长度相同会很有用。学会怎样让模型在特定的时刻停止或启动很有帮助,因为我们可以让模型在同一时刻停止。跟踪 go 例程运行了多少次是实现这一技术的关键。
+    <p>你已经在你得模型中使用过时钟计数器了，如
+     
+      <tt>reset-ticks</tt>和 <tt>tick</tt> 命令。
+    <p>你也可以使用时钟计数器做其他得事情，例如在长跑中设置总得长度。
+    
+    <blockquote>
+      <ul>
+        <li>更改 <tt>go</tt> 进程：
+          <pre>
+to go
+  if ticks &gt;= 500 [ stop ]
+  move-turtles
+  eat-grass
+  check-death
+  reproduce
+  regrow-grass
+  tick
+end
+</pre>
+        <li>按下setup 然后再次运行模型。
+      </ul>
+    </blockquote>
+    <p>
+     图形和模型不会一直运行下去,当界面页工具条上的时钟计数器达到500时,模型自动停止。
+    <p>
+      <a href="dictionary.html#tick"><tt>tick</tt></a> 命令，时钟计数器加1。 <a href=
+      "dictionary.html#ticks"><tt>ticks</tt></a> 是一个报告器,返回时钟计数器当前值。每次重新运行
+时<a href=
+      "dictionary.html#reset-ticks"><tt>reset-ticks</tt></a>在
+      <tt>setup</tt> 进程中，当重新开始运行的时候，要把计数器设置到0。
+    <h2>
+     更多细节
+    </h2>
+    <p>
+      首先,可以有可变数量的海龟,而非总是 100 个。
+    <blockquote>
+      <ul>
+        <li>增加一个滑动条命名为： &quot;number&quot;。
+        <li>改变最大值或最小值。
+        <li>然后设置 <tt>setup-turtles</tt>而不是
+        <tt>create-turtles 100</tt> 可以设置如下：
+        <pre>
+to setup-turtles
+  create-turtles number [ setxy random-xcor random-ycor ]
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+      测试一下。比较初始时刻海龟更多或更少时图的变化.
+    <p>
+      其次,如果能调整海龟吃草获得的能量和移动时消耗的能量不是更好吗?
+    <blockquote>
+      <ul>
+        <li>增加滑动条<tt>energy-from-grass</tt>。
+        <li>增加滑动条<tt>birth-energy</tt>。
+        <li>修改<tt>eat-grass,</tt> 例程：
+          <pre>
+to eat-grass
+  ask turtles [
+    if pcolor = green [
+      set pcolor black
+      set energy (energy + energy-from-grass)
+    ]
+    ifelse show-energy?
+      [ set label energy ]
+      [ set label &quot;&quot; ]
+  ]
+end
+</pre>
+        <li>修改 <tt>reproduce</tt>：
+          <pre>
+to reproduce
+  ask turtles [
+    if energy &gt; birth-energy [
+      set energy energy - birth-energy
+      hatch 1 [ set energy birth-energy ]
+    ]
+  ]
+end
+</pre>
+      </ul>
+    </blockquote>
+    <p>
+      最后,如果要改变草的恢复率应该增加什么滑动条?能增加什么海龟移动规则,或让孵化只发生在特定时刻,试着写出来。
+    <h2>
+    下一步?
+    </h2>
+    <p>
+      现在有了一个简单生态系统模型。瓦片长草,海龟移动、吃草、繁殖、死亡。
+    <p>
+      你创建了界面,包括按钮、滑动条、开关、监视器和绘图。甚至写了一些例程让海龟做事。
+    <p>
+      教学到此结束。
+    <p>
+     如果要看更多的NetLogo文档,界面指南 <a href="interface.html">Interface Guide</a> 让你了解NetLogo所有界面元
+素的功能。要写例程,看编程指南 <a href=
+      "programming.html">Programming Guide</a>。所有原语在NetLogo词典<a href="dictionary.html">NetLogo
+      Dictionary</a>。
+    <p>
+     如果愿意,你还可以继续试验、扩展本模型,试验主体不同的变量和行为。
+    <p>
+      另外,还可以再看教学#1 的狼吃羊模型。你看到羊走来走去,消耗资源,资源随机补 充,一定条件下繁殖,没有资源时死亡。该模型还有另一类生物—狼。增加狼需要另外的例程及新的原语。狼和羊是两种不同的物种(breeds),研究该模型,了解怎样使用 breeds。
+    <p>
+     另外,还可以查看其他模型(包括模型库中的 Code Examples),甚至继续建立自己的
+模型。你甚至不必建模,只是看着瓦片和海龟形成模式就很有趣,或试着创建个游戏玩玩,
+等等。
+    <p>
+      希望你学到了一些东西,包括 NetLogo 语言及如何建模。上面创建的所有例程列在下面。
+    <h2>
+      <a name="sample" id="sample">附录:完整代码</a>
+    </h2>
+    <p>
+      这些完整代码在NetLogo模型库里也有,在 CodeExamples 部分,名为 "Tutorial3"。
+    <p>
+      注意代码有注释,注释由分号开始。使用注释帮助你理解模型。
+    <p>
+      在例程页,注释是灰的,容易区别。
+    <pre>
+turtles-own [energy] ;; for keeping track of when the turtle is ready
+                     ;; to reproduce and when it will die
+
+to setup
+  clear-all
+  setup-patches
+  setup-turtles
+  reset-ticks
+end
+
+to setup-patches
+  ask patches [ set pcolor green ]
+end
+
+to setup-turtles
+  create-turtles number    ;; uses the value of the number slider to create turtles
+  ask turtles [ setxy random-xcor random-ycor ]
+end
+
+to go
+  if ticks &gt;= 500 [ stop ]  ;; stop after 500 ticks
+  move-turtles
+  eat-grass
+  check-death
+  reproduce
+  regrow-grass
+  tick                    ;; increase the tick counter by 1 each time through
+end
+
+to move-turtles
+  ask turtles [
+    right random 360
+    forward 1
+    set energy energy - 1  ;; when the turtle moves it looses one unit of energy
+  ]
+end
+
+to eat-grass
+  ask turtles [
+    if pcolor = green [
+      set pcolor black
+           ;; the value of energy-from-grass slider is added to energy
+      set energy energy + energy-from-grass
+    ]
+  ifelse show-energy?
+    [ set label energy ] ;; the label is set to be the value of the energy
+    [ set label &quot;&quot; ]     ;; the label is set to an empty text value
+  ]
+end
+
+to reproduce
+  ask turtles [
+    if energy &gt; birth-energy [
+      set energy energy - birth-energy  ;; take away birth-energy to give birth
+      hatch 1 [ set energy birth-energy ] ;; give this birth-energy to the offspring
+    ]
+  ]
+end
+
+to check-death
+  ask turtles [
+    if energy &lt;= 0 [ die ] ;; removes the turtle if it has no energy left
+  ]
+end
+
+to regrow-grass
+  ask patches [ ;; 3 out of 100 times, the patch color is set to green
+    if random 100 &lt; 3 [ set pcolor green ]
+  ]
+end
+</pre>
+
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        beep
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="beep" id="beep">beep</a>
+      </h3>
+      <h4>
+        beep
+      </h4>
+      <p>
+        Emits a beep. Note that the beep sounds immediately, so several
+        beep commands in close succession may produce only one audible
+        sound.
+      <p>
+        Example:
+      <pre>
+beep                       ;; emits one beep
+repeat 3 [ beep ]          ;; emits 3 beeps at once,
+                           ;; so you only hear one sound
+repeat 3 [ beep wait 0.1 ] ;; produces 3 beeps in succession, 
+                           ;; separated by 1/10th of a second
+</pre>
+      <p>When running headless, this command has no effect.
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

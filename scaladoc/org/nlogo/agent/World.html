@@ -1,0 +1,1814 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>org.nlogo.agent.World</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
+      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a title="Go to companion" href="World$.html"><img src="../../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a name="org" class="extype" href="../../package.html">org</a>.<a name="org.nlogo" class="extype" href="../package.html">nlogo</a>.<a name="org.nlogo.agent" class="extype" href="package.html">agent</a></p>
+        <h1><a title="Go to companion" href="World$.html">World</a></h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <span class="name">World</span>
+        
+        <span class="result"> extends <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></span>
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/NetLogo/NetLogo/blob/5.0/src/main/org/nlogo/agent/World.java">World.java</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a>, AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a name="org.nlogo.agent.World3D" class="extype" href="World3D.html">World3D</a></div>
+        </div></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          <div id="order">
+                <span class="filtertype">Ordering</span>
+                <ol><li class="alpha in"><span>Alphabetic</span></li><li class="inherit out"><span>By inheritance</span></li></ol>
+              </div>
+          <div id="ancestors">
+                <span class="filtertype">Inherited</span>
+                <ol><li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show all</span></li></ol>
+                <ol id="linearization"><li name="org.nlogo.agent.World" class="in"><span>World</span></li><li name="org.nlogo.api.World" class="in"><span>World</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
+              </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        <div class="members" id="constructors">
+              <h3>Instance Constructors</h3>
+              <ol><li visbl="pub" name="org.nlogo.agent.World#this" data-isabs="false">
+      <a id="this:World"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">World</span>
+        
+        <span class="params">()</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="scala.AnyRef#!=" data-isabs="false">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#!=" data-isabs="false">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef###" data-isabs="false">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">##</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#==" data-isabs="false">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#==" data-isabs="false">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#agentClassToAgentSet" data-isabs="false">
+      <a id="agentClassToAgentSet(java.lang.Class[_ &lt;: org.nlogo.agent.Agent]):AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">agentClassToAgentSet</span>
+        
+        <span class="params">(<span name="agentClass">agentClass: java.lang.Class[_ &lt;: org.nlogo.agent.Agent]</span>)</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#allStoredValues" data-isabs="false">
+      <a id="allStoredValues():Iterator[AnyRef]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">allStoredValues</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.collection.Iterator" class="extype">Iterator</span>[AnyRef]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#breedOwns" data-isabs="false">
+      <a id="breedOwns(AgentSet,String):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">breedOwns</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#breedsOwnIndexOf" data-isabs="false">
+      <a id="breedsOwnIndexOf(AgentSet,String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">breedsOwnIndexOf</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#breedsOwnNameAt" data-isabs="false">
+      <a id="breedsOwnNameAt(AgentSet,Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">breedsOwnNameAt</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.api.AgentSet" class="extype" href="../api/AgentSet.html">AgentSet</a></span>, <span name="index">index: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#changeTopology" data-isabs="false">
+      <a id="changeTopology(Boolean,Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">changeTopology</span>
+        
+        <span class="params">(<span name="xWrapping">xWrapping: <span name="scala.Boolean" class="extype">Boolean</span></span>, <span name="yWrapping">yWrapping: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#checkLinkShapeName" data-isabs="false">
+      <a id="checkLinkShapeName(String):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">checkLinkShapeName</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#checkTurtleShapeName" data-isabs="false">
+      <a id="checkTurtleShapeName(String):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">checkTurtleShapeName</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#clearAll" data-isabs="false">
+      <a id="clearAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clearAll</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#clearDrawing" data-isabs="false">
+      <a id="clearDrawing():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clearDrawing</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#clearGlobals" data-isabs="false">
+      <a id="clearGlobals():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clearGlobals</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#clearLinks" data-isabs="false">
+      <a id="clearLinks():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clearLinks</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#clearPatches" data-isabs="false">
+      <a id="clearPatches():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clearPatches</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#clearTurtles" data-isabs="false">
+      <a id="clearTurtles():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clearTurtles</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="prt" name="scala.AnyRef#clone" data-isabs="false">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clone</span>
+        
+        <span class="params">()</span><span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#compareLinkBreeds" data-isabs="false">
+      <a id="compareLinkBreeds(AgentSet,AgentSet):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">compareLinkBreeds</span>
+        
+        <span class="params">(<span name="breed1">breed1: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="breed2">breed2: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#compiler" data-isabs="false">
+      <a id="compiler():CompilerServices"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">compiler</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.CompilerServices" class="extype" href="../api/CompilerServices.html">CompilerServices</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#compiler_=" data-isabs="false">
+      <a id="compiler_=(CompilerServices):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">compiler_=</span>
+        
+        <span class="params">(<span name="compiler">compiler: <a name="org.nlogo.api.CompilerServices" class="extype" href="../api/CompilerServices.html">CompilerServices</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#createPatches" data-isabs="false">
+      <a id="createPatches(Int,Int,Int,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">createPatches</span>
+        
+        <span class="params">(<span name="minPxcor">minPxcor: <span name="scala.Int" class="extype">Int</span></span>, <span name="maxPxcor">maxPxcor: <span name="scala.Int" class="extype">Int</span></span>, <span name="minPycor">minPycor: <span name="scala.Int" class="extype">Int</span></span>, <span name="maxPycor">maxPycor: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#createPatches" data-isabs="false">
+      <a id="createPatches(WorldDimensions):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">createPatches</span>
+        
+        <span class="params">(<span name="dim">dim: <a name="org.nlogo.api.WorldDimensions" class="extype" href="../api/WorldDimensions.html">WorldDimensions</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#createTurtle" data-isabs="false">
+      <a id="createTurtle(AgentSet,Int,Int):Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">createTurtle</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="c">c: <span name="scala.Int" class="extype">Int</span></span>, <span name="h">h: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Turtle" class="extype" href="Turtle.html">Turtle</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#createTurtle" data-isabs="false">
+      <a id="createTurtle(AgentSet):Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">createTurtle</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <a name="org.nlogo.agent.Turtle" class="extype" href="Turtle.html">Turtle</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#diffuse" data-isabs="false">
+      <a id="diffuse(Double,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">diffuse</span>
+        
+        <span class="params">(<span name="param">param: <span name="scala.Double" class="extype">Double</span></span>, <span name="vn">vn: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#diffuse4" data-isabs="false">
+      <a id="diffuse4(Double,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">diffuse4</span>
+        
+        <span class="params">(<span name="param">param: <span name="scala.Double" class="extype">Double</span></span>, <span name="vn">vn: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#displayOn" data-isabs="false">
+      <a id="displayOn(Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">displayOn</span>
+        
+        <span class="params">(<span name="displayOn">displayOn: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#displayOn" data-isabs="false">
+      <a id="displayOn():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">displayOn</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#eq" data-isabs="false">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">eq</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#equalDimensions" data-isabs="false">
+      <a id="equalDimensions(WorldDimensions):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">equalDimensions</span>
+        
+        <span class="params">(<span name="d">d: <a name="org.nlogo.api.WorldDimensions" class="extype" href="../api/WorldDimensions.html">WorldDimensions</a></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#equals" data-isabs="false">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#exportWorld" data-isabs="false">
+      <a id="exportWorld(PrintWriter,Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">exportWorld</span>
+        
+        <span class="params">(<span name="writer">writer: <span name="java.io.PrintWriter" class="extype">PrintWriter</span></span>, <span name="full">full: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#fastGetPatchAt" data-isabs="false">
+      <a id="fastGetPatchAt(Int,Int):Patch"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">fastGetPatchAt</span>
+        
+        <span class="params">(<span name="xc">xc: <span name="scala.Int" class="extype">Int</span></span>, <span name="yc">yc: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Patch" class="extype" href="Patch.html">Patch</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#finalize" data-isabs="false">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">finalize</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#followOffsetX" data-isabs="false">
+      <a id="followOffsetX():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">followOffsetX</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#followOffsetY" data-isabs="false">
+      <a id="followOffsetY():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">followOffsetY</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#generateSeed" data-isabs="false">
+      <a id="generateSeed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">generateSeed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getBreed" data-isabs="false">
+      <a id="getBreed(String):AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getBreed</span>
+        
+        <span class="params">(<span name="breedName">breedName: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getBreedSingular" data-isabs="false">
+      <a id="getBreedSingular(AgentSet):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getBreedSingular</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getBreeds" data-isabs="false">
+      <a id="getBreeds():Map[String, AnyRef]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getBreeds</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.util.Map" class="extype">Map</span>[<span name="java.lang.String" class="extype">String</span>, AnyRef]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#getClass" data-isabs="false">
+      <a id="getClass():java.lang.Class[_]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getClass</span>
+        
+        <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#getDimensions" data-isabs="false">
+      <a id="getDimensions():WorldDimensions"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getDimensions</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.WorldDimensions" class="extype" href="../api/WorldDimensions.html">WorldDimensions</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getDrawing" data-isabs="false">
+      <a id="getDrawing():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getDrawing</span>
+        
+        <span class="params">()</span><span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#getLink" data-isabs="false">
+      <a id="getLink(Any,Any,AgentSet):Link"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getLink</span>
+        
+        <span class="params">(<span name="end1">end1: <span name="scala.Any" class="extype">Any</span></span>, <span name="end2">end2: <span name="scala.Any" class="extype">Any</span></span>, <span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <a name="org.nlogo.agent.Link" class="extype" href="Link.html">Link</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getLinkBreed" data-isabs="false">
+      <a id="getLinkBreed(String):AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getLinkBreed</span>
+        
+        <span class="params">(<span name="breedName">breedName: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getLinkBreedSingular" data-isabs="false">
+      <a id="getLinkBreedSingular(AgentSet):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getLinkBreedSingular</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getLinkBreeds" data-isabs="false">
+      <a id="getLinkBreeds():Map[String, AnyRef]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getLinkBreeds</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.util.Map" class="extype">Map</span>[<span name="java.lang.String" class="extype">String</span>, AnyRef]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getLinkShape" data-isabs="false">
+      <a id="getLinkShape(String):Shape"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getLinkShape</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <a name="org.nlogo.api.Shape" class="extype" href="../api/Shape.html">Shape</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getLinkVariablesArraySize" data-isabs="false">
+      <a id="getLinkVariablesArraySize(AgentSet):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getLinkVariablesArraySize</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getObserverVariableByName" data-isabs="false">
+      <a id="getObserverVariableByName(String):AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getObserverVariableByName</span>
+        
+        <span class="params">(<span name="var">var: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getOrCreateDummyLink" data-isabs="false">
+      <a id="getOrCreateDummyLink(Any,Any,AgentSet):Link"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getOrCreateDummyLink</span>
+        
+        <span class="params">(<span name="end1">end1: <span name="scala.Any" class="extype">Any</span></span>, <span name="end2">end2: <span name="scala.Any" class="extype">Any</span></span>, <span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <a name="org.nlogo.agent.Link" class="extype" href="Link.html">Link</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getOrCreateLink" data-isabs="false">
+      <a id="getOrCreateLink(Turtle,Turtle,AgentSet):Link"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getOrCreateLink</span>
+        
+        <span class="params">(<span name="end1">end1: <a name="org.nlogo.agent.Turtle" class="extype" href="Turtle.html">Turtle</a></span>, <span name="end2">end2: <a name="org.nlogo.agent.Turtle" class="extype" href="Turtle.html">Turtle</a></span>, <span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <a name="org.nlogo.agent.Link" class="extype" href="Link.html">Link</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getOrCreateLink" data-isabs="false">
+      <a id="getOrCreateLink(Double,Double,AgentSet):Link"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getOrCreateLink</span>
+        
+        <span class="params">(<span name="end1">end1: <span name="java.lang.Double" class="extype">Double</span></span>, <span name="end2">end2: <span name="java.lang.Double" class="extype">Double</span></span>, <span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <a name="org.nlogo.agent.Link" class="extype" href="Link.html">Link</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getOrCreateTurtle" data-isabs="false">
+      <a id="getOrCreateTurtle(Long):Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getOrCreateTurtle</span>
+        
+        <span class="params">(<span name="id">id: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Turtle" class="extype" href="Turtle.html">Turtle</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getPatch" data-isabs="false">
+      <a id="getPatch(Int):Patch"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getPatch</span>
+        
+        <span class="params">(<span name="id">id: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Patch" class="extype" href="Patch.html">Patch</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#getPatchAt" data-isabs="false">
+      <a id="getPatchAt(Double,Double):Patch"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getPatchAt</span>
+        
+        <span class="params">(<span name="x">x: <span name="scala.Double" class="extype">Double</span></span>, <span name="y">y: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Patch" class="extype" href="Patch.html">Patch</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#getPatchAtWrap" data-isabs="false">
+      <a id="getPatchAtWrap(Double,Double):Patch"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getPatchAtWrap</span>
+        
+        <span class="params">(<span name="x">x: <span name="scala.Double" class="extype">Double</span></span>, <span name="y">y: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Patch" class="extype" href="Patch.html">Patch</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getPatchScratch" data-isabs="false">
+      <a id="getPatchScratch():Array[Array[Double]]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getPatchScratch</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Array" class="extype">Array</span>[<span name="scala.Array" class="extype">Array</span>[<span name="scala.Double" class="extype">Double</span>]]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getTurtle" data-isabs="false">
+      <a id="getTurtle(Long):Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getTurtle</span>
+        
+        <span class="params">(<span name="id">id: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Turtle" class="extype" href="Turtle.html">Turtle</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getVariablesArraySize" data-isabs="false">
+      <a id="getVariablesArraySize(Link,AgentSet):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getVariablesArraySize</span>
+        
+        <span class="params">(<span name="link">link: <a name="org.nlogo.api.Link" class="extype" href="../api/Link.html">Link</a></span>, <span name="breed">breed: <a name="org.nlogo.api.AgentSet" class="extype" href="../api/AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#getVariablesArraySize" data-isabs="false">
+      <a id="getVariablesArraySize(Turtle,AgentSet):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getVariablesArraySize</span>
+        
+        <span class="params">(<span name="turtle">turtle: <a name="org.nlogo.api.Turtle" class="extype" href="../api/Turtle.html">Turtle</a></span>, <span name="breed">breed: <a name="org.nlogo.api.AgentSet" class="extype" href="../api/AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#getVariablesArraySize" data-isabs="false">
+      <a id="getVariablesArraySize(Patch):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getVariablesArraySize</span>
+        
+        <span class="params">(<span name="patch">patch: <a name="org.nlogo.agent.Patch" class="extype" href="Patch.html">Patch</a></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#getVariablesArraySize" data-isabs="false">
+      <a id="getVariablesArraySize(Observer):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getVariablesArraySize</span>
+        
+        <span class="params">(<span name="observer">observer: <a name="org.nlogo.agent.Observer" class="extype" href="Observer.html">Observer</a></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#growMax" data-isabs="false">
+      <a id="growMax(Int,Int,Int,Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">growMax</span>
+        
+        <span class="params">(<span name="min">min: <span name="scala.Int" class="extype">Int</span></span>, <span name="max">max: <span name="scala.Int" class="extype">Int</span></span>, <span name="value">value: <span name="scala.Int" class="extype">Int</span></span>, <span name="d">d: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#growMin" data-isabs="false">
+      <a id="growMin(Int,Int,Int,Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">growMin</span>
+        
+        <span class="params">(<span name="min">min: <span name="scala.Int" class="extype">Int</span></span>, <span name="max">max: <span name="scala.Int" class="extype">Int</span></span>, <span name="value">value: <span name="scala.Int" class="extype">Int</span></span>, <span name="d">d: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#hashCode" data-isabs="false">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#importWorld" data-isabs="false">
+      <a id="importWorld(ErrorHandler,ImporterUser,StringReader,BufferedReader):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">importWorld</span>
+        
+        <span class="params">(<span name="errorHandler">errorHandler: <a name="org.nlogo.agent.Importer.ErrorHandler" class="extype" href="Importer$$ErrorHandler.html">ErrorHandler</a></span>, <span name="importerUser">importerUser: <a name="org.nlogo.api.ImporterUser" class="extype" href="../api/ImporterUser.html">ImporterUser</a></span>, <span name="stringReader">stringReader: <a name="org.nlogo.agent.Importer.StringReader" class="extype" href="Importer$$StringReader.html">StringReader</a></span>, <span name="reader">reader: <span name="java.io.BufferedReader" class="extype">BufferedReader</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#indexOfVariable" data-isabs="false">
+      <a id="indexOfVariable(Agent,String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">indexOfVariable</span>
+        
+        <span class="params">(<span name="agent">agent: <a name="org.nlogo.agent.Agent" class="extype" href="Agent.html">Agent</a></span>, <span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#indexOfVariable" data-isabs="false">
+      <a id="indexOfVariable(java.lang.Class[_ &lt;: org.nlogo.agent.Agent],String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">indexOfVariable</span>
+        
+        <span class="params">(<span name="agentClass">agentClass: java.lang.Class[_ &lt;: org.nlogo.agent.Agent]</span>, <span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#isBreed" data-isabs="false">
+      <a id="isBreed(AgentSet):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isBreed</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#isDimensionVariable" data-isabs="false">
+      <a id="isDimensionVariable(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isDimensionVariable</span>
+        
+        <span class="params">(<span name="variableName">variableName: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.Any#isInstanceOf" data-isabs="false">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#isLinkBreed" data-isabs="false">
+      <a id="isLinkBreed(AgentSet):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isLinkBreed</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#lineThickness" data-isabs="false">
+      <a id="lineThickness(Agent):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">lineThickness</span>
+        
+        <span class="params">(<span name="agent">agent: <a name="org.nlogo.agent.Agent" class="extype" href="Agent.html">Agent</a></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#linkBreedOwns" data-isabs="false">
+      <a id="linkBreedOwns(AgentSet,String):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">linkBreedOwns</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#linkBreedsOwnIndexOf" data-isabs="false">
+      <a id="linkBreedsOwnIndexOf(AgentSet,String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">linkBreedsOwnIndexOf</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#linkBreedsOwnNameAt" data-isabs="false">
+      <a id="linkBreedsOwnNameAt(AgentSet,Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">linkBreedsOwnNameAt</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>, <span name="index">index: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#linkShapeList" data-isabs="false">
+      <a id="linkShapeList():ShapeList"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">linkShapeList</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.ShapeList" class="extype" href="../api/ShapeList.html">ShapeList</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#links" data-isabs="false">
+      <a id="links():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">links</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#linksOwnIndexOf" data-isabs="false">
+      <a id="linksOwnIndexOf(String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">linksOwnIndexOf</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#linksOwnNameAt" data-isabs="false">
+      <a id="linksOwnNameAt(Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">linksOwnNameAt</span>
+        
+        <span class="params">(<span name="index">index: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#markDrawingClean" data-isabs="false">
+      <a id="markDrawingClean():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">markDrawingClean</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#markPatchColorsClean" data-isabs="false">
+      <a id="markPatchColorsClean():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">markPatchColorsClean</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#markPatchColorsDirty" data-isabs="false">
+      <a id="markPatchColorsDirty():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">markPatchColorsDirty</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#maxPxcor" data-isabs="false">
+      <a id="maxPxcor():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">maxPxcor</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#maxPxcorBoxed" data-isabs="false">
+      <a id="maxPxcorBoxed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">maxPxcorBoxed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#maxPycor" data-isabs="false">
+      <a id="maxPycor():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">maxPycor</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#maxPycorBoxed" data-isabs="false">
+      <a id="maxPycorBoxed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">maxPycorBoxed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#mayHavePartiallyTransparentObjects" data-isabs="false">
+      <a id="mayHavePartiallyTransparentObjects():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">mayHavePartiallyTransparentObjects</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns true if there is at least one partially transparent turtle, patch, link, or 3D stamp
+present.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if there is at least one partially transparent turtle, patch, link, or 3D stamp
+present. This determines whether it is necessary to sort the objects by their distance to the
+observer before rendering, which is necessary for transparency to work in OpenGL.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>True if the scene has at least one partially transparent item
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#minPxcor" data-isabs="false">
+      <a id="minPxcor():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">minPxcor</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#minPxcorBoxed" data-isabs="false">
+      <a id="minPxcorBoxed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">minPxcorBoxed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#minPycor" data-isabs="false">
+      <a id="minPycor():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">minPycor</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#minPycorBoxed" data-isabs="false">
+      <a id="minPycorBoxed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">minPycorBoxed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#ne" data-isabs="false">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">ne</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#newProgram" data-isabs="false">
+      <a id="newProgram(List[String]):Program"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">newProgram</span>
+        
+        <span class="params">(<span name="interfaceGlobals">interfaceGlobals: <span name="java.util.List" class="extype">List</span>[<span name="java.lang.String" class="extype">String</span>]</span>)</span><span class="result">: <a name="org.nlogo.api.Program" class="extype" href="../api/Program.html">Program</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#newProgram" data-isabs="false">
+      <a id="newProgram():Program"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">newProgram</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.Program" class="extype" href="../api/Program.html">Program</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#noLinks" data-isabs="false">
+      <a id="noLinks():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">noLinks</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#noPatches" data-isabs="false">
+      <a id="noPatches():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">noPatches</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#noTurtles" data-isabs="false">
+      <a id="noTurtles():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">noTurtles</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#notify" data-isabs="false">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notify</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notifyAll" data-isabs="false">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notifyAll</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#observer" data-isabs="false">
+      <a id="observer():Observer"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">observer</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.Observer" class="extype" href="Observer.html">Observer</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#observerOwnsIndexOf" data-isabs="false">
+      <a id="observerOwnsIndexOf(String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">observerOwnsIndexOf</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#observerOwnsNameAt" data-isabs="false">
+      <a id="observerOwnsNameAt(Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">observerOwnsNameAt</span>
+        
+        <span class="params">(<span name="index">index: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#observers" data-isabs="false">
+      <a id="observers():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">observers</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchColors" data-isabs="false">
+      <a id="patchColors():Array[Int]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchColors</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Array" class="extype">Array</span>[<span name="scala.Int" class="extype">Int</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchColorsDirty" data-isabs="false">
+      <a id="patchColorsDirty():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchColorsDirty</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchSize" data-isabs="false">
+      <a id="patchSize(Double):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchSize</span>
+        
+        <span class="params">(<span name="patchSize">patchSize: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchSize" data-isabs="false">
+      <a id="patchSize():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchSize</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#patches" data-isabs="false">
+      <a id="patches():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patches</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchesAllBlack" data-isabs="false">
+      <a id="patchesAllBlack():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchesAllBlack</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchesOwnIndexOf" data-isabs="false">
+      <a id="patchesOwnIndexOf(String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchesOwnIndexOf</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchesOwnNameAt" data-isabs="false">
+      <a id="patchesOwnNameAt(Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchesOwnNameAt</span>
+        
+        <span class="params">(<span name="index">index: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#patchesWithLabels" data-isabs="false">
+      <a id="patchesWithLabels():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">patchesWithLabels</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#program" data-isabs="false">
+      <a id="program(Program):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">program</span>
+        
+        <span class="params">(<span name="program">program: <a name="org.nlogo.api.Program" class="extype" href="../api/Program.html">Program</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#program" data-isabs="false">
+      <a id="program():Program"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">program</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.Program" class="extype" href="../api/Program.html">Program</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#protractor" data-isabs="false">
+      <a id="protractor():Protractor"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">protractor</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.Protractor" class="extype" href="Protractor.html">Protractor</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#realloc" data-isabs="false">
+      <a id="realloc():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">realloc</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#rememberOldProgram" data-isabs="false">
+      <a id="rememberOldProgram():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">rememberOldProgram</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#removeLineThickness" data-isabs="false">
+      <a id="removeLineThickness(Agent):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">removeLineThickness</span>
+        
+        <span class="params">(<span name="agent">agent: <a name="org.nlogo.agent.Agent" class="extype" href="Agent.html">Agent</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#roundX" data-isabs="false">
+      <a id="roundX(Double):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">roundX</span>
+        
+        <span class="params">(<span name="x">x: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#roundY" data-isabs="false">
+      <a id="roundY(Double):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">roundY</span>
+        
+        <span class="params">(<span name="y">y: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#sendPixels" data-isabs="false">
+      <a id="sendPixels():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">sendPixels</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#setDimensionVariable" data-isabs="false">
+      <a id="setDimensionVariable(String,Int,WorldDimensions):WorldDimensions"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">setDimensionVariable</span>
+        
+        <span class="params">(<span name="variableName">variableName: <span name="java.lang.String" class="extype">String</span></span>, <span name="value">value: <span name="scala.Int" class="extype">Int</span></span>, <span name="d">d: <a name="org.nlogo.api.WorldDimensions" class="extype" href="../api/WorldDimensions.html">WorldDimensions</a></span>)</span><span class="result">: <a name="org.nlogo.api.WorldDimensions" class="extype" href="../api/WorldDimensions.html">WorldDimensions</a></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#setLineThickness" data-isabs="false">
+      <a id="setLineThickness(Agent,Double):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">setLineThickness</span>
+        
+        <span class="params">(<span name="agent">agent: <a name="org.nlogo.agent.Agent" class="extype" href="Agent.html">Agent</a></span>, <span name="size">size: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#setObserverVariableByName" data-isabs="false">
+      <a id="setObserverVariableByName(String,Any):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">setObserverVariableByName</span>
+        
+        <span class="params">(<span name="var">var: <span name="java.lang.String" class="extype">String</span></span>, <span name="value">value: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#stamp" data-isabs="false">
+      <a id="stamp(Agent,Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">stamp</span>
+        
+        <span class="params">(<span name="agent">agent: <a name="org.nlogo.agent.Agent" class="extype" href="Agent.html">Agent</a></span>, <span name="erase">erase: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
+      <a id="synchronized[T0](⇒ T0):T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">synchronized</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">(<span name="arg0">arg0: ⇒ T0</span>)</span><span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#ticks" data-isabs="false">
+      <a id="ticks():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">ticks</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#toString" data-isabs="false">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">toString</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#trailDrawer" data-isabs="false">
+      <a id="trailDrawer(TrailDrawerInterface):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">trailDrawer</span>
+        
+        <span class="params">(<span name="trailDrawer">trailDrawer: <a name="org.nlogo.api.TrailDrawerInterface" class="extype" href="../api/TrailDrawerInterface.html">TrailDrawerInterface</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#turtleShapeList" data-isabs="false">
+      <a id="turtleShapeList():ShapeList"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">turtleShapeList</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.ShapeList" class="extype" href="../api/ShapeList.html">ShapeList</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#turtles" data-isabs="false">
+      <a id="turtles():AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">turtles</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#turtlesOwnIndexOf" data-isabs="false">
+      <a id="turtlesOwnIndexOf(String):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">turtlesOwnIndexOf</span>
+        
+        <span class="params">(<span name="name">name: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#turtlesOwnNameAt" data-isabs="false">
+      <a id="turtlesOwnNameAt(Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">turtlesOwnNameAt</span>
+        
+        <span class="params">(<span name="index">index: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#validPatchCoordinates" data-isabs="false">
+      <a id="validPatchCoordinates(Int,Int):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">validPatchCoordinates</span>
+        
+        <span class="params">(<span name="xc">xc: <span name="scala.Int" class="extype">Int</span></span>, <span name="yc">yc: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>, <span name="arg1">arg1: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#worldHeight" data-isabs="false">
+      <a id="worldHeight():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">worldHeight</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#worldHeightBoxed" data-isabs="false">
+      <a id="worldHeightBoxed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">worldHeightBoxed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#worldWidth" data-isabs="false">
+      <a id="worldWidth():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">worldWidth</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#worldWidthBoxed" data-isabs="false">
+      <a id="worldWidthBoxed():Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">worldWidthBoxed</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrap" data-isabs="false">
+      <a id="wrap(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrap</span>
+        
+        <span class="params">(<span name="pos">pos: <span name="scala.Double" class="extype">Double</span></span>, <span name="min">min: <span name="scala.Double" class="extype">Double</span></span>, <span name="max">max: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrapX" data-isabs="false">
+      <a id="wrapX(Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrapX</span>
+        
+        <span class="params">(<span name="x">x: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrapY" data-isabs="false">
+      <a id="wrapY(Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrapY</span>
+        
+        <span class="params">(<span name="y">y: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrappedObserverX" data-isabs="false">
+      <a id="wrappedObserverX(Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrappedObserverX</span>
+        
+        <span class="params">(<span name="x">x: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrappedObserverY" data-isabs="false">
+      <a id="wrappedObserverY(Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrappedObserverY</span>
+        
+        <span class="params">(<span name="y">y: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrappingAllowedInX" data-isabs="false">
+      <a id="wrappingAllowedInX():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrappingAllowedInX</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World#wrappingAllowedInY" data-isabs="false">
+      <a id="wrappingAllowedInY():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wrappingAllowedInY</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.agent.World" class="extype" href="">World</a> → <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div name="org.nlogo.api.World" class="parent">
+              <h3>Inherited from <a name="org.nlogo.api.World" class="extype" href="../api/World.html">World</a></h3>
+            </div><div name="scala.AnyRef" class="parent">
+              <h3>Inherited from AnyRef</h3>
+            </div><div name="scala.Any" class="parent">
+              <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>
+            </div>
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

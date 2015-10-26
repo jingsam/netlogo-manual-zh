@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        export-view
+        
+        export-interface
+        
+        export-output
+        
+        export-plot
+        
+        export-all-plots
+        
+        export-world
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="export-view" id="export-view">export-view</a>
+        <br>
+        <a name="export-interface" id=
+        "export-interface">export-interface</a>
+        <br>
+        <a name="export-output" id="export-output">export-output</a>
+        <br>
+        <a name="export-plot" id="export-plot">export-plot</a>
+        <br>
+        <a name="export-all-plots" id=
+        "export-all-plots">export-all-plots</a>
+        <br>
+        <a name="export-world" id="export-world">export-world</a>
+      </h3>
+      <h4>
+        export-view <i>filename</i>
+        <br>
+        export-interface <i>filename</i>
+        <br>
+        export-output <i>filename</i>
+        <br>
+        export-plot <i>plotname</i> <i>filename</i>
+        <br>
+        export-all-plots <i>filename</i>
+        <br>
+        export-world <i>filename</i>
+      </h4>
+      <p>
+        export-view writes the current contents of the current view to an
+        external file given by the string <i>filename</i>. The file is
+        saved in PNG (Portable Network Graphics) format, so it is
+        recommended to supply a filename ending in &quot;.png&quot;.
+      <p>
+        export-interface is similar, but for the whole interface tab.
+      <p>Note that export-view still works when running NetLogo in headless mode, but
+        export-interface doesn't.
+      <p>
+        export-output writes the contents of the model's output area to
+        an external file given by the string <i>filename</i>. (If the model
+        does not have a separate output area, the output portion of the
+        Command Center is used.)
+      <p>
+        export-plot writes the x and y values of all points plotted by all
+        the plot pens in the plot given by the string <i>plotname</i> to an
+        external file given by the string <i>filename</i>. If a pen is in
+        bar mode (mode 0) and the y value of the point plotted is greater
+        than 0, the upper-left corner point of the bar will be exported. If
+        the y value is less than 0, then the lower-left corner point of the
+        bar will be exported.
+      <p>
+        export-all-plots writes every plot in the current model to an
+        external file given by the string <i>filename</i>. Each plot is
+        identical in format to the output of export-plot.
+      <p>
+        export-world writes the values of all variables, both built-in and
+        user-defined, including all observer, turtle, and patch variables,
+        the drawing, the contents of the output area if one exists, the
+        contents of any plots and the state of the random number generator,
+        to an external file given by the string <i>filename</i>. (The
+        result file can be read back into NetLogo with the <a href="../dictionary.html#import-world">import-world</a> primitive.) export-world does not
+        save the state of open files.
+      <p>
+        export-plot, export-all-plots and export-world save files in in
+        plain-text, &quot;comma-separated values&quot; (<tt>.csv</tt>)
+        format. CSV files can be read by most popular spreadsheet and
+        database programs as well as any text editor.
+      <p>
+        If you wish to export to a file in a location other than the
+        model's location, you should include the full path to the file
+        you wish to export. (Use the forward-slash &quot;/&quot; as the
+        folder separator.)
+      <p>
+        Note that the functionality of these primitives is also available
+        directly from NetLogo's File menu.
+      <pre>
+export-world &quot;fire.csv&quot;
+;; exports the state of the model to the file fire.csv
+;; located in the NetLogo folder
+export-plot &quot;Temperature&quot; &quot;c:/My Documents/plot.csv&quot;
+;; exports the plot named
+;; &quot;Temperature&quot; to the file plot.csv located in
+;; the C:\My Documents folder
+export-all-plots &quot;c:/My Documents/plots.csv&quot;
+;; exports all plots to the file plots.csv
+;; located in the C:\My Documents folder
+</pre>
+      <p>
+        If the file already exists, it is overwritten.  To avoid this
+        you may wish to use some method of generating fresh names.  Examples:
+<pre>
+export-world user-new-file
+export-world (word "results " date-and-time ".csv")
+export-world (word "results " random-float 1.0 ".csv")
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

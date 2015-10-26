@@ -1,0 +1,821 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>org.nlogo.agent</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
+      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a name="org" class="extype" href="../../package.html">org</a>.<a name="org.nlogo" class="extype" href="../package.html">nlogo</a></p>
+        <h1>agent</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol"> 
+        <span class="name">agent</span>
+        
+        
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" name="org.nlogo.agent.AbstractExporter" data-isabs="true">
+      <a id="AbstractExporter:AbstractExporter"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="AbstractExporter.html"><span class="name">AbstractExporter</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.Agent" data-isabs="true">
+      <a id="Agent:Agent"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Agent.html"><span class="name">Agent</span></a>
+        
+        <span class="result"> extends Observable with Agent with Comparable[Agent]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.Agent3D" data-isabs="true">
+      <a id="Agent3D:Agent3D"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Agent3D.html"><span class="name">Agent3D</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.AgentSet" data-isabs="true">
+      <a id="AgentSet:AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="AgentSet.html"><span class="name">AgentSet</span></a>
+        
+        <span class="result"> extends AgentSet</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.ArrayAgentSet" data-isabs="false">
+      <a id="ArrayAgentSet:ArrayAgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ArrayAgentSet.html"><span class="name">ArrayAgentSet</span></a>
+        
+        <span class="result"> extends AgentSet</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.BooleanConstraint" data-isabs="false">
+      <a id="BooleanConstraint:BooleanConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="BooleanConstraint.html"><span class="name">BooleanConstraint</span></a>
+        
+        <span class="result"> extends ValueConstraint</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Constraint suitable for Switch variables.</p>
+    </li><li visbl="pub" name="org.nlogo.agent.BreedShapes" data-isabs="false">
+      <a id="BreedShapes:BreedShapes"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="BreedShapes.html"><span class="name">BreedShapes</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.ChooserConstraint" data-isabs="false">
+      <a id="ChooserConstraint:ChooserConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ChooserConstraint.html"><span class="name">ChooserConstraint</span></a>
+        
+        <span class="result"> extends ValueConstraint</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.ConstantSliderConstraint" data-isabs="false">
+      <a id="ConstantSliderConstraint:ConstantSliderConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="ConstantSliderConstraint.html"><span class="name">ConstantSliderConstraint</span></a>
+        
+        <span class="params">(<span name="minimum">minimum: Double</span>, <span name="maximum">maximum: Double</span>, <span name="increment">increment: Double</span>)</span><span class="result"> extends SliderConstraint with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Drawing3D" data-isabs="false">
+      <a id="Drawing3D:Drawing3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Drawing3D.html"><span class="name">Drawing3D</span></a>
+        
+        <span class="result"> extends Drawing3D</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@strictfp</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.DrawingLine3D" data-isabs="false">
+      <a id="DrawingLine3D:DrawingLine3D"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="DrawingLine3D.html"><span class="name">DrawingLine3D</span></a>
+        
+        <span class="params">(<span name="x0">x0: Double</span>, <span name="y0">y0: Double</span>, <span name="z0">z0: Double</span>, <span name="x1">x1: Double</span>, <span name="y1">y1: Double</span>, <span name="z1">z1: Double</span>, <span name="heading">heading: Double</span>, <span name="pitch">pitch: Double</span>, <span name="width">width: Double</span>, <span name="color">color: AnyRef</span>)</span><span class="result"> extends DrawingLine3D with Product with Serializable</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@strictfp</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.DummyLink" data-isabs="false">
+      <a id="DummyLink:DummyLink"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="DummyLink.html"><span class="name">DummyLink</span></a>
+        
+        <span class="result"> extends Link</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.DynamicSliderConstraint" data-isabs="false">
+      <a id="DynamicSliderConstraint:DynamicSliderConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="DynamicSliderConstraint.html"><span class="name">DynamicSliderConstraint</span></a>
+        
+        <span class="result"> extends SliderConstraint</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Constraint suitable for Slider variables.</p>
+    </li><li visbl="pub" name="org.nlogo.agent.Gamma" data-isabs="false">
+      <a id="Gamma:Gamma"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Gamma.html"><span class="name">Gamma</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.HeadingSmoother" data-isabs="false">
+      <a id="HeadingSmoother:HeadingSmoother"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="HeadingSmoother.html"><span class="name">HeadingSmoother</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.ImportPatchColors" data-isabs="false">
+      <a id="ImportPatchColors:ImportPatchColors"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ImportPatchColors.html"><span class="name">ImportPatchColors</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Importer" data-isabs="false">
+      <a id="Importer:Importer"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Importer.html"><span class="name">Importer</span></a>
+        
+        <span class="result"> extends ImportErrorHandler</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Importer3D" data-isabs="false">
+      <a id="Importer3D:Importer3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Importer3D.html"><span class="name">Importer3D</span></a>
+        
+        <span class="result"> extends Importer</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.InRadiusOrCone" data-isabs="false">
+      <a id="InRadiusOrCone:InRadiusOrCone"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="InRadiusOrCone.html"><span class="name">InRadiusOrCone</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.InRadiusOrCone3D" data-isabs="false">
+      <a id="InRadiusOrCone3D:InRadiusOrCone3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="InRadiusOrCone3D.html"><span class="name">InRadiusOrCone3D</span></a>
+        
+        <span class="result"> extends InRadiusOrCone</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.InputBoxConstraint" data-isabs="false">
+      <a id="InputBoxConstraint:InputBoxConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="InputBoxConstraint.html"><span class="name">InputBoxConstraint</span></a>
+        
+        <span class="result"> extends ValueConstraint</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Layouts" data-isabs="false">
+      <a id="Layouts:Layouts"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Layouts.html"><span class="name">Layouts</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.Link" data-isabs="false">
+      <a id="Link:Link"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Link.html"><span class="name">Link</span></a>
+        
+        <span class="result"> extends Agent with Link</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Link3D" data-isabs="false">
+      <a id="Link3D:Link3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Link3D.html"><span class="name">Link3D</span></a>
+        
+        <span class="result"> extends Link with Link3D</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.LinkManager" data-isabs="false">
+      <a id="LinkManager:LinkManager"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="LinkManager.html"><span class="name">LinkManager</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.LinkManager3D" data-isabs="false">
+      <a id="LinkManager3D:LinkManager3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="LinkManager3D.html"><span class="name">LinkManager3D</span></a>
+        
+        <span class="result"> extends LinkManager</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.LinkStamp3D" data-isabs="false">
+      <a id="LinkStamp3D:LinkStamp3D"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="LinkStamp3D.html"><span class="name">LinkStamp3D</span></a>
+        
+        <span class="params">(<span name="shape">shape: String</span>, <span name="x1">x1: Double</span>, <span name="y1">y1: Double</span>, <span name="z1">z1: Double</span>, <span name="x2">x2: Double</span>, <span name="y2">y2: Double</span>, <span name="z2">z2: Double</span>, <span name="color">color: AnyRef</span>, <span name="lineThickness">lineThickness: Double</span>, <span name="isDirectedLink">isDirectedLink: Boolean</span>, <span name="linkDestinationSize">linkDestinationSize: Double</span>, <span name="heading">heading: Double</span>, <span name="pitch">pitch: Double</span>)</span><span class="result"> extends LinkStamp3D with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.LogoHashObject" data-isabs="false">
+      <a id="LogoHashObject:LogoHashObject"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="LogoHashObject.html"><span class="name">LogoHashObject</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.Observer" data-isabs="false">
+      <a id="Observer:Observer"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Observer.html"><span class="name">Observer</span></a>
+        
+        <span class="result"> extends Agent with Observer</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Observer3D" data-isabs="false">
+      <a id="Observer3D:Observer3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Observer3D.html"><span class="name">Observer3D</span></a>
+        
+        <span class="result"> extends Observer with Agent3D</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.OutputObject" data-isabs="false">
+      <a id="OutputObject:OutputObject"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="OutputObject.html"><span class="name">OutputObject</span></a>
+        
+        <span class="params">(<span name="caption">caption: String</span>, <span name="message">message: String</span>, <span name="addNewline">addNewline: Boolean</span>, <span name="isTemporary">isTemporary: Boolean</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Patch" data-isabs="false">
+      <a id="Patch:Patch"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Patch.html"><span class="name">Patch</span></a>
+        
+        <span class="result"> extends Agent with Patch</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Patch3D" data-isabs="false">
+      <a id="Patch3D:Patch3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Patch3D.html"><span class="name">Patch3D</span></a>
+        
+        <span class="result"> extends Patch with Agent3D with Patch3D</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.PatchException" data-isabs="false">
+      <a id="PatchException:PatchException"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="PatchException.html"><span class="name">PatchException</span></a>
+        
+        <span class="result"> extends Exception</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Protractor" data-isabs="false">
+      <a id="Protractor:Protractor"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Protractor.html"><span class="name">Protractor</span></a>
+        
+        <span class="result"> extends Protractor</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Protractor3D" data-isabs="false">
+      <a id="Protractor3D:Protractor3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Protractor3D.html"><span class="name">Protractor3D</span></a>
+        
+        <span class="result"> extends Protractor</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.RootsTable" data-isabs="false">
+      <a id="RootsTable:RootsTable"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="RootsTable.html"><span class="name">RootsTable</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@strictfp</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.SliderConstraint" data-isabs="true">
+      <a id="SliderConstraint:SliderConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="SliderConstraint.html"><span class="name">SliderConstraint</span></a>
+        
+        <span class="result"> extends ValueConstraint</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.TickCounter" data-isabs="false">
+      <a id="TickCounter:TickCounter"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="TickCounter.html"><span class="name">TickCounter</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.TieManager" data-isabs="false">
+      <a id="TieManager:TieManager"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="TieManager.html"><span class="name">TieManager</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.TieManager3D" data-isabs="false">
+      <a id="TieManager3D:TieManager3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="TieManager3D.html"><span class="name">TieManager3D</span></a>
+        
+        <span class="result"> extends TieManager</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Timer" data-isabs="false">
+      <a id="Timer:Timer"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Timer.html"><span class="name">Timer</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Topology3D" data-isabs="true">
+      <a id="Topology3D:Topology3D"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Topology3D.html"><span class="name">Topology3D</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Torus3D" data-isabs="false">
+      <a id="Torus3D:Torus3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Torus3D.html"><span class="name">Torus3D</span></a>
+        
+        <span class="result"> extends Torus with Topology3D</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.TreeAgentSet" data-isabs="false">
+      <a id="TreeAgentSet:TreeAgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="TreeAgentSet.html"><span class="name">TreeAgentSet</span></a>
+        
+        <span class="result"> extends AgentSet</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Turtle" data-isabs="false">
+      <a id="Turtle:Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Turtle.html"><span class="name">Turtle</span></a>
+        
+        <span class="result"> extends Agent with Turtle</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Turtle3D" data-isabs="false">
+      <a id="Turtle3D:Turtle3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Turtle3D.html"><span class="name">Turtle3D</span></a>
+        
+        <span class="result"> extends Turtle with Agent3D with Turtle3D</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.TurtleStamp3D" data-isabs="false">
+      <a id="TurtleStamp3D:TurtleStamp3D"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="TurtleStamp3D.html"><span class="name">TurtleStamp3D</span></a>
+        
+        <span class="params">(<span name="shape">shape: String</span>, <span name="xcor">xcor: Double</span>, <span name="ycor">ycor: Double</span>, <span name="zcor">zcor: Double</span>, <span name="size">size: Double</span>, <span name="heading">heading: Double</span>, <span name="pitch">pitch: Double</span>, <span name="roll">roll: Double</span>, <span name="color">color: AnyRef</span>, <span name="lineThickness">lineThickness: Double</span>)</span><span class="result"> extends TurtleStamp3D with Product with Serializable</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@strictfp</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.World" data-isabs="false">
+      <a id="World:World"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="World.html"><span class="name">World</span></a>
+        
+        <span class="result"> extends World</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World3D" data-isabs="false">
+      <a id="World3D:World3D"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="World3D.html"><span class="name">World3D</span></a>
+        
+        <span class="result"> extends World with World3D</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li></ol>
+            </div>
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="org.nlogo.agent.AbstractExporter" data-isabs="false">
+      <a id="AbstractExporter:AbstractExporter"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="AbstractExporter$.html"><span class="name">AbstractExporter</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.AgentSet" data-isabs="false">
+      <a id="AgentSet:AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="AgentSet$.html"><span class="name">AgentSet</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.AllStoredValues" data-isabs="false">
+      <a id="AllStoredValues:AllStoredValues"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="AllStoredValues$.html"><span class="name">AllStoredValues</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.DummyLink" data-isabs="false">
+      <a id="DummyLink:DummyLink"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="DummyLink$.html"><span class="name">DummyLink</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Gamma" data-isabs="false">
+      <a id="Gamma:Gamma"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Gamma$.html"><span class="name">Gamma</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.ImportPatchColors" data-isabs="false">
+      <a id="ImportPatchColors:ImportPatchColors"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="ImportPatchColors$.html"><span class="name">ImportPatchColors</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Importer" data-isabs="false">
+      <a id="Importer:Importer"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Importer$.html"><span class="name">Importer</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Layouts" data-isabs="false">
+      <a id="Layouts:Layouts"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Layouts$.html"><span class="name">Layouts</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Link" data-isabs="false">
+      <a id="Link:Link"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Link$.html"><span class="name">Link</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Observer" data-isabs="false">
+      <a id="Observer:Observer"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Observer$.html"><span class="name">Observer</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Patch" data-isabs="false">
+      <a id="Patch:Patch"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Patch$.html"><span class="name">Patch</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Patch3D" data-isabs="false">
+      <a id="Patch3D:Patch3D"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Patch3D$.html"><span class="name">Patch3D</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.SliderConstraint" data-isabs="false">
+      <a id="SliderConstraint:SliderConstraint"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="SliderConstraint$.html"><span class="name">SliderConstraint</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.TrigTables" data-isabs="false">
+      <a id="TrigTables:TrigTables"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="TrigTables$.html"><span class="name">TrigTables</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@strictfp</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.agent.Turtle" data-isabs="false">
+      <a id="Turtle:Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Turtle$.html"><span class="name">Turtle</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.Turtle3D" data-isabs="false">
+      <a id="Turtle3D:Turtle3D"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Turtle3D$.html"><span class="name">Turtle3D</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.agent.World" data-isabs="false">
+      <a id="World:World"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="World$.html"><span class="name">World</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

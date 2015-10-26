@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        in-cone
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="in-cone" id="in-cone">in-cone</a>
+      </h3>
+      <h4>
+        <i>agentset</i> in-cone <i>distance</i> <i>angle</i>
+        <br>
+        <img alt="Turtle Command" src="../images/turtle.gif">
+      </h4>
+      <p>
+        This reporter lets you give a turtle a &quot;cone of vision&quot;
+        in front of itself. The cone is defined by the two inputs, the
+        vision distance (radius) and the viewing angle. The viewing angle
+        may range from 0 to 360 and is centered around the turtle's
+        current heading. (If the angle is 360, then in-cone is equivalent
+        to in-radius.)
+      <p>
+        in-cone reports an agentset that includes only those agents from
+        the original agentset that fall in the cone. (This can include the
+        agent itself.)
+      <p>
+        The distance to a patch is measured from the center of the patch.
+      <pre>
+ask turtles
+  [ ask patches in-cone 3 60
+      [ set pcolor red ] ]
+;; each turtle makes a red &quot;splotch&quot; of patches in a 60 degree
+;; cone of radius 3 ahead of itself
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

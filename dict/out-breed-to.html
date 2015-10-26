@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        out-&lt;breed&gt;-to
+        
+        out-link-to
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="out-breed-to" id="out-breed-to">out-&lt;breed&gt;-to</a>
+        <br>
+        <a name="out-link-to" id="out-link-to">out-link-to</a>
+      </h3>
+      <h4>
+        out-&lt;breed&gt;-to <i>turtle</i>
+        <br>
+        out-link-to <i>turtle</i>
+        <br>
+        <img alt="Turtle Command" src="../docs/images/turtle.gif">
+      </h4>
+      <p>
+        Reports the directed link from the caller to <i>turtle</i>. If no link
+        exists then it reports nobody.
+      <pre>
+crt 2
+ask turtle 0 [
+  create-link-to turtle 1
+  show out-link-to turtle 1 ;; shows link 0 1
+]
+ask turtle 1
+[
+  show out-link-to turtle 0 ;; shows nobody
+]
+</pre>
+      <p>See also: <a href="../dictionary.html#in-breed-from">in-link-from</a> <a href="../dictionary.html#breed-with">link-with</a>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

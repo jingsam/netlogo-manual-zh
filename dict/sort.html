@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        sort
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="sort" id="sort">sort</a>
+      </h3>
+      <h4>
+        sort <i>list</i>
+        <br>
+        sort <i>agentset</i>
+      </h4>
+      <p>
+        Reports a sorted list of numbers, strings, or agents.
+      <p>If the input contains no numbers, strings, or agents, the result
+        is the empty list.
+      <p>
+        If the input contains at least one number, the numbers in the list
+        are sorted in ascending order and a new list reported; non-numbers
+        are ignored.
+      <p>
+        Or, if the input contains at least one string, the strings in the list
+        are sorted in ascending order and a new list reported; non-strings
+        are ignored.
+      <p>
+        Or, if the input is an agentset or a list containing at least one agent,
+        a sorted list of agents (never an agentset) is reported; non-agents are ignored.
+        Agents are sorted in the same order the &lt; operator uses.
+      <pre>
+show sort [3 1 4 2]
+=&gt; [1 2 3 4]
+let n 0
+foreach sort patches [
+  ask ? [
+    set plabel n
+    set n n + 1
+  ]
+]
+;; patches are labeled with numbers in left-to-right,
+;; top-to-bottom order
+</pre>
+      <p>
+        See also <a href="../dictionary.html#sort-by">sort-by</a>, <a href="../dictionary.html#sort-on">sort-on</a>.
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

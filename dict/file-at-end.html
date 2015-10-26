@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        file-at-end?
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="file-at-end" id="file-at-end">file-at-end?</a>
+      </h3>
+      <h4>
+        file-at-end?
+      </h4>
+      <p>
+        Reports true when there are no more characters left to read in from
+        the current file (that was opened previously with <a href="../dictionary.html#file-open">file-open</a>). Otherwise, reports false.
+      <pre>
+file-open &quot;my-file.txt&quot;
+print file-at-end?
+=&gt; false ;; Can still read in more characters
+print file-read-line
+=&gt; This is the last line in file
+print file-at-end?
+=&gt; true ;; We reached the end of the file
+</pre>
+      <p>
+        See also <a href="../dictionary.html#file-open">file-open</a>, <a href="../dictionary.html#file-close-all">file-close-all</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

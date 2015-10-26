@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> NetLogo 5.0 用户手册: HubNet 编程指南</title>
+</head>
+
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      HubNet 编程指南
+  </h1>
+    <div class="version">
+      NetLogo 5.0用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+    本指南介绍如何修改已有HubNet活动代码以及如何编写自己的HubNet活动。本指南假设你熟悉如何运行HubNet活动，了解NetLogo代码及界面元素。关于HubNet更多的信息，参见HubNet指南。
+  <ul>
+      <li>
+        <a href="#primitives">HubNet活动编程</a>
+        <ul>
+          <li>
+            <a href="#setup">设置</a>
+          <li>
+            <a href="#data">接受客户信息</a>
+          <li>
+            <a href="#sending">发送客户信息</a>
+          <li>
+            <a href="#ex">例子</a>
+        </ul>
+      <li>
+        <a href="#newinterface">如何制作用户界面</a>
+      <li>
+        <a href="#view-updates">客户上的视图更新</a>
+      <li>
+        <a href="#clicking-view">客户视图上的点击</a>
+      <li>
+        <a href="#customizing">客户上的绘图刷新</a>
+      
+  </ul>
+    <h2>
+      <a name="primitives" id="primitives">HubNet activities编程活动</a>
+    </h2>
+<p>
+     许多HubNet活动有一小部分代码完全相同，这部分代码是设置网络的代码和与客户发送、接收信息的代码。如果理解了这些代码，就能很容易的对已有活动做出修改，也是编写自己的活动的起点。我们提供了一个模板（Template）模型（在HubNet Computer Activities -> Code Examples），该模板包括大多数HubNet活动所需要的多数基本部件。该模板可以作为多数项目开发的起点。
+  <blockquote>
+
+<p>
+        <b>Code Example:</b> Template
+  </blockquote>
+    <h3>
+      <a name="setup" id="setup">设置</a>
+    </h3>
+    <p>
+      要把一个NetLogo模型变成HubNet活动，首先需要初始化网络。在多数HubNet活动中，使用
+      <a href="dictionary.html#startup"><tt>startup</tt></a> procedure to
+      initialize the network. <tt>startup</tt> 例程初始化网络。Startup是个特殊例程，打开任何模型时，NetLogo都试图运行该例程，因此它成为放置运行一次且仅一次代码的好地方（不管用户运行该模型多少次）。对HubNet，我们把初始化网络的命令放在startup中，因为一旦网络设置好了就不需再设置。首先用指定客户类型，此处我们使用计算机客户然后使用<a href=
+      "dictionary.html#hubnet-reset"><tt>hubnet-reset</tt></a>, 初始化系统，它将请求客户输入用户名，并打开HubNet控制中心。NetLogo现在准备好开始监听客户消息。
+    <pre>
+to startup
+  hubnet-reset
+end
+</pre>
+
+<p>
+      现在网络完全设置好了，你不需担心再次调用 <a href=
+      "dictionary.html#hubnet-reset"><tt>hubnet-reset</tt></a>看看模板模型的setup例程：
+  <pre>
+to setup
+  cp
+  cd
+  clear-output
+  ask turtles
+  [
+    set step-size 1
+    hubnet-send user-id &quot;step-size&quot; step-size
+  ]
+end
+</pre>
+    <p>
+      该例程的多数部分看起来与其他setup一样，然而你应注意到它没有调用 <a href=
+      "dictionary.html#clear-all"><tt>clear-all</tt></a>. 在本模型以及模型库的大多数HubNet活动中，有一个表示登录客户的海龟种类,此处我们称之为students。当一个客户登录后，创建一个student，用海龟变量记录以后可能用到的所有信息。当设置活动时，不想要求每个客户退出、重新登录，因此不会杀死所有海龟，相反把所有变量设回初始值并通知客户我们所做的改变。
+    <h3>
+      <a name="data" id="data">接收客户消息</a>
+    </h3>
+    <p>
+      在活动进行时需要在HubNet客户和服务器之间传输数据。多数HubNet活动在go循环中调用一个例程检查来自客户的新消息，此处称之为listen-clients：
+    <pre>
+to listen-clients
+  while [ hubnet-message-waiting? ] 
+  [
+    hubnet-fetch-message
+    ifelse hubnet-enter-message? 
+    [ create-new-student ]
+    [
+      ifelse hubnet-exit-message?
+      [ remove-student ]
+      [ execute-command hubnet-message-tag ]
+    ]
+  ]
+end
+</pre>
+    <p>
+      只要队列中有消息，该循环就取出每一条消息。 <a href=
+      "dictionary.html#hubnet-fetch-message"><tt>hubnet-fetch-message</tt></a>
+      将队列中的下一条消息作为当前消息，设置报告器 <a href=
+      "dictionary.html#hubnet-message-source"><tt>hubnet-message-source</tt></a>,
+      <a href=
+      "dictionary.html#hubnet-message-tag"><tt>hubnet-message-tag</tt></a>,
+      和 <a href=
+      "dictionary.html#hubnet-message"><tt>hubnet-message</tt></a> 为适当的值。当用户登录、退出，以及操作任一界面元素，如按下按钮、移动滑动条、在视图上单击等，客户程序就发送消息。我们依次处理每条消息，根据消息类型（进入、退出及其他）、
+      <a href=
+      "dictionary.html#hubnet-message-tag"><tt>hubnet-message-tag</tt></a>
+      （界面元素的名字）、消息的 <a href=
+      "dictionary.html#hubnet-message-source"><tt>hubnet-message-source</tt></a>（消息来源的客户名）决定采取的行动。
+     
+    <p>
+      如果是enter（进入）消息，我们创建一个海龟，其user-id等于<a href=
+      "dictionary.html#hubnet-message-source"><tt>hubnet-message-source</tt></a>
+      就是进入活动的终端用户的名字，要保证它的唯一性。
+ 
+    
+<pre>
+to create-new-student
+  create-students 1
+  [
+    set user-id hubnet-message-source 
+    set label user-id
+    set step-size 1
+    send-info-to-clients
+  ]
+end
+</pre>
+    <p>
+     此处我们将其他客户变量设为默认值，如果合适的话，将它们发送到客户。对客户程序界面上保存状态的每个元素，如滑动条、选择器、开关、输入框等，声明一个<a href=
+      "dictionary.html#breeds-own"><tt>students-own</tt></a> 变量，这些变量将成为服务器上的全局变量。重要的一点是要确保这些变量与客户程序可视值之间的同步。
+    <p>
+      当客户退出时，发送一条exit消息到服务器。这样就有机会清除为该客户保存的所有信息。此处仅仅请求对应的海龟死亡。
+    <pre>
+to remove-student
+  ask students with [user-id = hubnet-message-source]
+  [ die ]
+end
+</pre>
+    <p>
+      所有其他消息都来自界面元素，通过 <a href=
+      "dictionary.html#hubnet-message-tag"><tt>hubnet-message-tag</tt></a>
+      来识别元素就是出现在客户界面上的元素名字。每当界面元素有所变化时就发送一条消息给服务器。除非保存界面状态当前值，否则在模型的其他部分无法访问界面，这就是我们为每个有状态的界面元素（滑动条、开关等）声明一<a href=
+      "dictionary.html#breeds-own"><tt>students-own</tt></a> 变量的原因。当收到来自客户的消息时，将海龟变量设为消息内容：
+    <pre>
+if hubnet-message-tag = &quot;step-size&quot;
+[
+  ask students with [user-id = hubnet-message-source]
+    [ set step-size hubnet-message ]
+]
+</pre>
+    <p>
+      由于按钮没有关联数据，一般没有相应的海龟变量，相反它表示客户执行了一个动作。像常规按钮一样，一般每个按钮有一个相关例程，当接收到一条消息说明按下按钮时就调用该例程。一般该例程是一个海龟例程（尽管并非必须），即与消息源关联的student海龟能执行
+    <pre>
+if command = &quot;move left&quot;
+[ set heading 270
+  fd 1 ]
+</pre>
+    <h3>
+      <a name="sending" id="sending">向客户发送信息</a>
+    </h3>
+    <p>
+      前面已经提到，也可以向显示信息的任何界面元素发送值：监视器、滑动条、开关、选择器、输入框（注意绘图和视图是特例，有自己的部分）
+    <p>
+     有两个发送消息的原语<a href=
+      "dictionary.html#hubnet-send"><tt>hubnet-send</tt></a> 和 <a href=
+      "dictionary.html#hubnet-broadcast"><tt>hubnet-broadcast</tt></a>。
+      Broadcast向所有客户发送消息，send向指定的客户或选定的一组客户发送消息。
+    <p>
+      前面说过，客户上的任何东西都不会自动更新。如果服务器上的某个值改变了，是你负责更新客户上的监视器。如果是你改变了与某个界面元素关联的服务器上的变量值，而该变化不是出自对界面元素消息的反应，你必须负责更新客户上的显示。
+    <p>
+      例如假设客户上有一个名为step-size的滑动条和名为Step Size的监视器，需要像这样写代码：
+    <pre>
+if hubnet-message-tag = &quot;step-size&quot;
+[
+  ask student with [ user-id = hubnet-message-source ]
+  [
+    set step-size hubnet-message
+    hubnet-send user-id &quot;Step Size&quot; step-size
+  ]
+]
+</pre>
+    <p>
+      可以发送任何类型的数据，包括数值型、字符串、列表、列表的列表，字符串列表。然而如果数据类型与接收数据的界面元素不匹配（例如发送字符串给滑动条），则消息被忽略。下面是一些不同类型数据的例子：
+      
+    <table border>
+      <tr>
+        <th>
+          data type
+        <th>
+          <tt>hubnet-broadcast</tt> example
+        <th>
+          <tt>hubnet-send</tt> example
+      <tr>
+        <td>
+          number
+        <td>
+          <tt>hubnet-broadcast &quot;A&quot; 3.14</tt>
+        <td>
+          <tt>hubnet-send &quot;jimmy&quot; &quot;A&quot; 3.14</tt>
+      <tr>
+        <td>
+          string
+        <td>
+          <tt>hubnet-broadcast &quot;STR1&quot; &quot;HI THERE&quot;</tt>
+        <td>
+          <tt>hubnet-send [&quot;12&quot; &quot;15&quot;] &quot;STR1&quot;
+          &quot;HI THERE&quot;</tt>
+      <tr>
+        <td>
+          list of numbers
+        <td>
+          <tt>hubnet-broadcast &quot;L2&quot; [1 2 3]</tt>
+        <td>
+          <tt>hubnet-send hubnet-message-source &quot;L2&quot; [1 2 3]</tt>
+      <tr>
+        <td>
+          matrix of numbers
+        <td>
+          <tt>hubnet-broadcast &quot;[A]&quot; [[1 2] [3 4]]</tt>
+        <td>
+          <tt>hubnet-send &quot;susie&quot; &quot;[A]&quot; [[1 2] [3
+          4]]</tt>
+      <tr>
+        <td>
+          list of strings
+        <td>
+          <tt>hubnet-broadcast &quot;user-names&quot; [[&quot;jimmy&quot;
+          &quot;susie&quot;] [&quot;bob&quot; &quot;george&quot;]]</tt>
+        <td>
+          <tt>hubnet-send &quot;teacher&quot; &quot;user-names&quot;
+          [[&quot;jimmy&quot; &quot;susie&quot;] [&quot;bob&quot;
+          &quot;george&quot;]]</tt>
+  </table>
+    <h3>
+      <a name="ex" id="ex">例子</a>
+    </h3>
+    <p>
+      研究模型库"HubNet Computer Activities" 和"HubNet Calculator Activities"部分的例子，看看这些原语是怎样在例程页使用的。Disease是一个入门的好例子。
+    <h2>
+      <a name="newinterface" id="newinterface">怎样制作客户界面
+      interface</a>
+    </h2>
+    <p>
+      在Tools菜单打开HubNet客户编辑器（HubNet Client Editor），可以添加任何按钮、滑动条、开关、监视器、绘图、选择器或注释，就像在界面页中一样。注意为每个部件输入的信息与界面面板中略有不同。客户上的部件与模型的交互方式有所不同，部件将消息发送回服务器，由模型决定它的影响，而不是直接与命令和报告器相连。所有部件有一个标志（tag），唯一标志该部件的名字。当服务器接收到来自部件的消息时，通过<a href=
+      "dictionary.html#hubnet-message-tag"><tt>hubnet-message-tag</tt></a>得到部件的标志。
+    <p>
+      例如，有按钮"move left"，滑动条"step-size"，开关"all-in-one-step?"，监视器"Location:"，这些界面元素的标志如下：
+    <table border>
+      <tr>
+        <th>
+          interface element
+        <th>
+          tag
+      <tr>
+        <td>
+          move left
+        <td>
+          move left
+      <tr>
+        <td>
+          step-size
+        <td>
+          step-size
+      <tr>
+        <td>
+          all-in-one-step?
+        <td>
+          all-in-one-step?
+      <tr>
+        <td>
+          Location:
+        <td>
+          Location:
+  </table>
+    <p>
+      注意一个名字只能有一个部件。如果客户界面的多个部件有相同的标志，将会导致不可预料的结果，因为不知道向哪个元素发送消息。
+    <h2>
+      <a name="view-updates" id="view-updates">客户上的视图更新</a>
+    </h2>
+    <p>
+      在客户视图中显示世界的最简单方式是使用视图镜像（view mirroring）。当view mirroring打开时（通过HubNet控制中心激活），客户视图自动更新，反映世界状态。
+    <p>
+      所有客户拥有与服务器一样的视图。视图大约每秒更新5次，这意味着要发送大量信息到客户。如果发生性能下降，可以试试使用no-display，或减少更新频率。
+    <p>
+       tick-based 形式的更新，当 <tt>tick</tt> 或者
+      <tt>display</tt> 按钮运行的时候就会执行更新，我们推荐使用内部的按钮 <tt>every</tt> ，来减少视图的更新频率。例如：
+  <pre>
+every 0.1
+[
+  display
+]
+</pre>
+    <p>
+      如果客户没有视图,或控制中心的Mirror 2D View on Clients选择框未选中，则不发送视图消息。
+    <h2>
+      <a name="clicking-view" id="clicking-view">客户视图点击</a>
+    </h2>
+    <p>
+      如果客户包含视图，则用户在视图上点击时都会向服务器发送消息。消息的标志是"View"，消息包括由x和y坐标构成的一个两项列表。例如要把客户视图上点击的瓦片变成红色，使用下面的代码：
+    <pre>
+if hubnet-message-tag = &quot;View&quot;
+[
+  ask patches with [ pxcor = (round item 0 hubnet-message) and 
+                     pycor = (round item 1 hubnet-message) ]
+  [ set pcolor red ]
+]
+</pre>
+    <h2>
+      <a name="customizing" id="customizing">定制用户视图</a>
+    </h2>
+    <p>
+      当视图的按钮可以使用时， 默认的用户的视图都是相， 但是你可以改变这样的话大家都可以看到个性化的界面，而不仅仅是单一的文字映射。
+    <p>
+      你可以改变客户看到的界面有两个独特的方法，
+      &quot;client perspectives&quot; 和 &quot;client overrides&quot;。
+    <p>
+      改变用户的视图通过让他 &quot;watch&quot;
+      or &quot;follow&quot;一个特定的个体，就像NetLogo模型中的 <a href=
+      "dictionary.html#watch"><tt>watch</tt></a> 和  <a href=
+      "dictionary.html#follow"><tt>follow</tt></a> 命令。查看字典中的实例<a href=
+      "dictionary.html#hubnet-send-watch"><tt>hubnet-send-watch</tt></a>,
+      <a href=
+      "dictionary.html#hubnet-send-follow"><tt>hubnet-send-follow</tt></a>,
+      和 <a href=
+      "dictionary.html#hubnet-reset-perspective"><tt>hubnet-reset-perspective</tt></a>.
+    <blockquote>
+      <p>
+        <b>Code Example:</b> Client Perspective Example
+  </blockquote>
+    <p>
+      用户撤销可以让你改变瓦砾的外观，乌龟和链接的视图，你可以改变任何变量来影响个体的表现，包括 <tt>hidden?</tt>
+      变量引起乌龟或者链接可见或不可见，看用户字典的实例<a href=
+      "dictionary.html#hubnet-send-override"><tt>hubnet-send-override</tt></a>,
+      <a href=
+      "dictionary.html#hubnet-clear-override"><tt>hubnet-clear-override</tt></a>,
+      和<a href=
+      "dictionary.html#hubnet-clear-overrides"><tt>hubnet-clear-overrides</tt></a>.
+    <blockquote>
+      <p>
+        <b>Code Example:</b> Client Overrides Example
+  </blockquote>
+    <h2>
+      <a name="plot-updates" id="plot-updates">客户上的视图更新</a>
+    </h2>
+    <p>
+      如果绘图镜像（plot mirroring）已激活（在HubNet控制中心），并且客户上有名字完全相同的绘图，当NetLogo绘图变化时，关于该变化的消息就发送到客户，使得客户视图发生同样的变化。例如假设HubNet模型在NetLogo和客户上都有个名为Milk Supply的绘图，在NetLogo中Milk Supply是当前视图，在命令中心输入：
+    <pre>
+plot 5
+</pre>
+    <p>
+      引起将一条消息发送到所有客户，告诉他们在绘图的下个位置、y为5处画一个点。注意，如果一次执行很多绘图动作，会有大量的绘图消息发送到客户。
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        turtles-here
+        
+        &lt;breed&gt;-here
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="turtles-here" id="turtles-here">turtles-here</a>
+        <br>
+        <a name="breeds-here" id=
+        "breeds-here"><i>&lt;breed&gt;</i>-here</a>
+      </h3>
+      <h4>
+        turtles-here
+        <br>
+        <i>&lt;breeds&gt;</i>-here
+      </h4>
+      <p>
+        Reports an agentset containing all the turtles on the caller's
+        patch (including the caller itself if it's a turtle).
+      <pre>
+crt 10
+ask turtle 0 [ show count turtles-here ]
+=&gt; 10
+</pre>
+      <p>
+        If the name of a breed is substituted for &quot;turtles&quot;, then
+        only turtles of that breed are included.
+      <pre>
+breed [cats cat]
+breed [dogs dog]
+create-cats 5
+create-dogs 1
+ask dogs [ show count cats-here ]
+=&gt; 5
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

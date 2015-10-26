@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Bitmap Extension
+    </title>
+    </head>
+
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      Bitmap 扩展
+    </h1>
+    <h2>
+      Bitmap Extension 做什么？
+    </h2>
+    <p>
+    
+      Bitmap Extension 允许你向绘图和瓦片上操作或导入图像。它提供NetLogo核心原语不提供的特性，例如：scaling, manipulation of different
+      color channels, and width and height reporters.
+      
+    <h2>
+      开始
+    </h2>
+    <p>
+      要导入或者编辑图像必须要在NetLogo中包含bitmap扩展。
+    <pre>
+extensions[ bitmap ]
+</pre>
+    <p>
+      Java虚拟机器的图库决定了支持的图像文件的格式。具体来说就是PNG,JPG,GIF和BMP。PNG是不错的标准选择，几乎哪里都能使用。
+    <p>
+      如果图像格式支持透明（alpha），这些信息也会被导入。
+      
+    <h2>
+      原语
+    </h2>
+    <p>
+      <a href="#bitmap:average-color">bitmap:average-color</a> <a href=
+      "#bitmap:channel">bitmap:channel</a> <a href=
+      "#bitmap:copy-to-drawing">bitmap:copy-to-drawing</a> <a href=
+      "#bitmap:copy-to-pcolors">bitmap:copy-to-pcolors</a> <a href=
+      "#bitmap:difference-rgb">bitmap:difference-rgb</a> <a href=
+      "#bitmap:export">bitmap:export</a> <a href=
+      "#bitmap:from-view">bitmap:from-view</a> <a href=
+      "#bitmap:grayscale">bitmap:grayscale</a> <a href=
+      "#bitmap:height">bitmap:height</a> <a href=
+      "#bitmap:import">bitmap:import</a> <a href=
+      "#bitmap:scaled">bitmap:scaled</a> <a href=
+      "#bitmap:width">bitmap:width</a>
+    <h3>
+      <a name="bitmap:average-color" id=
+      "bitmap:average-color">bitmap:average-color</a>
+    </h3>
+    <h4>
+      bitmap:average-color <i>image</i>
+    </h4>
+    <p>
+      返回一个3个元素的列表，分别是图像的R,G和B，它们是通过加和所有的像素，并利用像素标准化各个组成部分得到的，因此每个组成部分都在0~255之间。
+     
+    <h3>
+      <a name="bitmap:channel" id="bitmap:channel">bitmap:channel</a>
+    </h3>
+    <h4>
+      bitmap:channel <i>image</i> <i>channel</i>
+    </h4>
+    <p>
+      从图像中提取出alpha, red, green, 或 blue channel。输入的<i>channel</i>应该是一个0-3之间的整数，代表去掉的channel (alpha=0, red=1, green=2, blue=3)。得到的图像是一个代表特定channel的灰度的图像。
+     
+    <h3>
+      <a name="bitmap:copy-to-drawing" id=
+      "bitmap:copy-to-drawing">bitmap:copy-to-drawing</a>
+    </h3>
+    <h4>
+      bitmap:copy-to-drawing <i>image</i> <i>x</i> <i>y</i>
+    </h4>
+    <p>
+      向绘图中导入给定图像，不需要按照给定的像素调整。
+    <h3>
+      <a name="bitmap:copy-to-pcolors" id=
+      "bitmap:copy-to-pcolors">bitmap:copy-to-pcolors</a>
+    </h3>
+    <h4>
+      bitmap:copy-to-pcolors <i>image</i> <i>boolean</i>
+    </h4>
+    <p>
+      将给定的图像导入pcolors,调整图像，适应整个世界。第二个输入量代表颜色是需要使用NetLogo颜色还是仍然使用RGB颜色。<tt>false</tt>代表仍然使用RGB颜色。
+      
+    <h3>
+      <a name="bitmap:difference-rgb" id=
+      "bitmap:difference-rgb">bitmap:difference-rgb</a>
+    </h3>
+    <h4>
+      bitmap:difference-rgb <i>image1</i> <i>image2</i>
+    </h4>
+    <p>
+      返回一个图像，这个图像的RGB是两个图像RGB的差值。注意第一个图像和第二个图像必须要是相同的宽度和高度，否则会出错。
+      
+    <h3>
+      <a name="bitmap:export" id="bitmap:export">bitmap:export</a>
+    </h3>
+    <h4>
+      bitmap:export <i>image</i> <i>filename</i>
+    </h4>
+    <p>
+      将<i>image</i> 写上 <i>filename</i>。
+    <h3>
+      <a name="bitmap:from-view" id="bitmap:from-view">bitmap:from-view</a>
+    </h3>
+    <h4>
+      bitmap:from-view
+    </h4>
+    <p>
+      得到当前视图的图像。
+      
+    <h3>
+      <a name="bitmap:grayscale" id="bitmap:grayscale">bitmap:grayscale</a>
+    </h3>
+    <h4>
+      bitmap:grayscale <i>image</i>
+    </h4>
+    <p>
+      将当前给定图像转为灰度。
+      
+    <h3>
+      <a name="bitmap:height" id="bitmap:height">bitmap:height</a>
+    </h3>
+    <h4>
+      bitmap:height <i>image</i>
+    </h4>
+    <p>
+      返回当前<i>image</i>的高度。
+     
+    <h3>
+      <a name="bitmap:import" id="bitmap:import">bitmap:import</a>
+    </h3>
+    <h4>
+      bitmap:import <i>filename</i>
+    </h4>
+    <p>
+      返回一个LogoBitmap，包含名字为<i>filename</i>的图像。
+      
+    <h3>
+      <a name="bitmap:scaled" id="bitmap:scaled">bitmap:scaled</a>
+    </h3>
+    <h4>
+      bitmap:scaled <i>image</i> <i>width</i> <i>height</i>
+    </h4>
+    <p>
+      返回一个新的图像，是原来的<i>image</i>按照给定的<i>width</i>和<i>height</i>调整后的图像。
+    
+    <h3>
+      <a name="bitmap:width" id="bitmap:width">bitmap:width</a>
+    </h3>
+    <h4>
+      bitmap:width <i>image</i>
+    </h4>
+    <p>
+      返回给定<i>image</i>的宽度。
+      
+
+</html>

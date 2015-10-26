@@ -1,0 +1,1538 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<title>
+      GIS Extention
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      GIS 扩展
+    </h1>
+    <p>
+	  这个扩展将GIS（地理信息系统）支持加入NetLogo。它提供了加载矢量GIS数据（点，线和多边形）的能力，并且能栅格GIS数据（网格）进你的模型。
+     
+    <p>
+	  这个扩展以ESRI形状文件的形式支持矢量数据。形状文件（.shp）格式是最常见的存储和修改矢量GIS数据的形式。这个扩展以ESRI ASCII 网格文件的形式支持栅格文件。ASCII网格文件（.asc 或者.grd）并不如形状文件常见，但是被大多数GIS平台作为交互格式支持。
+     
+    <h2>
+      如何使用
+    </h2>
+    <p>
+	  总体来说，首先定义一个GIS数据空间和Netlogo空间之间的转换，然后加载数据集，并对其运行多种操作。最简单的在GIS空间和Netlogo空间之间定义转换的方法是取&quot;envelopes&quot;的并集或者约束所有GIS空间和Netlogo世界中边界的地图的范围。看GIS例子。
+      
+    <p>
+	  你也可以选择性的为GIS空间定义一个映射，这样，数据集会被反映射来匹配装载时的映射，只要你的每个描述映射或者地理协调系统的数据文件都与.prj文件有关联。如果没有找到关联的.prj文件，扩展就会假定数据集已经使用了当前的映射，无论当前映射是什么。
+      
+    <p>
+	  一旦协调系统被定义后，就可以使用
+      <a href="#gis:load-dataset">gis:load-dataset</a>来加载数据集。这条源于返回一个矢量数据集或者是一个栅格数据集，取决于你传的文件类型。 
+    <p>
+	  一个矢量数据集包括一个矢量型的集合，每个矢量型都是点、线或者多边形，还有一组属性值。单个的矢量数据集可能只包含三种可能的型中的一种。
+      
+    <p>
+	  可以对矢量数据集做以下几件事：查询矢量型的属性的名称，查询它的&quot;envelope&quot;（边界矩形），查询数据集中所有的某个属性大于或小于固定值的矢量型的列表，或者列出给定范围，或者使用通配符匹配（&quot;*&quot;，匹配任何出现字符的数字）了来配对给定的字符串。如果矢量型是多边形，你也可以将数据集的型的特定属性的值赋给一块给定的变量。
+      
+    <p>
+	  也可以从矢量数据集中对矢量型做以下事情：查询顶点列表的列表，按照名称查询属性值，查询它的重心（重力的中心），和查询和给定的矢量型互动的给定主体集的子集。对于点数据来讲，每一个顶点列表都是一个元素的列表。对线数据来讲，每个顶点列表都会给出组成这个型的顶点。对多边形来说，每个顶点列表会给出一个多边形的环，而且第一个顶点和最后一个顶点是相同的。顶点列表是有顶点类型的值组成的，重心也是顶点类型的值。
+      
+    <p>
+	  对栅格性数据也有很多操作。大部分都和在数据集中取样或者重新取样有关。可以在给定瓦片变量上应用一个栅格数据，也可以用任意的卷积矩阵卷乘一个栅格数据。
+      
+    <blockquote>
+      <p>
+        <b>Code Example:</b> GIS General Examples has general examples of
+        how to use the extension
+      <p>
+        <b>Code Example:</b> GIS Gradient Example is a more advanced
+        example of raster dataset analysis.
+      </blockquote>
+    <h2>
+      已知问题
+    </h2>
+    <p>
+	  栅格数据集，矢量数据集，矢量型和顶点的值都不能用
+      <tt>export-world</tt> 和
+      <tt>import-world</tt>合适的处理。要保存书籍，必须使用
+      <tt>gis:store-dataset</tt> 原语。
+    <p>
+	  当前不能区分活动区域
+      
+      &quot;shell&quot;多边形与消极区域 &quot;hole&quot;多边形，也不能决定哪些holes和shells相关。
+     
+    <h2>
+      信用
+    </h2>
+    <p>
+      GIS扩展的最初开发者是Eric Russell.
+    <p>
+      GIS 扩展利用了集中开源的软件数据库。版权和许可证信息看 
+      <a href="copyright.html">copyright</a> 。扩展也包括了从<a href=
+      "http://www.myworldgis.org">My World GIS</a>借用来的元素。
+    <p>
+	  这份文书和NetLogo模型例子在公共区域。GIS扩展本身时免费、开源的软件。见扩展路径下的
+      README.md 文件。
+    <p>
+      我们期待能够得到您关于如何提高GIS扩展的建议，或者仅仅是您使用它的用途。请将问题或建议贴在
+	  <a href=
+      "http://groups.yahoo.com/group/netlogo-users/">NetLogo Users
+      Group</a>，或者直接写信给 Eric Russell和 NetLogo 团队
+      <a href=
+      "mailto:ccl-gis@ccl.northwestern.edu">ccl-gis@ccl.northwestern.edu</a>.
+    <h2>
+      GIS 原语
+    </h2>
+    <h3>
+      <a name="coordgroup" id="coordgroup">Coordinate System Primitives</a>
+    </h3>
+    <p>
+      <a href="#gis:set-transformation">set-transformation</a> <a href=
+      "#gis:set-transformation-ds">set-transformation-ds</a> <a href=
+      "#gis:set-world-envelope">set-world-envelope</a> <a href=
+      "#gis:set-world-envelope-ds">set-world-envelope-ds</a> <a href=
+      "#gis:world-envelope">world-envelope</a> <a href=
+      "#gis:envelope-of">envelope-of</a> <a href=
+      "#gis:envelope-union-of">envelope-union-of</a> <a href=
+      "#gis:load-coordinate-system">load-coordinate-system</a> <a href=
+      "#gis:set-coordinate-system">set-coordinate-system</a>
+    <h3>
+      <a name="datagroup" id="datagroup">Dataset Primitives</a>
+    </h3>
+    <p>
+      <a href="#gis:load-dataset">load-dataset</a> <a href=
+      "#gis:store-dataset">store-dataset</a> <a href=
+      "#gis:type-of">type-of</a> <a href=
+      "#gis:patch-dataset">patch-dataset</a> <a href=
+      "#gis:turtle-dataset">turtle-dataset</a> <a href=
+      "#gis:link-dataset">link-dataset</a>
+    <h3>
+      <a name="vectorgroup" id="vectorgroup">VectorDataset Primitives</a>
+    </h3>
+    <p>
+      <a href="#gis:shape-type-of">shape-type-of</a> <a href=
+      "#gis:property-names">property-names</a> <a href=
+      "#gis:feature-list-of">feature-list-of</a> <a href=
+      "#gis:vertex-lists-of">vertex-lists-of</a> <a href=
+      "#gis:centroid-of">centroid-of</a> <a href=
+      "#gis:location-of">location-of</a> <a href=
+      "#gis:property-value">property-value</a> <a href=
+      "#gis:find-features">find-features</a> <a href=
+      "#gis:find-one-feature">find-one-feature</a> <a href=
+      "#gis:find-less-than">find-less-than</a> <a href=
+      "#gis:find-greater-than">find-greater-than</a> <a href=
+      "#gis:find-range">find-range</a> <a href=
+      "#gis:property-minimum">property-minimum</a> <a href=
+      "#gis:property-maximum">property-maximum</a> <a href=
+      "#gis:apply-coverage">apply-coverage</a> 
+      <!-- <a href="#gis:apply-coverages">apply-coverages</a> -->
+       <a href=
+      "#gis:coverage-minimum-threshold">coverage-minimum-threshold</a>
+      <a href=
+      "#gis:set-coverage-minimum-threshold">set-coverage-minimum-threshold</a>
+      <a href=
+      "#gis:coverage-maximum-threshold">coverage-maximum-threshold</a>
+      <a href=
+      "#gis:set-coverage-maximum-threshold">set-coverage-maximum-threshold</a>
+      <a href="#gis:intersects">intersects?</a> <a href=
+      "#gis:contains">contains?</a> <a href=
+      "#gis:contained-by">contained-by?</a> <a href=
+      "#gis:have-relationship">have-relationship?</a> <a href=
+      "#gis:relationship-of">relationship-of</a>
+    <h3>
+      <a name="rastergroup" id="rastergroup">RasterDataset Primitives</a>
+    </h3>
+    <p>
+      <a href="#gis:width-of">width-of</a> <a href=
+      "#gis:height-of">height-of</a> <a href=
+      "#gis:raster-value">raster-value</a> <a href=
+      "#gis:set-raster-value">set-raster-value</a> <a href=
+      "#gis:minimum-of">minimum-of</a> <a href=
+      "#gis:maximum-of">maximum-of</a> <a href=
+      "#gis:sampling-method-of">sampling-method-of</a> <a href=
+      "#gis:set-sampling-method">set-sampling-method</a> <a href=
+      "#gis:raster-sample">raster-sample</a> <a href=
+      "#gis:raster-world-envelope">raster-world-envelope</a> <a href=
+      "#gis:create-raster">create-raster</a> <a href=
+      "#gis:resample">resample</a> <a href="#gis:convolve">convolve</a>
+      <a href="#gis:apply-raster">apply-raster</a>
+    <h3>
+      <a name="drawinggroup" id="drawinggroup">Drawing Primitives</a>
+    </h3>
+    <p>
+      <a href="#gis:drawing-color">drawing-color</a> <a href=
+      "#gis:set-drawing-color">set-drawing-color</a> <a href=
+      "#gis:draw">draw</a> <a href="#gis:fill">fill</a> <a href=
+      "#gis:paint">paint</a>
+    <h2>
+      <a name="coord" id="coord">Coordinate System Primitives</a>
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-transformation" id=
+        "gis:set-transformation">gis:set-transformation</a>
+      </h3>
+      <h4>
+        gis:set-transformation <i>gis-envelope</i> <i>netlogo-envelope</i>
+      </h4>
+      <p>
+	    定义了GIS和Netlogo协调之间的映像。
+        
+        <i>gis-envelope</i>和 <i>netlogo-envelope</i>参数一定要由四部分组成：
+   
+      <pre>
+        [minimum-x maximum-x minimum-y maximum-y]
+      
+</pre>
+      <p>
+	    转换的范围必须要和使映像在x的值和y的值范围内的最小必须范围相等。
+        
+        
+      <p>
+	    例如，以下两个列表会映射所有的地理空间（经度和纬度）到netlogo空间，不管当前netlogo世界的维度：
+        
+      <pre>
+        (list -180 180 -90 90)
+        (list min-pxcor max-pxcor min-pycor max-pycor)
+      
+</pre>
+      <p>
+	    然而，如果你在设定netlogo世界的envelope，你可能要用到下面的
+         <a href=
+        "#gis:set-world-envelope">set-world-envelope</a>。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-transformation-ds" id=
+        "gis:set-transformation-ds">gis:set-transformation-ds</a>
+      </h3>
+      <h4>
+        gis:set-transformation-ds <i>gis-envelope</i>
+        <i>netlogo-envelope</i>
+      </h4>
+      <p>
+	    除了允许在x值的范围内映像的范围不同于在y值的范围内映像的范围，<a href=
+        "#gis:set-transformation">set-transformation</a> 和上面的做一样的事情。
+        最后的&quot;-ds&quot;表示&quot;different scales&quot;。使用不同的范围会导致GIS相撞的扭曲，所以一般不推荐，但是有的模型中它是有用的。
+      <p>
+	  下面是一个
+        <a href=
+        "#gis:set-transformation">set-transformation</a>和<a href=
+        "#gis:set-transformation-ds">set-transformation-ds</a>不同的例子：
+      <p>
+        <a name="transformation-example" id="transformation-example"></a>
+      <table width="80%" border="1" rules="cols" cellspacing="4"
+      cellpadding="8" align="center">
+        <tr>
+          <td align="center">
+            <img alt="" src="images/set-transformation.png" width="200">
+          <td align="center">
+            <img alt="" src="images/set-transformation-ds.png" width="200">
+          <tr>
+          <td align="center">
+            使用 <a href="#gis:set-transformation">set-transformation</a>,
+            x和y的范围相同，在Orthographic项目中呈现出的是圆形的地球。
+          <td align="center">
+            使用 <a href=
+            "#gis:set-transformation-ds">set-transformation-ds</a>，x周范围拉伸了，所以在这个方向上地球覆盖了整个netlogo视图，在这个例子中，扭曲了地球的形状。
+          </table>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-world-envelope" id=
+        "gis:set-world-envelope">gis:set-world-envelope</a>
+      </h3>
+      <h4>
+        gis:set-world-envelope <i>gis-envelope</i>
+      </h4>
+      <p>
+        设定映射netlogo世界边界到给定的GIS世界的边界的转换，同时保持x和y轴的范围一样的一种缩写。它和以下的相同：
+      <pre>
+        set-transformation <i>gis-envelope</i> (list min-pxcor max-pxcor min-pycor max-pycor)
+      
+</pre>
+      <p>
+	  这条原语设计是因为大多数时间都想设定整个netlogo世界的边界，而不仅仅是一部分。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-world-envelope-ds" id=
+        "gis:set-world-envelope-ds">gis:set-world-envelope-ds</a>
+      </h3>
+      <h4>
+        gis:set-world-envelope-ds <i>gis-envelope</i>
+      </h4>
+      <p>
+	    设定映射netlogo世界边界到给定的GIS世界的边界的转换，使用x和y轴的范围不一样的一种缩写。它和以下的相同：
+        
+      <pre>
+        set-transformation-ds <i>gis-envelope</i> (list min-pxcor max-pxcor min-pycor max-pycor)
+      
+</pre>
+      <p>
+        看上面的 <a href="#transformation-example">pictures</a>，可以找到使用相同的x，y和不同的x,y范围的差别。 
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:world-envelope" id=
+        "gis:world-envelope">gis:world-envelope</a>
+      </h3>
+      <h4>
+        gis:world-envelope
+      </h4>
+      <p>
+	    返回netlogo世界的envelope（边界矩形），转换为GIS空间。一个envelope包括四个元素：
+        
+      <pre>
+        [minimum-x maximum-x minimum-y maximum-y]
+      
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:envelope-of" id="gis:envelope-of">gis:envelope-of</a>
+      </h3>
+      <h4>
+        gis:envelope-of <i>thing</i>
+      </h4>
+      <p>
+	    返回GIS坐标中的<i>thing</i>的envelope（边界矩形）。<i>thing</i>可能是一个主题，主体集，栅格数据集或者是矢量数据集。一个envelope包括四个元素：
+      <pre>
+        [minimum-x maximum-x minimum-y maximum-y]
+      
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:envelope-union-of" id=
+        "gis:envelope-union-of">gis:envelope-union-of</a>
+      </h3>
+      <h4>
+        gis:envelope-union-of <i>envelope1</i> <i>envelope2</i>
+        <br>
+        (gis:envelope-union-of <i>envelope1</i> ...)
+      </h4>
+      <p>
+	    返回包含全部给定envelopes的envelope（边界矩形）。一个envelope包括四个元素：
+      <pre>
+        [minimum-x maximum-x minimum-y maximum-y]
+      
+</pre>
+      <p>
+        对于坐标系统的争议不做假设，尽管他们不再同一个坐标系下，结果可能是不可预知的。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:load-coordinate-system" id=
+        "gis:load-coordinate-system">gis:load-coordinate-system</a>
+      </h3>
+      <h4>
+        gis:load-coordinate-system <i>file</i>
+      </h4>
+      <p>
+	    载入一个新的全球映射，来映射或重新映射GIS数据，在其被从文件中导入后。文件必须包含一个可用的
+        
+        <a href=
+        "http://geoapi.sourceforge.net/2.0/javadoc/org/opengis/referencing/doc-files/WKT.html">
+        Well-Known Text (WKT)</a> 投影描述。
+      <p>
+        WKT 投影文件经常和GIS数据文件一同出现，而且经常有&quot;.prj&quot;的文件扩展名.
+      <p>
+	  相关的路径必须和当前模型的位置相关，或者如果当前模型还未被保存的话就是用户的主页路径。
+        
+      <p>
+        GIS扩展不支持所有的WKT坐标系和项目。只有geographic (<tt>&quot;GEOGCS&quot;</tt>) 和
+        projected (<tt>&quot;PROJCS&quot;</tt>) 坐标系被支持。对于 projected 坐标系来说，只有
+        projections 能被支持：
+      <blockquote>
+        <table>
+          <tr>
+            <td>
+              Albers_Conic_Equal_Area
+            <td>
+              Lambert_Conformal_Conic_2SP
+            <td>
+              Polyconic
+            <tr>
+            <td>
+              Lambert_Azimuthal_Equal_Area
+            <td>
+              Mercator_1SP
+            <td>
+              Robinson
+            <tr>
+            <td>
+              Azimuthal_Equidistant
+            <td>
+              Miller
+            <td>
+              Stereographic
+            <tr>
+            <td>
+              Cylindrical_Equal_Area
+            <td>
+              Oblique_Mercator
+            <td>
+              Transverse_Mercator
+            <tr>
+            <td>
+              Equidistant_Conic
+            <td>
+              hotine_oblique_mercator
+            <tr>
+            <td>
+              Gnomonic
+            <td>
+              Orthographic
+            </table>
+      </blockquote>
+      <p>
+        见<a href=
+        "http://remotesensing.org/geotiff/proj_list/">remotesensing.org</a>
+        。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-coordinate-system" id=
+        "gis:set-coordinate-system">gis:set-coordinate-system</a>
+      </h3>
+      <h4>
+        gis:set-coordinate-system <i>system</i>
+      </h4>
+      <p>
+	  设定全球映射或者在GIS数据被加载时，重新映射。
+         <i>system</i> 必须是一个<a href=
+        "http://geoapi.sourceforge.net/2.0/javadoc/org/opengis/referencing/doc-files/WKT.html">
+        Well-Known Text (WKT) format</a>里的字符串，或者包含WKT通过将关键字移入相关括号内并在周围加以引用而转换为列表的NetLogo 列表文件。后者更好，因为后者编码可读性更强。
+      <p>
+	    上述的对WKT的限制也适用于：
+        <a href=
+        "#gis:load-coordinate-system">load-coordinate-system</a>
+      </div>
+    <h2>
+      <a name="data" id="data">Dataset Primitives</a>
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:load-dataset" id=
+        "gis:load-dataset">gis:load-dataset</a>
+      </h3>
+      <h4>
+        gis:load-dataset <i>file</i>
+      </h4>
+      <p>
+	  载入给定的数据文件，如果必要重新映射，如果一个定义了全球映射而且数据文件自身有关联的.prj文件，则返回结果数据集。
+        
+      <p>
+        如果当前没有 &quot;.prj&quot; 文件，那么 <tt>load-dataset</tt>假设载入数据的映射和当前的全球坐标系一样。
+        
+      <p>
+	  相关的路径必须和当前模型的位置相关，或者如果当前模型还未被保存的话就是用户的主页路径。
+      <p>
+        目前，支持这两种数据文件：
+      <ul>
+        <li>&quot;<b>.shp</b>&quot; (ESRI shapefile): 包含矢量数据，包括点，线或者多边形。当目标文件是形状文件时， <tt>load-dataset</tt> 返回一个矢量数据集。
+        <li>&quot;<b>.asc</b>&quot; 或者 &quot;<b>.grd</b>&quot; (ESRI ASCII
+        grid): 包含栅格数据，包括一网格的值。如果目标文件是一个ASCII网格文件， <tt>load-dataset</tt>
+        返回一个栅格数据集。
+        </ul>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:store-dataset" id=
+        "gis:store-dataset">gis:store-dataset</a>
+      </h3>
+      <h4>
+        gis:store-dataset <i>dataset</i> <i>file</i>
+      </h4>
+      <p>
+	    在制定的文件中保存给定的数据集。如果文件的名字没有合适的文件扩展，扩展会自动在名字上添加。
+        相关的路径必须和当前模型的位置相关，或者如果当前模型还未被保存的话就是用户的主页路径。
+      <p>
+	  目前，这条原语只适用于山歌文件，而且目前只能保存为ESRI ASCII网格文件的数据集。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:type-of" id="gis:type-of">gis:type-of</a>
+      </h3>
+      <h4>
+        gis:type-of <i>dataset</i>
+      </h4>
+      <p>
+	  返回给定GIS数据集的类型：
+        
+        &quot;VECTOR&quot; 或者是&quot;RASTER&quot;.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:patch-dataset" id=
+        "gis:patch-dataset">gis:patch-dataset</a>
+      </h3>
+      <h4>
+        gis:patch-dataset <i>patch-variable</i>
+      </h4>
+      <p>
+	  返回一个新的栅格，栅格的元胞和netlogo的瓦片直接相关，而且元胞的值包括给定的瓦片变量。这条原语基本上是
+       <a href=
+        "#gis:apply-raster">apply-raster</a>的反转; <tt>apply-raster</tt>从一个栅格数据集上复制值到瓦片变量上，这条原语将瓦片变量的值复制到栅格数据集中。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:turtle-dataset" id=
+        "gis:turtle-dataset">gis:turtle-dataset</a>
+      </h3>
+      <h4>
+        gis:turtle-dataset <i>turtle-set</i>
+      </h4>
+      <p>
+	  返回一个新的，点的矢量数据集，由给定的主题集合的乌龟构成。点分布在乌龟的位置上，利用当前的坐标转换从netlogo空间转换为GIS空间。而且数据集的属性包括所有乌龟的变量。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:link-dataset" id=
+        "gis:link-dataset">gis:link-dataset</a>
+      </h3>
+      <h4>
+        gis:link-dataset <i>link-set</i>
+      </h4>
+      <p>
+	  返回一个新的，线的矢量数据集，由给定主题集合的链接组成。每条线的结尾点处在链接的乌龟的位置，利用当前坐标将netlogo空间转换为GIS空间。而且数据集的属性包括所有的连接变量。
+        
+      </div>
+    <h2>
+      <a name="vector" id="vector">VectorDataset Primitives</a>
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:shape-type-of" id=
+        "gis:shape-type-of">gis:shape-type-of</a>
+      </h3>
+      <h4>
+        gis:shape-type-of <i>VectorDataset</i>
+      </h4>
+      <p>
+	  返回给定数据集的形状类型。可能的输出值为
+        &quot;POINT&quot;, &quot;LINE&quot;, 和
+        &quot;POLYGON&quot;.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:property-names" id=
+        "gis:property-names">gis:property-names</a>
+      </h3>
+      <h4>
+        gis:property-names <i>VectorDataset</i>
+      </h4>
+      <p>
+	  返回一个字符串的列表，每个字符串都是给定矢量数据集中一个矢量型的属性的名字，适合于在
+         <a href=
+        "#gis:property-value">gis:property-value</a>中使用。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:feature-list-of" id=
+        "gis:feature-list-of">gis:feature-list-of</a>
+      </h3>
+      <h4>
+        gis:feature-list-of <i>VectorDataset</i>
+      </h4>
+      <p>
+	  返回一个给定数据集的所有的矢量型的列表。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:vertex-lists-of" id=
+        "gis:vertex-lists-of">gis:vertex-lists-of</a>
+      </h3>
+      <h4>
+        gis:vertex-lists-of <i>VectorFeature</i>
+      </h4>
+      <p>
+	  返回一个顶点值的列表的列表。对点数据集来说，每个顶点列表只包含一个顶点值：点的位置。对线数据集来说每个顶点列表包括至少两个点，而且会展示一个多叉线，连接每对列表中的顶点。对多边形数据集来说，每个顶点列表包括最少三个点，展示了一个多边形连接每个顶点，而且第一个和最后一个顶点是相同的。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:centroid-of" id="gis:centroid-of">gis:centroid-of</a>
+      </h3>
+      <h4>
+        gis:centroid-of <i>VectorFeature</i>
+      </h4>
+      <p>
+	  返回一个单独的顶点，表示给定型的重心（重力的中心）。对点数据集来说，重心就是所有点的平均位置。对线数据集来说，重心就是所有线的中点的平均位置，以线段的长度作为比重。对多边形数据集来说，重心就是所有组成部分的重心的权重平均。
+        见 <a href=
+        "http://www.faqs.org/faqs/graphics/algorithms-faq/">this FAQ</a>
+        。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:location-of" id="gis:location-of">gis:location-of</a>
+      </h3>
+      <h4>
+        gis:location-of <i>Vertex</i>
+      </h4>
+      <p>
+	  返回一个两个元素的列表，包括利用当前变换的netlogo世界空间给定的顶点x,y的值（按照这个顺序）或者是空的列表，如果给定的顶点在netlogo世界之外。。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:property-value" id=
+        "gis:property-value">gis:property-value</a>
+      </h3>
+      <h4>
+        gis:property-value <i>VectorFeature</i> <i>property-name</i>
+      </h4>
+      <p>
+	  返回给定矢量数据集，给定名称的属性的值。返回的值可能是一个数字、字符串或者布尔变量，取决于访问的值域。
+        
+      <p>
+	  对形状文件来说，从
+        dBase <tt>CHARACTER</tt> 和
+        <tt>DATE</tt> 区域来的值都返回字符串，从
+        <tt>NUMBER</tt> 和<tt>FLOAT</tt> 区域来的值都返回数字，
+        从<tt>LOGICAL</tt>区域中来的值都返回布尔值。  <tt>MEMO</tt> 区域不支持。 <tt>DATE</tt>得知利用
+        ISO 8601 格式转换为字符串。
+        (<tt>YYYY-MM-DD</tt>).
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:find-features" id=
+        "gis:find-features">gis:find-features</a>
+      </h3>
+      <h4>
+        gis:find-features <i>VectorDataset</i> <i>property-name</i>
+        <i>string</i>
+      </h4>
+      <p>
+	  返回所有在给定的数据集中， <i>property-name</i>属性的值和给定的字符串匹配的矢量型的列表。
+	  值的比较和例子相关性不大，而且通配符文字
+         &quot;*&quot;会匹配所有出现的数字（包括0）或文字。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:find-one-feature" id=
+        "gis:find-one-feature">gis:find-one-feature</a>
+      </h3>
+      <h4>
+        gis:find-one-feature <i>VectorDataset</i> <i>property-name</i>
+        <i>string</i>
+      </h4>
+      <p>
+	  返回在数据集中，<i>property-name</i>属性的值和给定的字符串匹配的第一个出现的矢量型。
+
+        值的比较和例子相关性不大，而且通配符文字
+         &quot;*&quot;会匹配所有出现的数字（包括0）或文字。型按照数据集的源数据文件中出现的顺序查找，而且一旦匹配成功就停止查找。如果没有匹配就返回
+		 
+        <tt>nobody</tt> 。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:find-less-than" id=
+        "gis:find-less-than">gis:find-less-than</a>
+      </h3>
+      <h4>
+        gis:find-less-than <i>VectorDataset</i> <i>property-name</i>
+        <i>value</i>
+      </h4>
+      <p>
+	  返回在数据集中，<i>property-name</i>属性的值比给定的<i>value</i>小的所有矢量型。字符串的值利用
+        在 <a href=
+        "http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html#compareTo(java.lang.String)">
+        Java Documentation</a>中定义的case-sensitive
+        lexicographic 规则比较。在数值化的属性中使用字符串或者在字符串化的属性中使用数字都会被认为是错误。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:find-greater-than" id=
+        "gis:find-greater-than">gis:find-greater-than</a>
+      </h3>
+      <h4>
+        gis:find-greater-than <i>VectorDataset</i> <i>property-name</i>
+        <i>value</i>
+      </h4>
+      <p>
+	  返回在数据集中，<i>property-name</i>属性的值比给定的<i>value</i>大的所有矢量型。字符串的值利用
+        在 <a href=
+        "http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html#compareTo(java.lang.String)">
+        Java Documentation</a>中定义的case-sensitive
+        lexicographic 规则比较。在数值化的属性中使用字符串或者在字符串化的属性中使用数字都会被认为是错误。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:find-range" id="gis:find-range">gis:find-range</a>
+      </h3>
+      <h4>
+        gis:find-range <i>VectorDataset</i> <i>property-name</i>
+        <i>minimum-value</i> <i>maximum-value</i>
+      </h4>
+      <p>
+返回在数据集中，<i>property-name</i>属性的值比给定的<i>minimum-value</i>严格大而比<i>maximum-value</i>严格小的的所有矢量型。字符串的值利用
+        在 <a href=
+        "http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html#compareTo(java.lang.String)">
+        Java Documentation</a>中定义的case-sensitive
+        lexicographic 规则比较。在数值化的属性中使用字符串或者在字符串化的属性中使用数字都会被认为是错误。
+
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:property-minimum" id=
+        "gis:property-minimum">gis:property-minimum</a>
+      </h3>
+      <h4>
+        gis:property-minimum <i>VectorDataset</i> <i>property-name</i>
+      </h4>
+      <p>
+	  返回给定数据集中所有矢量型的给定属性中的最小值。
+        字符串的值利用
+        在 <a href=
+        "http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html#compareTo(java.lang.String)">
+        Java Documentation</a>中定义的case-sensitive
+        lexicographic 规则比较。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:property-maximum" id=
+        "gis:property-maximum">gis:property-maximum</a>
+      </h3>
+      <h4>
+        gis:property-maximum <i>VectorDataset</i> <i>property-name</i>
+      </h4>
+      <p>
+        返回给定数据集中所有矢量型的给定属性中的最大值。
+        字符串的值利用
+        在 <a href=
+        "http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html#compareTo(java.lang.String)">
+        Java Documentation</a>中定义的case-sensitive
+        lexicographic 规则比较。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:apply-coverage" id=
+        "gis:apply-coverage">gis:apply-coverage</a>
+      </h3>
+      <h4>
+        gis:apply-coverage <i>VectorDataset</i> <i>property-name</i>
+        <i>patch-variable</i>
+      </h4>
+      <p>
+	  从矢量数据集的型中复制给定的属性的值到给定的瓦片变量中。数据集必须要是一个
+        
+        <tt>多边形</tt> 数据集；点和线的都不支持。
+      <p>
+	  对每个瓦片来说，它找到所有和瓦片交互的矢量型。那么，如果这个属性是个字符串属性，它通过计算被矢量型覆盖的瓦片总区域的属性有的可能值来计算主要的值。接着，返回代表瓦片区域的最大比例的值。如果属性是个数字型的属性，它计算所有和瓦片交互的矢量型的属性的加权平均值，权重是它们覆盖的瓦片的比例。
+        
+      <p>
+	  对这种默认的行为有两种期待：
+        
+      <ul>
+        <li>
+		如果瓦片的区域百分比比被一个矢量型覆盖的最大覆盖要大，那么那个矢量型的属性值就直接被复制过来。如果有多于一个矢量型覆盖的区域比开端大，只有第一个被使用。
+		
+        <li>如果瓦片面积被矢量型覆盖的总百分比少于最少覆盖开端，目标瓦片变量就被设定为不是一个数字。
+		
+        </ul>
+      <p>
+	    默认情况下，最小的界限是10%，最大的界限是33%。使用如下四个原语可以修改这些值。
+        
+      </div><!--
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:apply-coverages" id="gis:apply-coverages">gis:apply-coverages</a>
+      </h3>
+      <h4>
+        gis:apply-coverages <i>VectorDataset</i> <i>property-name-list</i> <i>patch-variable</i>
+        <br>
+        (gis:apply-coverages <i>VectorDataset</i> <i>property-name-list</i> <i>patch-variable</i> ...)
+      </h4>
+      <p>
+        THIS PRIMITIVE IS CURRENTLY BROKEN. DON'T USE IT.
+    </div>
+    -->
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:coverage-minimum-threshold" id=
+        "gis:coverage-minimum-threshold">gis:coverage-minimum-threshold</a>
+      </h3>
+      <h4>
+        gis:coverage-minimum-threshold
+      </h4>
+      <p>
+	  返回当前覆盖的最小界限，使用
+         <a href=
+        "#gis:apply-coverage">gis:apply-coverage</a>.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-coverage-minimum-threshold" id=
+        "gis:set-coverage-minimum-threshold">gis:set-coverage-minimum-threshold</a>
+      </h3>
+      <h4>
+        gis:set-coverage-minimum-threshold <i>new-threshold</i>
+      </h4>
+      <p>
+	  设定当前覆盖最小界限，使用
+        S <a href=
+        "#gis:apply-coverage">gis:apply-coverage</a>.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:coverage-maximum-threshold" id=
+        "gis:coverage-maximum-threshold">gis:coverage-maximum-threshold</a>
+      </h3>
+      <h4>
+        gis:coverage-maximum-threshold
+      </h4>
+      <p>
+	  返回当前覆盖最大范围使用
+        <a href=
+        "#gis:apply-coverage">gis:apply-coverage</a>.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-coverage-maximum-threshold" id=
+        "gis:set-coverage-maximum-threshold">gis:set-coverage-maximum-threshold</a>
+      </h3>
+      <h4>
+        gis:set-coverage-maximum-threshold <i>new-threshold</i>
+      </h4>
+      <p>
+	  设定当前覆盖最大范围，使用
+         <a href=
+        "#gis:apply-coverage">gis:apply-coverage</a>.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:intersects" id="gis:intersects">gis:intersects?</a>
+      </h3>
+      <h4>
+        gis:intersects? <i>x</i> <i>y</i>
+      </h4>
+      <p>
+	  如果给定的物体的特殊显示最少共用一个点，就返回true，否则返回false。这些物体的x和y可以是
+        
+      <ul>
+        <li>矢量数据集，这样物体的特殊显示就是数据集包括的所有点、线、多边形的集合。
+		
+        <li>矢量型，这样，物体的特殊显示就被定义为矢量型有的点、线或多边形。
+		
+        <li>乌龟，这样特殊显示就是一个点。
+		
+        <li>连接，特殊显示是一条连接两端乌龟之间的线段。
+		
+        <li>瓦片，特殊显示是长方形的多边形。
+		
+        <li>主体集合，特殊显示是所有包含主体的显示的集合。
+		
+        <li>包含所有列出的元素的列表，包括另一个列表。特殊显示是内容的特殊显示的列表。
+		
+        </ul>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:contains" id="gis:contains">gis:contains?</a>
+      </h3>
+      <h4>
+        gis:contains? <i>x</i> <i>y</i>
+      </h4>
+      <p>
+	   如果每个<i>y</i>的特殊显示的点都是<i>x</i>的特殊显示的一部分的话返回true。注意，这表示多边形要包含边界。x和y可以是
+        
+      <ul>
+        <li>矢量数据集，这样物体的特殊显示就是数据集包括的所有点、线、多边形的集合。
+        <li>矢量型，这样，物体的特殊显示就被定义为矢量型有的点、线或多边形。
+        <li>乌龟，这样特殊显示就是一个点。
+        <li>连接，特殊显示是一条连接两端乌龟之间的线段。
+        <li>瓦片，特殊显示是长方形的多边形。
+        <li>主体集合，特殊显示是所有包含主体的显示的集合。
+        <li>包含所有列出的元素的列表，包括另一个列表。特殊显示是内容的特殊显示的列表。
+        </ul>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:contained-by" id=
+        "gis:contained-by">gis:contained-by?</a>
+      </h3>
+      <h4>
+        gis:contained-by? <i>x</i> <i>y</i>
+      </h4>
+      <p>
+        如果每个<i>x</i>的特殊显示的点都是<i>y</i>的特殊显示的一部分的话返回true。注意，这表示多边形要包含边界。x和y可以是
+      <ul>
+        <li>矢量数据集，这样物体的特殊显示就是数据集包括的所有点、线、多边形的集合。
+        <li>矢量型，这样，物体的特殊显示就被定义为矢量型有的点、线或多边形。
+        <li>乌龟，这样特殊显示就是一个点。
+        <li>连接，特殊显示是一条连接两端乌龟之间的线段。
+        <li>瓦片，特殊显示是长方形的多边形。
+        <li>主体集合，特殊显示是所有包含主体的显示的集合。
+        <li>包含所有列出的元素的列表，包括另一个列表。特殊显示是内容的特殊显示的列表。
+        </ul>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:have-relationship" id=
+        "gis:have-relationship">gis:have-relationship?</a>
+      </h3>
+      <h4>
+        gis:have-relationship? <i>x</i> <i>y</i> <i>relationship</i>
+      </h4>
+      <p>
+	  如果两个物体的特殊显示具有给定的特殊关系的话就返回true，否则返回false。特殊关系有<b>Dimensionally Extended Nine-
+        Intersection Model (DE-9IM)</b>矩阵定义。这个矩阵包含9个元素，每个都确定了给定两个物体之间的关系。这些元素鼻血有六个可能的值之一：
+        
+      <ul>
+        <li>&quot;T&quot;,表示空间必须某种程度上有交集
+        <li>&quot;F&quot;,表示空间必须某种程度上没有交集
+        <li>&quot;0&quot;, 表示空间的交集的维度必须为0（也就是说，必须是一个点或者非空的点集）
+        
+        <li>&quot;1&quot;, 表示空间交集的维度必须为1（也就是说必须是线或者非空的线集）
+        <li>&quot;2&quot;, 表示空间交集的维度必须为2（也就是说，必须是多边形或者非空的多边形集合）
+        <li>&quot;*&quot;, 表示两个空间可能有什么关系
+        </ul>
+      <p>
+        例如矩阵：
+      <table width="50%" border="1" align="center">
+        <tr>
+          <td rowspan="2" colspan="2">
+          <td colspan="3" align="center">
+            x
+          <tr>
+          <td align="center">
+            Interior
+          <td align="center">
+            Boundary
+          <td align="center">
+            Exterior
+          <tr>
+          <td rowspan="3" align="center">
+            y
+          <td>
+            Interior
+          <td align="center">
+            T
+          <td align="center">
+            *
+          <td align="center">
+            *
+          <tr>
+          <td>
+            Boundary
+          <td align="center">
+            *
+          <td align="center">
+            *
+          <td align="center">
+            *
+          <tr>
+          <td>
+            Exterior
+          <td align="center">
+            F
+          <td align="center">
+            F
+          <td align="center">
+            *
+          </table>
+      <p>
+	  当且仅当物体<i>x</i>的内部的一部分在物体<i>y</i>的内部，而且没有<i>x</i>的内部或者边界与<i>y</i>的外部有交集就返回true。这是一个更加约束的<tt>contains?</tt>原语的形式；而且其中，多边形不包括边界。
+        
+      <p>
+	  矩阵作为一个字符串被给
+      <tt>have-relationship?</tt>，它的元素按照下列方式给出：
+      <table width="25%" border="1" align="center">
+        <tr>
+          <td align="center">
+            1
+          <td align="center">
+            2
+          <td align="center">
+            3
+          <tr>
+          <td align="center">
+            4
+          <td align="center">
+            5
+          <td align="center">
+            6
+          <tr>
+          <td align="center">
+            7
+          <td align="center">
+            8
+          <td align="center">
+            9
+          </table>
+      <p>
+	  如果你要使用上述的矩阵，你需要写：
+        S
+      <pre>
+        gis:have-relationship? x y &quot;T*****FF*&quot;
+      
+</pre>
+      <p>
+	  一个更加详细规范的对DE-9IM矩阵的描述和相关的点集理论可以见
+         <a href=
+        "http://www.opengeospatial.org/standards/sfs">OpenGIS Simple
+        Features Specification for SQL</a>.
+      <p>
+
+       物体 x 和 y 可以是：
+      <ul>
+        <li>矢量数据集，这样物体的特殊显示就是数据集包括的所有点、线、多边形的集合。
+        <li>矢量型，这样，物体的特殊显示就被定义为矢量型有的点、线或多边形。
+        <li>乌龟，这样特殊显示就是一个点。
+        <li>连接，特殊显示是一条连接两端乌龟之间的线段。
+        <li>瓦片，特殊显示是长方形的多边形。
+        <li>主体集合，特殊显示是所有包含主体的显示的集合。
+        <li>包含所有列出的元素的列表，包括另一个列表。特殊显示是内容的特殊显示的列表。
+        </ul>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:relationship-of" id=
+        "gis:relationship-of">gis:relationship-of</a>
+      </h3>
+      <h4>
+        gis:relationship-of <i>x</i> <i>y</i>
+      </h4>
+      <p>
+	  返回<b>Dimensionally Extended Nine-Intersection Model
+        (DE-9IM)</b>矩阵，描述两个物体之间的特殊关系。矩阵包括9个元素，每个都描述两个物体之间的内部、边界和外部空间的关系。每个元素都会描述两个空间的交集的围堵，表示它可能有以下四个可能值之一：
+       
+      <ul>
+        <li>&quot;-1&quot;, 表示空间没有交集
+        <li>&quot;0&quot;, 表示空间的交集的维度必须为0（也就是说，必须是一个点或者非空的点集）
+        <li>&quot;1&quot;,表示空间交集的维度必须为1（也就是说必须是线或者非空的线集）
+        <li>&quot;2&quot;, 表示空间交集的维度必须为2（也就是说，必须是多边形或者非空的多边形集合）
+        </ul>
+      <p>
+        例如，两个多边形x 和 y :
+      <center>
+        <img alt="" src="images/intersecting-polygons.png">
+      </center>
+      <p>
+        have the following DE-9IM matrix:
+      <table width="50%" border="1" align="center">
+        <tr>
+          <td rowspan="2" colspan="2">
+          <td colspan="3" align="center">
+            x
+          <tr>
+          <td align="center">
+            Interior
+          <td align="center">
+            Boundary
+          <td align="center">
+            Exterior
+          <tr>
+          <td rowspan="3" align="center">
+            y
+          <td>
+            Interior
+          <td align="center">
+            2
+          <td align="center">
+            1
+          <td align="center">
+            2
+          <tr>
+          <td>
+            Boundary
+          <td align="center">
+            1
+          <td align="center">
+            0
+          <td align="center">
+            1
+          <tr>
+          <td>
+            Exterior
+          <td align="center">
+            2
+          <td align="center">
+            1
+          <td align="center">
+            2
+          </table>
+      <p>会被
+        <tt>relationship-of</tt>原语作为 字符串&quot;212101212&quot;返回.
+      <p>更加详细规范的关于DE-9IM矩阵的描述见
+        <a href=
+        "http://www.opengeospatial.org/standards/sfs">OpenGIS Simple
+        Features Specification for SQL</a>.
+      <p>
+        物体 x 和 y 可能是：
+      <ul>
+        <li>矢量数据集，这样物体的特殊显示就是数据集包括的所有点、线、多边形的集合。
+        <li>矢量型，这样，物体的特殊显示就被定义为矢量型有的点、线或多边形。
+        <li>乌龟，这样特殊显示就是一个点。
+        <li>连接，特殊显示是一条连接两端乌龟之间的线段。
+        <li>瓦片，特殊显示是长方形的多边形。
+        <li>主体集合，特殊显示是所有包含主体的显示的集合。
+        <li>包含所有列出的元素的列表，包括另一个列表。特殊显示是内容的特殊显示的列表。
+        </ul>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:intersecting" id=
+        "gis:intersecting">gis:intersecting</a>
+      </h3>
+      <h4>
+        <i>patch-set</i> gis:intersecting <i>data</i>
+      </h4>
+      <p>
+	  返回一个新的主体集只包括给定的与给出的 GIS <i>data</i>有交集的主体集，可能是，矢量数据集，矢量型，主体，主体集，或者是包含所有的列表。
+        
+      </div>
+    <h2>
+      <a name="raster" id="raster">RasterDataset Primitives</a>
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:width-of" id="gis:width-of">gis:width-of</a>
+      </h3>
+      <h4>
+        gis:width-of <i>RasterDataset</i>
+      </h4>
+      <p>
+	  返回数据集的列数。注意，这是从做到有的元胞数，不是数据集在GIS空间的宽度。
+       
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:height-of" id="gis:height-of">gis:height-of</a>
+      </h3>
+      <h4>
+        gis:height-of <i>RasterDataset</i>
+      </h4>
+      <p>返回数据接的行数。注意是从头到尾的元胞数，不是GIS空间中数据集的高度。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:raster-value" id=
+        "gis:raster-value">gis:raster-value</a>
+      </h3>
+      <h4>
+        gis:raster-value <i>RasterDataset</i> <i>x</i> <i>y</i>
+      </h4>
+      <p>
+	  返回给定的栅格数据集在给定的元胞中的值。元胞坐标从左向右，从上到下从零开始编号。所以左边最上面的元胞是（0,0），而且右下角的元胞坐标是(<tt>gis:width-of dataset</tt> - 1,
+        <tt>gis:height-of dataset</tt> - 1).
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-raster-value" id=
+        "gis:set-raster-value">gis:set-raster-value</a>
+      </h3>
+      <h4>
+        gis:set-raster-value <i>RasterDataset</i> <i>x</i> <i>y</i>
+        <i>value</i>
+      </h4>
+      <p>
+	  设定在给定元胞中给定的栅格数据一个新的值。元胞坐标从左向右，从上到下从零开始编号。所以左边最上面的元胞是（0,0），而且右下角的元胞坐标是(<tt>gis:width-of dataset</tt> - 1,
+        <tt>gis:height-of dataset</tt> - 1).
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:minimum-of" id="gis:minimum-of">gis:minimum-of</a>
+      </h3>
+      <h4>
+        gis:minimum-of <i>RasterDataset</i>
+      </h4>
+      <p>
+       返回给定栅格数据集的最大值。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:maximum-of" id="gis:maximum-of">gis:maximum-of</a>
+      </h3>
+      <h4>
+        gis:maximum-of <i>RasterDataset</i>
+      </h4>
+      <p>返回给定栅格数据集的最小值。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:sampling-method-of" id=
+        "gis:sampling-method-of">gis:sampling-method-of</a>
+      </h3>
+      <h4>
+        gis:sampling-method-of <i>RasterDataset</i>
+      </h4>
+      <p>
+	  返回计算在一个点上或者在一个区域上小于一个栅格数据的给定栅格数据的值的抽样方法。抽样利用GIS扩展原语
+         <a href="#gis:raster-sample">raster-sample</a>, <a href=
+        "#gis:resample">resample</a>, <a href="#gis:convolve">convolve</a>,
+        and <a href="#gis:apply-raster">apply-raster</a>.抽样方法是以下方法中一种： 
+      <ul>
+        <li>
+          <tt>&quot;NEAREST_NEIGHBOR&quot;</tt>:使用与抽样距离最近的元胞的值。
+        <li>
+          <tt>&quot;BILINEAR&quot;</tt>: 根据周围四个最近元胞与其相近程度，线性加权抽样。
+        <li>
+          <tt>&quot;BICUBIC&quot;</tt>: 最近的16个元胞被抽样，它们的值按照Rifman推荐的 piecewise cubic polynomial 抽样。 
+          (见 <i>Digital Image Warping</i>, George Wolberg, 1990, pp
+          129-131, IEEE Computer Society Press).
+        <li>
+          <tt>&quot;BICUBIC_2&quot;</tt>: 和上面的<tt>BICUBIC</tt>使用相同的过程和相同的polynomial 
+          ，只是使用一种不同的参数。这种方法可能会产生比<tt>BICUBIC</tt>更尖锐的数据，但是结果是数据依赖的。
+        </ul>
+      <p>
+       更多信息，见<a href=
+        "http://en.wikipedia.org/wiki/Image_scaling">this wikipedia
+        article</a>.
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-sampling-method" id=
+        "gis:set-sampling-method">gis:set-sampling-method</a>
+      </h3>
+      <h4>
+        gis:set-sampling-method <i>RasterDataset</i> <i>sampling-method</i>
+      </h4>
+      <p>
+
+       返回计算在一个点上或者在一个区域上小于一个栅格数据的给定栅格数据的值的抽样方法。抽样利用GIS扩展原语 <a href=
+        "#gis:raster-sample">raster-sample</a>, <a href=
+        "#gis:resample">resample</a>, <a href="#gis:convolve">convolve</a>,
+        and <a href="#gis:apply-raster">apply-raster</a>. 抽样方法是以下方法中一种：
+      <ul>
+        <li>
+          <tt>&quot;NEAREST_NEIGHBOR&quot;</tt>
+        <li>
+          <tt>&quot;BILINEAR&quot;</tt>
+        <li>
+          <tt>&quot;BICUBIC&quot;</tt>
+        <li>
+          <tt>&quot;BICUBIC_2&quot;</tt>
+        </ul>
+      <p>
+       更多详细信息见<a href="#gis:sampling-method-of">sampling-method-of</a>
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:raster-sample" id=
+        "gis:raster-sample">gis:raster-sample</a>
+      </h3>
+      <h4>
+        gis:raster-sample <i>RasterDataset</i> <i>sample-location</i>
+      </h4>
+      <p>
+	  返回个顶位置的给定栅格的值。位置可能是以下几种之一：
+        
+      <ul>
+        <li>长度为2的列表，用来表示netlogo空间中的一点(<tt>[xcor ycor]</tt>)利用<a href="#gis:location-of">location-of</a> 返回。栅格数据集在位置的点上被抽样。
+		
+        <li>长度为4的列表，用来表示GIS空间中的边界，利用<a href=
+        "#gis:envelope-of">envelope-of</a>得到。栅格数据集在边界范围内得到。
+		
+        <li>瓦片，栅格数据集在瓦片的区域被抽样。
+		
+        <li>乌龟，栅格数据集在乌龟所处的位置被抽样。
+        <li>顶点，栅格数据集在顶点的位置被抽样。
+		
+        </ul>
+      <p>
+	  如果需要的位置在栅格数据集覆盖的区域外，这条源于返回一个特殊的值表明&quot;not a number&quot;，被netlogo显示为&quot;NaN&quot;。使用特殊&quot;not a number&quot;的值作为原语的结果来期望得到一个数字可能会导致错误，但是可以检验原语返回的是不是&quot;not a number&quot;值。不是数字的值既不会大于一个数也不会小于一个数，所以可以利用下列方法检测这个值：
+       
+      <pre>
+ let value gis:raster-sample dataset turtle 0
+ ; set color to blue if value is a number, red if value is &quot;not a number&quot;
+ ifelse (value &lt;= 0) or (value &gt;= 0)
+ [ set color blue ]
+ [ set color red ]
+ 
+</pre>
+      <p>
+	  如果需要的位置是一个点，例子总是能够利用<a href=
+        "#gis:set-sampling-method">set-sampling-method</a>设定的方法得到。
+       如果需要的位置是一个区域，（也就是说一个限制或者瓦片）那么久用所有被要求的区域覆盖的栅格元胞来计算平均值。 
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:raster-world-envelope" id=
+        "gis:raster-world-envelope">gis:raster-world-envelope</a>
+      </h3>
+      <h4>
+        gis:raster-world-envelope <i>RasterDataset</i> <i>x</i> <i>y</i>
+      </h4>
+      <p>
+	  返回需要通过给定栅格数据集中的元胞边界来匹配netlogo瓦片边界的GIS范围。这个范围可以由
+         <a href=
+        "#gis:set-transformation-ds">set-transformation-ds</a>得到。
+      <p>
+	  数据集中的元胞可能比netlogo世界中的瓦片还多。这种情况下，你需要通过限制想要和netlogo世界左上角匹配的元胞来选择一个数据集中的元胞的子集。元胞从左向右，从上向下从零开始编号。所以左上角是（0,0），右下角是(<tt>gis:width-of dataset</tt> - 1,
+        <tt>gis:height-of dataset</tt> - 1).
+       
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:create-raster" id=
+        "gis:create-raster">gis:create-raster</a>
+      </h3>
+      <h4>
+        gis:create-raster <i>width</i> <i>height</i> <i>envelope</i>
+      </h4>
+      <p>
+	  创造并返回一个新的空的栅格数据集，给定行数和列数，给定覆盖的范围。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:resample" id="gis:resample">gis:resample</a>
+      </h3>
+      <h4>
+        gis:resample <i>RasterDataset</i> <i>envelope</i> <i>width</i>
+        <i>height</i>
+      </h4>
+      <p>
+	  返回一个新的数据集，包括给定的再抽样以覆盖给定区域，包含给定行数和列数的栅格数据集。如果新的栅格元胞比存在的栅格元胞要小，它们会利用
+        <a href=
+        "#gis:set-sampling-method">set-sampling-method</a>方法重新抽样.如果新的元胞你初始元胞大，会使用<tt>&quot;NEAREST_NEIGHBOR&quot;</tt> 方法再抽样。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:convolve" id="gis:convolve">gis:convolve</a>
+      </h3>
+      <h4>
+        gis:convolve <i>RasterDataset</i> <i>kernel-rows</i>
+        <i>kernel-columns</i> <i>kernel</i> <i>key-column</i>
+        <i>key-row</i>
+      </h4>
+      <p>
+	  返回一个新的栅格，栅格的数据包括被给定的核心卷乘的给定的栅格。
+        
+      <p>
+       卷积是一种特殊的数学运算，它运算每个输出的元胞，将一个特殊的源元胞周围的元胞值和核心的元素相乘。核心是矩阵的值，是一个定义为&quot;key
+        element&quot;的值，这个值作为中心，源元胞围绕着它。
+        
+      <p>
+	  核心矩阵的值以列表的方式给出，枚举了矩阵从左向右，从上向下的所有元素。所以一个三乘三的矩阵可以按照下列规则被列为：
+       
+      <table width="25%" border="1" align="center">
+        <tr>
+          <td align="center">
+            1
+          <td align="center">
+            2
+          <td align="center">
+            3
+          <tr>
+          <td align="center">
+            4
+          <td align="center">
+            5
+          <td align="center">
+            6
+          <tr>
+          <td align="center">
+            7
+          <td align="center">
+            8
+          <td align="center">
+            9
+          </table>
+      <p>
+	  关键元素被矩阵中的行和列限定。列从左向右编号，从零开始。行从上向下编号，也是从零开始，所以，例如，
+         <a href=
+        "http://en.wikipedia.org/wiki/Sobel_operator">Sobel operator</a>的核心，就应该看起来是：
+       
+      <table width="25%" border="1" align="center">
+        <tr>
+          <td align="center">
+            1
+          <td align="center">
+            0
+          <td align="center">
+            -1
+          <tr>
+          <td align="center">
+            2
+          <td align="center">
+            0
+            <br>
+            <small>(key)</small>
+          <td align="center">
+            -2
+          <tr>
+          <td align="center">
+            1
+          <td align="center">
+            0
+          <td align="center">
+            -1
+          </table>按照下列方式被指定：
+      <pre>
+ let horizontal-gradient gis:convolve dataset 3 3 [1 0 -1 2 0 -2 1 0 -1] 1 1
+ 
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:apply-raster" id=
+        "gis:apply-raster">gis:apply-raster</a>
+      </h3>
+      <h4>
+        gis:apply-raster <i>RasterDataset</i> <i>patch-variable</i>
+      </h4>
+      <p>
+	  从给定的栅格数据集中复制数据到给定的瓦片变量，必要时重新抽取栅格数据，以保证它的元胞边界和netlogo瓦片边界匹配。这种重新抽样使用<a href="#gis:resample">resample</a>而不是<a href="#gis:raster-sample">raster-sample</a>，从效率的角度出发。然而，没有被栅格覆盖的瓦片被记录为&quot;not a number&quot;，方法和<a href="#gis:raster-sample">raster-sample</a>从栅格外部返回位置的值一样。
+        
+      </div>
+    <h2>
+      <a name="drawing" id="drawing">Drawing Primitives</a>
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:drawing-color" id=
+        "gis:drawing-color">gis:drawing-color</a>
+      </h3>
+      <h4>
+        gis:drawing-color
+      </h4>
+      <p>
+	  返回GIS扩展使用的颜色来将栅格图像画在netlogo画图框中。颜色可以使用netlogo颜色（从0-140之间的一个数）或者是RGB（三个数字的一个列表）。详见
+         <a href=
+        "../../docs/programming.html#colors">Colors</a> 。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:set-drawing-color" id=
+        "gis:set-drawing-color">gis:set-drawing-color</a>
+      </h3>
+      <h4>
+        gis:set-drawing-color <i>color</i>
+      </h4>
+      <p>
+	  返回GIS扩展使用的颜色来将矢量图像画在netlogo画图框中。颜色可以使用netlogo颜色（从0-140之间的一个数）或者是RGB（三个数字的一个列表）。详见
+         <a href=
+        "../../docs/programming.html#colors">Colors</a> 。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:draw" id="gis:draw">gis:draw</a>
+      </h3>
+      <h4>
+        gis:draw <i>vector-data</i> <i>line-thickness</i>
+      </h4>
+      <p>
+	  在netlogo画图框中画出给定的矢量数据，使用当前的GIS画图颜色，给定画笔粗细。数据要么包括全部的矢量数据集，要么是单个的矢量型。这条原语之花多边形数据的边界，对点来说，它将半径为线的粗细的圆填充。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:fill" id="gis:fill">gis:fill</a>
+      </h3>
+      <h4>
+        gis:fill <i>vector-data</i> <i>line-thickness</i>
+      </h4>
+      <p>
+	  在netlogo画图框中，利用当前的GIS颜色，给定边界线的粗细，填充给定的矢量数据。
+        数据要么包括全部的矢量数据集，要么是单个的矢量型。这条原语之花多边形数据的边界，对点来说，它将半径为线的粗细的圆填充。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:paint" id="gis:paint">gis:paint</a>
+      </h3>
+      <h4>
+        gis:paint <i>RasterDataset</i> <i>transparency</i>
+      </h4>
+      <p>
+	  在netlogo画图框中画出给定的栅格数据。数据集中的最大值涂为白色，最小值为黑色，其他值在白色和黑色中间线性涂为灰度。
+        
+      <p>
+        <i>透明度</i> 输入决定了画出的图形有多透明。有效值从0（完全不透明）到255（完全透明）。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:import-wms-drawing" id=
+        "gis:import-wms-drawing">gis:import-wms-drawing</a>
+      </h3>
+      <h4>
+        gis:import-wms-drawing <i>server-url</i> <i>spatial-reference</i>
+        <i>layers</i> <i>transparency</i>
+      </h4>
+      <p>
+	  将图像导入netlogo画图框
+        ，使用 <a href=
+        "http://www.opengeospatial.org/standards/wms">Web Mapping
+        Service</a> 正如在 <a href=
+        "http://www.opengeospatial.org/">Open Geospatial Consortium</a>中定义的.
+      <p>
+        <i>spatial reference</i> 和<i>layers</i> 输入应该给字符串。
+		 <i>spatial reference</i> 输入和<b>SRS</b> 参数 和 <b>GetMap</b> 要求相关，正如在in
+        section 7.2.3.5 of version 1.1.1 of the WMS standard中定义的. 
+        <i>layers</i>输入和 <b>LAYERS</b>参数相关，正如在
+         7.2.3.3 of version 1.1.1 of the WMS standard中定义的。
+      <p>
+        可以找到有效的空间索引代码和涂层名字的列表，通过检验WMS服务器对<b>GetCapabilities</b>要求的回复。
+        得到相关对<b>GetCapabilities</b> 要求的指令的标准，和怎样分析结论。
+		 
+         <i>透明度</i> 输入决定了画出的图形有多透明。有效值从0（完全不透明）到255（完全透明）。
+      </div><!-- 
+    
+       These primitives are not supported by the release version of My World GIS.
+       Uncomment this section once My World GIS 5.0 is officially released.
+    
+    
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:myworld-layers" id="gis:myworld-layers">gis:myworld-layers</a>
+      </h3>
+      <h4>
+        gis:myworld-layers 
+      </h4>
+      <p>
+        My World GIS must be running for this primitive to work. Reports a 
+        list of layers currently loaded in the GIS. For each layer, reports a 
+        list consisting of the layer name, the data type (i.e., "VECTOR" or 
+        "RASTER"), the layer's native projection, (in WKT format), and a list 
+        of properties associated with the layer's features or cells.
+    </div>
+    
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:myworld-get-dataset" id="gis:myworld-get-dataset">gis:myworld-get-dataset</a>
+      </h3>
+      <h4>
+        gis:myworld-get-dataset <i>layer-index</i>
+        (gis:myworld-get-dataset <i>layer-index</i> <i>field-index</i>)
+      </h4>
+      <p>
+        Reports a dataset built from the layer with the given index from 
+        My World GIS (which must be running on the same computer as NetLogo 
+        for this primitive to work). Re-projects the data as necessary if 
+        a global projection is defined and the layer's native projection 
+        does not match it.
+      <p>
+        The first form, with a single index, is used to load vector layers. The
+        second form is required for raster layers, because raster layers in My
+        World GIS contain multiple properties per cell, and raster datasets in
+        NetLogo may contain only one property (or <i>band</i>) per cell.
+    </div>
+    
+    <div class="dict_entry">
+      <h3>
+        <a name="gis:myworld-send-dataset" id="gis:myworld-send-dataset">gis:myworld-send-dataset</a>
+      </h3>
+      <h4>
+        gis:myworld-send-dataset <i>dataset</i>
+        (gis:myworld-send-dataset <i>raster-dataset</i> <i>layer-index</i> <i>field-index</i>)
+      </h4>
+      <p>
+        Stores the given dataset as a layer in My World GIS (which must be 
+        running on the same computer as NetLogo for this primitive to work).
+        The first form creates a new layer in My World GIS. The second form
+        stores a raster dataset into the given field in the given grid layer,
+        resampling as necessary to match the dimensions of the grid in My 
+        World GIS.
+    </div>
+    -->
+

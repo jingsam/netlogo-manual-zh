@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Netlogo用户指南 HubNet</title>
+</head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      NetLogo 5.0 用户手册： QuickTime 扩展
+    </h1>
+    <div class="version">
+      NetLogo 5.0 用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+
+<body>
+<h1>
+      QuickTime 扩展
+</h1>
+    <h2>
+     QuickTime 扩展都做些什么?
+    </h2>
+    <p>
+      QuickTime 扩展允许你在一个网上或者电影文件中插入或者创建一个图像。
+    <h2>
+      安装 QuickTime 扩展
+    </h2>
+    <h3>
+      视窗
+    </h3>
+    <p>
+      第一，确保你有装QuickTime ，如果你没有可以从这里下载：
+    <p>
+      <a href=
+      "http://www.apple.com/quicktime/download/">http://www.apple.com/quicktime/download/</a>
+    <p>
+      为了让视频扩展可以使用，我们要将装入QuickTime得一些文件移动到扩展词典里。
+    <ul>
+      <li>复制 <tt>C:\Program Files\QuickTime\QTSystem\QTJava.zip</tt>到扩展字典，然后重命名为<tt>QTJava.jar</tt>。
+      <li>让字典在扩展字典种叫做 <tt>lib</tt> ，然后创建一个字典叫做视图中的字典。
+      <li>复制<tt>C:\Program
+      Files\QuickTime\QTSystem\QTJavaNative.dll</tt> 和<tt>C:\Program
+      Files\QuickTime\QTSystem\QTJNative.dll</tt> 到<tt>视图</tt>
+      字典。
+</ul>
+    <p>
+      你也需要安装一个数值转换器，我们可以提供 WinVDIG 在此下载：
+    <p>
+      <a href=
+      "http://www.eden.net.nz/7/20071008/">http://www.eden.net.nz/7/20071008/</a>
+    <p>
+      你必须要下载得是 1.0.1版本，而不是更新得版本。 
+    <p>
+      然后你就可以通过在QTCap中的应用测试 QTJ 和数值转换器是不是安装正确。(如果你有困难，可以看
+      <a href="contact.html">联系我们</a>。)
+    <p>
+      在视图里面你要用管理员登陆然后打开NetLogo才可以使用视频得扩展。你也可以右击可执行和选择“用管理员身份登陆”。你也可以永久得改变这个设置：打开设置对话框，选择兼容建然后点“用管理员身份登陆”。
+    <h3>
+      Mac OS X
+    </h3>
+    <p>
+     为了让视频扩展可以使用，我们要将装入QuickTime得一些文件移动到扩展词典里。
+    <ul>
+      <li>复制<tt>/System/Library/Java/Extensions/QTJava.zip</tt> 到扩展字典然后重命名为 <tt>QTJava.jar</tt>。
+      <li>在QTJ扩展字典中定一个字典叫 <tt>lib</tt> 然后叫 <tt>Mac OS X</tt> 中的
+      <tt>lib</tt>.
+      <li>复制<tt>/System/Library/Java/Extensions/libQTJNative.jnilib</tt>
+      到 <tt>Mac OS X</tt> 字典。</ul>
+    <p>
+      然而，在64位的 Macs (拥有当前所有得固体模型)，你会需要改变NetLogo来运行32位的模式来使用扩展。如果你不需要得话，通常得结果是会弹出
+      java.lang.UnsatisfiedLinkError 对话框。以下是操作步骤：
+    <ul>
+      <li>在Finder上选择NetLogo 应用。
+      <li>在文件菜单上， 选择获取信息。
+      <li>选择复选框： &quot;打开 32位模式&quot;
+      。<li>打开应用。</ul>
+    <p>
+      如果你需要，你先可以复制一份应用然后按照副本中所说得去做，但是开始还是需要打开64位的模式。（64位模式是推荐的默认,除非你正在使用该扩展。）
+    <h3>
+      Linux
+    </h3>
+    <p>
+    　QuickTime的扩展是不兼容的Linux,因为苹果没有一个Linux版本的QuickTime。
+    <h2>
+      开始
+    </h2>
+    <p>
+      导入照片,从网络摄像头和电影到NetLogo你需要
+　　对包括QTJ和位图的扩展。
+<pre>
+extensions[ bitmap qtj ]
+</pre>
+    <p>
+      有两个代码示例,展现这些扩展的基本功能。
+    <blockquote>
+      <p>
+        <b>代码实例：</b> QuickTime 扩展/QuickTime 照相机得实例
+</blockquote>
+    <blockquote>
+      <p>
+        <b>代码实例：</b> QuickTime 扩展/QuickTime 电影实例
+</blockquote>
+    <h2>
+      原语
+    </h2>
+    <p>
+      <a href="#qtj:camera-image">qtj:camera-image</a> <a href=
+      "#qtj:camera-select">qtj:camera-select</a> <a href=
+      "#qtj:camera-start">qtj:camera-start</a> <a href=
+      "#qtj:camera-stop">qtj:camera-stop</a> <a href=
+      "#qtj:movie-close">qtj:movie-close</a> <a href=
+      "#qtj:movie-image">qtj:movie-image</a> <a href=
+      "#qtj:movie-open">qtj:movie-open</a> <a href=
+      "#qtj:movie-open-player">qtj:movie-open-player</a> <a href=
+      "#qtj:movie-set-time">qtj:movie-set-time</a> <a href=
+      "#qtj:movie-start">qtj:movie-start</a> <a href=
+      "#qtj:movie-stop">qtj:movie-stop</a>
+    <h3>
+      <a name="qtj:camera-image" id="qtj:camera-image">qtj:camera-image</a>
+    </h3>
+    <h4>
+      qtj:camera-image
+    </h4>
+    <p>
+     　返回一个图像从当前打开相机适合进口与位图扩展
+    <h3>
+      <a name="qtj:camera-select" id=
+      "qtj:camera-select">qtj:camera-select</a>
+    </h3>
+    <h4>
+      qtj:相机选择 <i>width</i> <i>height</i>
+    </h4>
+    <p>
+   提供了一个对话框的安装摄像头,你可以从中选择。当您选择一个连接打开与选择的相机在给定的决议。如果你使用相机选择你不需要调用相机开始。你必须调用要么选择或之前就开始使用相机图像。
+    <h3>
+      <a name="qtj:camera-start" id="qtj:camera-start">qtj:camera-start</a>
+    </h3>
+    <h4>
+      qtj:camera-start <i>width</i> <i>height</i>
+    </h4>
+    <p>
+      利用给定的方案打开链接的相机，然后做好准备去捕获图像。我们通常会在使用<tt>相机图片</tt>前，调用
+      <tt>相机开始</tt> 或者<tt>相机选择</tt> 。你不应该在相机已经打开得时候选择 <tt>相机开始</tt> 。在选择另一个相机前要先选择
+      <tt>相机停止</tt> 然后选择<tt>相机选择</tt>.
+    <h3>
+      <a name="qtj:camera-stop" id="qtj:camera-stop">qtj:camera-stop</a>
+    </h3>
+    <h4>
+      qtj:camera-stop
+    </h4>
+    <p>
+      关闭所链接得相机。你应该在关闭NetLogo之前，或者是打开一个新得模型之前关闭相机。
+    <h3>
+      <a name="qtj:movie-close" id="qtj:movie-close">qtj:movie-close</a>
+    </h3>
+    <h4>
+      qtj:movie-close
+    </h4>
+    <p>
+      关闭当前打开的电影，释放任何和当前播放窗口有关得资源，你应该在打开一个新的电影或者是关闭NetLogo之前关闭当前的电影。
+    <h3>
+      <a name="qtj:movie-image" id="qtj:movie-image">qtj:movie-image</a>
+    </h3>
+    <h4>
+      qtj:movie-image
+    </h4>
+    <p>
+   返回一个电影中满足位图的扩展合适插入的当前窗体得图像。
+    <h3>
+      <a name="qtj:movie-open" id="qtj:movie-open">qtj:movie-open</a>
+    </h3>
+    <h4>
+      qtj:movie-open <i>width</i> <i>height</i>
+    </h4>
+    <p>
+      载入具有特殊分辨率（在小方块中给出）的图像。
+    <h3>
+      <a name="qtj:movie-open-player" id=
+      "qtj:movie-open-player">qtj:movie-player</a>
+    </h3>
+    <h4>
+      qtj:movie-open-player
+    </h4>
+    <p>
+      当你可以观看电影得时候开打一个视窗。
+    <h3>
+      <a name="qtj:movie-set-time" id=
+      "qtj:movie-set-time">qtj:movie-set-time</a>
+    </h3>
+    <h4>
+      qtj:movie-set-time <i>seconds</i>
+    </h4>
+    <p>
+      根据给定的时间大小来改变电影的画面。
+    <h3>
+      <a name="qtj:movie-start" id="qtj:movie-start">qtj:movie-start</a>
+    </h3>
+    <h4>
+      qtj:movie-start
+    </h4>
+    <p>
+      开始演电影。
+    <h3>
+      <a name="qtj:movie-stop" id="qtj:movie-stop">qtj:movie-stop</a>
+    </h3>
+    <h4>
+      qtj:movie-stop
+    </h4>
+    <p>
+      暂停播放。
+
+
+</body>
+</html>

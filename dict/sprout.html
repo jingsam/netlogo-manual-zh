@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        sprout
+        
+        sprout-&lt;breeds&gt;
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="sprout" id="sprout">sprout</a>
+        <br>
+        <a name="sprout-breeds" id=
+        "sprout-breeds">sprout-<i>&lt;breeds&gt;</i></a>
+      </h3>
+      <h4>
+        sprout <i>number</i> [ <i>commands</i> ]
+        <br>
+        sprout-<i>&lt;breeds&gt;</i> <i>number</i> [ <i>commands</i> ]
+        <br>
+        <img alt="Patch Command" src="../images/patch.gif">
+      </h4>
+      <p>
+        Creates <i>number</i> new turtles on the current patch. The new
+        turtles have random integer headings and the color is randomly
+        selected from the 14 primary colors. The turtles immediately run
+        <i>commands</i>. This is useful for giving the new turtles
+        different colors, headings, or whatever. (The new turtles are
+        created all at once then run one at a time, in random order.)
+      <p>
+        If the sprout-<i>&lt;breeds&gt;</i> form is used, the new turtles
+        are created as members of the given breed.
+      <pre>
+sprout 5
+sprout-wolves 10
+sprout 1 [ set color red ]
+sprout-sheep 1 [ set color black ]
+</pre>
+      <p>
+        See also <a href="../dictionary.html#create-turtles">create-turtles</a>, <a href="../dictionary.html#hatch">hatch</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

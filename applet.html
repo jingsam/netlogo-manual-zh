@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Applets
+    </title>
+</head>
+ <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      Java小程序
+    </h1>
+    <p>
+     单个模型可以作为Java applets在网页浏览器中运行。
+    <h2>
+      制作Applets
+    </h2>
+    <p>
+     在文件菜单中选择Save As Applet可以创建applets。如果模型的当前状态未保存，则先提示你保存，也会提示你有一个html文件要保存。
+    <p>
+      要运行applets，html文件,模型文件 （以<tt>.nlogo</tt>为结尾），和NetLogoLite.jar必须在同一目录。（NetLogo的安装目录里有NetLogoLite.jar，你可以从这里复制）
+    <p>
+      在一些系统里，在上传到服务器之前，可以在本地机上测试applet。当然不是所有系统都能这样做，因此如果不能在你的硬盘上运行，试着上传到web服务器上。
+    <p>
+      不需要在页面上包含html文件中的所有事情。如果需要的话，可以只将HTML代码中的
+      &lt;applet&gt;和 &lt;/applet&gt;部分粘贴到任何HTML文件中。在一个页面中放置多个 &lt;applet&gt;
+      标记也是可以的。
+    <h3>
+      额外的文件
+    </h3>
+    <p>
+      Applets可以在web服务器上读写文件。如果applet需要额外的文件，从文件读数据、输入图像等，这些文件也需要上传到服务器。这些文件应该出现在相同的目录配置中，就像出现在你的计算机上的一样。Applets不能读写用户计算机上的文件，只能读取web服务器的文件。Applets不能浏览web服务器或用户计算机，意味着 <a href=
+      "dictionary.html#user-file"><tt>user-file</tt></a> 和<a href=
+      "dictionary.html#user-new-file"><tt>user-new-file</tt></a> 在applet里没有作用。要运行模型，你的模型文件和NetLogoLite.jar必须对web服务器用户是可读的。
+      
+    <h3>
+      扩展
+    </h3>
+    <p>
+      很多扩展可以用在applets里。只需要把包含扩展文件的文件夹和模型放在同一个文件夹里就可以了。
+     
+    <p>
+      需要本地数据的扩展不能在applets里运行。包括QTJ和GoGo扩展。
+    <h3>
+      使用另外一个jar位置
+    </h3>
+    <p>
+      如果NetLogoLite.jar和你的模型的铃不同，你必须在 HTML编码里调archive= 和 value=行指到他们实际的存储位置。（例如，如果你有几个在同一个网页服务器中不同路径下的applets，将NetLogoLite.jar复制，并放在中央位置，在所有html文件中改变archive=行来指向那个中心位置的复制文件，不仅可以节省硬盘空间，也能使用户下载变快。）
+      
+    <h2>
+      Java需求
+    </h2>
+    <h3>
+      <a name="java" id="java"></a>获得所需的版本
+    </h3>
+    <p>
+      目前的NetLogo需要浏览器支持Java 5或更高版本。下面是获得所需版本的Java的方法：
+    <ul>
+      <li>如果你是 Windows (Vista, XP, or 2000)，你需要从<a href=
+      "http://www.java.com/en/download/windows_manual.jsp">http://www.java.com/en/download/windows_manual.jsp</a>下载Java 浏览器插件
+      <li>如果你是Mac OS X，你需要 Mac OS X 10.4 或更高版本。
+      （NetLogo 4.0 是最后一个支持Mac OS X 10.2 和 10.3的版本）
+      <li>如果你是Linux 或者其他Unix，你需要第5版本（或更高）的 Sun Java Runtime Environment。你可以在
+       <a href="http://www.java.com/">http://www.java.com/</a>下载。
+       安装Java插件时先检查你浏览器的主页，得到相关信息。
+      </ul>
+    <p>
+     如果认为浏览器和插件都可以，但仍然不能运行，检查浏览器的设置，看看Java是否激活
+    <p>
+     要想了解你的Java版本和获得合适的版本，查看 <a href=
+      "http://www.javatester.org/">http://www.javatester.org/</a>.
+    <h3>
+      <a name="memory" id="memory"></a> 增加可用内存。
+    </h3>
+    <p>
+      有些NetLogo需要的内存比正常运行浏览器时要多一些。如果有大量的主体，可能就会这样。在Windows，在Java控制板的applet runtime settings增加可用内存（
+      &quot;堆&quot;）。
+    <p>
+      Mac OS X 10.4 用户注意 Mac OS X 10.4 初始对Java applets有很低的内存限制，64M但最近的Java更新增加到96M 。使用软件更新得到Java更新。
+    <p>
+     如果浏览器使用随Sun JDK 或JRE提供的插件，启动 <b>Java Plug-In Control Panel</b> 的步骤见<a href=
+      "http://java.sun.com/j2se/1.5.0/docs/guide/plugin/developer_guide/control_panel.html#starting">
+      here</a>. 在控制面板的<i>Advanced</i> 选项页为<i>Java Runtime Parameters</i>增加：
+      &quot;-Xmx1024m&quot;.
+    <h2>
+      Applets不支持的特性
+    </h2>
+    <ul>
+      <li>需要本地数据的扩展不能使用。
+      <li>applets不能使用 3维视图.
+      <li>applets 没有使用代码产生器(意味着模型运行较慢)
+      <li>返回定制错误消息的web服务器可能引起java例外。见 <a href="faq.html#applet200OK">FAQ</a>。
+      </ul>
+
+</html>

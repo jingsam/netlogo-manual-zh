@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        filter
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="filter" id="filter">filter</a>
+      </h3>
+      <h4>
+        filter <i>reporter-task</i> <i>list</i>
+      </h4>
+      <p>
+        Reports a list containing only those items of <i>list</i> for which
+        the task reports true -- in other words, the items
+        satisfying the given condition.
+      <pre>
+show filter is-number? [1 "2" 3]
+=&gt; [1 3]
+show filter [? &lt; 3] [1 3 2]
+=&gt; [1 2]
+show filter [first ? != &quot;t&quot;] [&quot;hi&quot; &quot;there&quot; &quot;everyone&quot;]
+=&gt; [&quot;hi&quot; &quot;everyone&quot;]
+</pre>
+      <p>
+        See also <a href="../dictionary.html#map">map</a>, <a href="../dictionary.html#reduce">reduce</a>,
+        <a href="../dictionary.html#ques">?</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

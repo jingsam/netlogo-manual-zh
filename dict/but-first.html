@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        but-first
+        
+        butfirst
+        
+        bf
+        
+        but-last
+        
+        butlast
+        
+        bl
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="but-first" id="but-first">but-first</a>
+        <br>
+        <a name="butfirst" id="butfirst">butfirst</a>
+        <br>
+        <a name="bf" id="bf">bf</a>
+        <br>
+        <a name="but-last" id="but-last">but-last</a>
+        <br>
+        <a name="butlast" id="butlast">butlast</a>
+        <br>
+        <a name="bl" id="bl">bl</a>
+      </h3>
+      <h4>
+        but-first <i>list</i>
+        <br>
+        but-first <i>string</i>
+        <br>
+        but-last <i>list</i>
+        <br>
+        but-last <i>string</i>
+      </h4>
+      <p>
+        When used on a list, but-first reports all of the list items of
+        <i>list</i> except the first, and but-last reports all of the list
+        items of <i>list</i> except the last.
+      <p>
+        On strings, but-first and but-last report a shorter string omitting
+        the first or last character of the original string.
+      <pre>
+;; mylist is [2 4 6 5 8 12]
+set mylist but-first mylist
+;; mylist is now [4 6 5 8 12]
+set mylist but-last mylist
+;; mylist is now [4 6 5 8]
+show but-first &quot;string&quot;
+;; prints &quot;tring&quot;
+show but-last &quot;string&quot;
+;; prints &quot;strin&quot;
+</pre><!-- ======================================== -->
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

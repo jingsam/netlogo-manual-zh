@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        neighbors
+        
+        neighbors6
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="neighbors" id="neighbors">neighbors</a>
+        <br>
+        <a name="neighbors6" id="neighbors6">neighbors6</a>
+      </h3>
+      <h4>
+        neighbors
+        <br>
+        neighbors6
+        <br>
+        <img alt="Turtle Command" src="../images/turtle.gif"> <img alt=
+        "Patch Command" src="../images/patch.gif">
+      </h4>
+      <p>
+        3D versions of <a href="../dictionary.html#neighbors">neighbors</a>
+        and <a href="../dictionary.html#neighbors4">neighbors4</a>.
+      <p>
+        Reports an agentset containing the 26 surrounding patches
+        (neighbors) or 6 surrounding patches (neighbors6).
+      <pre>
+show sum values-from neighbors [count turtles-here]
+  ;; prints the total number of turtles on the twenty-six
+  ;; patches around this turtle or patch
+ask neighbors6 [ set pcolor red ]
+  ;; turns the six neighboring patches red
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

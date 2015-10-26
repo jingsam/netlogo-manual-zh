@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        remove
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="remove" id="remove">remove</a>
+      </h3>
+      <h4>
+        remove <i>item</i> <i>list</i>
+        <br>
+        remove <i>string1</i> <i>string2</i>
+      </h4>
+      <p>
+        For a list, reports a copy of <i>list</i> with all instances of
+        <i>item</i> removed.
+      <p>
+        For strings, reports a copy of <i>string2</i> with all the
+        appearances of <i>string1</i> as a substring removed.
+      <pre>
+set mylist [2 7 4 7 &quot;Bob&quot;]
+set mylist remove 7 mylist
+;; mylist is now [2 4 &quot;Bob&quot;]
+show remove &quot;to&quot; &quot;phototonic&quot;
+=&gt; &quot;phonic&quot;
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

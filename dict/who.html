@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        who
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="who" id="who">who</a>
+      </h3>
+      <h4>
+        who
+        <br>
+        <img alt="Turtle Command" src="../images/turtle.gif">
+      </h4>
+      <p>
+        This is a built-in turtle variable. It holds the turtle's
+        &quot;who number&quot; or ID number, an integer greater than or
+        equal to zero. You cannot set this variable; a turtle's who
+        number never changes.
+      <p>
+        Who numbers start at 0. A dead turtle's number will not be
+        reassigned to a new turtle until you use the <a href="../dictionary.html#clear-turtles">clear-turtles</a> or <a href="../dictionary.html#clear-all">clear-all</a> commands, at which time who numbering
+        starts over again at 0.
+      <p>
+        Example:
+      <pre>
+show [who] of turtles with [color = red]
+;; prints a list of the who numbers of all red turtles
+;; in the Command Center, in random order
+crt 100
+  [ ifelse who &lt; 50
+      [ set color red ]
+      [ set color blue ] ]
+;; turtles 0 through 49 are red, turtles 50
+;; through 99 are blue
+</pre>
+      <p>
+        You can use the turtle reporter to retrieve a turtle with a given
+        who number. See also <a href="../dictionary.html#turtle">turtle</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

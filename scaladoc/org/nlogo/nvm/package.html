@@ -1,0 +1,554 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>org.nlogo.nvm</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
+      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a name="org" class="extype" href="../../package.html">org</a>.<a name="org.nlogo" class="extype" href="../package.html">nlogo</a></p>
+        <h1>nvm</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol"> 
+        <span class="name">nvm</span>
+        
+        
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" name="org.nlogo.nvm.Activation" data-isabs="false">
+      <a id="Activation:Activation"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Activation.html"><span class="name">Activation</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Argument" data-isabs="false">
+      <a id="Argument:Argument"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Argument.html"><span class="name">Argument</span></a>
+        
+        <span class="result"> extends Argument</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.ArgumentTypeException" data-isabs="false">
+      <a id="ArgumentTypeException:ArgumentTypeException"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ArgumentTypeException.html"><span class="name">ArgumentTypeException</span></a>
+        
+        <span class="result"> extends EngineException</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.AssemblerAssistant" data-isabs="true">
+      <a id="AssemblerAssistant:AssemblerAssistant"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="AssemblerAssistant.html"><span class="name">AssemblerAssistant</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Command" data-isabs="true">
+      <a id="Command:Command"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Command.html"><span class="name">Command</span></a>
+        
+        <span class="result"> extends Instruction</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.CommandTask" data-isabs="false">
+      <a id="CommandTask:CommandTask"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="CommandTask.html"><span class="name">CommandTask</span></a>
+        
+        <span class="params">(<span name="procedure">procedure: Procedure</span>, <span name="formals">formals: Array[Let]</span>, <span name="lets">lets: List[LetBinding]</span>, <span name="locals">locals: Array[AnyRef]</span>)</span><span class="result"> extends Task with CommandTask with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.CompilerInterface" data-isabs="true">
+      <a id="CompilerInterface:CompilerInterface"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="CompilerInterface.html"><span class="name">CompilerInterface</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.CompilerResults" data-isabs="false">
+      <a id="CompilerResults:CompilerResults"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="CompilerResults.html"><span class="name">CompilerResults</span></a>
+        
+        <span class="params">(<span name="procedures">procedures: Seq[Procedure]</span>, <span name="program">program: Program</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.ConcurrentJob" data-isabs="false">
+      <a id="ConcurrentJob:ConcurrentJob"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ConcurrentJob.html"><span class="name">ConcurrentJob</span></a>
+        
+        <span class="result"> extends Job</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Context" data-isabs="false">
+      <a id="Context:Context"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Context.html"><span class="name">Context</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.CustomAssembled" data-isabs="true">
+      <a id="CustomAssembled:CustomAssembled"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="CustomAssembled.html"><span class="name">CustomAssembled</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.CustomGenerated" data-isabs="true">
+      <a id="CustomGenerated:CustomGenerated"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="CustomGenerated.html"><span class="name">CustomGenerated</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.DefaultCompilerServices" data-isabs="false">
+      <a id="DefaultCompilerServices:DefaultCompilerServices"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="DefaultCompilerServices.html"><span class="name">DefaultCompilerServices</span></a>
+        
+        <span class="result"> extends CompilerServices</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.EngineException" data-isabs="false">
+      <a id="EngineException:EngineException"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="EngineException.html"><span class="name">EngineException</span></a>
+        
+        <span class="result"> extends LogoException</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.ExclusiveJob" data-isabs="false">
+      <a id="ExclusiveJob:ExclusiveJob"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ExclusiveJob.html"><span class="name">ExclusiveJob</span></a>
+        
+        <span class="result"> extends Job</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.ExtensionContext" data-isabs="false">
+      <a id="ExtensionContext:ExtensionContext"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="ExtensionContext.html"><span class="name">ExtensionContext</span></a>
+        
+        <span class="result"> extends Context</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.FileManager" data-isabs="true">
+      <a id="FileManager:FileManager"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="FileManager.html"><span class="name">FileManager</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.GeneratorInterface" data-isabs="true">
+      <a id="GeneratorInterface:GeneratorInterface"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="GeneratorInterface.html"><span class="name">GeneratorInterface</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.HaltException" data-isabs="false">
+      <a id="HaltException:HaltException"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="HaltException.html"><span class="name">HaltException</span></a>
+        
+        <span class="result"> extends LogoException</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction" data-isabs="true">
+      <a id="Instruction:Instruction"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Instruction.html"><span class="name">Instruction</span></a>
+        
+        <span class="result"> extends TokenHolder</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Job" data-isabs="true">
+      <a id="Job:Job"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Job.html"><span class="name">Job</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.JobManagerInterface" data-isabs="true">
+      <a id="JobManagerInterface:JobManagerInterface"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="JobManagerInterface.html"><span class="name">JobManagerInterface</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.JobManagerOwner" data-isabs="true">
+      <a id="JobManagerOwner:JobManagerOwner"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="JobManagerOwner.html"><span class="name">JobManagerOwner</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.LabInterface" data-isabs="true">
+      <a id="LabInterface:LabInterface"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="LabInterface.html"><span class="name">LabInterface</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.MutableDouble" data-isabs="false">
+      <a id="MutableDouble:MutableDouble"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="MutableDouble.html"><span class="name">MutableDouble</span></a>
+        
+        <span class="params">(<span name="value">value: Double</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.MutableInteger" data-isabs="false">
+      <a id="MutableInteger:MutableInteger"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="MutableInteger.html"><span class="name">MutableInteger</span></a>
+        
+        <span class="params">(<span name="value">value: Int</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.MutableLong" data-isabs="false">
+      <a id="MutableLong:MutableLong"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="MutableLong.html"><span class="name">MutableLong</span></a>
+        
+        <span class="params">(<span name="value">value: Long</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Procedure" data-isabs="false">
+      <a id="Procedure:Procedure"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Procedure.html"><span class="name">Procedure</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Pure" data-isabs="true">
+      <a id="Pure:Pure"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Pure.html"><span class="name">Pure</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Reporters should implement the Constant interface (which extends Pure) if they are truly
+constant, i.</p>
+    </li><li visbl="pub" name="org.nlogo.nvm.Reference" data-isabs="false">
+      <a id="Reference:Reference"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="Reference.html"><span class="name">Reference</span></a>
+        
+        <span class="params">(<span name="agentClass">agentClass: Class[_ &lt;: org.nlogo.agent.Agent]</span>, <span name="vn">vn: Int</span>, <span name="original">original: Instruction</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Referenceable" data-isabs="true">
+      <a id="Referenceable:Referenceable"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Referenceable.html"><span class="name">Referenceable</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Reporter" data-isabs="true">
+      <a id="Reporter:Reporter"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Reporter.html"><span class="name">Reporter</span></a>
+        
+        <span class="result"> extends Instruction</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.ReporterTask" data-isabs="false">
+      <a id="ReporterTask:ReporterTask"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="ReporterTask.html"><span class="name">ReporterTask</span></a>
+        
+        <span class="params">(<span name="body">body: Reporter</span>, <span name="formals">formals: Array[Let]</span>, <span name="lets">lets: List[LetBinding]</span>, <span name="locals">locals: Array[AnyRef]</span>)</span><span class="result"> extends Task with ReporterTask with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Task" data-isabs="true">
+      <a id="Task:Task"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Task.html"><span class="name">Task</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>sealed </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Tracer" data-isabs="true">
+      <a id="Tracer:Tracer"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Tracer.html"><span class="name">Tracer</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Workspace" data-isabs="true">
+      <a id="Workspace:Workspace"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Workspace.html"><span class="name">Workspace</span></a>
+        
+        <span class="result"> extends ImporterUser with JobManagerOwner with CompilerServices with RandomServices</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.WorkspaceFactory" data-isabs="true">
+      <a id="WorkspaceFactory:WorkspaceFactory"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="WorkspaceFactory.html"><span class="name">WorkspaceFactory</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="org.nlogo.nvm.Instruction" data-isabs="false">
+      <a id="Instruction:Instruction"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Instruction$.html"><span class="name">Instruction</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Job" data-isabs="false">
+      <a id="Job:Job"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Job$.html"><span class="name">Job</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.LabInterface" data-isabs="false">
+      <a id="LabInterface:LabInterface"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="LabInterface$.html"><span class="name">LabInterface</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.NonLocalExit" data-isabs="false">
+      <a id="NonLocalExit:NonLocalExit"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="NonLocalExit$.html"><span class="name">NonLocalExit</span></a>
+        
+        <span class="result"> extends RuntimeException</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.Procedure" data-isabs="false">
+      <a id="Procedure:Procedure"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Procedure$.html"><span class="name">Procedure</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nlogo.nvm.StackTraceBuilder" data-isabs="false">
+      <a id="StackTraceBuilder:StackTraceBuilder"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="StackTraceBuilder$.html"><span class="name">StackTraceBuilder</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A stack trace is displayed to the user when an error occurs in running code.</p>
+    </li><li visbl="pub" name="org.nlogo.nvm.Workspace" data-isabs="false">
+      <a id="Workspace:Workspace"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Workspace$.html"><span class="name">Workspace</span></a>
+        
+        <span class="result"> extends </span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

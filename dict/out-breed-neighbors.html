@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        out-&lt;breed&gt;-neighbors
+        
+        out-link-neighbors
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="out-breed-neighbors" id=
+        "out-breed-neighbors">out-&lt;breed&gt;-neighbors</a>
+        <br>
+        <a name="out-link-neighbors" id=
+        "out-link-neighbors">out-link-neighbors</a>
+      </h3>
+      <h4>
+        out-&lt;breed&gt;-neighbors
+        <br>
+        out-link-neighbors
+        <br>
+        <img alt="Turtle Command" src="../docs/images/turtle.gif">
+      </h4>
+      <p>
+        Reports the agentset of all the turtles that have directed links
+        from the caller.
+      <pre>
+crt 4
+ask turtle 0 
+[ 
+  create-links-to other turtles
+  ask out-link-neighbors [ set color pink ] ;; turtles 1-3 turn pink
+]
+ask turtle 1
+[
+  ask out-link-neighbors [ set color orange ]  ;; no turtles change colors
+                                               ;; since turtle 1 only has in-links
+]
+end
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

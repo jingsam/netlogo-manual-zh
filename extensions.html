@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Extensions Guide
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      扩展指南
+    </h1>
+ <div class="version">
+      NetLogo 5.0 User Manual&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+    NetLogo允许用户用Java编写新的命令和报告器，然后在模型中使用。用户手册本部分介绍当你写完了扩展或别人给你提供了扩展后，如何在模型中使用它。
+    <p>
+    Netlogo社区成员编写的扩展可以从这里得到
+    <a href=
+      "https://github.com/NetLogo/NetLogo/wiki/Extensions">https://github.com/NetLogo/NetLogo/wiki/Extensions</a>.
+    <p>
+    获取信息或自己编写扩展，到<a href=
+      "https://github.com/NetLogo/NetLogo/wiki/Extensions-API">这里</a>.
+    <h2>
+      <a name="using" id="using">使用扩展</a>
+    </h2>
+    <p>
+    要在模型里使用扩展包，需要在声明任何种类或变量之前，在例程页的首部加上关键词<a href=
+      "dictionary.html#extensions"><tt>extensions</tt></a> 。
+     <p>
+     在<a href="dictionary.html#extensions"><tt>extensions</tt></a>后面的方括号里列出扩展包的名字，例如:
+     <pre>
+extensions [sound speech]
+</pre>
+    <p>
+    关键词 <a href="dictionary.html#extensions"><tt>extensions</tt></a>告诉NetLogo去寻找、打开指定的扩展包，使得扩展包中的命令和报告器可用于当前模型，就像使用内置NetLogo原语一样使用这些命令和报告器。
+   <h3>
+      扩展包的存储位置
+    </h3>
+     <p>
+     NetLogo 在几个地方寻找扩展包:
+     <ol>
+      <li>当前模型目录。
+      <!-- not turned on yet  <li>The directories specified in the <code>org.nlogo.userExtensionPath</code> system property.</li> -->
+      <li>NetLogo应用程序的<code>extensions</code> 文件夹。
+      </ol>
+    <p>
+    每个NetLogo扩展包由同名的一个文件夹组成，文件夹名字全小写。该文件夹必须包括与文件夹同名的一个JAR文件。例如扩展包<tt>sound</tt>就存储在名为<tt>sound</tt>的文件夹，其中有个文件是<tt>sound.jar</tt> 。关于扩展包文件夹所包括内容的更多信息，参见手册的编写扩展包部分（Writing Extensions ）。
+    <p>
+    要编写一个对所有模型都可用的扩展包，要把这个扩展包的文件夹放在NetLogo的<code>extensions</code>目录。或者将扩展包文件夹放在模型同一目录。
+    <p>
+    有些扩展包需要其他文件，这些文件要与JAR文件一起放在扩展包目录。该文件夹还可能有其他文件，如文档和模型例子等。
+    <h3>
+      Applets
+    </h3>
+    <p>
+    保存为applets的模型（使用NetLogo的File菜单的"Save as Applet"）可以使用扩展包。扩展包必须与模型放在同一目录下。然而applets仍然不能使用需要附加外部jar的扩展，例如GoGo扩展和QuickTime扩展。
+    
+    
+    
+     
+
+
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Sound Extension
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      声音扩展
+    </h1>
+   <p>
+      Netlogo的声音扩展提供了两种产生声音的方式：MIDI声音和回放已录制好的声音文件。
+    <p>
+      Java API的使用是javax.sound.midi和
+      java.applet.AudioClip.
+     <h2>
+      使用Sound 扩展
+    </h2>
+    <p>
+      Sound扩展已经预安装。要在模型中使用该扩展，在例程页的首部增加一行：
+    <pre>
+extensions [sound]
+</pre>
+    <p>
+     如果模型已经使用了其他扩展，则已经有一行<a href="dictionary.html#extensions"><tt>extensions</tt></a>，只需把<tt>sound</tt>加到列表中。
+     
+    <p>
+      关于使用NetLogo扩展的更多信息，参见扩展 <a href=
+      "extensions.html">Extensions Guide</a>。
+    <p>
+      在NetLogo模型库 Code Examples的Sound部分，提供了使用sound扩展的例子。
+     <h2>
+    MIDI支持
+    </h2>
+    <p>
+      MIDI部分模拟128键电子键盘，<a href="#drumnames">47种鼓乐</a>（drums）和<a href=
+      "#instrumentnames">128种旋律乐器</a>（melodic instruments），与通用MIDI一级规范一致。
+    <p>
+      它支持15个复音乐器通道和一个打击乐器通道。如果在模型里同时使用15种以上的旋律乐器，会导致某些声音消失或切断。
+    <p>
+      旋律乐器的音调由一个键号指定。键盘上的键从0-127连续编号，0是最左的键，中音C是60号键。
+    <p>
+      乐器的音量由一个速度值指定，代表弹奏键盘的力度。速度值0-127，64是标准速度，速度值越高，音量越大。
+    <h2>
+   原语
+    </h2>
+    <p>
+      <a href="#sound:drums">sound:drums</a> <a href=
+      "#sound:instruments">sound:instruments</a> <a href=
+      "#sound:play-drum">sound:play-drum</a> <a href=
+      "#sound:play-note">sound:play-note</a> <a href=
+      "#sound:play-note-later">sound:play-note-later</a> <a href=
+      "#sound:play-sound">sound:play-sound</a> <a href=
+      "#sound:play-sound-and-wait">sound:play-sound-and-wait</a> <a href=
+      "#sound:play-sound-later">sound:play-sound-later</a> <a href=
+      "#sound:start-note">sound:start-note</a> <a href=
+      "#sound:stop-note">sound:stop-note</a> <a href=
+      "#sound:stop-instrument">sound:stop-instrument</a> <a href=
+      "#sound:stop-music">sound:stop-music</a>
+       <h3>
+      <a name="sound:drums" id="sound:drums">sound:drums</a>
+    </h3>
+    <h4>
+      sound:drums
+    </h4>
+    <p>
+     返回包括<a href="#drumnames">47种鼓乐</a>名称的列表，用于 "sound:play-drum" 。 
+      <h3>
+      <a name="sound:instruments" id=
+      "sound:instruments">sound:instruments</a>
+    </h3>
+    <h4>
+      sound:instruments
+    </h4>
+    <p>
+      返回包括 <a href="#instrumentnames">128种乐器</a>名称的列表用于"sound:play-note", "sound:play-note-later", "sound:start-note" 和"sound:stop-note" 。
+      <h3>
+      <a name="sound:play-drum" id="sound:play-drum">sound:play-drum</a>
+    </h3>
+    <h4>
+      sound:play-drum <i>drum</i> <i>velocity</i>
+    </h4>
+    <p>
+    演奏鼓乐
+    <pre>
+sound:play-drum &quot;ACOUSTIC SNARE&quot; 64
+</pre>
+     <h3>
+      <a name="sound:play-note" id="sound:play-note">sound:play-note</a>
+    </h3>
+    <h4>
+      sound:play-note <i>instrument</i> <i>keynumber</i> <i>velocity</i>
+      <i>duration</i>
+    </h4>
+    <p>
+      演奏某音符给定时长（秒）。主体不会等待音符演奏完再执行下一条命令。
+    <pre>
+;; play a trumpet at middle C for two seconds
+sound:play-note &quot;TRUMPET&quot; 60 64 2
+</pre>
+     <h3>
+      <a name="sound:play-note-later" id=
+      "sound:play-note-later">sound:play-note-later</a>
+    </h3>
+    <h4>
+      sound:play-note-later <i>delay</i> <i>instrument</i> <i>keynumber</i>
+      <i>velocity</i> <i>duration</i>
+    </h4>
+    <p>
+      等待给定的延迟，然后演奏音符给定时长（秒）。主体不会等待音符演奏完再执行下一条命令。
+    <pre>
+;; in one second, play a trumpet at middle C for two seconds
+sound:play-note-later 1 &quot;TRUMPET&quot; 60 64 2
+</pre>
+     <h3>
+      <a name="sound:play-sound" id="sound:play-sound">sound:play-sound</a>
+    </h3>
+    <h4>
+      sound:play-sound <i>filename</i>
+    </h4>
+    <p>
+     播放声音文件。不会等待文件演奏完再执行下一条命令。支持WAV, AIFF, AU文件。
+    <pre>
+;; plays the beep.wav sample file
+sound:play-sound &quot;beep.wav&quot;
+</pre>
+     <h3>
+      <a name="sound:play-sound-and-wait" id=
+      "sound:play-sound-and-wait">sound:play-sound-and-wait</a>
+    </h3>
+    <h4>
+      sound:play-sound-and-wait <i>filename</i>
+    </h4>
+    <p>
+      播放声音文件。等待文件演奏完再执行下一条命令，支持WAV, AIFF, AU文件。
+    <pre>
+;; plays the beep.wav sample file, waiting for it to finish before
+;; playing boop.wav
+sound:play-sound-and-wait &quot;beep.wav&quot;
+sound:play-sound-and-wait &quot;boop.wav&quot;
+</pre>
+     <h3>
+      <a name="sound:play-sound-later" id=
+      "sound:play-sound-later">sound:play-sound-later</a>
+    </h3>
+    <h4>
+      sound:play-sound-later <i>filename</i> <i>delay</i>
+    </h4>
+    <p>
+     等待给定秒数的延迟后，播放声音文件。不会等待文件演奏完再执行下一条命令，支持WAV, AIFF, AU文件。
+    <pre>
+;; plays the beep.wav sample file one second from now
+sound:play-sound-later &quot;beep.wav&quot; 1
+</pre>
+    <h3>
+      <a name="sound:start-note" id="sound:start-note">sound:start-note</a>
+    </h3>
+    <h4>
+      sound:start-note <i>instrument</i> <i>keynumber</i> <i>velocity</i>
+    </h4>
+    <p>
+      Starts a note.
+    <p>
+      开始演奏一个音符。
+演奏持续进行，直到遇到"sound:stop-note", "sound:stop-instrument"或 "sound:stop-music" 。
+    <pre>
+;; play a violin at middle C
+sound:start-note &quot;VIOLIN&quot; 60 64
+</pre>
+     <pre>
+;; play a C-major scale on a xylophone
+foreach [60 62 64 65 67 69 71 72] [ 
+  sound:start-note &quot;XYLOPHONE&quot; ? 65
+  wait 0.2
+  sound:stop-note &quot;XYLOPHONE&quot; ?
+]
+</pre>
+    <h3>
+      <a name="sound:stop-note" id="sound:stop-note">sound:stop-note</a>
+    </h3>
+    <h4>
+      sound:stop-note <i>instrument</i> <i>keynumber</i>
+    </h4>
+    <p>
+      停止演奏一个音符。
+    <pre>
+;; stop a violin note at middle C
+sound:stop-note &quot;VIOLIN&quot; 60
+</pre>
+     <h3>
+      <a name="sound:stop-instrument" id=
+      "sound:stop-instrument">sound:stop-instrument</a>
+    </h3>
+    <h4>
+      sound:stop-instrument <i>instrument</i>
+    </h4>
+    <p>
+      停止一个乐器的所有音符。
+    <pre>
+;; stop all cello notes
+sound:stop-instrument &quot;CELLO&quot;
+</pre>
+     <h3>
+      <a name="sound:stop-music" id="sound:stop-music">sound:stop-music</a>
+    </h3>
+    <h4>
+      sound:stop-music
+    </h4>
+    <p>
+      停止所有音符。
+    <h2>
+      声音名称
+    </h2>
+    <h3>
+      <a name="drumnames" id="drumnames">鼓乐</a>
+    </h3>
+     <pre>
+35. Acoustic Bass Drum             59. Ride Cymbal 2
+36. Bass Drum 1                    60. Hi Bongo
+37. Side Stick                     61. Low Bongo
+38. Acoustic Snare                 62. Mute Hi Conga
+39. Hand Clap                      63. Open Hi Conga
+40. Electric Snare                 64. Low Conga
+41. Low Floor Tom                  65. Hi Timbale
+42. Closed Hi Hat                  66. Low Timbale
+43. Hi Floor Tom                   67. Hi Agogo
+44. Pedal Hi Hat                   68. Low Agogo
+45. Low Tom                        69. Cabasa
+47. Open Hi Hat                    70. Maracas
+47. Low Mid Tom                    71. Short Whistle
+48. Hi Mid Tom                     72. Long Whistle
+49. Crash Cymbal 1                 73. Short Guiro
+50. Hi Tom                         74. Long Guiro
+51. Ride Cymbal 1                  75. Claves
+52. Chinese Cymbal                 76. Hi Wood Block
+53. Ride Bell                      77. Low Wood Block
+54. Tambourine                     78. Mute Cuica
+55. Splash Cymbal                  79. Open Cuica
+56. Cowbell                        80. Mute Triangle
+57. Crash Cymbal 2                 81. Open Triangle
+58. Vibraslap       
+</pre>
+    <h3>
+      <a name="instrumentnames" id="instrumentnames">器乐</a>
+    </h3>
+    <pre>
+<b>钢琴</b>                               <b>簧片</b>
+1. Acoustic Grand Piano            65. Soprano Sax
+2. Bright Acoustic Piano           66. Alto Sax
+3. Electric Grand Piano            67. Tenor Sax
+4. Honky-tonk Piano                68. Baritone Sax
+5. Electric Piano 1                69. Oboe
+6. Electric Piano 2                70. English Horn
+7. Harpsichord                     71. Bassoon
+8. Clavi                           72. Clarinet
+
+<b>Chromatic Percussion</b>              <b>管乐</b>
+9. Celesta                         73. Piccolo
+10. Glockenspiel                   74. Flute
+11. Music Box                      75. Recorder
+12. Vibraphone                     76. Pan Flute
+13. Marimba                        77. Blown Bottle
+14. Xylophone                      78. Shakuhachi
+15. Tubular Bells                  79. Whistle
+16. Dulcimer                       80. Ocarina
+
+<b>风琴</b>                               <b>Synth Lead</b>
+17. Drawbar Organ                  81. Square Wave
+18. Percussive Organ               82. Sawtooth Wave
+19. Rock Organ                     83. Calliope
+20. Church Organ                   84. Chiff
+21. Reed Organ                     85. Charang
+22. Accordion                      86. Voice
+23. Harmonica                      87. Fifths
+24. Tango Accordion                88. Bass and Lead
+
+<b>吉他</b>                               <b>Synth Pad</b>
+25. Nylon String Guitar            89. New Age  
+26. Steel Acoustic Guitar          90. Warm  
+27. Jazz Electric Guitar           91. Polysynth  
+28. Clean Electric Guitar          92. Choir  
+29. Muted Electric Guitar          93. Bowed  
+30. Overdriven Guitar              94. Metal  
+31. Distortion Guitar              95. Halo  
+32. Guitar harmonics               96. Sweep  
+
+<b>低音乐器</b>                            <b>Synth Effects</b>
+33. Acoustic Bass                  97. Rain  
+34. Fingered Electric Bass         98. Soundtrack  
+35. Picked Electric Bass           99. Crystal  
+36. Fretless Bass                  100. Atmosphere  
+37. Slap Bass 1                    101. Brightness
+38. Slap Bass 2                    102. Goblins
+39. Synth Bass 1                   103. Echoes
+40. Synth Bass 2                   104. Sci-fi
+
+<b>弦乐</b>                               <b>民族风</b>
+41. Violin                         105. Sitar
+42. Viola                          106. Banjo
+43. Cello                          107. Shamisen
+44. Contrabass                     108. Koto
+45. Tremolo Strings                109. Kalimba
+47. Pizzicato Strings              110. Bag pipe
+47. Orchestral Harp                111. Fiddle
+48. Timpani                        112. Shanai
+
+<b>合奏</b>                               <b>外国风情</b>
+49. String Ensemble 1              113. Tinkle Bell
+50. String Ensemble 2              114. Agogo
+51. Synth Strings 1                115. Steel Drums
+52. Synth Strings 2                116. Woodblock
+53. Choir Aahs                     117. Taiko Drum
+54. Voice Oohs                     118. Melodic Tom
+55. Synth Voice                    119. Synth Drum
+56. Orchestra Hit                  120. Reverse Cymbal
+
+<b>铜管乐器</b>                            <b>声音效果</b>
+57. Trumpet                        121. Guitar Fret Noise
+58. Trombone                       122. Breath Noise
+59. Tuba                           123. Seashore
+60. Muted Trumpet                  124. Bird Tweet
+61. French Horn                    125. Telephone Ring
+62. Brass Section                  126. Helicopter
+63. Synth Brass 1                  127. Applause
+64. Synth Brass 2                  128. Gunshot
+</pre>
+
+
+
+
+
+
+</head>
+
+<body>
+</body>
+</html>

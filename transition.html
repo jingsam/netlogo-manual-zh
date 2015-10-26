@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Netlogo用户指南 HubNet</title>
+</head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+ 
+
+<body>
+<h1>
+      迁移指南
+    </h1>
+    <div class="version">
+      NetLogo 5.0 用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+      许多早期 NetLogo 版本创建的模型在5.0 里能正常工作。然而,有些模型需要改动。如 果你的旧模型不能正常工作,用户手册的本部分能帮你。
+    <p>
+      你需要了解的问题与模型多旧有关,模型越旧需要了解的问题越多。
+    <p>
+      本部分没有列出 NetLogo5.0 的所有变化,只是讨论了那些对用户可能造成问题的部分。 在<a href="versions.html">What's New?</a>部分列出了所有的变动。
+  
+    <ul>
+      <li>
+        <a href="#v50">从NetLogo 5.0迁移</a>
+      <li>
+        <a href="#v41">从NetLogo 4.1迁移</a>
+      <li>
+        <a href="#v40">从NetLogo 4.0迁移</a>
+      <li>
+        <a href="#v31">从NetLogo 3.1迁移</a>
+      </ul>
+    <h2>
+      <a name="v50" id="v50">从NetLogo 5.0迁移</a>
+    </h2>
+    <h3>
+     画图
+    </h3>
+    <p>
+    在5.0中，你不需要在代码窗口去画图，可以在交互界面直接把线条加进去。
+    <p>
+      所有旧得版本和画笔都还是支持的，我们推荐你使用新得版本，但你如果没有用的话，这个仍然是可用的。
+    <p>
+      接下来得例子会告诉你怎么来用一个新的版本。 假设你有一个典型的NetLogo 4.1 模型，有一条线叫做&quot;populations&quot; 还有两只画笔叫做&quot;robots&quot;
+    和 &quot;humans&quot;。以前的编码是这样的：
+    <pre>
+<code>to setup
+  clear-all
+  ...
+  do-plotting
+end
+
+to go
+  ...
+  tick
+  do-plotting
+end
+
+to do-plotting
+  set-current-plot &quot;populations&quot;
+  set-current-plot-pen &quot;robots&quot;
+  plot count robots
+  set-current-plot-pen &quot;humans&quot;
+  plot count humans
+end</code>
+</pre>
+    <p>
+      以下是做迁移得步骤：
+    <ul>
+      <li>复制 <code>plot count robots</code> 按钮，然后粘贴到更新后得命令区，而robots 画笔还是在画图编辑的对话框中。从<code>do-plotting</code> 进程中删掉这些。
+      <li><code>plot count humans</code>命令可以和人物画笔的命令一样移动。
+      <li>当这些线从 <code>do-plotting</code>进程中移除之后，不需要做其他任何得东西了，只要移动了这个就可以了！
+      <li>最后得步骤就是取代 <code>do-plotting</code>
+     进程然后调用<code>setup</code> 和<code>go</code>。在 <code>
+        setup</code>中，<code>do-plotting</code> 调用应该更改为<code>reset-ticks</code>。在 <code>go</code>中， do-plotting
+        应该改为调用 <code>tick</code>。
+        <code>reset-ticks</code> 和<code>tick</code> 都可以自动的画图。
+      </ul>
+    <p>
+      更改后的编码如下：
+    <pre>
+<code>to setup
+  clear-all
+  ...
+  reset-ticks
+end
+
+to go
+  ...
+  tick
+end</code>
+</pre>
+    <p>
+      想要获取更多得 NetLogo 5.0如何画图，参考编程指南和界面指南中的画图选项。
+    <h3>
+      计时器
+    </h3>
+    <p>
+      在5.0中，计时器的运作方式改变了。初始值已经变为空白而不是原来的0.
+    <h4>
+      <tt>时间重置</tt>
+    </h4>
+    <p>
+      你必须使用 <tt>时间重置</tt> 设置到0，当<tt>tick</tt> 或<tt>tick-advance</tt>
+    第一次使用得时候。
+    <p>
+      <tt>时间重置</tt>应该是在你设置的最后一步，添加在那会让你的模型有5s新的画图特色。 
+    <h4>
+      <tt>时间重置</tt>然后画
+</h4>
+    <p>
+     在 5.0中，你不需要再把你的代码写在代码得窗口中了，你可以直接把线条放在交互页面。 里面的代码是被 <tt>reset-ticks</tt>
+      和 <tt>tick</tt>触发的。重置计数器，画图就会重置编码，然后可以使用更新后的代码绘画模型的初始结构。 最原始的模型要在<tt>setup</tt>完成之后才会开始，这就是为什么<tt>reset-ticks</tt>必须到底。
+<h4>
+      <tt>__clear-all-and-reset-ticks</tt>
+    </h4>
+    <p>
+     为了让模型先前的版本在5.0中显示而不改变，当一个旧的模型在新5.0中打开的时候，任何 <tt>clear-all</tt> (或 <tt>ca</tt>) 的事件都自动改变到  <tt>__clear-all-and-reset-ticks</tt>，这个结合了<tt>clear-all</tt> 和 <tt>reset-ticks</tt>的作用，这表示不仅有原始的功效还有其他一些兼容的特点。
+<p>
+      你应该从你的代码中删除 <tt>__clear-all-and-reset-ticks</tt> ，用<tt>clear-all</tt>,代替，然后在setup的最后进程中放入
+      <tt>reset-ticks</tt> 。（这不会自动发生，因为NetLogo的结构模型太自由而不好自动的为所设定的改变做转换。） 
+<h3>
+      Unicode characters
+    </h3>
+    <p>
+　　NetLogo 5.0完全支持国际字符跨平台的,
+使用Unicode字符集。NetLogo 5.0模型文件总是代表Unicode字符使用utf - 8编码。
+<p>
+  　　以前版本的NetLogo允许使用Unicode字符一些上下文。然而,模型文件被保存在平台的默认的编码,这在大多数系统以外的东西utf - 8。字符被正确处理在相同的平台(如两个Windows机器),但可以改变如果模型感动平台之间(例如,从Windows,Mac或反之亦然)。
+<p>
+　　当打开一个现有的模型在NetLogo 5.0,如果模型包含国际或其他非ascii字符,字符可能不正确的解释,因为他们最初用一个特定于平台的编码,然后读回在utf - 8。
+<p>
+     　　如果只有几个字符都受到了影响,你可能会发现它简单的只是手动修复。
+<p>
+      　　但如果你期待一个大数量的字符会受到影响,和你希望他们自动翻译,你可以使用一个第三方实用程序编码你的.nlogo文件从其原始编码成utf - 8。转换后,打开模型在NetLogo 5.0和所有字符应该是正确的。
+<h3>
+      信息选项卡Info tabs
+    </h3>
+    <p>
+     NetLogo 5.0使用了减价标记语言,允许你格式化你的信息选项卡,包括标题、粗体和斜体、图像等出来。
+<p>
+      早期版本的NetLogo使用一个自定义标记语言与多更有限的功能 .
+<p>
+当你从一个旧的版本打开一个模型,NetLogo 5.0转换你的旧标记下。大多数时候这种生产好结果,但你可能要检查结果自己和确保你的信息选项卡仍然看起来很好。
+<h3>
+      模型速度（Model speed）
+    </h3>
+    <p>
+      在NetLogo 5.0中，每一个模型都有一个&quot;target frame rate&quot; 来显示模型运行得速率。如果滑动条在中间的话，就是表示 &quot;正常速度&quot; 。
+<p>
+  默认目标帧速率为新模型,而模型在早期的版本中创建的NetLogo,是30帧/秒。如果您使用的是基于计数的更新,就像我们所建议的对大多数模型,
+相当于每秒30下。
+<p>
+      如果你的模型在 5.0中比在 4.1慢，这有可能是因为速度被限制，如果你想要修改的话，你可以在交互页面按设置按钮,把他的帧率改大。 
+<p>
+      一些旧的模型利用按钮来设置初始的速度，现在在大多数情况下都可以从代码中去除，用速度选择框来取代。
+<h3>
+      列表性能（List performance
+    ）</h3>
+    <p>
+       NetLogo 列表的数据结构已经改变了。
+    <p>
+      在 NetLogo 4.1中，NetLogo 列表被作为一个单一的内部列表。有些操作在单链表都快(如<tt>first</tt> 和<tt>butfirst</tt>),但其他人都慢,因为他们可能需要遍历整个列表(如<tt>item</tt>
+      和 <tt>last</tt>)。
+    <p>
+      在NetLogo 5.0中， 链表lists are now actually trees internally. As a result,
+      some operations are a little slower, but other operations are
+      drastically faster on long lists.详情请见 <a href=
+      "programming.html#lists">Lists section of the Programming Guide</a>。
+    <p>
+      一些模型会在新的数据结构下会运行得更慢一些。尤其是你对一些短链表的使用，但是其他得模型会运行得更快一些，比如说那些动力学模型。
+<p>
+      一些特殊得方式在Netlogo4.1里面书写链表进程代码已经在5.0中不适用了。例如，4.1
+      <tt>fput</tt> 是快和<tt>lput</tt> 是慢，was slow,建模者有时建立列表以相反的顺序使用<tt>fput</tt>,也许之后还调用<tt>reverse</tt>来存储特定得顺序。在NetLogo 5.0,你不需要代码这样了。 <tt>fput</tt> 和
+      <tt>lput</tt> 是相同的速度。
+<h3>
+      扩展API（Extensions API）
+    </h3>
+    <p>
+      如果您是一个扩展的作者，那么您需要重新编译 5.0 NetLogo.jar 和 lib字典，以使得他能在5.0中运行。 
+    <p>
+      你必须也要注意到以下的改变：
+<h4>
+      语法常量（Syntax constants）
+    </h4>
+    <p>
+      该代码用于指定一个原始的语法也发生了微妙的变化,例如语法。string类型是现在Syntax.StringType()。(从Java,这一对圆括号最后是必需的。在Scala中,你可以省略它们)。
+    <h4>
+      LogoList 建设（LogoList construction ）
+</h4>
+    <p>
+      一个重要意义得改变是 <tt>org.nlogo.api.LogoList</tt> 不再有公共得区域建造了，有两种新的方式来创建一个LogoList。 
+<p>
+      如果你有<tt>java.lang.Iterable</tt>，你可以把目录拷贝下来通过LogoList.fromJava()的静态方法生成一个新的LogoList，看到数组扩展源代码示例用法。
+<p>
+      或者，一次用<tt>org.nlogo.api.LogoListBuilder</tt>建一个新得链表， <a href=
+      "extensions.html">Extensions Guide</a> 有使用 <tt>LogoListBuilder</tt>得代码事例。
+<h4>
+      原始类（Primitive classes）
+</h4>
+    <p>
+      在先前的NetLogo版本,扩展API要求每个扩展原始有它自己的单独的顶级类和一个无参数的构造函数。这些限制已经被解除。同时,api.原始对象现在在进行扩展得时候只需仅进行一次,而不是每次代码选项卡被重新编译。
+    <h2>
+      <a name="v41" id="v41">从NetLogo 4.1</a> 迁移
+</h2>
+<h3>结合<tt>set</tt>和<tt>of</tt>
+    </h3>
+    <p>
+      下面得语句已经不再支持了：<pre>
+set [&lt;variable&gt;] of &lt;agent&gt; &lt;value&gt;
+</pre>
+    <p>
+      这种形式的命令必须使用 ask：<pre>
+ask &lt;agent&gt; [ set &lt;variable&gt; &lt;value&gt; ]
+</pre>
+    <p>
+      或者，如果要给个体变量设值的话：
+<pre>
+;; OPTION #1 (using let):
+let new-value &lt;value&gt;
+ask &lt;agent&gt; [ set &lt;variable&gt; new-value ]
+
+;; OPTION #2 (using myself):
+ask &lt;agent&gt; [ set &lt;variable&gt; [value] of myself ]
+</pre>
+    <p>
+      如下：<pre>
+set [color] of turtle 0 red
+</pre>
+    <p>
+      也可写成：<pre>
+ask turtle 0 [ set color red ]
+</pre>
+    <p>
+      不需要使用 <tt>let</tt>或者<tt>myself 因为red 就是个体视觉上得red。</tt>
+<p>
+      然而：<pre>
+set [color] of turtle 0 color
+</pre>
+    <p>
+      必须写成：<pre>
+let new-color color
+ask turtle 0 [ set color new-color ]
+</pre>
+      或者：
+      <pre>
+ask turtle 0 [ set color [color] of myself ]
+</pre>
+    <p>
+      为了不改变意思，因为两个个体有不一样得颜色初始值。用<tt>myself</tt> 得形式会更简洁，但是用<tt>let</tt>得话会更清晰，这取决与内容和个性化得偏好。
+<h3>
+      程序（Applets）
+    </h3>
+    <p>
+      在先前版本中创建得程序可能不会在4.1 NetLogoLite.jar中运行。 重新在 4.1中存储程序让这个程序运行， 另外,您可以编辑HTML;找到这部分:
+<pre>
+code=&quot;org.nlogo.window.Applet&quot;
+</pre>
+    然后改变为：
+    <pre>
+code=&quot;org.nlogo.lite.Applet&quot;
+</pre>
+    <h2>
+      <a name="v40" id="v40">从 4.0迁移</a>
+    </h2>
+    <h3>
+      海龟编号（Who numbering
+    ）</h3>
+    <p>
+    在 4.0之前。死亡海龟的编号（存储在海龟变量
+      <a href="dictionary.html#who"><tt>who</tt></a> 中）可以重新指派给新生得海龟。
+    在NetLogo 4.0, 中海龟得编号不会重用，除非通过<a href=
+      "dictionary.html#clear-all"><tt>clear-all</tt></a> 或<a href=
+      "dictionary.html#clear-turtles"><tt>clear-turtles</tt></a> 命令将编号重新设置为0。
+      这一变化将对旧模型造成问题。
+<h3>
+  海龟的创建：随机与有序（&quot;ordered&quot;）
+</h3>
+    <p>
+      NetLogo 4.0 提供了两个观察者得命令<a href=
+      "dictionary.html#create-turtles"><tt>create-turtles</tt></a>
+      (<a href="dictionary.html#crt"><tt>crt</tt></a>) 和<a href=
+      "dictionary.html#create-ordered-turtles"><tt>create-ordered-turtles</tt></a>
+      (<a href="dictionary.html#cro"><tt>cro</tt></a>)用来创建海龟。
+    <p>
+      <tt>crt</tt>创建得新海龟有随即颜色和随即朝向。 <tt>cro按顺序分配颜色，按顺序等间隔分配方向，第一个海龟得方向是正北（0）。</tt>
+<p>在 4.0 之前 crt 命令的行为与现在的 cro 一样。如果旧模型依赖“有序”行为,需要将 代码中的 crt 改为 cro。
+<p>在旧模型常用<tt>crt</tt> 包含额外的命令实现海龟方向随机化,例如<tt>rt random 360</tt> 或<tt>set heading random 360</tt>。当在<tt>crt</tt>中使用时,这些命令不再需要。
+
+<h3>
+     增加字符串和列表
+</h3>
+    <p>
+      在 4.0 之前<a href=
+      "dictionary.html#Symbols"><tt>+</tt></a>(加号)操作符可用于拼接字符串和连接列表,在当前版本, <tt>+</tt> 只能用于数
+值。要拼接字符串使用<a href="dictionary.html#word"><tt>word</tt></a>原语,要连接列表使用<a href=
+      "dictionary.html#sentence"><tt>sentence</tt></a>原语。这些语言变化是为了增加
+使用 <tt>+</tt>代码的运行速度。
+     
+<p>
+     旧代码：
+<pre>
+print &quot;There are &quot; + count turtles + &quot; turtles.&quot;
+</pre>
+    <p>
+      新代码：
+<pre>
+print (word &quot;There are &quot; count turtles &quot; turtles.&quot;)
+</pre>
+    <p>
+      同样,如果需要拼接列表,使用 SENTENCE 。
+<p>
+      当转换旧模型时,这些变动不会自动处理,需要用户手工改变代码。
+<p>
+     我们知道对习惯旧语法的用户来说这个变动太笨拙。我们的目的是效率和一致性。当不是同时处理几个数据类型时,我们可以实现更高效率的数值相加运算。因为加是常见操作, 因此 NetLogo 的总体速度提高了。
+<h3>
+  <tt>-at</tt> 原语
+</h3>
+    <p>
+      观察者不再使用patch-at, turtles-at, BREEDS-at。patch, turtles-on,
+BREEDS-on。注意瓦片对输入进行舍入(以前只接受整数输入) <a href=
+      "dictionary.html#patch-at"><tt>patch-at</tt></a>, <a href=
+      "dictionary.html#turtles-at"><tt>turtles-at</tt></a>, <a href=
+      "dictionary.html#breeds-at"><tt>BREEDS-at</tt></a>。 相反使用<a href=
+      "dictionary.html#patch"><tt>patch</tt></a>, <tt><a href=
+      "dictionary.html#turtles-on">turtles-on</a></tt>和 <tt><a href="dictionary.html#breeds-on">BREEDS-on</a></tt>
+     注意瓦片对输入进行舍入(以前只接受整数输入)
+<h3>
+     链
+    </h3>
+    <p>
+      NetLogo 3.1 支持使用链来连接海龟,用于创建网络、图和几何图形。链本身是海龟。
+    <p>
+      在 NetLogo 4.0,链是观察者、海龟、瓦片之外的第四种独立的主体类型。与链有关的原语不再是实验性的,现在是语言的一部分。
+    <p>
+      使用旧的、实验性的基于海龟的链原语需要改变为使用链主体。区别不是特别大,但需要手工更新。
+    <p>
+      链的文档在编程指南的<a href=
+      "programming.html#links">Links</a>部分,链原语见 NetLogo 词典的有关条目。模型库的 Networks 部分有一些例子模型,还有一些基于链的代码实例。
+    <p>
+     首先如果只用一种类型(type)的链,你需要移除任何名为"links"的种类,然后根本 不必使用种类。如果使用多种类型的链,参见 <a href=
+      "undirected-link-breed"><tt>undirected-link-breed</tt></a> 和
+      <a href="directed-link-breed"><tt>directed-link-breed</tt></a>。
+      包括单词"links" (如  <tt>__create-links-with</tt>,等)的命令和报告器
+自动转换为不带下划线 &quot;links&quot; (<a href=
+      "dictionary.html#create-links-with"><tt>create-links-with</tt></a>)。
+      然而使用其他种类名(如"edges")
+的原语不转换,你需要手工移去下划线。除非你的链种类名是"links",否则需要将链的种 类名改为"links"。
+     
+    <p>
+      命令 <tt>remove-link(s)-with/from/to</tt>已不存在了,相反应将所请求的链  <a href=
+      "dictionary.html#die"><tt>die</tt></a>。
+    <p>
+      例如：
+    <pre>
+ask turtle 0 [ __remove-links-with link-neighbors ]
+</pre>
+    <p>
+      变成：
+    <pre>
+ask turtle 0 [ ask my-links [ die ] ]
+</pre>
+    <p>
+      几个布局命令的输入略有不同,前两项一般是海龟主体集合和需要进行布局的链主体集合。细节见词典
+      <a href="dictionary.html#layout-spring"><tt>layout-spring</tt></a>，
+      <a href="dictionary.html#layout-radial"><tt>layout-radial</tt></a>，
+      <a href="dictionary.html#layout-tutte"><tt>layout-tutte</tt></a>。
+    <p>
+      你需要重新安排海龟变量的声明,因为以前链是海龟。任何用于链的变量应转移到 <a href=
+      "dictionary.html#links-own"><tt>links-own</tt></a> 块。
+    <p>
+     由于链不是海龟,它们不再具有海龟的内置变量(尽管某些链变量的名字与海龟变量一 样,如 <a href="dictionary.html#color"><tt>color</tt></a> 和<a href=
+      "dictionary.html#label"><tt>label</tt></a>。 如果以前使用链海龟的位置,现在需要计算链的中点,在非回绕
+的世界里这很简单)。
+    <pre>
+to-report link-xcor
+  report mean [xcor] of both-ends
+end
+
+to-report link-ycor
+  report mean [ycor] of both-ends
+end
+</pre>在回绕世界稍微麻烦一点,但也简单
+    <pre>
+to-report link-xcor
+  let other-guy end2
+  let x 0
+  ask end1 
+  [
+    hatch 1
+    [ 
+      face other-guy
+      fd [distance other-guy] of myself / 2
+      set x xcor
+      die
+    ]
+  ]
+  report x
+end
+</pre>
+    <p>
+      计算<tt>ycor</tt>与此相似。 
+    <p>
+      如果你使用了链海龟的大小和方向,则现在使用<a href=
+      "dictionary.html#link-length"><tt>link-length</tt></a>和<a href=
+      "dictionary.html#link-heading"><tt>link-heading</tt></a>报告器。
+    <h3>
+      新 "of" 语法
+    </h3>
+    <p>
+      我们用单一的<tt>-of</tt> 结构 (没有连字符)代替了三个不同的语言结构:<a href="dictionary.html#of"><tt>of</tt></a>  (有连字符),
+value-from, values-from 。 
+      
+    <table border>
+      <tr>
+        <th>
+          旧
+        <th>
+          
+        <tr>
+        <td>
+          <tt>color-of turtle 0</tt>
+        <td>
+          <tt>[color] of turtle 0</tt>
+        <tr>
+        <td>
+          <tt>value-from turtle 0 [size * size]</tt>
+        <td>
+          <tt>[size * size] of turtle 0</tt>
+        <tr>
+        <td>
+          <tt>mean values-from turtles [size]</tt>
+        <td>
+          <tt>mean [size] of turtles</tt>
+        </table>对单个主体使用 of,返回单一值。对主体集合使用 of,返回值的列表(随机顺序,因为主体集合总是随机顺序)。
+    <p>
+      注意当在新版本中打开旧模型时,<tt>-of</tt>, <tt>value-from</tt>, <tt>values-from</tt>自动转换为&quot;of&quot; 。但某些嵌套使用这些结构的代码太复杂,不能自动转换,需要手工转换。 
+    <h3>
+     串行 <tt>ask</tt>
+    </h3>
+    <p>
+      现在的 <a href="dictionary.html#ask"><tt>ask</tt></a> 命令是串行的而不是并行的。换句话说,每次一个主体运行。直到一个主体
+运行完所请求的命令块之后,下一个主体才开始运行。
+    <p>
+     注意老的<a href="dictionary.html#ask"><tt>ask</tt></a>也不是真正并行的,我们使用了轮转机制让主体交错执行,来模拟并行执
+行,该机制见NetLogo常见问题及解答。
+      
+    <p>
+      我们做出这一改变的原因是,有些用户因为模拟并行而写出不符合原意的代码,而没有
+从并行中得到好处。如果模型出现未期望的行为,一般可以通过在正确的地方添加 <a href=
+      "dictionary.html#without-interruption"><tt>without-interruption</tt></a>
+      来解决,但用户很难了解是否以及在哪需要这个命令。
+    <p>
+      在 NetLogo 4.0, <a href=
+      "dictionary.html#without-interruption"><tt>without-interruption</tt></a>
+     不再是必须的,除非模型使用 <a href=
+      "dictionary.html#ask-concurrent"><tt>ask-concurrent</tt></a> (或者,海龟或瓦片永久性按钮包含依赖于模拟并行的代码)。多数模型中的 without-interruption可以移除。
+    <p>
+     以前"ask"使用的模拟并行仍然可以通过以下三种方式使用:
+    <ul>
+      <li>使用 <a href=
+      "dictionary.html#ask-concurrent"><tt>ask-concurrent</tt></a>原语而不是<a href="dictionary.html#ask"><tt>ask</tt></a>,得到旧的模拟并行方式 
+      <li>在命令中心直接向海龟、瓦片或链发出的命令隐含是<tt>ask-concurrent</tt>
+      <li>海龟、瓦片或链永久性按钮隐含是
+      <tt>ask-concurrent</tt>
+      </ul>
+    <p>
+      注意不管在哪<tt>ask</tt>总是串行的。 
+    <p>
+     模型库使用并行的模型很少,然而 Termites 是一个优秀的使用并行的例子,它使用海
+龟永久性按钮。
+    <h3>
+     滴答计数器
+    </h3>
+    <p>
+      NetLogo 现在有一个内置的滴答计数器,用来表示仿真时间的流逝。
+    <p>
+      使用<a href=
+      "dictionary.html#tick"><tt>tick</tt></a>命令推进该计数器,如果需要读取它的值,则有报告器<a href=
+      "dictionary.html#ticks"><tt>ticks</tt></a> 。 <a href=
+      "dictionary.html#clear-all"><tt>clear-all</tt></a> 重
+设计数器, <a href=
+      "dictionary.html#reset-ticks"><tt>reset-ticks</tt></a> 也是如此。
+    <p>
+     多数模型中滴答计数器是整数值,但如果要使用更小的时间增量,可以用 <a href=
+      "dictionary.html#tick-advance"><tt>tick-advance</tt></a> 命令推进任何正的量,可以有分数部分。模型库中使用<tt>tick-advance</tt>的是Vector Fields 和 GasLab 模型。 
+     
+    <p>
+      滴答计算器的值显示在界面页顶部的工具条上。(可以使用工具条的 Settings...按钮 隐藏滴答计数器,或将"ticks"改为任何其他单词)
+    <h3>
+      视图更新模式
+    </h3>
+    <p>
+      过去NetLogo总是试图每秒更新视图20次,现在称之为"连续"视图更新。它最大的问题是通常希望每个滴答视图进行更新，而不是在滴答之间更新,因此在按钮上有一个勾选框，(默认)在每个按钮循环强制进行显示更新。这确保了更新发生在滴答处,但没有去除中间更新。必须使用 <a href=
+      "dictionary.html#no-display"><tt>no-display</tt></a> 和 <a href=
+      "dictionary.html#display"><tt>display</tt></a> 关掉更新。
+    <p>
+     我们仍然支持连续更新,它是启动NetLogo后的默认模式。但模型库中多数模型现在使 用基于滴答的更新。基于滴答的更新模式下,视图仅在滴答计数器推进时更新。(<a href=
+      "dictionary.html#display"><tt>display</tt></a>可
+用于强制附加更新,见下面) 
+    <p>
+      我们认为基于滴答的更新的优点如下:
+    <ol>
+      <li>不同计算机或不同的运行都有一致的、可预测的视图更新行为
+      <li>中间的更新会让用户糊涂,因为让他们看到了不应看到的事情,可能误导用户
+      <li>提高速度。更新视图占用时间,如果每个滴答一次更新就够的话,强制他们每个滴
+   答只更新一次,模型运行的更快
+      <li>不需像 NetLogo 3.1 那样,对每个按钮都有"force view update" 勾选框,我们只需一
+个用于整个模型的选择项
+      <li>使用速度滑动条让模型减速只需在滴答之间插入暂停。因此在基于滴答的更新模式下，setup 按钮不再受速度滑动条的影响，这是旧的滑动条恼人之处。(使用连续更 新的模型仍然有此困扰)
+      </ol>
+    <p>
+      如上所述,模型库中的多数模型现在使用基于滴答的更新。
+    <p>
+      即使正常时设为基于滴答更新的模型，调试时临时设为连续更新也有用。因为能看到在滴答中发生的事情，而不是仅看到一个滴答的结果,这样能帮助解决问题。
+    <p>
+      如果将模型转换到基于滴答的更新,你还要在代码中增加<a href="dictionary.html#tick"><tt>tick</tt></a>
+      命令,否则视图不更新。
+(注意当按钮弹起或在命令中心输入的命令完成时，视图仍会更新，因此视图不会永远不变)
+    <h4>
+      模型如何使用滴答和基于滴答的更新
+    </h4>
+    <p>
+      下面是在 NetLogo 4.0 将模型转换为使用滴答和基于滴答更新的步骤:
+    <ol>
+      <li>在界面页的工具条右部的"update view:",将设置从"continuously" 改成"on ticks"
+      <li>在go例程结束部分或接近结束的部分增加 <a href="dictionary.html#tick"><tt>tick</tt></a>命令。
+     模型库中的模型将<tt>tick</tt>放在主 体移动之后,绘图命令之前。这是因为绘图命令可能会包含像<tt>plotxy ticks ...</tt>这样的东西，我们希望使用滴答计数器的新值。多数模型在绘图命令中不涉及滴答计
+数器，但不管怎样，为了一致和避免错误,我们建议总是将 <tt>tick</tt>放在绘图命令之前。 
+      
+      </ol>
+    <p>
+      有些模型还要做些改变:
+    <ol>
+      <li>如果模型已经有了全局变量"ticks" 或 "clock" 或"time",去掉它们。相反使用<a href="dictionary.html#tick"><tt>tick</tt></a> 命令和  <a href="dictionary.html#ticks"><tt>ticks</tt></a>  报告器。(如果模型使用小数增量,使用<a href=
+      "dictionary.html#tick-advance"><tt>tick-advance</tt></a>而不是tick)。
+   如果为这些变量设置了监视器,去掉它,因为工具条上已经有滴答计数器了。
+      <li>
+        <a href="dictionary.html#clear-all"><tt>clear-all</tt></a> 将滴答计数器重设为 0。如果在setup例程中没有使用<tt>clear-all</tt>你需要增加
+     <a href=
+        "dictionary.html#reset-ticks"><tt>reset-ticks</tt></a>重置到0。
+      <li>如果在go中间使用 <a href=
+      "dictionary.html#no-display"><tt>no-display</tt></a>和 <a href=
+      "dictionary.html#display"><tt>display</tt></a> 防止视图更新,去掉它们。
+      <li>如果模型在时钟不推进时更新视图(例如Party, Dice Stalagmite, 使用动画布局的网络模型, 使用鼠标交互按钮的模型),使用
+      <a href="dictionary.html#display"><tt>display</tt></a>命令强迫附加更新,因此用户可以看到进行的事情。
+      </ol>
+    <h3>
+      速度滑动条
+    </h3>
+    <p>
+      以前的NetLogo版本有一个速度滑动条,可以让模型运行的慢一些,这样能看到模型的运行过程。
+    <p>
+      在 NetLogo4.0,滑动条也可用来加快模型运行,它通过让视图更新的更少实现这一点。更新视图要花时间,因此更新的更少,模型运行的更快。
+    <p>
+      滑块默认的位置在中间,当在中间时,滑动条是“正常速度”。
+    <p>
+     当滑块从中心移开时,模型逐渐加快或变慢。
+    <p>
+      在很高的速度时,视图更新变得很少,可能几秒才更新一次。因为更新太少,看起来就
+像模型运行的很慢。但看着滴答计数器或绘图等,会看到模型实际运行很快。如果更新太少令人不安,那就不要将滑块拖得太远。
+    <p>
+      如果使用基于滴答的更新,减慢模型不会引起额外的更新,相反,NetLogo 只是简单的在滴答之间加入暂停。
+    <p>
+      当使用连续更新时,减慢模型意味着视图更新间隔更接近。如果将滑块拖过左边一半的位置,模型运行太慢能看到一个海龟移动一步！这是 NetLogo4.0 新有的,在以前版本里不管模型运行多慢,也不会看到一次一步,而是在一个 <tt>ask</tt>中的所有主体同时移动。  
+    <h3>
+      数值
+    </h3>
+    <p>
+NetLogo 内部不再区分整数和浮点数。例如: 
+    <p>
+      旧：
+    <pre>
+observer&gt; print 3
+3
+observer&gt; print 3.0
+3.0
+observer&gt; print 1 + 2
+3
+observer&gt; print 1.5 + 1.5
+3.0
+observer&gt; print 3 = 3.0
+true
+</pre>
+    <p>
+      (最后一行显示尽管区分整数 3 和浮点数 3.0,但这两个数仍然认为相等)
+    <p>
+    新：
+    <pre>
+observer&gt; print 3
+3
+observer&gt; print 3.0
+3
+observer&gt; print 1 + 2
+3
+observer&gt; print 1.5 + 1.5
+3
+observer&gt; print 3 = 3.0
+true
+</pre>
+    <p>
+     我们希望只有极少的模型受到这一变动的负面影响。
+    <p>
+     这一变动的好处是 NetLogo 支持的整数范围更大。旧的范围是-2,147,483,648 到 2,147,483,647 (大约 +/- 2 billion),新的范围是+/-9,007,199,254,740,992 (大约+/- 9 quadrillion)。
+    <h3>
+      创建主体集合
+    </h3>
+    <p>
+     NetLogo 3.1 (和一些早期版本)包括原语<tt>turtles-from</tt> 和 <tt>patches-from</tt>，偶尔用来创 建主体集合。在NetLogo 4.0,这些原语被新原语<a href=
+      "dictionary.html#turtle-set"><tt>turtle-set</tt></a> 和 <a href=
+      "dictionary.html#patch-set"><tt>patch-set</tt></a> 替换,它们更灵
+活、强大。(<a href=
+      "dictionary.html#link-set"><tt>link-set</tt></a>也存在)。在NetLogo词典中查阅这些条目。使用老的<tt>turtles-from</tt>和<tt>patches-from</tt> 的模型需要手工替换为新原语。
+       
+    <h3>
+      RGB 颜色
+    </h3>
+    <p>
+      在NetLogo 3.1, RGB和HSB颜色可以使用 <tt>rgb</tt> 和 <tt>hsb</tt> 近似为NetLogo颜色。这些改名为 <a href=
+      "dictionary.html#approximate-rgb"><tt>approximate-rgb</tt></a> 和
+      <a href=
+      "dictionary.html#approximate-hsb"><tt>approximate-hsb</tt></a> ，现在的输入参数范围是 0-255, 不是 0-1。
+    <p>
+      现在NetLogo提供完整的RGB色系,因此这些原语不是必须的。可以使用三个元素的列表设置任何颜色变量,获得精确的颜色,列表项范围 0-255,。细节见编程指南的<a href=
+      "programming.html#colors">Color</a>部分。 
+    <h3>
+     捆绑
+    </h3>
+    <p>
+      旧版本中__tie是实验性的。在NetLogo 4.0 中,链有一个 <a href=
+      "dictionary.html#tie-mode"><tt>tie-mode</tt></a>变量,可设为"<tt>&quot;none&quot;</tt>, <tt>&quot;free&quot;</tt>, 或
+      <tt>&quot;fixed&quot;</tt>。在4.0 <a href=
+      "dictionary.html#tie"><tt>tie</tt></a> 现在是链独有的原语,意味着要将turtle 1 捆绑到turtle
+0 需要写: 
+    <pre>
+  ask turtle 0 [ create-link-to turtle 1 [ tie ] ]
+</pre>
+    <p>
+     细节见编程指南的捆绑( <a href="programming.html#tie">Tie</a> )部分。
+    <h2>
+      <a name="v31" id="v31">从 3.1迁移</a>
+    </h2>
+    <h3>
+      主体集合
+    </h3>
+    <p>
+     如果模型行为怪异或不正确,也许是因为从NetLogo 3.1 开始,主体集合是随机顺序。 以前版本中主体集合总是固定顺序。如果代码依赖固定顺序,则不会正常运行。如何修改模 型能以随机主体集合工作,取决于模型细节。有时使用 <a href="dictionary.html#sort"><tt>sort</tt></a>
+     或 <a href="dictionary.html#sort-by"><tt>sort-by</tt></a> 将主体集合(随机
+顺序)转换为主体列表(固定顺序),会有所帮助。见编程指南列表部分的"主体列表" <a href=
+      "programming.html#lists">Lists</a>。 
+    <h3>
+      回绕
+    </h3>
+    <p>
+      如果看到海龟片段在视图边界回绕,是因为 NetLogo 3.0 允许在视图关闭这样的回绕, 而不影响模型的行为。从 NetLogo 3.1 起,如果不想让视图回绕,则必须使用新的拓扑功能 让世界不回绕。然而这一改变可能还要对模型做出其他改变。在编程指南的拓扑<a href="programming.html#topology">Topology</a>部分有详细讨论,告诉你怎样转换模型利用这一新功能的优势。
+     
+    <h3>
+      随机化海龟坐标
+    </h3>
+    <p>
+      在NetLogo 3.0 或以前版本,许多模型使用setxy random world-width random world-height随机散布海龟,使用random 或 random-float。只有世界回绕,它才能工作。
+    <p>
+      为什么?因为当打开回绕时,可以设置海龟坐标超过世界边界,NetLogo 将对海龟进 行回绕。但在不回绕的世界,设置x或y坐标超过世界边界会引起运行错误。在NetLogo3.1 增加了回绕设置。更多信息见编程指南的<a href=
+      "programming.html#topology">Topology</a>部分)  section of the Programming
+      Guide for more information.)
+    <p>
+      要修改模型使它不管拓扑设置如何都能工作,使用下面的两个命令之一:
+    <pre>
+setxy random-xcor random-ycor
+setxy random-pxcor random-pycor
+</pre>
+    <p>
+      这两个命令略有不同。第一个将海龟放置在世界的一个随机点,第二个将海龟放置到一个随机瓦片的中心。一种更简洁的将海龟放置到随机瓦片中心的方式是:
+    <pre>
+move-to one-of patches
+</pre>
+
+
+
+</body>
+</html>

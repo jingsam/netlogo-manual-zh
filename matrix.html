@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 使用手册: 矩阵扩展
+    </title>
+</head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    
+
+<h1>矩阵扩展</h1>
+    <p>
+      矩阵的扩展给Netlogo增加了矩阵的数据结构，一个矩阵是一个二维的数组
+    <h2>
+     什么时候使用
+    </h2>
+    <p>
+ 虽然矩阵储存数字，和列表很像也和数组很像，但是我们最初使用矩阵是因为他特殊的操作运算。例如：矩阵乘法是几何变换的一个非常简便的方式，而且他重复的运用可以用来模拟很多其他的动态进程。  
+    <p>如果你想要知道更多的矩阵的知识和知道要怎么使用它，你可以考虑上一个线性代数的课或者在网上看相关的教程。矩阵的扩展可以有很多的运用，比如可以让你解决一些线性回归方程，甚至了解数据的趋势，和多元线性回归关系。
+       
+    <h2>
+      怎么使用
+    </h2>
+    <p>
+      矩阵的扩展comes preinstalled
+    <p>
+     使用矩阵的扩展前，要在代码前加一条代码：
+    <pre>
+extensions [matrix]
+</pre>
+    <p>
+      如果你的模型已经使用了扩展，那么就在代码的最前面会有一行
+      <a href="file:///D|/NetLogo 5.0/docs/dictionary.html#extensions"><tt>extensions</tt></a> 所以只要把<tt>matrix</tt>加到list里面就可以了
+    <p>
+      想要知道更多的NetLogo的相关知识，请见 <a href=
+      "file:///D|/NetLogo 5.0/docs/extensions.html">Extensions Guide</a>.
+    <h2>
+   矩阵实例
+    </h2>
+    <pre>
+let m matrix:from-row-list [[1 2 3] [4 5 6]]
+print m
+=&gt; {{matrix:  [ [ 1 2 3 ][ 4 5 6 ] ]}}
+print matrix:pretty-print-text m
+=&gt; 
+[[ 1  2  3 ]
+ [ 4  5  6 ]]
+
+print matrix:dimensions m
+=&gt; [2 3]
+;;(NOTE: row &amp; column indexing starts at 0, not 1)
+print matrix:get m 1 2 ;; what number is in row 1, column 2?
+=&gt; 6
+matrix:set m 1 2 10 ;; change the 6 to a 10
+print m
+=&gt; {{matrix:  [ [ 1 2 3 ][ 4 5 10 ] ]}}
+
+let m2 matrix:make-identity 3
+print m2
+=&gt; {{matrix:  [ [ 1 0 0 ][ 0 1 0 ][ 0 0 1 ] ]}}
+print matrix:times m m2 ;; multiplying by the identity changes nothing
+=&gt; {{matrix:  [ [ 1 2 3 ][ 4 5 10 ] ]}}
+
+;; make a new matrix with the middle 1 changed to -1
+let m3 (matrix:set-and-report m2 1 1 -1)
+print m3
+=&gt; {{matrix:  [ [ 1 0 0 ][ 0 -1 0 ][ 0 0 1 ] ]}}
+print matrix:times m m3
+=&gt; {{matrix:  [ [ 1 -2 3 ][ 4 -5 10 ] ]}}
+
+print matrix:to-row-list (matrix:plus m2 m3)
+=&gt; [[2 0 0] [0 0 0] [0 0 2]]
+</pre>
+    <blockquote>
+      <p>
+        <b>Code Example:</b> Matrix Example
+      </blockquote>
+    <h2>
+      Credits:
+    </h2>
+    <p>
+      NetLogo矩阵的扩展是<a href=
+      "http://forrest.stonedahl.com/">Forrest Stonedahl</a>写的，矩阵的扩展提供一个<a href=
+      "http://math.nist.gov/javanumerics/jama/">Jama</a>的资料包,是Jave免费的开源的矩阵库。
+    <p>
+      矩阵扩展的源代码可以再<a href=
+      "https://github.com/NetLogo/Matrix-Extension">on GitHub</a> 找到，欢迎读者能修改和改进相应的代码。
+    <h2>
+      矩阵元
+    </h2>
+    <h3>
+      矩阵的创造&amp; 和list之间的转换
+    </h3>
+    <p>
+      <a href="#matrix:make-constant">matrix:make-constant</a> <a href=
+      "#matrix:make-identity">matrix:make-identity</a> <a href=
+      "#matrix:from-row-list">matrix:from-row-list</a> <a href=
+      "#matrix:from-column-list">matrix:from-column-list</a> <a href=
+      "#matrix:to-row-list">matrix:to-row-list</a> <a href=
+      "#matrix:to-column-list">matrix:to-column-list</a> <a href=
+      "#matrix:copy">matrix:copy</a> <a href=
+      "#matrix:pretty-print-text">matrix:pretty-print-text</a>
+    <h3>
+     矩阵的检索和操作
+    </h3>
+    <p>
+      <a href="#matrix:get">matrix:get</a> <a href=
+      "#matrix:get-row">matrix:get-row</a> <a href=
+      "#matrix:get-column">matrix:get-column</a> <a href=
+      "#matrix:set">matrix:set</a> <a href=
+      "#matrix:set-row">matrix:set-row</a> <a href=
+      "#matrix:set-column">matrix:set-column</a> <a href=
+      "#matrix:swap-rows">matrix:swap-rows</a> <a href=
+      "#matrix:swap-columns">matrix:swap-columns</a> <a href=
+      "#matrix:set-and-report">matrix:set-and-report</a> <a href=
+      "#matrix:dimensions">matrix:dimensions</a> <a href=
+      "#matrix:submatrix">matrix:submatrix</a>
+    <h3>
+      数学运算
+    </h3>
+    <p>
+      <a href="#matrix:times-scalar">matrix:times-scalar</a> <a href=
+      "#matrix:times">matrix:times</a> <a href=
+      "#matrix:times-element-wise">matrix:times-element-wise</a> <a href=
+      "#matrix:plus-scalar">matrix:plus-scalar</a> <a href=
+      "#matrix:plus">matrix:plus</a> <a href=
+      "#matrix:inverse">matrix:inverse</a> <a href=
+      "#matrix:transpose">matrix:transpose</a> <a href=
+      "#matrix:real-eigenvalues">matrix:real-eigenvalues</a> <a href=
+      "#matrix:imaginary-eigenvalues">matrix:imaginary-eigenvalues</a>
+      <a href="#matrix:eigenvectors">matrix:eigenvectors</a> <a href=
+      "#matrix:det">matrix:det</a> <a href="#matrix:rank">matrix:rank</a>
+      <a href="#matrix:cond">matrix:cond</a> <a href=
+      "#matrix:trace">matrix:trace</a>
+    <h3>
+      高级应用
+    </h3>
+    <p>
+      <a href="#matrix:solve">matrix:solve</a> <a href=
+      "#matrix:forecast-linear-growth">matrix:forecast-linear-growth</a>
+      <a href=
+      "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+      <a href=
+      "#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
+      <a href="#matrix:regress">matrix:regress</a>
+      <h2>
+         矩阵的创建&amp; 和list之间的转换
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:make-constant" id=
+        "matrix:make-constant">matrix:make-constant</a>
+      </h3>
+      <h4>
+        matrix:make-constant <i>n-rows</i> <i>n-cols</i> <i>number</i>
+      </h4>
+      <p>
+        显示一个n行n列的矩阵，矩阵中的元素有相同。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:make-identity" id=
+        "matrix:make-identity">matrix:make-identity</a>
+      </h3>
+      <h4>
+        matrix:make-identity <i>n-size</i>
+      </h4>
+      <p>
+        产生一个新的n*n的单位矩阵（对角为1，其他的为0）。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:from-row-list" id=
+        "matrix:from-row-list">matrix:from-row-list</a>
+      </h3>
+      <h4>
+        matrix:from-row-list <i>nested-list</i>
+      </h4>
+      <p>
+        产生一个新的矩阵，从 NetLogo 列表中产生，当每个项目里元素都是矩阵的一行
+      <pre>
+ print matrix:from-row-list [[1 2] [3 4]]
+ =&gt; {{matrix:  [ [ 1 2 ][ 3 4 ] ]}}
+ ;; Corresponds to this matrix:
+ ;; 1 2
+ ;; 3 4
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:from-column-list" id=
+        "matrix:from-column-list">matrix:from-column-list</a>
+      </h3>
+      <h4>
+        matrix:from-column-list <i>nested-list</i>
+      </h4>
+      <p>
+        报告一个矩阵，从 NetLogo 列表中包括每矩阵的每一列元素 。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:to-row-list" id=
+        "matrix:to-row-list">matrix:to-row-list</a>
+      </h3>
+      <h4>
+        matrix:to-row-list <i>matrix</i>
+      </h4>
+      <p>
+        报告列表元素，包括矩阵的每一行。
+              </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:to-column-list" id=
+        "matrix:to-column-list">matrix:to-column-list</a>
+      </h3>
+      <h4>
+        matrix:to-column-list <i>matrix</i>
+      </h4>
+      <p>
+        报告列表的元素，包括矩阵的每一列。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:copy" id="matrix:copy">matrix:copy</a>
+      </h3>
+      <h4>
+        matrix:copy matrix
+      </h4>
+      <p>
+        产生一个新的矩阵和原来的矩阵完全相同。这非常重要是因为矩阵的类型是可变的
+        ，例如：
+      <pre>
+let m1 matrix:from-column-list [[1 4 7][2 5 8][3 6 9]] ; a 3x3 matrix
+print m1
+=&gt; {{matrix:  [ [ 1 2 3 ][ 4 5 6 ][ 7 8 9 ] ]}}
+let m2 m1 ;; m2 refers to the same matrix object as m1
+let m3 matrix:copy m1 ;; m3 is a new copy containing m1's data
+matrix:set m1 0 0 100 ;; now ianm1 is changed
+
+print m1
+=&gt; {{matrix:  [ [ 100 2 3 ][ 4 5 6 ][ 7 8 9 ] ]}}
+
+print m2
+=&gt; {{matrix:  [ [ 100 2 3 ][ 4 5 6 ][ 7 8 9 ] ]}}
+;;Notice that m2 was also changed, when m1 was changed!
+
+print m3
+=&gt; {{matrix:  [ [ 1 2 3 ][ 4 5 6 ][ 7 8 9 ] ]}}
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:pretty-print-text" id=
+        "matrix:pretty-print-text">matrix:pretty-print-text</a>
+      </h3>
+      <h4>
+        matrix:pretty-print-text <i>matrix</i>
+      </h4>
+      <p>
+        记录一个文本是代表矩阵的字符串，可以让成列出来的东西可读性更强。
+      </div>
+    <h2>
+      矩阵的修正和数学运算
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:get" id="matrix:get">matrix:get</a>
+      </h3>
+      <h4>
+        matrix:get <i>matrix</i> <i>row-i</i> <i>col-j</i>
+      </h4>
+      <p>
+        报告给定矩阵位置的值 <i>row-i</i>,<i>col-j</i>。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:get-row" id="matrix:get-row">matrix:get-row</a>
+      </h3>
+      <h4>
+        matrix:get-row <i>matrix</i> <i>row-i</i>
+      </h4>
+      <p>
+        报告一个简单的 NetLogo 列表包括给定矩阵行和列的元素的信息。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:get-column" id=
+        "matrix:get-column">matrix:get-column</a>
+      </h3>
+      <h4>
+        matrix:get-column <i>matrix</i> <i>col-j</i>
+      </h4>
+      <p>
+        报告一个简单的（无嵌入的）NetLogo 列表包括给定矩阵的元素所在的列的数值。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:set" id="matrix:set">matrix:set</a>
+      </h3>
+      <h4>
+        matrix:set <i>matrix</i> <i>row-i</i> <i>col-j</i> <i>new-value</i>
+      </h4>
+      <p>
+        通过改变矩阵的行和列的值去改变矩阵。 
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:set-row" id="matrix:set-row">matrix:set-row</a>
+      </h3>
+      <h4>
+        matrix:set-row <i>matrix</i> <i>row-i</i> <i>simple-list</i>
+      </h4>
+      <p>
+        用一个给定的<i>simple-list</i>去代替原有的第i行矩阵，
+       <i>simple-list</i> 应该和给定的矩阵有相同的列。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:set-column" id=
+        "matrix:set-column">matrix:set-column</a>
+      </h3>
+      <h4>
+        matrix:set-column <i>matrix</i> <i>col-j</i> <i>simple-list</i>
+      </h4>
+      <p>
+       用一个给定的<i>simple-list</i>去代替原有的第j列矩阵，
+       <i>simple-list</i> 应该和给定的矩阵有相同的
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:swap-rows" id=
+        "matrix:swap-rows">matrix:swap-rows</a>
+      </h3>
+      <h4>
+        matrix:swap-rows <i>matrix</i> <i>row1</i> <i>row2</i>
+      </h4>
+      <p>
+        改变给定矩阵通过交换矩阵的两行。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:swap-columns" id=
+        "matrix:swap-columns">matrix:swap-columns</a>
+      </h3>
+      <h4>
+        matrix:swap-columns <i>matrix</i> <i>col1</i> <i>col2</i>
+      </h4>
+      <p>
+        通过交换两列来改变矩阵。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:set-and-report" id=
+        "matrix:set-and-report">matrix:set-and-report</a>
+      </h3>
+      <h4>
+        matrix:set-and-report <i>matrix</i> <i>row-i</i> <i>col-j</i>
+        <i>new-value</i>
+      </h4>
+      <p>
+        报告矩阵第I行J列的元素的值，如矩阵[2 3 10] 第一行第三列就是10，旧的版本就不见了。 
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:dimensions" id=
+        "matrix:dimensions">matrix:dimensions</a>
+      </h3>
+      <h4>
+        matrix:dimensions <i>matrix</i>
+      </h4>
+      <p>
+        报告一个二维的列表，表示矩阵有多少行和列 ([num-rows,num-cols])
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:submatrix" id=
+        "matrix:submatrix">matrix:submatrix</a>
+      </h3>
+      <h4>
+        matrix:submatrix <i>matrix</i> <i>r1</i> <i>c1</i> <i>r2</i>
+        <i>c2</i>
+      </h4>
+      <p>
+        报告一个新的矩阵，包括矩阵一个长方形区域内的元素，从r1行到r2（不包括）行从c1列到c2（不包括）列。如：
+      <pre>
+let m matrix:from-row-list [[1 2 3][4 5 6][7 8 9]]
+print matrix:submatrix m 0 1 2 3 ; matrix, row-start, col-start, row-end, col-end
+                                 ; rows from 0 (inclusive) to 2 (exclusive), 
+                                 ; columns from 1 (inclusive) to 3 (exclusive)
+=&gt; {{matrix:  [ [ 2 3 ][ 5 6 ] ]}}
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:times-scalar" id=
+        "matrix:times-scalar">matrix:times-scalar</a>
+      </h3>
+      <h4>
+        matrix:times-scalar matrix factor
+      </h4>
+      <p>
+        报告一个新的矩阵，每个比例因子都乘上原来的矩阵所得。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:times" id="matrix:times">matrix:times</a>
+      </h3>
+      <h4>
+        matrix:times <i>m1</i> <i>m2</i>
+      </h4>
+      <p>
+        报告两个矩阵的乘积（确保矩阵的维数满足）。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:times-element-wise" id=
+        "matrix:times-element-wise">matrix:times-element-wise</a>
+      </h3>
+      <h4>
+        matrix:times-element-wise <i>m1</i> <i>m2</i>
+      </h4>
+      <p>
+        报告一个矩阵，m1中的每个点和m2中相对位置的点的乘积组成的矩阵（注意：两者必须有相同的维度）。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:plus-scalar" id=
+        "matrix:plus-scalar">matrix:plus-scalar</a>
+      </h3>
+      <h4>
+        matrix:plus-scalar <i>matrix</i> <i>number</i>
+      </h4>
+      <p>
+        报告一个矩阵，原矩阵的每个数加上一个常数所得。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:plus" id="matrix:plus">matrix:plus</a>
+      </h3>
+      <h4>
+        matrix:plus <i>m1</i> <i>m2</i>
+      </h4>
+      <p>
+        报告一个新的矩阵，是两个矩阵对应位置上的元素相加所得（注意：两者要有相同的维度）。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:inverse" id="matrix:inverse">matrix:inverse</a>
+      </h3>
+      <h4>
+        matrix:inverse <i>matrix</i>
+      </h4>
+      <p>
+        报告原矩阵的逆，如果矩阵不可逆就报告错误。
+        
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:transpose" id=
+        "matrix:transpose">matrix:transpose</a>
+      </h3>
+      <h4>
+        matrix:transpose <i>matrix</i>
+      </h4>
+      <p>
+        报告一个矩阵的转置。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:real-eigenvalues" id=
+        "matrix:real-eigenvalues">matrix:real-eigenvalues</a>
+      </h3>
+      <h4>
+        matrix:real-eigenvalues <i>matrix</i>
+      </h4>
+      <p>
+       报告特定矩阵的特征值。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:imaginary-eigenvalues" id=
+        "matrix:imaginary-eigenvalues">matrix:imaginary-eigenvalues</a>
+      </h3>
+      <h4>
+        matrix:imaginary-eigenvalues <i>matrix</i>
+      </h4>
+      <p>
+        报告虚拟矩阵的特征值。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:eigenvectors" id=
+        "matrix:eigenvectors">matrix:eigenvectors</a>
+      </h3>
+      <h4>
+        matrix:eigenvectors <i>matrix</i>
+      </h4>
+      <p>
+        报告一个矩阵是原矩阵的特征向量。每一个特征向量产生矩阵的一列。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:det" id="matrix:det">matrix:det</a>
+      </h3>
+      <h4>
+        matrix:det <i>matrix</i>
+      </h4>
+      <p>
+        报告矩阵的行列式。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:rank" id="matrix:rank">matrix:rank</a>
+      </h3>
+      <h4>
+        matrix:rank <i>matrix</i>
+      </h4>
+      <p>
+        报告通过奇异值分解得出的矩阵的秩。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:cond" id="matrix:cond">matrix:cond</a>
+      </h3>
+      <h4>
+        matrix:cond <i>matrix</i>
+      </h4>
+      <p>
+        报告矩阵产生的条件（2级范式），满足最大和最小的奇异值的比例。
+      </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:trace" id="matrix:trace">matrix:trace</a>
+      </h3>
+      <h4>
+        matrix:trace <i>matrix</i>
+      </h4>
+      <p>
+        报告矩阵的迹，简单的把矩阵的对角线相加。
+      </div>
+    <h2>
+      高级应用
+    </h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:solve" id="matrix:solve">matrix:solve</a>
+      </h3>
+      <h4>
+        matrix:solve <i>A</i> <i>C</i>
+      </h4>
+      <p>
+        解线性方程，要找到一个矩阵B使得 <i>A</i> * B = <i>C</i>。如果A不是一个矩阵，就用最小平方和来计算。
+      <pre>
+;; To solve the set of equations x + 3y = 10 and 7x - 4y = 20
+;; We make our A matrix [[1 3][7 -4]], and our C matrix [[10][20]]
+let A matrix:from-row-list [[1 3][7 -4]] 
+let C matrix:from-row-list [[10][20]]
+print matrix:solve A C
+=&gt; {{matrix:  [ [ 4 ][ 2.0000000000000004 ] ]}}
+;; NOTE: as you can see, the the results may be only approximate
+;; (In this case, the true solution should be x=4 and y=2.)
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:forecast-linear-growth" id=
+        "matrix:forecast-linear-growth">matrix:forecast-linear-growth</a>
+      </h3>
+      <h4>
+        matrix:forecast-linear-growth <i>data-list</i>
+      </h4>
+      <p>
+        报告一个形式为四列的： [ <i>forecast</i>
+        &nbsp;<i>constant</i> &nbsp;<i>slope</i> &nbsp;<i>R<sup>2</sup></i>
+        ]. 。预测是根据后面给定的一系列的数所得出的值。data-list 会观察一些变量，Y从t=0到t=（n-1）预测值就是Y在t=n的时候的值。常数和斜率是趋势线的参数。
+      <p>
+        Y = <i>constant</i> + <i>slope</i> * t.
+      <p>
+         <i>R<sup>2</sup></i>是用来测量数据和线是否拟合的好的。 R<sup>2</sup> = 1就是拟合的非常好，当 R<sup>2</sup> 越接近0说明拟合的越不好。线性模型说明Y在每一个时期都增长相同的常量。
+      <pre>
+;; a linear extrapolation of the next item in the list.
+print matrix:forecast-linear-growth [20 25 28 32 35 39] 
+=&gt; [42.733333333333334 20.619047619047638 3.6857142857142824 0.9953743395474031]
+;; These results tell us:
+;; * the next predicted value is roughly 42.7333
+;; * the linear trend line is given by Y = 20.6190 + 3.6857 * t
+;; * Y grows by approximately 3.6857 units each period
+;; * the R^2 value is roughly 0.9954 (a good fit)
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:forecast-compound-growth" id=
+        "matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+      </h3>
+      <h4>
+        matrix:forecast-compound-growth <i>data-list</i>
+      </h4>
+      <p>
+        报告一个新的四列的形式： [ <i>forecast</i>
+        &nbsp;<i>constant</i> &nbsp;<i>growth-proportion</i>
+        &nbsp;<i>R<sup>2</sup></i> ]。 <a href=
+        "#matrix:forecast-linear-growth">matrix:forecast-linear-growth</a>
+        假设每个阶段的增长量都是相同的。 <a href=
+        "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+        假设Y每个阶段都成比例增长。常数和增长率都是模型的参数。 
+      <p>
+        Y = <i>constant</i> * <i>growth-proportion</i><sup>t</sup>.
+      <p>
+        注意增长率可以理解为：
+        <i>growth-proportion</i> = <i>(1.0 + growth-rate)</i>。因此，如果
+        <a href=
+        "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>返回的 <i>growth-proportion</i> 是1.10，这意味着，Y的增长是(1.10 - 1.0) = 10%每个阶段。如果增长率是负的， <a href=
+        "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+        返回的<i>growth-proportion</i> 会少于1。如：
+        <i>growth-proportion</i> 是 0.90 则预示着，每阶段增长率 -10%.
+      <p>
+        <b>注意:</b> 混合的增长预测用
+        ln Y来表示。（看 <a href="#matrix:regress">matrix:regress</a>）。
+        因为这个能把0和负数很好的考虑进去。如果在<i>data-list</i>中找到一个负数或者0那么 <a href=
+        "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+        就会产生一个错误的结果。
+      <pre>
+;; a compound growth extrapolation of the next item in the list.
+print matrix:forecast-compound-growth [20 25 28 32 35 39]
+=&gt; [45.60964465307147 21.15254147944863 1.136621034423892 0.9760867518334806]
+;; These results tell us:
+;; * the next predicted value is approximately 45.610
+;; * the compound growth trend line is given by Y = 21.1525 * 1.1366 ^ t
+;; * Y grows by approximately 13.66% each period
+;; * the R^2 value is roughly 0.9761 (a good fit)
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:forecast-continuous-growth" id=
+        "matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
+      </h3>
+      <h4>
+        matrix:forecast-continuous-growth <i>data-list</i>
+      </h4>
+      <p>
+        报告一个四列的形式： [ <i>forecast</i>
+        &nbsp;<i>constant</i> &nbsp;<i>growth-rate</i>
+        &nbsp;<i>R<sup>2</sup></i> ]. Whereas <a href=
+        "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+        在有限的一段时间内Y的增长是随着离散的时间值按一定比例变化的（如一年或者一个月）。 <a href=
+        "#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
+        假设 Y是连续不断的， <i>constant</i> 和
+        <i>growth-rate</i> 是模型的参数。
+      <p>
+        Y = <i>constant</i> * e<sup>(growth-rate * t)</sup>.
+      <p>
+        <a href=
+        "#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
+        是<a href=
+        "#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>的微分模拟。这两者会不断的趋向（但不是同一个值）更小，当然<i>constant</i>和<i>growth-rate</i>有可能是负数。
+        
+      <p>
+        <b>注意:</b> 连续的增长是因为利用了 ln Y. （看 <a href="#matrix:regress">matrix:regress</a>,
+        below.）因为他是可以取负数的，如果data-list 有负数或者0，<a href=
+        "#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>就会产生错误。
+      <pre>
+;; a continuous growth extrapolation of the next item in the list.
+print matrix:forecast-continuous-growth [20 25 28 32 35 39]
+=&gt; [45.60964465307146 21.15254147944863 0.12805985615332668 0.9760867518334806]
+;; These results tell us:
+;; * the next predicted value is approximately 45.610
+;; * the compound growth trend line is given by Y = 21.1525 * e ^ (0.1281 * t) 
+;; * Y grows by approximately 12.81% each period if compounding takes place continuously
+;; * the R^2 value is roughly 0.9761 (a good fit)
+</pre>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="matrix:regress" id="matrix:regress">matrix:regress</a>
+      </h3>
+      <h4>
+        matrix:regress <i>data-matrix</i>
+      </h4>
+      <p>
+        所有三个预测的基元，是特殊的案例来实现最小二乘法线性回归--
+        the matrix:可以用灵活的或者多用途的方法达到目的。
+        输入是 <i>data-matrix</i>。第一列是观察到的独立变量，剩下的连续的列是看到的1个或者更多的自变量。这样每一行包括的都是一个自变量和因变量关系的式子。
+      <p>
+        输出是一个嵌入的 Logo 列表包括两个元素，第一个是回归常数，紧跟着的是那些自变量的系数。第二个元素是3元的列，包括 R<sup>2</sup> 总平方和和残差和这个例子可以解释 <a href=
+        "#matrix:regress">matrix:regress</a> 基元可以用来相似的函数就像是在the
+        matrix:forecast-*-growth 提出的例子。（然而，  记住 <a href="#matrix:regress">matrix:regress</a> 比这个更有力，可以有更多的回归变量，举例如。）
+      <pre>
+;; this is equivalent to what the matrix:forecast-linear-growth does
+let data-list [20 25 28 32 35 39]
+let indep-var (n-values length data-list [?]) ; 0,1,2...,5
+let lin-output matrix:regress matrix:from-column-list (list data-list indep-var)
+let lincnst item 0 (item 0 lin-output)
+let linslpe item 1 (item 0 lin-output)
+let linR2   item 0 (item 1 lin-output)
+;;Note the &quot;6&quot; here is because we want to forecast the value at time t=6.
+print (list (lincnst + linslpe * 6) (lincnst) (linslpe) (linR2))
+  
+;; this is equivalent to what the matrix:forecast-compound-growth does
+let com-log-data-list  (map [ln ?] [20 25 28 32 35 39])
+let com-indep-var2 (n-values length com-log-data-list [?]) ; 0,1,2...,5
+let com-output matrix:regress matrix:from-column-list (list com-log-data-list com-indep-var2)
+let comcnst exp item 0 (item 0 com-output)
+let comprop exp item 1 (item 0 com-output)
+let comR2       item 0 (item 1 com-output)
+;;Note the &quot;6&quot; here is because we want to forecast the value at time t=6.
+print (list (comcnst * comprop ^ 6) (comcnst) (comprop) (comR2))
+  
+;; this is equivalent to what the matrix:forecast-continuous-growth does
+let con-log-data-list  (map [ln ?] [20 25 28 32 35 39])
+let con-indep-var2 (n-values length con-log-data-list [?]) ; 0,1,2...,5
+let con-output matrix:regress matrix:from-column-list (list con-log-data-list con-indep-var2)
+let concnst exp item 0 (item 0 con-output)
+let conrate     item 1 (item 0 con-output)
+let conR2       item 0 (item 1 con-output)
+print (list (concnst * exp (conrate * 6)) (concnst) (conrate) (conR2))
+  
+;; example of a regression with two independent variables:
+;; Pretend we have a dataset, and we want to know how well happiness
+;; is correlated to snack-food consumption and accomplishing goals.
+let happiness [2 4 5 8 10] 
+let snack-food-consumed [3 4 3 7 8] 
+let goals-accomplished [2 3 5 8 9]
+print matrix:regress matrix:from-column-list (list happiness snack-food-consumed goals-accomplished)
+=&gt; [[-0.14606741573033788 0.3033707865168543 0.8202247191011234] [0.9801718440185063 40.8 0.8089887640449439]]
+;; linear regression: happiness = -0.146 + 0.303*snack-food-consumed + 0.820*goals-accomplished
+;; (Since the 0.820 coefficient is higher than the 0.303 coefficient, it appears that each goal 
+;; accomplished yields more happiness than does each snack consumed, although both are positively 
+;; correlated with happiness.)
+;; Also, we see that R^2 = 0.98, so the two factors together provide a good fit.
+</pre>
+    </div>
+
+      
+</html>

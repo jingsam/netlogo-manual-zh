@@ -1,0 +1,1346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+      NetLogo 5.0 User Manual: Interface Guide
+    </title></head>
+<link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      界面指南
+    </h1>
+    <div class="version">
+      NetLogo 5.0 User Manual&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+      手册的本部分带你依次了解NetLogo界面的所有要素，并解释其功能。
+    <p>
+      在NetLogo里你可以查看模型库中的模型，增加东西，或创建你自己的模型。NetLogo界面设计用来满足所有需求。
+    <p>
+      界面分成两个主要部分：菜单和主窗口。主窗口分成标签页面。
+    <ul>
+      <li>
+        <a href="#menus">菜单</a>
+      <li>
+        <a href="#tabs">标签页</a>
+      <li>
+        <a href="#interface">Interface标签页</a>
+        <ul>
+          <li>
+            <a href="#interfaceelements">使用界面元素</a>
+          <li>
+            <a href="#views">2D和3D视图</a>
+          <li>
+            <a href="#commandcenter">命令中心</a>
+          <li>
+            <a href="#plots">绘图</a>
+          <li>
+            <a href="#sliders">滑块</a>
+          <li>
+            <a href="#agentmonitors">主体监视器</a>
+          </ul>
+      <li>
+        <a href="#procedures">编码标签页</a>
+      <li>
+        <a href="#includes">Includes菜单</a>
+      <li>
+        <a href="#i18n">国际惯例</a>
+      </ul>
+    <h2>
+      <a name="menus" id="menus">菜单</a>
+    </h2>
+    <p>
+      在Macs，如果运行NetLogo应用程序，菜单条在屏幕顶部。在其他平台，菜单条在NetLogo窗口的顶部。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image001.gif">
+    <p>
+     菜单条上的各菜单的功能如下表所列。
+    <h4>
+     表: NetLogo 菜单
+    </h4>
+    <table border="1" cellspacing="0" cellpadding="0" style=
+    'border-collapse:collapse; border:none'>
+      <tr>
+        <td valign="top" style=
+        'border-top:double 4.5pt; border-left:double 4.5pt;border-bottom:solid .5pt;border-right:none; border-color:windowtext;padding:0in 5.4pt 0in 5.4pt'>
+        <p style='margin-right:-27.9pt'>
+            <b>File</b>
+          <td valign="top" style=
+          'border-top:double windowtext 4.5pt; border-left:none;border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:double windowtext 4.5pt; border-left:none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            New
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           创建一个新模型
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Open
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在计算机上打开任何一个模型
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Models Library
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            演示模型的集合
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Save
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            保存当前模型
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Save As
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            使用一个其他的名字保存当前模型
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Save As Applet
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            用来保存一个HTML格式的网页，其中以Java &quot;applet&quot;嵌入你的模型
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Print
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将当前显示的页面内容发送到打印机
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Export World
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            保存所有变量、海龟和瓦片的当前状态、画图、绘图、输出区域和随机状态信息到一个文件
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Export Plot
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           将绘图中的数据保存到文件
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Export All Plots
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将所有绘图中的数据保存到文件
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Export View
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将当前视图(2D 或3D)作为图片保存到文件 (PNG 格式)
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Export Interface
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           将当前界面页作为图片保存 ( PNG 格式 )
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Export Output
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将输出区域的内容或命令中心的输出部分保存到文件
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Import World
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            加载用Export World保存的文件
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Import Patch Colors
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           将一个图像加载到瓦片，见 <a href=
+            "dictionary#import-pcolors">import-pcolors</a> 命令
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Import Patch Colors RGB
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           使用RGB 颜色将一个图像加载到瓦片;见
+            <a href="dictionary#import-pcolors-rgb">import-pcolors-rgb</a>
+            命令
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Import Drawing
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将一个图像加载到画图层，见 <a href=
+            "dictionary#import-drawing">import-drawing</a> 命令
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Import HubNet Client Interface
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将其他模型的界面加载到HubNet Client Editor
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Quit
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            退出NetLogo。 (在 Mac, 这一项在NetLogo菜单)
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            <b>Edit</b>
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Undo
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            撤销你上一次对文本的编辑
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Redo
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            恢复你上次撤销的编辑
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Cut
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            剪切或移除选中的文本，临时存到剪贴板
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Copy
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            复制选中的文本
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Paste
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将剪贴板上的文本放到光标处
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Delete
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            删除选择的文本
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Select All
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            选择活动窗口中的所有文本
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Find
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在信息页或例程页查找一个词或字符序列
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Find Next
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+          查找下一处
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Shift Left /
+            <br>
+            Shift Right
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在例程页用于改变代码缩进层次
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Comment /
+            <br>
+            Uncomment
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在例程页使用,在代码中增加或移去分号(分号作为注释标志)
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Snap to Grid
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            当激活时，新部件停在5个像素宽的网格上，这样容易对齐。（注意：当缩放时本功能失效）
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <p>
+            <b>Tools</b>
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Halt
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            停止所有代码的运行，包括按钮和命令中心。（警告：因为代码强制中断，如果继续运行时没有用&quot;setup&quot;重新启动模型，可能得到不期望的结果）
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Globals Monitor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            显示所有全局变量的值
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Turtle Monitor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            显示特定海龟的所有变量值。也可编辑海龟变量的值，或向海龟发出命令。（也可以通过视图打开海龟监视器，见下面的视图部分）
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Patch Monitor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            显示特定瓦片的所有变量值。也可编辑瓦片变量的值，或向瓦片发出命令。（也可以通过视图打开瓦片监视器，见下面的视图部分）
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Link Monitor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            显示特定链的所有变量值。也可编辑链变量的值，或向链
+      发出命令。（也可以通过视图打开链监视器，见下面的视图部分）
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Close All Agent Monitors
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            关闭所有主体监视器窗口
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Hide/Show Command Center
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            使命令中心可见或不可见。（注意命令中心也可以用鼠标实现显示、隐藏、改变大小）
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            3D View
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            打开3D视图。见下面的 <a href="#views">视图</a> 部分。
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Color Swatches
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            打开Color Swatches. 见编程指南的<a href=
+            "programming.html#colors">颜色部分</a> 。
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Turtle Shapes Editor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            画海龟图形。更多信息见 <a href="shapes.html">图形编辑器指南</a> 。
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Link Shapes Editor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            画链图形。更多信息见<a href="shapes.html">图形编辑器指南</a>。
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            BehaviorSpace
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            使用不同的设置重复运行模型。更多信息见<a href="behaviorspace.html">行为空间指南</a> 。
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            System Dynamics Modeler
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           打开系统动力学建模工具。更多信息见 <a href=
+            "systemdynamics.html">系统动力学建模工具指南</a>。
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            HubNet Client Editor
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            打开HubNet Client Editor。更多信息见 <a href=
+            "hubnet-authoring.html">HubNet编程指南</a> 。
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            HubNet Control Center
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+           如果没有HubNet活动则不能用。更多信息见 <a href=
+            "hubnet.html">HubNet指南</a> 。
+          <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            <b>Zoom</b>
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Larger
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            增加模型的屏幕大小。在大的监视器或投影上有用。
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Normal Size
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            将模型的屏幕大小重设为正常大小
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Smaller
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            减小模型的屏幕大小
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            <b>Tabs</b>
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            本菜单提供了每个页的快捷键 (Mac上是Command 1 到Command 3。在 Windows,是 Control 1到 Control 3.)
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            <b>Help</b>
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:none; padding:0in 5.4pt 0in 5.4pt'>
+        <td valign="top" style=
+        'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            About NetLogo
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            显示关于当前NetLogo的版本信息(在 Mac,该项在NetLogo菜单)
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:none windowtext 4.5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:none windowtext 4.5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Look Up In Dictionary
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            对命令或报告器在浏览器中打开相应词典条目
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            NetLogo User Manual
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:none windowtext 4.5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在浏览器中打开本手册
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            NetLogo Dictionary
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:none windowtext 4.5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在浏览器中打开词典
+      <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            NetLogo Users Group
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:none windowtext 4.5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在浏览器中打开 NetLogo 用户群网站 <tr>
+        <td valign="top" style=
+        'border-top:none;border-left:double windowtext 4.5pt; border-bottom:double windowtext 4.5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            &nbsp;
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:double windowtext 4.5pt;border-right:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            Donate
+          <td valign="top" style=
+          'border-top:none;border-left: none;border-bottom:double windowtext 4.5pt;border-right:double windowtext 4.5pt; padding:0in 5.4pt 0in 5.4pt'>
+        <p>
+            在浏览器中打开 NetLogo 捐赠网页</table>
+    <h2>
+      <a name="tabs" id="tabs">标签页</a>
+    </h2>
+    <p>
+     在NetLogo主窗口的顶部是三个标签页：
+      &quot;Interface(界面)&quot;, &quot;Info(信息)&quot; and &quot;Code(
+编码)&quot; ，任一时刻只有其中之一可见，但可以通过单击窗口顶部的标签进行切换。
+<p class="screenshot">
+      <img alt="screen shot" src="images/interface/interfacetoolbar.png">
+    <p>
+     在这些标签下方是一个工具条，上面有一排按钮，当切换标签时会显示不同的按钮。
+<h2>
+      <a name="interface" id="interface">界面页</a>
+    </h2>
+    <p>
+      在界面页查看模型的运行，其中有工具用来监视和更改模型内部的运行情况。
+  <p>
+     当首次打开NetLogo时，界面页只有主视图和命令中心，主视图显示海龟和瓦片，命令中心用来发出NetLogo命令。
+<h3>
+      <a name="interfaceelements" id="interfaceelements">使用界面元素</a>
+    </h3>
+    <p>
+     界面页的工具条包括按钮，按钮用来编辑、删除、创建界面项，还有一个菜单用来选择不同的界面项（例如按钮和滑动条）。
+      <!-- need to scale this one down slightly to fit in PDF without clipping -->
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image007.gif">
+    <p>
+      工具条上的按钮如下所述。
+<p>
+      <b>添加：</b>要添加界面元素，首先在下拉菜单中选择所需元素，注意Add按钮呈按下状态，然后在工具条下方的空白区单击。（如果菜单项已经显示所需的类型，只需按下Add按钮，不用使用菜单）
+<p>
+      <b>选择：</b>要选择一个界面元素，用鼠标拖出一个矩形包围它。该元素会出现灰色边框，表明被选中了。
+<p>
+      <b>选择多项：</b> 通过用拖出的矩形同时包围多个界面元素，可以选中多项。如果选择了多项，其中一项是
+      &quot;key&quot; 项，含义是如果使用界面页工具条上的
+      &quot;Edit&quot; 或 &quot;Delete&quot;则只影响"key"项"key"项上是一个深灰色边框，以示区别。
+<p>
+      <b>取消选择：</b> 要取消所选的所有元素，在界面页的空白处单击。要取消选择某个元素，Ctrl-单击（Macintosh）或右击（其他系统）该元素并在弹出菜单中选择
+      &quot;Unselect&quot; 。
+<p>
+      <b>编辑：</b> 要改变一个界面元素的特性，选择该元素，按下界面页工具条的 &quot;Edit&quot; 按钮。也可以选择该元素后双击。
+移动：选中界面元素，用鼠标将它拖到新位置。如果拖动时按下Shift键，则只能做水平会或垂直移动。
+<p>
+      <b>移动：</b> 选中界面元素，用鼠标将它拖到新位置。如果拖动时按下Shift键，则只能做水平会或垂直移动。
+<p>
+      <b>改变大小：</b> 选中界面元素，用鼠标拖动选择边框的黑色“手柄”。
+<p>
+      <b>删除：</b> 选中要删除的一个或多个界面元素，然后按下界面工具条的&quot;Delete&quot; 按钮。也以通过Ctrl+单击（Macintosh）或右击（其他系统），然后在弹出菜单中选择"Delete"。如果使用后面这种方法，不必先选中元素。
+  <p>
+      要对各种界面元素有更多了解，参考下表。
+  <h3>
+      表: 界面工具条
+</h3>
+    <table border cellpadding="3">
+      <tr>
+        <th>
+          图标 &amp; 名字
+        <th>
+          描述
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Button" src="images/interface/image008.gif">
+        <td valign="top">
+          按钮可以是一次性的或永久性的。在一次性按钮上单击，将执行命令一次。永久性按钮则不断重复执行命令，直到再次按下按钮。如果为按钮分配了快捷键，则当按钮有焦点时，按下相应的键就等同于按下按钮。如果按钮有快捷键则在右上角显示快捷键字符。如果输入光标在另外的界面元素上，如命令中心，则按下快捷键不会触发按钮，这种情况下按钮右上角的字符会变暗。要激活快捷键，在界面页的空白背景上单击。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Slider" src="images/interface/image009.gif">
+        <td valign="top">
+         滑动条是全局变量，可以被所有主体访问。在模型中使用他们作为快速改变变量的方式，而不需重新编程的。相反，用户移动滑动条到一个值，观察模型发生的行为。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Switch" src="images/interface/image010.gif">
+        <td valign="top">
+          开关是true/false变量的可视化表示。通过拨动开关，用户设置变量为on (true) 或 off (false)。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Chooser" src="images/interface/image021.gif">
+        <td valign="top">
+         用户使用选择器在选择列表中为一个全局变量选定值，选择列表显示为下拉菜单。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Input Box" src="images/interface/inputboxbutton.gif">
+        <td valign="top">
+         输入框是包含字符串或数值的全局变量。编程人员选择用户可以输入的变量类型。可以设置输入框对输入的命令或报告器字符串进行语法检查。数值型输入框可以读取任何形式的常值表达式，这比滑动条灵活的多。颜色输入框为用户提供了NetLogo颜色选择器。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Monitor" src="images/interface/image011.gif">
+        <td valign="top">
+          监视器显示任何表达式的值。表达式可以是变量、复杂表达式，或对报告器的调用。监视器每秒自动更新几次。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Plot" src="images/interface/image013.gif">
+        <td valign="top">
+          绘图实时显示模型数据图形化。
+        <td align="center" valign="top">
+          <img alt="Output" src="images/interface/image022.gif">
+        <td valign="top">
+         输出区是一个文本卷滚区，用来记录模型活动。一个模型只能有一个输出区。
+      <tr>
+        <td align="center" valign="top">
+          <img alt="Note" src="images/interface/image012.gif">
+        <td valign="top">
+          注释用来为界面页添加信息型文本标签。模型运行过程中注释内容不变。
+
+</table>
+    <p>
+      界面页工具条上的其他控件用来控制视图更新和其他模型属性。
+<p class="screenshot">
+      <img alt="screen shot" src="images/interface/image003.gif">
+    <ul>
+      <li>滑动条用来控制模型运行快慢 – 这很有用，因为有些模型运行的太快，很难看出发生的事情。也可以通过左移滑块快进模型以及减慢视图更新频率。
+      <li>view updates 勾选框控制是否进行视图更新
+      <li>update mode menu 菜单用来在continuous和
+      tick-based更新模式之间切换
+      <li>&quot;Settings...&quot; 按钮用来编辑不同的模型属性
+</ul>
+    <p>
+      &quot;Continuous&quot; 更新是指NetLogo每秒更新（即重绘）视图很多次，不管模型运行的是什么。 &quot;Tick-based&quot; 更新是指只有滴答计算器推进时才更新视图。（关于视图更新的完整讨论，见 <a href="programming.html">Programming
+      Guide</a>。）
+<h3>
+      <a name="views" id="views">2D 和3D 视图</a>
+    </h3>
+    <p>
+      界面页中的大块黑色区域是2D视图，它是NetLogo海龟和瓦片世界的可视化表示。初始时它是全黑的，因为瓦片是黑色的，还没有海龟。通过在视图控制条上单击"3D"按钮打开3D视图，这是世界的另外一个可视化表示。
+<p class="screenshot">
+      <img alt="screen shot" src="images/strip.gif">
+    <p>
+      左上角三组黑色箭头用来改变世界大小。当原点在世界中点时世界变化的最小增量是2，为最大值加1，为最小值减1。如果某条边为0，则世界的增量为1，在对面增加1，以保持原点在边上。如果原点在自定义的位置，则黑色箭头失效。
+  <p>
+      有很多与视图相关的设置。有几种改变设置的方式：使用视图顶端的控制条，或编辑2D视图，如上面的“使用界面元素”部分所讲，或按下工具条的"Settings..."按钮。
+  <p>
+     注意3D视图中的控制条组合了来自2D视图控制条的滴答计数器和界面工具条右部的控件。
+<p class="screenshot">
+      <img alt="screen shot" src="images/interface/image023.gif">
+    <p>
+      下面是视图的设置（通过编辑视图，或按下界面工具条的"Settings..."按钮）。
+<p class="screenshot">
+      <img alt="screen shot" src="images/interface/settings.png">
+    <p>
+     注意设置分为三组，即world, view, ticks counter。World部分的设置影响海龟生存的世界的特性（改变他们后要对世界重设）。View 和tick counter部分仅影响表观，不会影响模型的输出。
+  <p>
+      World部分的设置用来定义世界的边界和拓扑。World面板左部的顶端用来选择世界原点的位置，有"Center", "Corner", "Edge","Custom"四种。默认世界原点是center型的，即（0,0）在中心位置，用户定义从中心到左右边界和上下边界的瓦片数。例如：如果设置Max-Pxcor = 10，则Min-Pxcor自动设为-10，则在瓦片patch 0 0的左侧有10个瓦片，在右侧有10个瓦片。
+  <p>
+     Corner型配置允许用户将原点定义到世界的一角，左上、右上、左下或右下。然后定义x和y方向的远端边界。例如将原点放在左下角，定义右和上（正）边界。
+  <p>
+     Edge型允许用户将原点放在一条边上（x或y），然后定义该方向的远端边界，及另一方向的两个边界。例如沿世界底部选择了edge模式，则必须定义顶边界和左右边界。
+  <p>
+     最后,Custom模式允许用户将原点放在世界的任何位置，但瓦片patch 0 0必须存在。
+  <p>
+     当改变设置时，面板右部的预览区反映出你的选择，显示原点和边界。世界的宽度和高度显示在预览区下方。
+  <p>
+     在预览区下方还有两个勾选框，是world wrap设置，用于控制世界的拓扑。注意当点
+  击勾选框时，预览区显示哪个方向是回绕的，拓扑的名字显示在世界尺寸的旁边。更多信息参见 <a href=
+      "programming.html#topology">的拓扑部分。
+    <p>
+      View部分的设置用来定制视图观感而不改变世界。改变view设置不会强迫世界重设。要改变2D视图的大小,调整"Patch Size"，单位是像素。这不会改变瓦片的数量，只改变2D视图瓦片显示的大小。（注意patch size不影响3D视图，因为只需让窗口变大就可以使3D视图变大 ）
+    <p>
+      font size 的设置让你控制海龟，瓦片和链接标签的的大小。
+    <p>
+      The frame rate 控制视图更新的频率。这对每个模型的默认速度有很大的作用。更多细节请看
+     <a href="programming.html#updates">.
+    <p>
+      "Smooth edges"仅出现在3D视图中，用来控制3D视图的反锯齿设置。使得直线看起来不太参差，但模型运行会慢一些。
+    <p>
+      Tick counter 部分的设置控制滴答计数器的显示，在视图控制条中出现与否。
+    <p>
+      在视图中容易调出turtle, patch，link监视器，只需在要查看的海龟或瓦片上Ctrl-单击(Macintosh)或右击（其他系统），并在弹出菜单中选择inspect turtle ..." 或"inspect patch ..."。通过在turtle子菜单中选择合适的选项，实现对海龟的观察、跟随和乘骑。（turtle, patch，link监视器也可在Tools菜单中打开，或使用<a href=
+      "dictionary.html#inspect"><tt>inspect</tt></a> 命令）
+  <p>
+      有些模型让你在视图中通过鼠标点击或拖动实现与海龟或瓦片的交互。
+  <h4>
+      操纵3D视图
+</h4>
+    <p>
+      在窗口的底部有一些按钮用来移动观察者或改变观察世界的视角。
+<p class="screenshot">
+      <img alt="screen shot" src="images/interface/image024.gif">
+    <p>
+      当你调整这些设置时，在当前焦点出现一个蓝色十字。小蓝三角形总是指向正y轴方向，如果迷失方向时用它帮你确定方向。很容易!
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image025.gif">
+<p>
+     要从不同的角度看世界，按下"rotate"按钮，单击后上、下、左、右拖动鼠标。观察者持续面向与以前一样的点（蓝十字所在处），但与xy-平面的关系变了。
+    <p>
+      要靠近或远离世界或正在观看、跟随或乘骑的主体，按下"zoom"按钮并上下拖动鼠标。（注意当在跟随或乘骑模式时，缩放将导致乘骑和跟随之间的切换，因为乘骑是跟随的一个特例，只是跟随距离为0）
+    <p>
+      如果不改变观察者的方向而改变它的位置，选择"move"按钮并保持鼠标按下，在3D视图中上下左右拖动鼠标。
+    <p>
+      要允许鼠标位置和状态传给模型，选择"interact"按钮，则它的功能就像鼠标在2D视图中一样。
+    <p>
+      要将观察者和焦点返回默认位置，按下"Reset Perspective"按钮（或使用 <a href=
+      "dictionary.html#reset-perspective"><tt>reset-perspective</tt></a>
+      命令）
+    <p>
+      <b>全屏模式</b>
+    <p>
+      要进入全屏模式，按下"Full Screen"按钮，要退出全屏模式，按下Esc键。
+    <p>
+      <b>注意:</b> 全屏模式在某些计算机上不能用，取决于所有的图形卡，见系统需求部分。 <a href=
+      "requirements.html#threed">System Requirements</a> 
+    <p>
+      <b>3D 图形</b>
+    <p>
+      有些图形在3D视图中有3D对应物（3D圆实际是一个球），因此自动映射图形。
+    <table border="1">
+      <tr>
+        <td>
+          <b>图形名称</b>
+        <td>
+          <b>3D 图形</b>
+        <tr>
+        <td>
+          default
+        <td>
+          3D turtle shape
+        <tr>
+        <td>
+          circle
+        <td>
+          sphere
+        <tr>
+        <td>
+          dot
+        <td>
+          small sphere
+        <tr>
+        <td>
+          square
+        <td>
+          cube
+        <tr>
+        <td>
+          triangle
+        <td>
+          cone
+        <tr>
+        <td>
+          line
+        <td>
+          3D line
+        <tr>
+        <td>
+          cylinder
+        <td>
+          3D cylinder
+        <tr>
+        <td>
+          line-half
+        <td>
+          3D line-half
+        <tr>
+        <td>
+          car
+        <td>
+          3D car
+        </table>
+    <p>
+     所有其他图形解释为2D图形。如果图形可旋转，则假设是顶视图，像是从甜饼切割器中挤出的，与xy平面平行，就像Ants中那样。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image026.gif">
+    <p>
+      如果图形不能旋转，则假设是侧视图，总是面对观察者画出（没有厚度），就像Wolf Sheep Predation中那样。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image027.gif">
+    <h3>
+      <a name="commandcenter" id="commandcenter">命令中心</a>
+    </h3>
+    <p>
+     命令中心用来直接发出命令，而不需将这些命令加入模型的例程。（命令是给模型中的主体发出的指令）。这对运行时监视和操纵主体很有用。
+    <p>
+      (<a href="tutorial2.html">Tutorial #2: Commands</a> 介绍如何在命令中心使用命令)
+    <p>
+      看看命令中心的设计。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image006.gif"> 
+      <!--<p>You will notice there is a large display box, an agent popup menu
+(observer&gt;), a "clear" button, a button (with the double-headed arrow)
+to relocate the command center to
+the right side of the window, and the history popup menu (in the lower
+right, with the little
+black triangle).-->
+    <p>
+      大框下面的小框用来输入命令，输入后按下回车键运行命令。
+    <p>
+     在输入文本的左侧是一个弹出菜单，初始是"observer>"，可以在observer, turtles, patches之中选择，指定哪个主体运行你输入的命令。
+    <p>
+      提示：使用tab键快速切换observer, turtles, patches。
+    <p>
+      <b>命令</b>
+    <p>
+      如果你在命令中心输入命令， <a href=
+      "dictionary.html#show">show</a> 命令会自动被插到前面。
+    
+    <p>
+      <b>访问先前的命令</b>
+    <p>
+     你输入的命令出现在命令行上方的滚转框中。可以用Edit菜单中的Copy命令拷贝该处的命令粘贴到其他地方，如例程页。
+    <p>
+     也可使用历史弹出菜单访问先前输入的命令，在输入命令框的右边有个小三角。单击这个小三角，出现弹出菜单，包含以前输入的命令，选择某项重用。
+    <p>
+      提示：可以使用键盘上的上下光标键更快速的访问先前的命令。
+    <p>
+      <b>清除</b>
+    <p>
+     单击右上角的"clear"，清除包含以前输入命令和输出的大滚转区。
+    <p>
+     要清除弹出式菜单上的历史命令，选择该菜单的"Clear History"。
+    <p>
+      <b>安排</b>
+    <p>
+     使用Tools菜单的Hide Command Center 和 Show Command Center，隐藏或显示命令中心。
+    <p>
+     要改变命令中心的大小，拖动分隔命令中心和模型界面的边界，或者单击边界左部的小箭头使得命令中心很大或完全隐藏。
+    <p>
+      要在垂直和水平布局之间切换，单击画有双端箭头的按钮，它就在"Clear"的左方。
+    <h3>
+      <a name="plots" id="plots">绘图</a>
+    </h3>
+    <p>
+     如果在绘图的白色区域上移动鼠标，鼠标的x和y坐标会显示。（注意鼠标位置可能和数据点不是精确对应，如果想知道绘图点的精确坐标，使用Export Plot菜单项，在其他程序中查看输出文件）
+    <p>
+      当创建一个绘图时，就像其他小部件一样，编辑对话框自动出现。
+    <p>
+      <img src="./images/interface/plot.png" alt="Plot Editor">
+    <p>
+      上面许多域是自明的，如绘图的name, x和y轴的label，坐标范围和
+      &quot;Show legend?&quot;的选项框一样。
+    <p>
+      如果Auto Scale? 选中，，如果新增的点超出当前范围，则x，y自动调整。
+    <p>
+      在&quot;Plot setup commands&quot; and &quot;Plot update
+      commands&quot; 下面，可以输入命令行，并在合适的时候自动运行。点击小三角来打开输入命令行的文本框。画图的命令在编程指南的画图部分有详细讲解。
+    <h4>
+      Plot Pens
+    </h4>
+    <p>
+     在plot pens部分可以创建和定制不同的画笔，每个绘图至少有一个画笔。开始时有一个名为"default"的画笔，可以进行重命名，与模型的实际意义一致。
+    <p>
+      要改变画笔的颜色点击在画笔名字左边的颜色矩形。会出现一个对话框，可以设定基准颜色或者改变颜色。
+      
+    <p>
+      要重命名画笔的名字，双击它。
+    <p>
+      在&quot;Pen Update Commands&quot; 列，当 <code>reset-ticks</code>, <code>tick</code>, 或
+      <code>update-plots</code> 运行的时候，你可以输入命令。这在编程指南的画图部分有详细的解释。
+    <p>
+      最后一列有两个按钮，点击铅笔的图形会打开一个可以新建画笔设置的窗口。垃圾桶的按钮可以删除画笔。
+    <h5>
+      Plot Pen 高级设置
+    </h5>
+    <p>
+      点击画笔的编辑按钮可以打开以下对话框：
+    <p>
+      <img src="./images/interface/plot-pen-advanced.gif" alt=
+      "Plot Editor">
+    <ul>
+      <li>可以改变画笔的以下特征：线条，条形（对条形图来说），或者是点（散点图）
+      <li>间隔是指每次使用<tt>plot</tt> 命令时，x的增量。
+      <li>如果Show in Legend选中，则选择的画笔是绘图右上角图例的一部分（在绘图上单击"Pens"就出现）
+      <li>如果在&quot;Setup commands&quot; 区域能够输入当 <code>reset-ticks</code> 或
+      <code>setup-plots</code> 运行的时候运行的命令。
+      <li>在&quot;Update commands&quot; 区域，可以输入 <code>tick</code> 或 <code>update-plots</code>
+      运行的时候运行的程序。这个区域在高级对话中重新出现，为编辑更长的命令提供空间。
+      </ul>
+    <p>
+      查看更多细节请到编程指南的画图部分。
+    <h3>
+      <a name="sliders" id="sliders">滑动条</a>
+    </h3>
+    <p>
+      滑动条定义全局变量，用来方便的改变变量值。
+    <p>
+      。将滑动条放置到界面页时，自动出现编辑对话框，就像其他部件一样。多数域很熟悉，但要重点注意minimum, maximum 和 increment域可以接受任何报告器表达式，而不是只是常量。例如可以令minimum <a href=
+      "dictionary.html#min-pxcor"><tt>为min-pxcor</tt></a> ，maximum为
+      <a href="dictionary.html#max-pxcor"><tt>max-pxcor</tt></a> 则当世界大小改变时，滑动条的边界自动调整。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/sliderbounds.gif">
+    <h3>
+      <a name="agentmonitors" id="agentmonitors">主题监视器</a>
+    </h3>
+    <p>
+      主体监视器显示一个特定主体的所有变量和主体及其附近很小区域
+    <p>
+      你可以通过工具菜单打开主体监视器或者通过 <a href=
+      "dictionary.html#inspect"><tt>inspect</tt></a> 命令。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/agentmonitor1.gif">
+    <p>
+      你可以使用视图下面的滑动条来放大或缩小视图，利用 <tt>watch-me</tt>按钮在主视图中
+      <a href="dictionary.html#watch"><tt>watch</tt></a> 主体。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/agentmonitor2.gif">
+    <p>
+      滑动条下方是每个主体的参数值。你可以输入一个新的值。就像运行了<tt>set pcolor ...</tt>代码一样。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/agentmonitor3.gif">
+    <p>
+      主体变量区域下方是一个小的命令中心。和观察者运行代码中对所有的海龟、瓦片和链接起作用不同的是，这里的代码只适用于这个主体。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/agentmonitor4.gif">
+    <p>
+      关闭主体监视器可以点击左上角的方框，或者按Esc键。如果同时按下shift键再点击那个方框，所有打开的主体监视器都会关闭，工具菜单中的&quot;Close All Monitors&quot;选项也能做到相同的效果。     
+    <h2>
+      <a name="procedures" id="procedures">编码标签页</a>
+    </h2>
+    <p>
+      编码标签页存储模型中的代码。包括只想在命令中心立即运行的代码和要保存下来以后还要用的代码。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/codetab.png">
+    <p>
+      检查代码是否有错误，可以按&quot;Check&quot;按钮。如果有语法错误，编码标签页就会变红，包含错误的代码会加高亮，错误信息也会出现。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/codetaberror.png">
+    <p>
+      切换标签页也会检查代码，因此如果你只是切换标签页，首先按Check按钮不是必要的。
+    <p>
+      要在程序中找到一段代码，可以在工具栏中点 &quot;Find&quot; 按钮，查找的对话框就会出现。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/image028.gif">
+    <p>
+      你可以查找词语或短语，也可以选择替换它们。 &quot;Ignore case&quot;选项框可以选择大小写是否相同。
+    <p>
+    
+      如果&quot;Wrap around&quot; 选项框被勾选，整个编码标签页会从鼠标位置开始查找。当到最后的时候回回到开始，否则只有鼠标位置到最后被查找。 &quot;Next&quot;和&quot;Previous&quot;按钮会向前或者向后查找。
+    <p>
+       &quot;Replace&quot;替换当前短语， &quot;Replace &amp; Find&quot; 替换当前短语并查找下一处。 &quot;Replace All&quot; 会替换所有查找到的短语。
+    <p>
+      使用在编码标签页中&quot;Procedures&quot;的菜单可以在代码中找到特定的程序定义。菜单的顺序按照字母表排列。
+    <p>
+     在编辑菜单中的&quot;Shift Left&quot;, &quot;Shift Right&quot;,
+      &quot;Comment&quot;, 和 &quot;Uncomment&quot;条目可以改变缩进多少，或者添加或移除标记段落的分隔号。 
+    <p>
+      更多关于编写程序的信息，看<a href=
+      "tutorial3.html">Tutorial #3: Procedures</a> 和<a href=
+      "programming.html">Programming Guide</a>。
+    <h3>
+      <a name="includes" id="includes">Includes 菜单</a>
+    </h3>
+    <p>
+      <b>注意：</b> 这项功能是新增加的，正在试验阶段。
+    <p>
+      如果模型中加上 <a href="dictionary.html#includes">__includes</a>
+     关键词，procedures菜单的右侧会出现includes菜单，列出本文件（.nlogo 或 .nls）包含的所有NetLogo源文件（.nls）
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/includesmenu.gif">
+    <p>
+      在该菜单的文件名上单击，会打开一个新页包含该文件，或者使用New Source File 和 Open Source File分别打开新文件或打开文件系统中已有的一个或多个文件。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/includesmenuopen.gif">
+    <p>
+     一旦打开新页，就可以与其他页一样进行导航。可以通过Tabs菜单访问它们，也可使用键盘从一个页切换到另一个页（Mac上使用Command +数字，其他操作系统使用Control+数字）。
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/tabsmenu.gif">
+    <h3>
+      自动缩进
+    </h3>
+    <p>
+      当Indent Automatically 选项框被勾选后，NetLogo会自动将代码按照逻辑结构的格式编排。例如，当你打开一组方括号 &quot;[&quot;（也许在<tt>if</tt> 后），NetLogo会自动添加空格，使得接下来的一行代码比括号缩进两个空格。当输入另外一个括号的时候，会和第一个对齐。
+     
+    <p class="screenshot">
+      <img alt="screen shot" src="images/interface/tabified-code.gif">
+    <p>
+      NetLogo会尝试缩排你输入的代码，但是你可以在任意行按tab键，使Netlogo立刻缩排。或者你可以选择一整个代码区域，利用tab键重新缩排。 
+    <h2>
+      <a name="i18n" id="i18n">国际惯例</a>
+    </h2>
+    <h3>
+      字符集
+    </h3>
+    <p>
+      NetLogo一般情况下使用UTF-8 字符解码集保存和打开模型，它包含很大范围的国际字符。
+    <p>
+      如果你在美国英语之外的局部地区，一旦使用本地字符集出现问题，请及时联系我们。
+      
+    <p>
+       <a href="transition.html">Transition Guide</a> 中有对于将更早版本的Netlogo中包含的国际字符集转换的建议。
+    <h3>
+      语言
+    </h3>
+    <p>
+      大部分NetLogo的GUI和一些错误信息，现在都是国际化的，也就是说可能有几种不同语言的Netlogo版本。
+      
+    <p>
+      我们说的几种语言是：英语，西班牙语，汉语和俄语。
+      
+    <p>
+      在国际化上做的工作还不全面。我们正在向用户社区寻求帮助，将菜单和错误信息本地化。
+     
+    <p>
+      默认情况下，如果支持的话，NetLogo使用用户操作系统的语言。如果操作系统时西班牙语，那么Netlogo也用西班牙语。当我们有了其他语言的翻译版本后，也能够实现。如果您的语言当前不被支持，那么Netlogo会使用英语。
+      
+    <p>
+      当其他语言被添加后，一些英语用户可能会尝试一下。你可以改变操作系统的语言或者利用<tt>__change-language</tt>原语（只要把它输入到命令中心就可以）。会打开一个可以选择语言的对话框，当选择一个新语言之后，netlogo需要重新启动。当netlogo重新启动后，就会使用新语言了。这个选择会被记忆，下次打开仍然是这个语言。如果要改回来，再做一次上面的工作就行。
+      
+    <h3>
+      译者支持
+    </h3>
+    <p>
+      我们希望Netlogo能够翻译成更多的语言。如果您想要翻译成为您的语言，见
+     <a href=
+      "https://github.com/NetLogo/NetLogo/wiki/Localization">this wiki
+      page</a> 
+</html>

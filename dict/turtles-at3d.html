@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        turtles-at
+        
+        &lt;breeds&gt;-at
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="turtles-at" id="turtles-at">turtles-at</a>
+        <br>
+        <a name="breeds-at" id="breeds-at">&lt;breeds&gt;-at</a>
+      </h3>
+      <h4>
+        turtles-at <i>dx</i> <i>dy</i> <i>dz</i>
+        <br>
+        <i>&lt;breeds&gt;-at</i> <i>dx</i> <i>dy</i> <i>dz</i>
+        <br>
+        <img alt="Turtle Command" src="../images/turtle.gif"> <img alt=
+        "Patch Command" src="../images/patch.gif">
+      </h4>
+      <p>
+        3D versions of <a href="../dictionary.html#turtles-at">turtles-at</a>
+        and <a href="../dictionary.htnl#breeds-at">breeds-at</a>.
+      <p>
+        Reports an agentset containing the turtles on the patch (dx, dy,
+        dz) from the caller (including the caller itself if it's a
+        turtle).
+      <pre>
+;; suppose I have 40 turtles at the origin
+show [count turtles-at 0 0 0] of turtle 0
+=&gt; 40
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

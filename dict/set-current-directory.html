@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        set-current-directory
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="set-current-directory" id=
+        "set-current-directory">set-current-directory</a>
+      </h3>
+      <h4>
+        set-current-directory <i>string</i>
+      </h4>
+      <p>
+        Sets the current directory that is used by the primitives <a href="../dictionary.html#file-delete">file-delete</a>, <a href="../dictionary.html#file-exists">file-exists?</a>, and <a href="../dictionary.html#file-open">file-open</a>.
+      <p>
+        The current directory is not used if the above commands are given
+        an absolute file path. This is defaulted to the user's home
+        directory for new models, and is changed to the model's
+        directory when a model is opened.
+      <p>
+        Note that in Windows file paths the backslash needs to be escaped
+        within a string by using another backslash &quot;C:\\&quot;
+      <p>
+        The change is temporary and is not saved with the model.
+      <p>
+        Note: in applets, this command has no effect, since applets are
+        only allowed to read files from the same directory on the server
+        where the model is stored.
+      <pre>
+set-current-directory &quot;C:\\NetLogo&quot;
+;; Assume it is a Windows Machine
+file-open &quot;my-file.txt&quot;
+;; Opens file &quot;C:\\NetLogo\\my-file.txt&quot;
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

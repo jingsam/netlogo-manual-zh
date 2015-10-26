@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<title>
+      NetLogo 5.0 User Manual: Mathematica Link
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+     Mathematica 连接（ Mathematica Link）
+    </h1>
+	  <div class="version">
+      NetLogo 5.0 用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+    <h2>
+      他是什么？
+    </h2>
+ <BODY>
+  
+<p>
+      NetLogo-Mathematica 连接（link）给用户提供了一个NetLogo和 Mathematica之间易用、实时的连接。将这两个软件连在一起后，可以给用户提供高度交互性、文档自动化的工作流，这一点仅靠其中一个软件是不能提供的。
+    <p>
+      Mathematica有许多工具是基于主体的建模人员需要的，包括高级输入能力、统计功能、数据可视化、文档创建等。使用NetLogo-Mathematica连接，就可以与NetLogo一起使用这些工具。
+    <p>
+      因为所有的Mathematica文档或notebook包含注释、代码、图像、注解（annotation）和交互对象，NetLogo 和 Mathematica的集成为学生和研究人员探索复杂模型提供了更完全的解决方案。
+    <p>
+      该连接的基本功能与NetLogo控制API很像，可以加载模型、执行命令、从NetLogo返回数据。但不同的是，控制API是基于Java的，而与该连接的交互是解释的，这使得不仅可以快速设计自定制的类似BehaviorSpace的实验，还可以在调试模型时作为NetLogo的伴侣。
+    <p>
+     关于Mathematica的更多信息, 请访问 <a href=
+      "http://www.wolfram.com/" target="_top">Wolfram Research web
+      site</a>。
+    <h2>
+      我能用它做什么?
+    </h2>
+    <p>
+      下面是使用Mathematica-NetLogo 连接所能做的事情的一些例子。
+    <ul>
+      <li>以双向无缝数据转换方式实时分析你的模型
+      <li>开发高质量的模型数据自定制可视化
+      <li>在巨大的多维参数空间中收集详细的仿真数据
+      <li>快速开发交互式界面，探索模型行为
+      <li>使用内置函数直接访问瓦片和网络数据
+      </ul>
+    <h2>
+      安装
+    </h2>
+    <p>
+      NetLogo-Mathematica 连接需要NetLogo 4.0 和 Mathematica 6.0以上版本。安装NetLogo-Mathematica 连接的步骤如下:
+    <ul>
+      <li>到Mathematica的菜单
+      <li>单击File ，选择Install...
+      <li>在Install Mathematica对话框
+      <li>选择 Package for Type of item to install
+      <li>单击Source, 选择 From file...
+      <li>在文件浏览器，找到NetLogo安装目录,
+      <li>单击 Mathematica Link 子文件夹, 选择NetLogo.m.
+      <li>在Install Name输入 NetLogo.
+      </ul>
+    <p>
+      可以将NetLogo 连接安装到用户级目录或系统级目录。如果安装在用户级目录，其他用户也必须自己安装才能使用。如果你无权修改用户目录之外的目录就选择这种方式，否则将连接安装到系统级目录。
+    <h2>
+      使用
+    </h2>
+    <p>
+      本部分简单介绍如何使用NetLogo-Mathematica 连接，告诉你怎样加载NetLogo-Mathematica连接包、启动NetLogo、执行命令、从NetLogo获取数据。
+    <p>
+      <b>加载包:</b> 一旦安装了NetLogo-Mathematica连接,可以在Mathematica notebook输入下面的命令加载该包:
+    <blockquote>
+      <p>
+        <tt>&lt;&lt;NetLogo`</tt>
+      </blockquote>
+    <p>
+      <b>从Mathematica 启动 NetLogo:</b> 要在Mathematica启动NetLogo会话，需要在notebook里输入下面的命令：
+    <blockquote>
+      <p>
+        <tt>NLStart[&quot;<i>your netlogo path</i>&quot;];</tt>
+      </blockquote>
+    <p>
+      其中 <i>&quot;your netlogo path&quot;</i> 是NetLogo所在目录,一般在Macintosh 计算机是 &quot;/Applications/NetLogo 5.0/&quot;
+    <p>
+      <b>加载模型:</b> 要加载模型，必须指定模型的全路径。例如要加载Forest Fire模型，并且使用典型的Macintosh安装位置给出路径。
+    <blockquote>
+      <p>
+        <tt>NLLoadModel[&quot;/Applications/NetLogo 5.0/models/Sample
+        Models/Earth Science/Fire.nlogo&quot;];</tt>
+      </blockquote>
+    <p>
+      <b>执行NetLogo命令:</b> 给 <tt>NLCommand[]</tt>传入一个命令字符串执行命令。<tt>NLCommand[]</tt>函数自动拼接Mathematica常用数据类型,成为NetLogo可用的字符串。下面的命令使用单个字符串设置density，或使用一个Mathematica定义的变量<tt>myDensity</tt>设置density。
+    <blockquote>
+      <p>
+        <tt>NLCommand[&quot;set density 50&quot;];
+        <br>
+        myDensity = 60;
+        <br>
+        NLCommand[&quot;set density&quot;, myDensity];</tt>
+      </blockquote>
+    <p>
+      <b>从NetLogo返回信息:</b> NetLogo数据可以使用<tt>NLReport[]</tt>返回Mathematica 。数据类型包括数值、字符串、布尔值、列表。
+    <blockquote>
+      <p>
+        <tt>NLReport[&quot;count turtles&quot;];
+        <br>
+        NLReport[&quot;[(list pxcor pycor)] of n-of 10 patches&quot;]</tt>
+      </blockquote>
+    <p>
+      更多信息参加NetLogo 所带的NetLogo-Mathematica Tutorial notebook 。该notebook带你体会使用该连接的整个过程，其中有许多例子。如果没有Mathematica，但却考虑使用此连接，可以下载教学pdf文档（ <a href=
+      "http://ccl.northwestern.edu/netlogo/5.0/docs/NetLogo-Mathematica%20Tutorial.pdf">
+      download a PDF</a> ）。
+    <h2>
+      已知问题
+    </h2>
+    <ul>
+      <li>不退出J/Link (Java-Mathematica link) ，NetLogo 会话不能完全退出。这可能干扰其他使用J/Link 的包。这个问题在以后的版本中解决。
+      <li>如果NetLogo-Mathematica连接所加载的模型使用了NetLogo扩展包，则该扩展必须在扩展自身的目录，如果扩展在应用程序级目录则找不到。这个问题在以后的版本中解决
+      <li>对NetLogo的调用,如<tt>NLCommand[]</tt>和<tt>NLReport[]</tt>不能中途退出（abort）。 
+      </ul>
+    <h2>
+      源代码
+    </h2>
+    <p>
+      NetLogo-Mathematica连接是公开的源代码，可以在 <a href=
+      "https://github.com/NetLogo/Mathematica-Link">https://github.com/NetLogo/Mathematica-Link</a>找到。
+    <h2>
+      致谢
+    </h2>
+    <p>
+      NetLogo-Mathematica 连接的主要开发人员是Eytan Bakshy。.
+    <p>
+     在学术出版物上引用此包的格式: Bakshy, E., Wilensky, U. (2007). NetLogo-Mathematica Link. http://ccl.northwestern.edu/netlogo/mathematica.html. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+ </BODY>
+</HTML>

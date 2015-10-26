@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        random-exponential
+        
+        random-gamma
+        
+        random-normal
+        
+        random-poisson
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="random-exponential" id=
+        "random-exponential">random-exponential</a>
+        <br>
+        <a name="random-gamma" id="random-gamma">random-gamma</a>
+        <br>
+        <a name="random-normal" id="random-normal">random-normal</a>
+        <br>
+        <a name="random-poisson" id="random-poisson">random-poisson</a>
+      </h3>
+      <h4>
+        random-exponential <i>mean</i>
+        <br>
+        random-gamma <i>alpha lambda</i>
+        <br>
+        random-normal <i>mean standard-deviation</i>
+        <br>
+        random-poisson <i>mean</i>
+      </h4>
+      <p>
+        Reports an accordingly distributed random number with the
+        <i>mean</i> and, in the case of the normal distribution, the
+        <i>standard-deviation</i>.  (The standard deviation may not
+        be negative.)
+      <p>
+        random-exponential reports an exponentially distributed random
+        floating point number.  It is equivalent to
+        <tt>(- <i>mean</i>) * ln random-float 1.0</tt>.
+      <p>
+        random-gamma reports a gamma-distributed random floating point
+        number as controlled by the floating point alpha and lambda
+        parameters. Both inputs must be greater than zero. (Note: for
+        results with a given mean and variance, use inputs as follows:
+        alpha = mean * mean / variance; lambda = 1 / (variance / mean).)
+      <p>
+        random-normal reports a normally distributed random floating point
+        number.
+      <p>
+        random-poisson reports a Poisson-distributed random integer.
+      <pre>
+show random-exponential 2
+;; prints an exponentially distributed random floating
+;; point number with a mean of 2
+show random-normal 10.1 5.2
+;; prints a normally distributed random floating point
+;; number with a mean of 10.1 and a standard deviation
+;; of 5.2 
+show random-poisson 3.4
+;; prints a Poisson-distributed random integer with a
+;; mean of 3.4
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

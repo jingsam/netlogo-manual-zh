@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<title>
+      NetLogo 5.0 用户手册: Info Tab
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+<h1>
+  <a name="information" id="information">Info Tab</a>
+</h1>
+<p>
+  信息选项卡提供一个模型的介绍。告诉我们这个模型用的是什么系统，怎么建立起来的，模型要怎么使用。也会告诉我们要怎么去扩展这个模型，或者引起你对NetLogo中一些特色的注意。
+<p class="screenshot">
+  <img alt="screen shot" src="images/interface/infotab.png">
+<p>
+  你应该在开始模型前先阅读信息卡。
+<h2>
+  <a name="info-editing" id="information">编辑</a>
+</h2>
+<p>
+  通常情况下的信息选项卡是不可写的，要变成可写的话需要点击&quot;Edit&quot;键。当编辑结束的时候，再次点击&quot;Edit&quot;键。
+<p class="screenshot">
+  <img alt="screen shot" src="images/interface/infotabedit.png">
+<p>
+  你编辑信息选项卡为无格式的纯文本。当你编辑完了,纯文本输入以一个更有吸引力的格式显示。
+<p>
+  为了控制控制如何格式化的显示器看上去,你使用&quot;标记语言&quot称为Makedown。你可能已经在别处遇到Makedown;它是用在许多web站点。(还有其他标记语言在web上使用;例如,维基百科使用标记语言称为MediaWiki。标记语言不同在于细节)。
+<p>
+  本指南的其余部分是一堆 Markdown.
+
+
+<ul><li><a href="#headings">Headings</a></li>
+<li><a href="#paragraphs">Paragraphs</a></li>
+<li><a href="#italicized_and_bold_text">Italicized and bold text</a></li>
+<li><a href="#ordered_lists">Ordered lists</a></li>
+<li><a href="#unordered_lists">Unordered lists</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#block_quotations">Block quotations</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#code_blocks">Code blocks</a></li>
+<li><a href="#superscripts_and_subscripts">Superscripts and subscripts</a></li>
+<li><a href="#notes_on_usage">Notes on usage</a></li>
+<li><a href="#other_features">Other features</a></li></ul>
+
+<h2><a name="headings" id="headings">标题</a></h2>
+<p>标题开始于以下标志 (<code>#</code>)。第一层标题有一个#，第二层有两个，这样下去一直到第四层。
+</p><h5>输入Input</h5>
+<pre><code># First-level heading
+## Second-level heading
+### Third-level heading
+#### Fourth-level heading
+</code></pre>
+<h2><a name="paragraphs" id="paragraphs">段落</a></h2>
+<h5>例子</h5>
+<pre><code>This is a paragraph. There are no spaces before the word &#39;This&#39;.
+
+This is another paragraph. The first line has two sentences.
+The entire paragraph has two lines and three sentences.
+
+Line breaks in the input,
+Make line breaks in the output,
+Like this.
+</code>
+</pre>
+<h5>格式化的</h5>
+<p>这个是一个段落，在‘this’之间并没有空格。</p>
+<p>这是另一个段落，第一行有两句话，整段话有三句两行。</p>
+<p>Line breaks in the input,<br/>Make line breaks in the output,<br/>Like this.</p>
+<h2><a name="italicized_and_bold_text" id="italicized_and_bold_text">斜体和粗体文本</a></h2>
+<h5>例子</h5>
+<pre><code>For italics, surround  text with underscores:
+_hello, world_.
+
+For bold, surround text with two asterisks:
+**hello, world**.
+
+You can also combine them:
+_**hello**_ and **_goodbye_**
+</code></pre>
+<h5>格式化的</h5><p>斜体字，环绕文字用于下划线：<br/><em>hello, world</em>.</p><p>粗体字，环绕文字用两个*： <br/><strong>hello, world</strong>.</p><p>你也可以结合他们：<br/><em><strong>hello</strong></em> and <strong><em>goodbye</em></strong></p>
+<h2><a name="ordered_lists" id="ordered_lists">顺序</a></h2>
+<h5>例子</h5>
+<pre><code>We are about to start an ordered list.
+
+  1. Ordered lists are indented 2 spaces.
+    1. Subitems are indented 2 more spaces (4 in all).
+  2. The next item in the list starts with the next number.
+  3. And so on...
+</code></pre><h5>格式化的</h5><p>我们将开始排序。</p>
+<ol>
+  <li>Ordered lists are indented 2 spaces.
+  <ol>
+    <li>Subitems are indented 2 more spaces (4 in all for a second level item).</li>
+  </ol></li>
+  <li>The next item in the list starts with the next number.</li>
+  <li>And so on&hellip;</li>
+</ol>
+<h2><a name="unordered_lists" id="unordered_lists">Unordered lists无序序列</a></h2><h5>例子</h5>
+<pre><code>We are about to start an unordered list.
+
+  * Like ordered lists, unordered lists are also indented 2 spaces.
+  * Unlike ordered lists, unordered lists use stars instead of numbers.
+    * Sub items are indented 2 more spaces.
+    * Here&#39;s another sub item.
+</code></pre><h5>格式化的</h5><p>接下来展示无序序列</p>
+<ul>
+  <li>Like ordered lists, unordered lists are also indented 2 spaces.</li>
+  <li>Unlike ordered lists, unordered lists use stars instead of numbers.
+  <ul>
+    <li>Sub items are indented 2 more spaces.</li>
+    <li>Here's another sub item.</li>
+  </ul></li>
+</ul>
+<h2><a name="links" id="links">连接</a></h2><h3>自动连接</h3><p>最简单的方式创建连接就是直接输入</p><h5>例如</h5>
+<pre><code>http://ccl.northwestern.edu/netlogo
+</code></pre><h5>格式化的</h5><p><a href="http://ccl.northwestern.edu/netlogo">http://ccl.northwestern.edu/netlogo</a></p><h3>和文本连接</h3><p>如果你想连接到你自己的文本，需要这样做：</p>
+<pre><code>[link text here](link.address.here)
+</code></pre><h5>例如</h5>
+<pre><code>[NetLogo](http://ccl.northwestern.edu/netlogo)
+</code></pre><h5>格式化的</h5><p><a href="http://ccl.northwestern.edu/netlogo">NetLogo</a></p>
+<h3>本地链接</h3><p>连接到你电脑的一页而不是Internet上的一页也是有可能的， </p><p>本地连接是这种格式的：</p>
+<pre><code>[alt text](file:path)
+</code></pre><p>任何空格都需要用%20代替。例如：</p>
+<pre><code>file:my page.html
+</code></pre><p>要写成：</p>
+<pre><code>file:my%20page.html
+</code></pre><p>这个路径是和模型文件存在的相对目录连接的。</p><h5>例如：</h5><p>最方便的方法连接到你的电脑就是把他们放在和你模型相同的目录下。假设你有一个名为<code>index.html</code>的文件和你的模型在相同的目录下，连接就是下面的样子的：
+<pre><code>[Home](file:index.html)
+</code></pre><h5>例如：</h5><p>如果文件在docs文件夹下，docs和模型在相同的目录下：</p>
+<pre><code>[Home](file:docs/index.html)
+</code></pre>
+<h2><a name="images" id="images">图片</a></h2><p>图片和连接非常的相似，但是在之前会有一个感叹号：</p>
+<pre><code>![alt text](http://location/of/image)
+</code></pre><p>（当图片没有找到的时候会选择代替文本）</p><h5>例如：</h5>
+<pre><code>![NetLogo](http://ccl.northwestern.edu/netlogo/images/netlogo-title-new.jpg)
+</code></pre><h5>格式化的</h5><p><img src="http://ccl.northwestern.edu/netlogo/images/netlogo-title-new.jpg"  alt="NetLogo"/></p><h3>本地图片</h3><p>也和连接是非相似，他可以展示你电脑中的图片，假设你有一个图片名为 <code>image.jpg</code>，本地图片就是这样的：</p>
+<pre><code>![alt text](file:path)
+</code></pre><p>这个路径是和模型文件存在的相对目录连接的。</p><p>和本地连接一样，任何空格都需要用%20代替。</p><h5>例如：</h5><p>和本第连接一样，最简单的方式就是把要展示的图片放在模型相同的目录下面。下面的例子展示图片&quot;Perspective Example.png&quot;，是和模型有相同的目录的。</p>
+<pre><code>![Example](file:Perspective%20Example.png)
+</code></pre><h5>格式化的</h5><p><img src="file:Perspective%20Example.png"  alt="Example"/></p>
+<h2><a name="block_quotations" id="block_quotations">框</a></h2><p>连续的行之前可以用>,也可以把任何文本放进去。</p><h5>Example</h5>
+<pre><code>&gt; Let me see: four times five is twelve, and four times six is thirteen,
+&gt; and four times seven is --- _oh dear!_
+&gt; I shall never get to twenty at that rate!
+</code></pre><h5>格式化的</h5>
+<blockquote><p>Let me see: four times five is twelve, and four times six is thirteen,<br/>and four times seven is -- <em>oh dear!</em><br/>I shall never get to twenty at that rate!</p>
+</blockquote>
+<h2><a name="code" id="code">编码</a></h2><p>在一个句子包括一小段代码,用引号包围(`).</p><h5>例如：</h5>
+<pre><code>You can create a single turtle with the `crt 1` command.
+</code></pre><h5>格式化的</h5><p>You can create a single turtle with the <code>crt 1</code> command.</p>
+<h2><a name="code_blocks" id="code_blocks">编码模块</a></h2><p>代码模块化，创建模块，有以下四步：</p><h5>例如</h5>
+<pre><code>About to start the code block.
+Leave a blank line after this one, and then indent four spaces:
+
+    ; a typical go procedure
+    to go
+      ask turtles
+        [ fd 1 ]
+      tick
+    end
+</code></pre><h5>格式化的</h5><p>About to start the code block.<br/>Leave a blank line after this one, and then indent four spaces:</p>
+<pre><code>; a typical go procedure
+to go
+  ask turtles
+    [ fd 1 ]
+  tick
+end
+</code></pre>
+<h2><a name="superscripts_and_subscripts" id="superscripts_and_subscripts">Superscripts and subscripts</a></h2><p>上标和下标写作是有用的公式,方程,脚注和更多。下标出现半字符低于基线,和写使用HTML标记< sub >。上标出现半字符高于基线,和写使用HTML标记。</p><h5>例如</h5>
+<pre><code>H&lt;sub&gt;2&lt;/sub&gt;O
+
+2x&lt;sup&gt;4&lt;/sup&gt; + x&lt;sup&gt;2&lt;/sup&gt;
+
+WWW&lt;sup&gt;[1]&lt;/sup&gt;
+</code></pre><h5>格式化的</h5><p>H<sub>2</sub>O</p><p>2x<sup>4</sup> + x<sup>2</sup> + 42</p><p>WWW<sup>[1]</sup></p>
+<h2><a name="notes_on_usage" id="notes_on_usage">使用注意事项</a></h2>
+<ul>
+  <li><p>段落、列表、代码块和其他特性应该分开使用一个空行。如果你发现有什么东西不格式化你的预期,这可能是因为你需要添加一个空行之前。</p></li>
+  <li><p>防止特殊字符被当作标记,把一个反斜杠
+ (<code>\</code>)放在前面。</p></li>
+  <li><p>我们使用GitHub换行(<a href="http://github.github.com/github-flavored-markdown/">http://github.github.com/github-flavored-markdown/</a>) 而不是传统的Markdown处理换行。 这意味着换行被视为真正的换行符,而不是被结合成一个单一的段落前一行。
+</p></li>
+</ul>
+<h2><a name="other_features" id="other_features">其他属性 </a></h2><p>Markdown 有其他我们没展示出来的特色。</p><p>我们在很多的系统中检测了这些特色。如果你使用其他的 Markdown属性, 你会发现他可能能在你的电脑中运行。甚至如果是用不同的系统的话可能在电脑中有不一样的情况出现甚至一点都没有用。</p><p>如果你想要所有的用户都阅读你的信息选项卡，就使用下面的属性。</p><p>了解更多 Markdown 信息点击 <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>。想要阅读 Markdown, NetLogo 有 <a href="http://github.com/sirthias/pegdown">Pegdown</a>字典。</p>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        foreach
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="foreach" id="foreach">foreach</a>
+      </h3>
+      <h4>
+        foreach <i>list</i> <i>command-task</i>
+        <br>
+        (foreach <i>list1</i> ... <i>command-task</i>)
+      </h4>
+      <p>
+        With a single list, runs the task for each item of
+        <i>list</i>.
+      <pre>
+foreach [1.1 2.2 2.6] show
+=&gt; 1.1
+=&gt; 2.2
+=&gt; 2.6
+foreach [1.1 2.2 2.6] [ show (word ? &quot; -&gt; &quot; round ?) ]
+=&gt; 1.1 -&gt; 1
+=&gt; 2.2 -&gt; 2
+=&gt; 2.6 -&gt; 3
+</pre>
+      <p>
+        With multiple lists, runs <i>commands</i> for each group of items
+        from each list. So, they are run once for the first items, once for
+        the second items, and so on. All the lists must be the same length.
+      <p>
+        Some examples make this clearer:
+      <pre>
+(foreach [1 2 3] [2 4 6]
+   [ show word &quot;the sum is: &quot; (?1 + ?2) ])
+=&gt; &quot;the sum is: 3&quot;
+=&gt; &quot;the sum is: 6&quot;
+=&gt; &quot;the sum is: 9&quot;
+(foreach list (turtle 1) (turtle 2) [3 4]
+  [ ask ?1 [ fd ?2 ] ])
+;; turtle 1 moves forward 3 patches
+;; turtle 2 moves forward 4 patches
+</pre>
+      <p>
+        See also <a href="../dictionary.html#map">map</a>, <a href="../dictionary.html#ques">?</a>.
+      
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>NetLogo Help: 
+        scale-color
+      </title>
+
+    <link rel="stylesheet" href="../netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+ p { margin-left: 1.5em ; }
+ h3 { font-size: 115% ; }
+ h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+</style>
+</head>
+<body>
+      <h3>
+        <a name="scale-color" id="scale-color">scale-color</a>
+      </h3>
+      <h4>
+        scale-color <i>color number range1 range2</i>
+      </h4>
+      <p>
+        Reports a shade of <i>color</i> proportional to the value of <i>number</i>.
+      <p>
+        Typically <i>number</i> is an agent variable, but may be
+        any numeric reporter.
+      <p>
+        If <i>range1</i> is less than <i>range2</i>, then the larger the
+        number, the lighter the shade of <i>color</i>. But if <i>range2</i>
+        is less than <i>range1</i>, the color scaling is inverted.
+      <p>
+        If <i>number</i> is less than <i>range1</i>, then the darkest shade
+        of <i>color</i> is chosen.
+      <p>
+        If <i>number</i> is greater than <i>range2</i>, then the lightest
+        shade of <i>color</i> is chosen.
+      <p>
+        Note: for <i>color</i> shade is irrelevant, e.g. green and green +
+        2 are equivalent, and the same spectrum of colors will be used.
+      <pre>
+ask turtles [ set color scale-color red age 0 50 ]
+;; colors each turtle a shade of red proportional
+;; to its value for the age variable
+</pre>
+    
+<p>Take me to the full <a href="../index2.html">NetLogo Dictionary</a>
+</body>
+</html>

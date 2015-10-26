@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<title>
+      NetLogo 5.0 用户手册:Logging
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      Logging
+    </h1>
+    <div class="version">
+      NetLogo 5.0 用户手册&nbsp;&nbsp;&nbsp;
+    </div>
+    <p>
+      NetLogo的日志允许研究人员记录学生
+行动以便以后进行分析。
+    <p>
+     NetLogo日志一旦启动,这个
+研究人员可以通过配置文件选择看不见的学生事件记录的类型。
+    <p>
+      NetLogo 使用log4j 包记录日志，如果你之前有使用这个包的经历你会发现在NetLogo
+中也是类似的。
+    <p>
+     日志是特殊的 NetLogo 日志应用支持的，不在其他的程序中有用。
+    <h2>
+      开始记录
+    </h2>
+    <p>
+      取决你使用的是什么运行系统。
+    <h3>
+      Mac OS X 或 Windows
+    </h3>
+    <p>
+      这是一个非常特殊的日志记录，在NetLogo 目录下叫做
+      NetLogo Logging。双击即可。
+    <p>
+      在Windows系统，NetLogo 目录可以在 <tt>C:\Program
+      Files</tt>下找到，除非你安装的时候选择了其他的目录。 
+    <h3>
+      Linux 或其他
+    </h3>
+    <p>
+      启用日志,调用 <tt>netlogo.sh</tt>脚本如下:
+    <pre>
+netlogo.sh --logging netlogo_logging.xml
+</pre>
+    <p>
+     你也可以修改脚本以包含这些旗帜,或复制脚本和修改副本。
+
+    <p>
+      你可以用任何有效的log4j xml配置文件取代netlogo_logging.xml,这将在后面详细讨论。
+
+    <h2>
+      启用日志
+    </h2>
+    <p>
+      当 NetLogo 启动的时候会需要一个使用者姓名，这将回在此任务之后出现在所有的日志中。 
+    <h3>
+    哪里存储日志
+    </h3>
+    <p>
+      日志存储在特定于操作系统的临时目录。在大多数Unix-like系统中是
+     <tt>/tmp</tt>。在Windows XP中，日志文件可以在 
+      <tt>c:\Documents and Settings\&lt;user&gt;\Local Settings\Temp</tt>找到,
+     当<tt>&lt;user&gt;</tt>登陆的时候是用Windows
+      Vista 日志文件可以在
+      <tt>c:\Users\&lt;user&gt;\AppData\Local\Temp</tt>找到。如果是使用Mac OS X，临时文件目录根据不同的用户有不同的存储。 你可以通过打开终端应用目录 使用<tt>echo $TMPDIR</tt> 来找到你的临时目录。
+    <p>
+      有两种方便的命令,这将帮助你管理日志。zip日志文件的文件名会收集所有的日志中的临时目录并把它们放在一个zip文件,在指定的位置。在做<tt>__zip-log-files</tt>日志文件现有日志不会被删除,你可以使用<tt>__delete-log-files</tt>。
+    <p>
+
+      以下是一个图表描述可用登陆者的名称,每个日志的事件的类型,在什么水平,并提供了一个输出使用XMLLayout的示例。所有的登陆者记录可以在<tt>org.nlogo.log.Logger</tt>找到。 当他指的是登陆者在配置文件中你应该使用完全限定名称。所以,例如,日志记录器将实际上<tt>GLOBALS</tt>是<tt>org.nlogo.log.Logger.GLOBALS</tt>全局变量。
+      
+      
+    <table border="1" cellpadding="5">
+      <tr>
+        <td>
+          Logger
+        <td>
+          Events
+        <td>
+          Level
+        <td>
+          Example
+        <tr>
+        <td>
+          <tt>GLOBALS</tt>
+        <td>
+          a global variable changes
+        <td>
+          info, debug
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.GLOBALS&quot; 
+       timestamp=&quot;1177341065988&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;globals&quot;&gt;
+   &lt;name&gt;FOO&lt;/name&gt;
+   &lt;value&gt;51.0&lt;/value&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>GREENS</tt>
+        <td>
+          sliders, switches, choosers, input boxes are changed through the
+          interface
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.GREENS&quot; 
+       timestamp=&quot;1177341065988&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;slider&quot;&gt;
+  &lt;action&gt;changed&lt;/action&gt;
+  &lt;name&gt;foo&lt;/name&gt;
+  &lt;value&gt;51.0&lt;/value&gt;
+  &lt;parameters&gt;
+    &lt;min&gt;0.0&lt;/min&gt;
+    &lt;max&gt;100.0&lt;/max&gt;
+    &lt;inc&gt;1.0&lt;/inc&gt;
+  &lt;/parameters&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>CODE</tt>
+        <td>
+          code is compiled, including: command center, Code tab, slider
+          bounds, and buttons
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.CODE&quot; 
+       timestamp=&quot;1177341072208&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;command center&quot;&gt;
+  &lt;action&gt;compiled&lt;/action&gt;
+  &lt;code&gt;crt 1&lt;/code&gt;
+  &lt;agentType&gt;O&lt;/agentType&gt;
+   &lt;errorMessage&gt;success&lt;/errorMessage&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>WIDGETS</tt>
+        <td>
+          a widget is added or removed from the interface
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.WIDGETS&quot; 
+       timestamp=&quot;1177341058351&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;slider&quot;&gt;
+  &lt;name&gt;&lt;/name&gt;
+  &lt;action&gt;added&lt;/action&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>BUTTONS</tt>
+        <td>
+          a button is pressed or released
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.BUTTONS&quot; 
+        timestamp=&quot;1177341053679&quot; 
+        level=&quot;INFO&quot; 
+        type=&quot;button&quot;&gt;
+  &lt;name&gt;show 1&lt;/name&gt;
+  &lt;action&gt;released&lt;/action&gt;
+  &lt;releaseType&gt;once&lt;/releaseType&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>SPEED</tt>
+        <td>
+          the speed slider changes
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.SPEED&quot; 
+       timestamp=&quot;1177341042202&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;speed&quot;&gt;
+  &lt;value&gt;0.0&lt;/value&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>TURTLES</tt>
+        <td>
+          turtles die or are born
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.TURTLES&quot; 
+       timestamp=&quot;1177341094342&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;turtle&quot;&gt;
+  &lt;name&gt;turtle 1&lt;/name&gt;
+  &lt;action&gt;born&lt;/action&gt;
+  &lt;breed&gt;TURTLES&lt;/breed&gt;
+&lt;/event&gt;
+</pre>
+        <tr>
+        <td>
+          <tt>LINKS</tt>
+        <td>
+          links die or are born
+        <td>
+          info
+        <td>
+          <pre>
+&lt;event logger=&quot;org.nlogo.log.Logger.LINKS&quot; 
+       timestamp=&quot;1177341094342&quot; 
+       level=&quot;INFO&quot; 
+       type=&quot;link&quot;&gt;
+  &lt;name&gt;link 2 7&lt;/name&gt;
+  &lt;action&gt;born&lt;/action&gt;
+  &lt;breed&gt;LINKS&lt;/breed&gt;
+&lt;/event&gt;
+</pre>
+        </table>
+    <h3>
+      怎么确定日志的输出
+    </h3>
+    <p>
+      默认的日志配置(netlogo_logging.xml)是这个样子的：
+    <p>
+      NetLogo定义了8个登陆者，直接继承跟目录，这意味着,除非您在配置中特意地设置属性(输出源，布局，和输出级)他们将继承他们从根。在默认配置根设置为级别INFO,appender 是 org.nlogo.log.XMLFileAppender输出是 org.nlogo.log.XMLLayout。 这生成一个良好格式化的XML文件中定义的netlogo_logging.dtd是基于log4j的dtd。 如果这个appender是FileAppender(包括XMLFileAppender)一个新的文件开始每次都会打开一个模型。
+    <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE log4j:configuration SYSTEM &quot;log4j.dtd&quot;&gt;
+
+&lt;log4j:configuration debug=&quot;false&quot; xmlns:log4j='http://jakarta.apache.org/log4j/'&gt;
+
+        &lt;appender name=&quot;A1&quot; class=&quot;org.nlogo.log.XMLFileAppender&quot;&gt;
+           &lt;layout class=&quot;org.nlogo.log.XMLLayout&quot;/&gt;
+        &lt;/appender&gt;
+
+        &lt;category name=&quot;org.nlogo.log.Logger.WIDGETS&quot;&gt;
+          &lt;priority value=&quot;off&quot; /&gt;
+        &lt;/category&gt;
+
+        &lt;category name=&quot;org.nlogo.log.Logger.TURTLES&quot;&gt;
+          &lt;priority value=&quot;off&quot; /&gt;
+        &lt;/category&gt;
+
+        &lt;category name=&quot;org.nlogo.log.Logger.LINKS&quot;&gt;
+          &lt;priority value=&quot;off&quot; /&gt;
+        &lt;/category&gt;
+
+        &lt;root&gt;
+           &lt;priority value =&quot;info&quot; /&gt;
+           &lt;appender-ref ref=&quot;A1&quot; /&gt;
+        &lt;/root&gt;
+        
+&lt;/log4j:configuration&gt;
+</pre>
+    <p>
+      这个配置，最初定义的日志存储器叫做 &quot;A1&quot; 。这个存储器是定义日志文件存储在哪里的，这些数据会形成一个文件。事实上，如果给NetLogo 一个FileAppender ，当用户新开一个模型的时候，他会自动新建一个文件。XMLFileAppender 也是以相同的形式打开然后写进去相应的头文件。
+      输出定义怎么去写每一段文字，除非是你非常高端的用户，不然用不着去修改输出或者存储。
+    <p>
+      最后要注意配置根记录的定义。所有其他的登陆者都起源于根目录，然后都继承其属性，除非你特意去设置了。这些都是很简单的设置存储器A1 我们
+默认的存储器的根(和其他所有的记录者)，使
+默认优先级 &quot;INFO&quot;用INFO等级写的信息会被保存下来，其他的则不然。注意到NetLogo总是在INFO等级，设置全局变量的时候不能改变其值就使用debug等级的。这意味着这些信息默认就是失败的，因为debug的等级比info低。其余部分的配置文件覆盖的属性在一些特定的记录者的根记录下(或作为他们在配置文件中的已知类,可以被认为是提出本文件的同类)。这是他在默认情况下关小  WIDGET, TURTLES, 和LINKS 记录者。 重新启用它们你可以改变优先从信息,像这样:
+
+    <pre>
+        &lt;category name=&quot;org.nlogo.log.Logger.TURTLES&quot;&gt;
+          &lt;priority value=&quot;info&quot; /&gt;
+        &lt;/category&gt;
+</pre>
+    <p>
+      或者你可以简单地删除整个引用类别从
+配置文件,因为它不提供任何其他作用。
+    <h2>
+      高级配置
+    </h2>
+    <p>
+      这只是一个配置文件NetLogo日志的基本介绍。有更多的配置选项可以通过log4j框架实现。请看<a href=
+      "http://logging.apache.org/log4j/docs/">log4j documentation</a>.
+

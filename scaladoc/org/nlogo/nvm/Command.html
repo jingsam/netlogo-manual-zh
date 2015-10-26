@@ -1,0 +1,788 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>org.nlogo.nvm.Command</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
+      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../lib/class_big.png" />
+        <p id="owner"><a name="org" class="extype" href="../../package.html">org</a>.<a name="org.nlogo" class="extype" href="../package.html">nlogo</a>.<a name="org.nlogo.nvm" class="extype" href="package.html">nvm</a></p>
+        <h1>Command</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <span class="name">Command</span>
+        
+        <span class="result"> extends <a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></span>
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Source</dt><dd><a href="https://github.com/NetLogo/NetLogo/blob/5.0/src/main/org/nlogo/nvm/Command.java">Command.java</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a>, <a name="org.nlogo.api.TokenHolder" class="extype" href="../api/TokenHolder.html">TokenHolder</a>, AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+        </div></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          <div id="order">
+                <span class="filtertype">Ordering</span>
+                <ol><li class="alpha in"><span>Alphabetic</span></li><li class="inherit out"><span>By inheritance</span></li></ol>
+              </div>
+          <div id="ancestors">
+                <span class="filtertype">Inherited</span>
+                <ol><li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show all</span></li></ol>
+                <ol id="linearization"><li name="org.nlogo.nvm.Command" class="in"><span>Command</span></li><li name="org.nlogo.nvm.Instruction" class="in"><span>Instruction</span></li><li name="org.nlogo.api.TokenHolder" class="in"><span>TokenHolder</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
+              </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        <div class="members" id="constructors">
+              <h3>Instance Constructors</h3>
+              <ol><li visbl="pub" name="org.nlogo.nvm.Command#this" data-isabs="false">
+      <a id="this:Command"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">Command</span>
+        
+        <span class="params">()</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+        
+        <div class="values members" id="values">
+              <h3>Abstract Value Members</h3>
+              <ol><li visbl="pub" name="org.nlogo.nvm.Command#perform" data-isabs="true">
+      <a id="perform(Context):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">perform</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#syntax" data-isabs="true">
+      <a id="syntax():Syntax"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">syntax</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.Syntax" class="extype" href="../api/Syntax.html">Syntax</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Concrete Value Members</h3>
+              <ol><li visbl="pub" name="scala.AnyRef#!=" data-isabs="false">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#!=" data-isabs="false">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef###" data-isabs="false">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">##</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#==" data-isabs="false">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#==" data-isabs="false">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalAgent" data-isabs="false">
+      <a id="argEvalAgent(Context,Int):Agent"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalAgent</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Agent" class="extype" href="../agent/Agent.html">Agent</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalAgentSet" data-isabs="false">
+      <a id="argEvalAgentSet(Context,Int,java.lang.Class[_ &lt;: org.nlogo.agent.Agent]):AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalAgentSet</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>, <span name="type">type: java.lang.Class[_ &lt;: org.nlogo.agent.Agent]</span>)</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="../agent/AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalAgentSet" data-isabs="false">
+      <a id="argEvalAgentSet(Context,Int):AgentSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalAgentSet</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.AgentSet" class="extype" href="../agent/AgentSet.html">AgentSet</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalBoolean" data-isabs="false">
+      <a id="argEvalBoolean(Context,Int):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalBoolean</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalBooleanValue" data-isabs="false">
+      <a id="argEvalBooleanValue(Context,Int):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalBooleanValue</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalCommandTask" data-isabs="false">
+      <a id="argEvalCommandTask(Context,Int):CommandTask"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalCommandTask</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.nvm.CommandTask" class="extype" href="CommandTask.html">CommandTask</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalDouble" data-isabs="false">
+      <a id="argEvalDouble(Context,Int):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalDouble</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalDoubleValue" data-isabs="false">
+      <a id="argEvalDoubleValue(Context,Int):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalDoubleValue</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalIntValue" data-isabs="false">
+      <a id="argEvalIntValue(Context,Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalIntValue</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalLink" data-isabs="false">
+      <a id="argEvalLink(Context,Int):Link"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalLink</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Link" class="extype" href="../agent/Link.html">Link</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalList" data-isabs="false">
+      <a id="argEvalList(Context,Int):LogoList"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalList</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.api.LogoList" class="extype" href="../api/LogoList.html">LogoList</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalPatch" data-isabs="false">
+      <a id="argEvalPatch(Context,Int):Patch"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalPatch</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Patch" class="extype" href="../agent/Patch.html">Patch</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalReporterTask" data-isabs="false">
+      <a id="argEvalReporterTask(Context,Int):ReporterTask"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalReporterTask</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.nvm.ReporterTask" class="extype" href="ReporterTask.html">ReporterTask</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalString" data-isabs="false">
+      <a id="argEvalString(Context,Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalString</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#argEvalTurtle" data-isabs="false">
+      <a id="argEvalTurtle(Context,Int):Turtle"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argEvalTurtle</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="argIndex">argIndex: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="org.nlogo.agent.Turtle" class="extype" href="../agent/Turtle.html">Turtle</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Command#callsOtherCode" data-isabs="false">
+      <a id="callsOtherCode():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">callsOtherCode</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="prt" name="org.nlogo.nvm.Instruction#checkForBreedCompatibility" data-isabs="false">
+      <a id="checkForBreedCompatibility(AgentSet,Context):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">checkForBreedCompatibility</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="../agent/AgentSet.html">AgentSet</a></span>, <span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="org.nlogo.nvm" class="extype" href="package.html">nvm</a>] </dd><dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#clone" data-isabs="false">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clone</span>
+        
+        <span class="params">()</span><span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#copyFieldsFrom" data-isabs="false">
+      <a id="copyFieldsFrom(Instruction):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">copyFieldsFrom</span>
+        
+        <span class="params">(<span name="sourceInstr">sourceInstr: <a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#displayName" data-isabs="false">
+      <a id="displayName():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">displayName</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#dump" data-isabs="false">
+      <a id="dump(Int):String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">dump</span>
+        
+        <span class="params">(<span name="indentLevel">indentLevel: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#dump" data-isabs="false">
+      <a id="dump():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">dump</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#eq" data-isabs="false">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">eq</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#equals" data-isabs="false">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#extractErrorInstruction" data-isabs="false">
+      <a id="extractErrorInstruction(EngineException):Instruction"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">extractErrorInstruction</span>
+        
+        <span class="params">(<span name="ex">ex: <a name="org.nlogo.nvm.EngineException" class="extype" href="EngineException.html">EngineException</a></span>)</span><span class="result">: <a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#finalize" data-isabs="false">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">finalize</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#getClass" data-isabs="false">
+      <a id="getClass():java.lang.Class[_]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getClass</span>
+        
+        <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#getPositionAndLength" data-isabs="false">
+      <a id="getPositionAndLength():Array[Int]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getPositionAndLength</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Array" class="extype">Array</span>[<span name="scala.Int" class="extype">Int</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#getSourceEndPosition" data-isabs="false">
+      <a id="getSourceEndPosition():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getSourceEndPosition</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#getSourceSnippet" data-isabs="false">
+      <a id="getSourceSnippet():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getSourceSnippet</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#getSourceStartPosition" data-isabs="false">
+      <a id="getSourceStartPosition():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getSourceStartPosition</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#hashCode" data-isabs="false">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Command#init" data-isabs="false">
+      <a id="init(Workspace):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">init</span>
+        
+        <span class="params">(<span name="workspace">workspace: <a name="org.nlogo.nvm.Workspace" class="extype" href="Workspace.html">Workspace</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Command" class="extype" href="">Command</a> → <a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#isInstanceOf" data-isabs="false">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="prt" name="org.nlogo.nvm.Instruction#mustNotBeDirected" data-isabs="false">
+      <a id="mustNotBeDirected(AgentSet,Context):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">mustNotBeDirected</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="../agent/AgentSet.html">AgentSet</a></span>, <span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="org.nlogo.nvm" class="extype" href="package.html">nvm</a>] </dd><dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="prt" name="org.nlogo.nvm.Instruction#mustNotBeUndirected" data-isabs="false">
+      <a id="mustNotBeUndirected(AgentSet,Context):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">mustNotBeUndirected</span>
+        
+        <span class="params">(<span name="breed">breed: <a name="org.nlogo.agent.AgentSet" class="extype" href="../agent/AgentSet.html">AgentSet</a></span>, <span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="org.nlogo.nvm" class="extype" href="package.html">nvm</a>] </dd><dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#ne" data-isabs="false">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">ne</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#newValidDouble" data-isabs="false">
+      <a id="newValidDouble(Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">newValidDouble</span>
+        
+        <span class="params">(<span name="d">d: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="java.lang.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notify" data-isabs="false">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notify</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notifyAll" data-isabs="false">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notifyAll</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#setSourceSnippet" data-isabs="false">
+      <a id="setSourceSnippet(String):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">setSourceSnippet</span>
+        
+        <span class="params">(<span name="s">s: <span name="java.lang.String" class="extype">String</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
+      <a id="synchronized[T0](⇒ T0):T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">synchronized</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">(<span name="arg0">arg0: ⇒ T0</span>)</span><span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#throwAgentClassException" data-isabs="false">
+      <a id="throwAgentClassException(Context,java.lang.Class[_ &lt;: org.nlogo.agent.Agent]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">throwAgentClassException</span>
+        
+        <span class="params">(<span name="context">context: <a name="org.nlogo.nvm.Context" class="extype" href="Context.html">Context</a></span>, <span name="agentClass">agentClass: java.lang.Class[_ &lt;: org.nlogo.agent.Agent]</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#toString" data-isabs="false">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">toString</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a> → AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#token" data-isabs="false">
+      <a id="token(Token):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">token</span>
+        
+        <span class="params">(<span name="token">token: <a name="org.nlogo.api.Token" class="extype" href="../api/Token.html">Token</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a> → <a name="org.nlogo.api.TokenHolder" class="extype" href="../api/TokenHolder.html">TokenHolder</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#token" data-isabs="false">
+      <a id="token():Token"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">token</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.Token" class="extype" href="../api/Token.html">Token</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#tokenLimitingType" data-isabs="false">
+      <a id="tokenLimitingType(Token):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">tokenLimitingType</span>
+        
+        <span class="params">(<span name="token">token: <a name="org.nlogo.api.Token" class="extype" href="../api/Token.html">Token</a></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#tokenLimitingType" data-isabs="false">
+      <a id="tokenLimitingType():Token"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">tokenLimitingType</span>
+        
+        <span class="params">()</span><span class="result">: <a name="org.nlogo.api.Token" class="extype" href="../api/Token.html">Token</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#validDouble" data-isabs="false">
+      <a id="validDouble(Double):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">validDouble</span>
+        
+        <span class="params">(<span name="d">d: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="org.nlogo.nvm.Instruction#validLong" data-isabs="false">
+      <a id="validLong(Double):Long"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">validLong</span>
+        
+        <span class="params">(<span name="d">d: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Long" class="extype">Long</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>, <span name="arg1">arg1: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div name="org.nlogo.nvm.Instruction" class="parent">
+              <h3>Inherited from <a name="org.nlogo.nvm.Instruction" class="extype" href="Instruction.html">Instruction</a></h3>
+            </div><div name="org.nlogo.api.TokenHolder" class="parent">
+              <h3>Inherited from <a name="org.nlogo.api.TokenHolder" class="extype" href="../api/TokenHolder.html">TokenHolder</a></h3>
+            </div><div name="scala.AnyRef" class="parent">
+              <h3>Inherited from AnyRef</h3>
+            </div><div name="scala.Any" class="parent">
+              <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>
+            </div>
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>
